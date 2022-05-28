@@ -1,7 +1,7 @@
 # 꼬옥 (kko_okk)
 ### 우리 꼬-옥 약속해요
 #### 아이의 생활습관 개선과 가족간의 유대감 향상을 위한 앱
-Apple Developer Academy Mini Challenge2 Project
+Apple Developer Academy @ POSTECH, Mini Challenge 2 Project
 
 <br/>
 <br/>
