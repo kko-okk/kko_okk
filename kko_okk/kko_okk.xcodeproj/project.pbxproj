@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D2DC5F92841FF370010A91F /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC5F82841FF370010A91F /* FirstView.swift */; };
+		9D2DC5FB2841FF430010A91F /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC5FA2841FF430010A91F /* SecondView.swift */; };
+		9D2DC5FD2841FF510010A91F /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DC5FC2841FF510010A91F /* ThirdView.swift */; };
+		9D85A93F284471C100E2D8DF /* ButtonForContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85A93E284471C100E2D8DF /* ButtonForContract.swift */; };
+		9DCF3C052841F26D0075C929 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C042841F26D0075C929 /* kko_okkApp.swift */; };
+		9DCF3C072841F26D0075C929 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C062841F26D0075C929 /* ContentView.swift */; };
+		9DCF3C092841F26E0075C929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DCF3C082841F26E0075C929 /* Assets.xcassets */; };
+		9DCF3C0C2841F26E0075C929 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DCF3C0B2841F26E0075C929 /* Preview Assets.xcassets */; };
+		9DCF3C152841FD210075C929 /* FirstBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C142841FD210075C929 /* FirstBoardView.swift */; };
+		9DCF3C172841FD350075C929 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C162841FD350075C929 /* MainView.swift */; };
+		9DCF3C192841FD4D0075C929 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C182841FD4D0075C929 /* HeaderView.swift */; };
+		9DCF3C1E2841FD8F0075C929 /* ParentWishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C1D2841FD8F0075C929 /* ParentWishView.swift */; };
+		9DCF3C202841FDC40075C929 /* ChildWishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C1F2841FDC40075C929 /* ChildWishView.swift */; };
+		9DCF3C222841FDDD0075C929 /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF3C212841FDDD0075C929 /* ContractView.swift */; };
+		9DFB3870284603E000A3B3B1 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB386F284603E000A3B3B1 /* RewardView.swift */; };
+		9DFB3872284603EF00A3B3B1 /* DailyCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB3871284603EF00A3B3B1 /* DailyCountView.swift */; };
+		9DFB3874284603FD00A3B3B1 /* WeeklyCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB3873284603FD00A3B3B1 /* WeeklyCountView.swift */; };
+		9DFB38762846040C00A3B3B1 /* MonthlyCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB38752846040C00A3B3B1 /* MonthlyCountView.swift */; };
+		9DFB38792846042700A3B3B1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB38782846042700A3B3B1 /* SettingView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9D2DC5F82841FF370010A91F /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		9D2DC5FA2841FF430010A91F /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		9D2DC5FC2841FF510010A91F /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
+		9D85A93E284471C100E2D8DF /* ButtonForContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForContract.swift; sourceTree = "<group>"; };
+		9DCF3C012841F26D0075C929 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DCF3C042841F26D0075C929 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
+		9DCF3C062841F26D0075C929 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9DCF3C082841F26E0075C929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DCF3C0B2841F26E0075C929 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9DCF3C142841FD210075C929 /* FirstBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBoardView.swift; sourceTree = "<group>"; };
+		9DCF3C162841FD350075C929 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9DCF3C182841FD4D0075C929 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		9DCF3C1D2841FD8F0075C929 /* ParentWishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWishView.swift; sourceTree = "<group>"; };
+		9DCF3C1F2841FDC40075C929 /* ChildWishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildWishView.swift; sourceTree = "<group>"; };
+		9DCF3C212841FDDD0075C929 /* ContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
+		9DFB386F284603E000A3B3B1 /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
+		9DFB3871284603EF00A3B3B1 /* DailyCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCountView.swift; sourceTree = "<group>"; };
+		9DFB3873284603FD00A3B3B1 /* WeeklyCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCountView.swift; sourceTree = "<group>"; };
+		9DFB38752846040C00A3B3B1 /* MonthlyCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCountView.swift; sourceTree = "<group>"; };
+		9DFB38782846042700A3B3B1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DCF3BFE2841F26D0075C929 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DCF3BF82841F26D0075C929 = {
+			isa = PBXGroup;
+			children = (
+				9DCF3C032841F26D0075C929 /* kko_okk */,
+				9DCF3C022841F26D0075C929 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DCF3C022841F26D0075C929 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DCF3C012841F26D0075C929 /* kko_okk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DCF3C032841F26D0075C929 /* kko_okk */ = {
+			isa = PBXGroup;
+			children = (
+				9DCF3C122841F3BE0075C929 /* Views */,
+				9DCF3C042841F26D0075C929 /* kko_okkApp.swift */,
+				9DCF3C062841F26D0075C929 /* ContentView.swift */,
+				9DCF3C082841F26E0075C929 /* Assets.xcassets */,
+				9DCF3C0A2841F26E0075C929 /* Preview Content */,
+			);
+			path = kko_okk;
+			sourceTree = "<group>";
+		};
+		9DCF3C0A2841F26E0075C929 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9DCF3C0B2841F26E0075C929 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9DCF3C122841F3BE0075C929 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DCF3C1A2841FD590075C929 /* FirstBoard */,
+				9DFB38772846041300A3B3B1 /* Setting */,
+				9DFB386E284603C400A3B3B1 /* Reward */,
+				9DCF3C1B2841FD620075C929 /* Header */,
+				9DCF3C142841FD210075C929 /* FirstBoardView.swift */,
+				9DCF3C162841FD350075C929 /* MainView.swift */,
+				9DCF3C182841FD4D0075C929 /* HeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DCF3C1A2841FD590075C929 /* FirstBoard */ = {
+			isa = PBXGroup;
+			children = (
+				9DCF3C1D2841FD8F0075C929 /* ParentWishView.swift */,
+				9DCF3C1F2841FDC40075C929 /* ChildWishView.swift */,
+				9DCF3C212841FDDD0075C929 /* ContractView.swift */,
+				9D85A93E284471C100E2D8DF /* ButtonForContract.swift */,
+			);
+			path = FirstBoard;
+			sourceTree = "<group>";
+		};
+		9DCF3C1B2841FD620075C929 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				9D2DC5F82841FF370010A91F /* FirstView.swift */,
+				9D2DC5FA2841FF430010A91F /* SecondView.swift */,
+				9D2DC5FC2841FF510010A91F /* ThirdView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		9DFB386E284603C400A3B3B1 /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				9DFB386F284603E000A3B3B1 /* RewardView.swift */,
+				9DFB3871284603EF00A3B3B1 /* DailyCountView.swift */,
+				9DFB3873284603FD00A3B3B1 /* WeeklyCountView.swift */,
+				9DFB38752846040C00A3B3B1 /* MonthlyCountView.swift */,
+			);
+			path = Reward;
+			sourceTree = "<group>";
+		};
+		9DFB38772846041300A3B3B1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				9DFB38782846042700A3B3B1 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DCF3C002841F26D0075C929 /* kko_okk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DCF3C0F2841F26E0075C929 /* Build configuration list for PBXNativeTarget "kko_okk" */;
+			buildPhases = (
+				9DCF3BFD2841F26D0075C929 /* Sources */,
+				9DCF3BFE2841F26D0075C929 /* Frameworks */,
+				9DCF3BFF2841F26D0075C929 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kko_okk;
+			productName = kko_okk;
+			productReference = 9DCF3C012841F26D0075C929 /* kko_okk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DCF3BF92841F26D0075C929 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					9DCF3C002841F26D0075C929 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+				};
+			};
+			buildConfigurationList = 9DCF3BFC2841F26D0075C929 /* Build configuration list for PBXProject "kko_okk" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DCF3BF82841F26D0075C929;
+			productRefGroup = 9DCF3C022841F26D0075C929 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DCF3C002841F26D0075C929 /* kko_okk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DCF3BFF2841F26D0075C929 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DCF3C0C2841F26E0075C929 /* Preview Assets.xcassets in Resources */,
+				9DCF3C092841F26E0075C929 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DCF3BFD2841F26D0075C929 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFB38762846040C00A3B3B1 /* MonthlyCountView.swift in Sources */,
+				9DCF3C192841FD4D0075C929 /* HeaderView.swift in Sources */,
+				9DCF3C152841FD210075C929 /* FirstBoardView.swift in Sources */,
+				9DCF3C172841FD350075C929 /* MainView.swift in Sources */,
+				9DCF3C1E2841FD8F0075C929 /* ParentWishView.swift in Sources */,
+				9DCF3C202841FDC40075C929 /* ChildWishView.swift in Sources */,
+				9DCF3C072841F26D0075C929 /* ContentView.swift in Sources */,
+				9D2DC5FB2841FF430010A91F /* SecondView.swift in Sources */,
+				9DCF3C222841FDDD0075C929 /* ContractView.swift in Sources */,
+				9DFB38792846042700A3B3B1 /* SettingView.swift in Sources */,
+				9D2DC5FD2841FF510010A91F /* ThirdView.swift in Sources */,
+				9DFB3874284603FD00A3B3B1 /* WeeklyCountView.swift in Sources */,
+				9D2DC5F92841FF370010A91F /* FirstView.swift in Sources */,
+				9DFB3872284603EF00A3B3B1 /* DailyCountView.swift in Sources */,
+				9DCF3C052841F26D0075C929 /* kko_okkApp.swift in Sources */,
+				9D85A93F284471C100E2D8DF /* ButtonForContract.swift in Sources */,
+				9DFB3870284603E000A3B3B1 /* RewardView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9DCF3C0D2841F26E0075C929 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DCF3C0E2841F26E0075C929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DCF3C102841F26E0075C929 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
+				DEVELOPMENT_TEAM = 5C2G42PP37;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kko-okk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DCF3C112841F26E0075C929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
+				DEVELOPMENT_TEAM = 5C2G42PP37;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kko-okk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DCF3BFC2841F26D0075C929 /* Build configuration list for PBXProject "kko_okk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DCF3C0D2841F26E0075C929 /* Debug */,
+				9DCF3C0E2841F26E0075C929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DCF3C0F2841F26E0075C929 /* Build configuration list for PBXNativeTarget "kko_okk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DCF3C102841F26E0075C929 /* Debug */,
+				9DCF3C112841F26E0075C929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DCF3BF92841F26D0075C929 /* Project object */;
+}
