@@ -16,6 +16,16 @@
 		9D55B41B2846289100AFD9C5 /* kko_okkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B41A2846289100AFD9C5 /* kko_okkTests.swift */; };
 		9D55B4252846289100AFD9C5 /* kko_okkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4242846289100AFD9C5 /* kko_okkUITests.swift */; };
 		9D55B4272846289100AFD9C5 /* kko_okkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4262846289100AFD9C5 /* kko_okkUITestsLaunchTests.swift */; };
+		9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A20284629E30001959A /* ParentWishView.swift */; };
+		9DEB3A2428462A100001959A /* ChildWishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2328462A100001959A /* ChildWishView.swift */; };
+		9DEB3A2628462A240001959A /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2528462A240001959A /* ContractView.swift */; };
+		9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2728462A4B0001959A /* ButtonForContract.swift */; };
+		9DEB3A2B28462A760001959A /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2A28462A760001959A /* FirstView.swift */; };
+		9DEB3A2D28462A860001959A /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2C28462A860001959A /* SecondView.swift */; };
+		9DEB3A2F28462A8E0001959A /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2E28462A8E0001959A /* ThirdView.swift */; };
+		9DEB3A3128462AA10001959A /* FirstBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A3028462AA10001959A /* FirstBoardView.swift */; };
+		9DEB3A3328462ABF0001959A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A3228462ABF0001959A /* MainView.swift */; };
+		9DEB3A3528462AD30001959A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A3428462AD30001959A /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +58,16 @@
 		9D55B4202846289100AFD9C5 /* kko_okkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kko_okkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4242846289100AFD9C5 /* kko_okkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkUITests.swift; sourceTree = "<group>"; };
 		9D55B4262846289100AFD9C5 /* kko_okkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DEB3A20284629E30001959A /* ParentWishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWishView.swift; sourceTree = "<group>"; };
+		9DEB3A2328462A100001959A /* ChildWishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildWishView.swift; sourceTree = "<group>"; };
+		9DEB3A2528462A240001959A /* ContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
+		9DEB3A2728462A4B0001959A /* ButtonForContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForContract.swift; sourceTree = "<group>"; };
+		9DEB3A2A28462A760001959A /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		9DEB3A2C28462A860001959A /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		9DEB3A2E28462A8E0001959A /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
+		9DEB3A3028462AA10001959A /* FirstBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBoardView.swift; sourceTree = "<group>"; };
+		9DEB3A3228462ABF0001959A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9DEB3A3428462AD30001959A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +118,7 @@
 		9D55B4032846289000AFD9C5 /* kko_okk */ = {
 			isa = PBXGroup;
 			children = (
+				9DEB3A1F284629BC0001959A /* Views */,
 				9D55B4042846289000AFD9C5 /* kko_okkApp.swift */,
 				9D55B4062846289000AFD9C5 /* ContentView.swift */,
 				9D55B4082846289100AFD9C5 /* Assets.xcassets */,
@@ -131,6 +152,39 @@
 				9D55B4262846289100AFD9C5 /* kko_okkUITestsLaunchTests.swift */,
 			);
 			path = kko_okkUITests;
+			sourceTree = "<group>";
+		};
+		9DEB3A1F284629BC0001959A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DEB3A22284629E90001959A /* FirstBoard */,
+				9DEB3A2928462A5C0001959A /* Header */,
+				9DEB3A3228462ABF0001959A /* MainView.swift */,
+				9DEB3A3028462AA10001959A /* FirstBoardView.swift */,
+				9DEB3A3428462AD30001959A /* HeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DEB3A22284629E90001959A /* FirstBoard */ = {
+			isa = PBXGroup;
+			children = (
+				9DEB3A20284629E30001959A /* ParentWishView.swift */,
+				9DEB3A2328462A100001959A /* ChildWishView.swift */,
+				9DEB3A2528462A240001959A /* ContractView.swift */,
+				9DEB3A2728462A4B0001959A /* ButtonForContract.swift */,
+			);
+			path = FirstBoard;
+			sourceTree = "<group>";
+		};
+		9DEB3A2928462A5C0001959A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				9DEB3A2A28462A760001959A /* FirstView.swift */,
+				9DEB3A2C28462A860001959A /* SecondView.swift */,
+				9DEB3A2E28462A8E0001959A /* ThirdView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +317,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DEB3A2428462A100001959A /* ChildWishView.swift in Sources */,
+				9DEB3A3328462ABF0001959A /* MainView.swift in Sources */,
+				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
+				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
+				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
+				9DEB3A3128462AA10001959A /* FirstBoardView.swift in Sources */,
+				9DEB3A2D28462A860001959A /* SecondView.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
+				9DEB3A2F28462A8E0001959A /* ThirdView.swift in Sources */,
+				9DEB3A2B28462A760001959A /* FirstView.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
+				9DEB3A3528462AD30001959A /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

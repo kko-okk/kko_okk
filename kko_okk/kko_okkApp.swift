@@ -13,7 +13,7 @@ struct kko_okkApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FirstBoardView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
