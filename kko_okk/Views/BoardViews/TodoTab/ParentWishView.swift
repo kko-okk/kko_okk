@@ -25,6 +25,7 @@ struct ParentWishView: View {
             .padding(.trailing, 10)
 
             Divider()
+            Spacer()
         }
     }
 }
