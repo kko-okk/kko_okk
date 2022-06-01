@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
 		9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* ContentView.swift */; };
 		9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B4082846289100AFD9C5 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
 		9D55B4062846289000AFD9C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221CC2C228479F68009F4851 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				221CC2C328479F74009F4851 /* TipModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9D55B3F82846289000AFD9C5 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 		9D55B4032846289000AFD9C5 /* kko_okk */ = {
 			isa = PBXGroup;
 			children = (
+				221CC2C228479F68009F4851 /* Models */,
 				A8C834A428471C3A00C65BE0 /* Resources */,
 				A8C834A328471C0900C65BE0 /* Style */,
 				9DEB3A1F284629BC0001959A /* Views */,
@@ -367,6 +378,7 @@
 				A8C834A828471D0400C65BE0 /* Style.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
+				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
@@ -541,6 +553,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,6 +583,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
