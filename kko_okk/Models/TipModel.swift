@@ -4,7 +4,7 @@
 //
 //  Created by Geunil Park on 2022/06/01.
 //
-
+//
 import Foundation
 
 struct TipModel: Identifiable {
