@@ -13,8 +13,9 @@ struct kko_okkApp: App {
 
     var body: some Scene {
         WindowGroup {
-            FirstBoardView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            MainView()
+//            FirstBoardView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
