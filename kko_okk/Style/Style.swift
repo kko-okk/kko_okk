@@ -22,11 +22,11 @@ enum Style {
     
     enum FontSize {
         static var Title: UIFont {
-            .systemFont(ofSize: <#T##CGFloat#>)
+            .systemFont(ofSize: 22)
         }
         
         static var Title1: UIFont {
-            .systemFont(ofSize: <#T##CGFloat#>)
+            .systemFont(ofSize: 17)
         }
     }
     
