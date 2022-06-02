@@ -14,10 +14,30 @@ struct ContractView: View {
             HStack {
                 TextField("엄빠-아이 계약!", text: .constant(""))
                     .padding(.leading, 10)
+                
+                Circle()
+                    .fill(Color.gray.opacity(0.4))
+                    .frame(width: 20, height: 20)
+                    .overlay(
+                        Text("1")
+                            .font(.system(size: 10))
+                    )
+                
+                Spacer()
+                    .frame(width: 50, height: 30)
+                
+                Button(action: {
+                    print("No-function rectangle tapped")
+                }) {
+                    // 원 안에 숫자 들어 있는 오브젝트 위치 조절이 어려워서 + 기호 있던 곳 위에 그냥 사각형 덮었음.
+                    Rectangle()
+                        .fill(Color.white)
+                        .frame(width: 30, height: 30)
                 }
+            }
+            .padding(.trailing, 10)
 
             Divider()
-            Spacer()
         }
     }
 }

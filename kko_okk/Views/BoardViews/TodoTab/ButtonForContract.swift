@@ -8,24 +8,57 @@
 import Foundation
 import SwiftUI
 
+var parentColor = Color.orange
+
 struct ButtonForContract: View {
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(Color.white)
+            Button(action: {
+                print("Button tapped")
+            }) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(parentColor)
+                        .frame(height: 150)
+                    
+                    HStack {
+                        VStack {
+                            Text("Contract Title")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
 
-            VStack {
-                TextField("Title", text: .constant(""))
-                    .padding()
+                            Text("Contract Detail")
+                                .font(.system(size: 17))
+                                .foregroundColor(.white)
+                        }
+                        .padding(.leading)
+                        
+                        Spacer()
+                    }
+                }
+            }
+            
+            Button(action: {
+                print("Edit button tapped")
+            }) {
+                VStack {
+                    ZStack {
+                        Image(systemName: "ellipsis")
+                            .resizable()
+                            .frame(width: 30, height: 6)
+                            .rotationEffect(.degrees(90))
+                            .foregroundColor(.white)
 
-                TextField("Contract Context", text: .constant(""))
-                    .padding()
+                        Rectangle()
+                            .fill(parentColor.opacity(0.0))
+                            .frame(width: 40, height: 40)
+                    }
+
+                    Spacer()
+                        .frame(width: 30, height: 80)
+                }
             }
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.orange, lineWidth: 2)
-        )
     }
 }
 
