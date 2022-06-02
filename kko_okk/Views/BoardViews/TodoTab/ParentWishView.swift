@@ -22,8 +22,22 @@ struct ParentWishView: View {
             HStack {
                 TextField("부모용", text: .constant(""))
                     .padding(.leading, 10)
-                
+
                 Button(action: addItem) {
+//                 Circle()
+//                     .fill(Color.gray.opacity(0.4))
+//                     .frame(width: 20, height: 20)
+//                     .overlay(
+//                         Text("1")
+//                             .font(.system(size: 10))
+//                     )
+                
+//                 Spacer()
+//                     .frame(width: 50, height: 30)
+
+//                 Button(action: {
+//                     print("Add button tapped")
+//                 }) {
                     Image(systemName: "plus")
                         .frame(width: 30, height: 30)
                 }
@@ -31,6 +45,7 @@ struct ParentWishView: View {
             .padding(.trailing, 10)
 
             Divider()
+
             Spacer()
             NavigationView {
                 List {
