@@ -24,10 +24,15 @@
 		9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A3028462AA10001959A /* TodoBoardView.swift */; };
 		A8C8349C28471A3B00C65BE0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8349B28471A3B00C65BE0 /* MainView.swift */; };
 		A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8349D28471A7D00C65BE0 /* HeaderView.swift */; };
-		A8C834A028471AA300C65BE0 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8349F28471AA300C65BE0 /* BoardView.swift */; };
+		A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8349F28471AA300C65BE0 /* SegmentView.swift */; };
 		A8C834A828471D0400C65BE0 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834A728471D0400C65BE0 /* Style.swift */; };
 		A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834A92847334400C65BE0 /* TitleView.swift */; };
-		A8C834AC2847335B00C65BE0 /* InformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834AB2847335B00C65BE0 /* InformView.swift */; };
+		A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */; };
+		A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C12848A34E00C65BE0 /* SettingView.swift */; };
+		A8C834C42848A37400C65BE0 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C32848A37400C65BE0 /* DailyReportView.swift */; };
+		A8C834C62848A37D00C65BE0 /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */; };
+		A8C834C82848A38C00C65BE0 /* MonthlyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */; };
+		A8C834CA2848A39200C65BE0 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C92848A39200C65BE0 /* CountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +73,15 @@
 		9DEB3A3028462AA10001959A /* TodoBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBoardView.swift; sourceTree = "<group>"; };
 		A8C8349B28471A3B00C65BE0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A8C8349D28471A7D00C65BE0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		A8C8349F28471AA300C65BE0 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		A8C8349F28471AA300C65BE0 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		A8C834A728471D0400C65BE0 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		A8C834A92847334400C65BE0 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		A8C834AB2847335B00C65BE0 /* InformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformView.swift; sourceTree = "<group>"; };
+		A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBoardView.swift; sourceTree = "<group>"; };
+		A8C834C12848A34E00C65BE0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		A8C834C32848A37400C65BE0 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyReportView.swift; path = kko_okk/Views/BoardViews/DailyReportView.swift; sourceTree = SOURCE_ROOT; };
+		A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeeklyReportView.swift; path = kko_okk/Views/BoardViews/WeeklyReportView.swift; sourceTree = SOURCE_ROOT; };
+		A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthlyReportView.swift; path = kko_okk/Views/BoardViews/MonthlyReportView.swift; sourceTree = SOURCE_ROOT; };
+		A8C834C92848A39200C65BE0 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountView.swift; path = kko_okk/Views/BoardViews/CountView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +183,7 @@
 			children = (
 				A8C8349B28471A3B00C65BE0 /* MainView.swift */,
 				A8C8349D28471A7D00C65BE0 /* HeaderView.swift */,
-				A8C8349F28471AA300C65BE0 /* BoardView.swift */,
+				A8C8349F28471AA300C65BE0 /* SegmentView.swift */,
 				9DEB3A2928462A5C0001959A /* HeaderViews */,
 				A8C834982847167300C65BE0 /* BoardViews */,
 			);
@@ -195,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				A8C834A92847334400C65BE0 /* TitleView.swift */,
-				A8C834AB2847335B00C65BE0 /* InformView.swift */,
 			);
 			path = HeaderViews;
 			sourceTree = "<group>";
@@ -204,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				9DEB3A3028462AA10001959A /* TodoBoardView.swift */,
+				A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */,
+				A8C834C12848A34E00C65BE0 /* SettingView.swift */,
 				9DEB3A22284629E90001959A /* TodoTab */,
 				A8C834992847169600C65BE0 /* ReportTab */,
 				A8C8349A284716A300C65BE0 /* SettingTab */,
@@ -214,6 +225,10 @@
 		A8C834992847169600C65BE0 /* ReportTab */ = {
 			isa = PBXGroup;
 			children = (
+				A8C834C32848A37400C65BE0 /* DailyReportView.swift */,
+				A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */,
+				A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */,
+				A8C834C92848A39200C65BE0 /* CountView.swift */,
 			);
 			path = ReportTab;
 			sourceTree = "<group>";
@@ -379,14 +394,19 @@
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
+				A8C834CA2848A39200C65BE0 /* CountView.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
+				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
-				A8C834AC2847335B00C65BE0 /* InformView.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
-				A8C834A028471AA300C65BE0 /* BoardView.swift in Sources */,
+				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
+				A8C834C62848A37D00C65BE0 /* WeeklyReportView.swift in Sources */,
+				A8C834C82848A38C00C65BE0 /* MonthlyReportView.swift in Sources */,
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
+				A8C834C42848A37400C65BE0 /* DailyReportView.swift in Sources */,
+				A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

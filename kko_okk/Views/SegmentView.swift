@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BoardView: View {
+struct SegmentView: View {
     var body: some View {
         VStack{
             // Custom Tab Bar 만들기 (ex. 약속 만들기, 약속 리포트(이행률) 보기, 설정)
@@ -39,6 +39,6 @@ struct BoardView: View {
 
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
-        BoardView()
+        SegmentView()
     }
 }

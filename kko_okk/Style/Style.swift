@@ -30,5 +30,25 @@ enum Style {
         }
     }
     
-    
+    enum ViewSize{
+        
+        static var fullWidth: CGFloat{
+            return UIScreen.main.bounds.width
+        }
+        
+        static var fullHeight: CGFloat{
+            return UIScreen.main.bounds.height
+        }
+        
+        
+        enum HeaderSize{
+            static var width: CGFloat {
+                Style.ViewSize.fullWidth
+            }
+            
+            static var height: CGFloat {
+                Style.ViewSize.fullHeight / 8
+            }
+        }
+    }
 }

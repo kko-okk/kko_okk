@@ -38,6 +38,7 @@ struct ContractView: View {
             .padding(.trailing, 10)
 
             Divider()
+            Spacer()
         }
     }
 }
