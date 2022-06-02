@@ -1,11 +1,10 @@
 //
-//  FirstBoardView.swift
+//  TodoBoardView.swift
 //  kko_okk
 //
-//  Created by Kim, Che-Pill on 2022/05/28.
+//  Created by Yeni Hwang on 2022/06/02.
 //
 
-import Foundation
 import SwiftUI
 
 struct TodoBoardView: View {
@@ -36,11 +35,8 @@ struct TodoBoardView: View {
     }
 }
 
-
-struct FirstBoardView_Previews: PreviewProvider {
+struct TodoBoardView_Previews: PreviewProvider {
     static var previews: some View {
         TodoBoardView()
-            .previewInterfaceOrientation(.landscapeLeft)
-            .previewDevice("iPad Air (5th generation)")
     }
 }

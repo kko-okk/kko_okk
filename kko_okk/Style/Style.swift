@@ -22,13 +22,42 @@ enum Style {
     
     enum FontSize {
         static var Title: UIFont {
-            .systemFont(ofSize: <#T##CGFloat#>)
+            .systemFont(ofSize: 22)
         }
         
         static var Title1: UIFont {
-            .systemFont(ofSize: <#T##CGFloat#>)
+            .systemFont(ofSize: 17)
         }
     }
     
     
+//
+//    switch(HeaderSize){
+//    case .width:
+//        return
+//    case .height:
+//        return Style.ViewSize.fullHeight / 8
+    
+    
+    enum ViewSize{
+        
+        static var fullWidth: CGFloat{
+            return UIScreen.main.bounds.width
+        }
+        
+        static var fullHeight: CGFloat{
+            return UIScreen.main.bounds.height
+        }
+        
+        
+        enum HeaderSize{
+            static var width: CGFloat {
+                Style.ViewSize.fullWidth
+            }
+            
+            static var height: CGFloat {
+                Style.ViewSize.fullHeight / 8
+            }
+        }
+    }
 }
