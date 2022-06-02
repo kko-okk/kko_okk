@@ -15,22 +15,8 @@ struct TodoBoardView: View {
             
             HStack {
                 ParentWishView()
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .foregroundColor(.gray)
-//                }
-                
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 10)
-//                    .foregroundColor(.gray)
-//                }
                 ContractView()
-                
                 ChildWishView()
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .foregroundColor(.gray)
-//                }
             }
         }
     }
