@@ -11,9 +11,7 @@ import SwiftUI
 struct ChildWishView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @FetchRequest(
-        sortDescriptors: [],
-        animation: .default)
+    @FetchRequest(sortDescriptors: [], animation: .default)
     private var items: FetchedResults<Promise>
     
     var body: some View {
@@ -48,14 +46,8 @@ struct ChildWishView: View {
             Divider()
 
             Spacer()
-            NavigationView {
-                List {
-                    ForEach(items.filter{$0.subject == "child"}) { item in
-                        Text(item.name ?? "Unknown")
-                    }
-                    .onDelete(perform: deleteItems)
-                }
-            }
+            // 약속이 안된 것
+            FilteredList(filter: "child", formatter: "promised == FALSE")
         }
     }
     private func addItem() {
@@ -84,8 +76,13 @@ struct ChildWishView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
+            for index in offsets {
+                let item = items[index]
+                viewContext.delete(item)
+                break
+            }
+//            viewContext.delete()
             do {
                 try viewContext.save()
             } catch {
