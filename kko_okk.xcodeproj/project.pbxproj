@@ -36,6 +36,7 @@
 		A8C834C62848A37D00C65BE0 /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */; };
 		A8C834C82848A38C00C65BE0 /* MonthlyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */; };
 		A8C834CA2848A39200C65BE0 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C92848A39200C65BE0 /* CountView.swift */; };
+		F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89CAB762849D761006C72BD /* AddPromisePopover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeeklyReportView.swift; path = kko_okk/Views/BoardViews/WeeklyReportView.swift; sourceTree = SOURCE_ROOT; };
 		A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthlyReportView.swift; path = kko_okk/Views/BoardViews/MonthlyReportView.swift; sourceTree = SOURCE_ROOT; };
 		A8C834C92848A39200C65BE0 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountView.swift; path = kko_okk/Views/BoardViews/CountView.swift; sourceTree = SOURCE_ROOT; };
+		F89CAB762849D761006C72BD /* AddPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromisePopover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				9DEB3A2328462A100001959A /* ChildWishView.swift */,
 				9DEB3A2528462A240001959A /* ContractView.swift */,
 				9DEB3A2728462A4B0001959A /* ButtonForContract.swift */,
+				F89CAB762849D761006C72BD /* AddPromisePopover.swift */,
 				22E9005D2849D677000A82BE /* FilteredList.swift */,
 			);
 			path = TodoTab;
@@ -397,6 +400,7 @@
 			files = (
 				9DEB3A2428462A100001959A /* ChildWishView.swift in Sources */,
 				A8C8349C28471A3B00C65BE0 /* MainView.swift in Sources */,
+				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
 				A8C834A828471D0400C65BE0 /* Style.swift in Sources */,
