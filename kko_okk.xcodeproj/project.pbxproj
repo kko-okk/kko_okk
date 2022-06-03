@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
+		70DAECB32849DF45009AAB79 /* RuyhaTestVeiw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB22849DF45009AAB79 /* RuyhaTestVeiw.swift */; };
+		70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
 		9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* ContentView.swift */; };
 		9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B4082846289100AFD9C5 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
+		70DAECB22849DF45009AAB79 /* RuyhaTestVeiw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuyhaTestVeiw.swift; sourceTree = "<group>"; };
+		70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewAssets.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
 		9D55B4062846289000AFD9C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				A8C834A92847334400C65BE0 /* TitleView.swift */,
+				70DAECB22849DF45009AAB79 /* RuyhaTestVeiw.swift */,
+				70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */,
 			);
 			path = HeaderViews;
 			sourceTree = "<group>";
@@ -396,10 +402,12 @@
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
 				A8C834CA2848A39200C65BE0 /* CountView.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
+				70DAECB32849DF45009AAB79 /* RuyhaTestVeiw.swift in Sources */,
 				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
+				70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */,
 				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
 				A8C834C62848A37D00C65BE0 /* WeeklyReportView.swift in Sources */,
