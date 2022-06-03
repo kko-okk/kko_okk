@@ -5,6 +5,7 @@
 //  Created by Geunil Park on 2022/06/03.
 //
 
+// filteredList를 가져다 써주세요.
 import SwiftUI
 
 struct FilteredList: View {
