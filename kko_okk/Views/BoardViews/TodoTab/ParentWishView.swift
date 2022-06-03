@@ -47,14 +47,8 @@ struct ParentWishView: View {
             Divider()
 
             Spacer()
-            NavigationView {
-                List {
-                    ForEach(items.filter{$0.subject == "parent"}) { item in
-                        Text(item.name ?? "Unknown")
-                    }
-                    .onDelete(perform: deleteItems)
-                }
-            }
+            // 약속이 안된 것
+            FilteredList(filter: "parent", formatter: "promised == FALSE")
         }
     }
     private func addItem() {
@@ -82,9 +76,15 @@ struct ParentWishView: View {
     }
 
     private func deleteItems(offsets: IndexSet) {
+        print(offsets)
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            for index in offsets {
+                let item = items[index]
+                viewContext.delete(item)
+                break
+            }
+//            offsets.map { items[$0] }.forEach(viewContext.delete)
+            
             do {
                 try viewContext.save()
             } catch {
