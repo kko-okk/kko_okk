@@ -38,6 +38,8 @@
 		A8C834C62848A37D00C65BE0 /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */; };
 		A8C834C82848A38C00C65BE0 /* MonthlyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */; };
 		A8C834CA2848A39200C65BE0 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C92848A39200C65BE0 /* CountView.swift */; };
+		F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F8F284B2D5900AD05B3 /* Subject.swift */; };
+		F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */; };
 		F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89CAB762849D761006C72BD /* AddPromisePopover.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeeklyReportView.swift; path = kko_okk/Views/BoardViews/WeeklyReportView.swift; sourceTree = SOURCE_ROOT; };
 		A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthlyReportView.swift; path = kko_okk/Views/BoardViews/MonthlyReportView.swift; sourceTree = SOURCE_ROOT; };
 		A8C834C92848A39200C65BE0 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountView.swift; path = kko_okk/Views/BoardViews/CountView.swift; sourceTree = SOURCE_ROOT; };
+		F87E1F8F284B2D5900AD05B3 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromisePopover.swift; sourceTree = "<group>"; };
 		F89CAB762849D761006C72BD /* AddPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromisePopover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +131,7 @@
 				22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */,
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
+				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				9DEB3A2528462A240001959A /* ContractView.swift */,
 				9DEB3A2728462A4B0001959A /* ButtonForContract.swift */,
 				F89CAB762849D761006C72BD /* AddPromisePopover.swift */,
+				F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */,
 				22E9005D2849D677000A82BE /* FilteredList.swift */,
 			);
 			path = TodoTab;
@@ -412,6 +418,7 @@
 				A8C834A828471D0400C65BE0 /* Style.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
+				F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */,
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
 				22E9005E2849D677000A82BE /* FilteredList.swift in Sources */,
 				A8C834CA2848A39200C65BE0 /* CountView.swift in Sources */,
@@ -419,6 +426,7 @@
 				70DAECB32849DF45009AAB79 /* RuyhaTestVeiw.swift in Sources */,
 				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
+				F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
 				70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */,

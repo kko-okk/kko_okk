@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AddPromisePopover: View {
+    // Subject enum이 .parent인지 .child인지에 따라 뷰의 기능이 달라짐.
+    var subject: Subject
+    
     // viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -32,7 +35,12 @@ struct AddPromisePopover: View {
                 
                 Spacer()
                 
-                Text("약속 만들기")
+                switch subject {
+                case .parent:
+                    Text("부모의 약속 만들기")
+                case .child:
+                    Text("아이의 약속 만들기")
+                }
                 
                 Spacer()
                 
@@ -112,8 +120,13 @@ struct AddPromisePopover: View {
             promise.isDone = false
             promise.isRepeat = false
             
-            // 일단 "parent"로 넣어두고, 나중에 부모-아이용, 약속 만들기-수정하기 용도로 재활용하는 방법 고안하기
-            promise.subject = "parent"
+            switch subject {
+            case .parent:
+                promise.subject = "parent"
+            case .child:
+                promise.subject = "child"
+            }
+
             promise.repeatType = ""
             
             do {
