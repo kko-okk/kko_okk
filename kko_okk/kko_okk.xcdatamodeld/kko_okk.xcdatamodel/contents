@@ -4,7 +4,7 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="Promise" representedClassName="Promise" syncable="YES" codeGenerationType="class">
+    <entity name="Promise" representedClassName="Promise" syncable="YES">
         <attribute name="childCheck" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -18,8 +18,8 @@
         <attribute name="subject" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="Entity" positionX="-9" positionY="117" width="128" height="29"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="Promise" positionX="-36" positionY="18" width="128" height="194"/>
-        <element name="Entity" positionX="-9" positionY="117" width="128" height="29"/>
     </elements>
 </model>
