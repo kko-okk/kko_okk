@@ -19,7 +19,13 @@ struct FilteredList: View {
             Text(nowSubject)
             List {
                 ForEach(fetchRequest) { item in
-                    Text(item.name ?? "Unknown")
+                    HStack {
+                        Text(item.name ?? "Unknown")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "ellipsis")
+                    }
                 }
                 .onDelete(perform: deleteItems)
             }
