@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct HeaderView: View {
+//     var isNowSubject: String = "p"
+//     var body: some View {
+//         Text("HeaderView 영역입니다")
+//         TitleView()
+//         Text("HeaderView 영역입니다")
+//     }
     let HVA = HeaderViewAssets()
     
     var body: some View {

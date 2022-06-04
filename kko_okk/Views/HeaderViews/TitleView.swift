@@ -16,6 +16,19 @@ struct TitleView: View {
     let HVA = HeaderViewAssets()
     
     var body: some View {
+//         ZStack{
+            
+//             Rectangle()
+//                 .frame(width: KkookkSize.titleWidth, height: KkookkSize.titleHeight)
+//                 .foregroundColor(.Kkookk.backgroundGray)
+            
+//             ZStack{
+//                 Text("TitleView 영역입니다.")
+//                     .font(.Kkookk.headerDefaultTitle)
+//                     .foregroundColor(.Kkookk.commonBlack)
+//             }
+//         }
+
         ZStack(alignment: .bottomLeading){
 //            Color.brown
             TitleBackGroundView()
