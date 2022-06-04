@@ -9,7 +9,19 @@ import SwiftUI
 
 struct TitleView: View {
     var body: some View {
-        Text("Title View")
+        ZStack{
+            
+            Rectangle()
+                .frame(width: KkookkSize.titleWidth, height: KkookkSize.titleHeight)
+                .foregroundColor(.Kkookk.backgroundGray)
+            
+            ZStack{
+                Text("TitleView 영역입니다.")
+                    .font(.Kkookk.headerDefaultTitle)
+                    .foregroundColor(.Kkookk.commonBlack)
+            }
+        }
+
     }
 }
 

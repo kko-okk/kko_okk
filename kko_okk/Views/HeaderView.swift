@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct HeaderView: View {
+    var isNowSubject: String = "p"
     var body: some View {
-
-        Rectangle().frame(width: Style.ViewSize.HeaderSize.width, height: Style.ViewSize.HeaderSize.height)
-        
+        Text("HeaderView 영역입니다")
         TitleView()
+        Text("HeaderView 영역입니다")
     }
 }
 
