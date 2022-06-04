@@ -11,14 +11,14 @@
 
 import SwiftUI
 
-struct RuyhaTestVeiw: View {
+struct RuyhaTestView: View {
     var body: some View {
         Color.blue
     }
 }
 
-struct RuyhaTestVeiw_Previews: PreviewProvider {
+struct RuyhaTestView_Previews: PreviewProvider {
     static var previews: some View {
-        RuyhaTestVeiw()
+        RuyhaTestView()
     }
 }
