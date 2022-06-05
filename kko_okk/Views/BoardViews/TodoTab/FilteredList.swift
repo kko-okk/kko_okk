@@ -9,23 +9,25 @@
 import SwiftUI
 
 struct FilteredList: View {
+    // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
     
+    // CoreData에 저장된 Promise 값 불러오기
     @FetchRequest(sortDescriptors: [], animation: .default)
     private var fetchRequest: FetchedResults<Promise>
+    
+    // 부모의 약속인지 아이의 약속인지 구분하기 위한 String. 부모: "parent", 아이: "child"
     private var nowSubject: String = ""
+    
+    // Popover 띄우고 닫는 용도
+    @State private var isShowingPopover: Bool = false
+    
     var body: some View {
         VStack {
             Text(nowSubject)
             List {
                 ForEach(fetchRequest) { item in
-                    HStack {
-                        Text(item.name ?? "Unknown")
-                        
-                        Spacer()
-                        
-                        Image(systemName: "ellipsis")
-                    }
+                   PromiseCell(promise: item)
                 }
                 .onDelete(perform: deleteItems)
             }
