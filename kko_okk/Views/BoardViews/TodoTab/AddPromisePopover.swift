@@ -17,7 +17,7 @@ struct AddPromisePopover: View {
     // popover 띄우고 닫을 변수
     @Binding var isShowingPopover: Bool
     
-    //
+    // 완료 버튼을 누르기 전까지 임시 값을 저장하는 변수
     @State var name: String = "할 일"
     @State var memo: String = "상세 내용"
     
@@ -28,6 +28,7 @@ struct AddPromisePopover: View {
         VStack {
             HStack {
                 Button {
+                    // Popover 띄우기
                     isShowingPopover.toggle()
                 } label: {
                     Text("취소")
@@ -35,6 +36,7 @@ struct AddPromisePopover: View {
                 
                 Spacer()
                 
+                // 입력받은 enum 값에 따라 popover 상단 바의 제목을 바꿔주기.
                 switch subject {
                 case .parent:
                     Text("부모의 약속 만들기")
@@ -45,7 +47,10 @@ struct AddPromisePopover: View {
                 Spacer()
                 
                 Button {
+                    // name, memo 변수에 저장되어 있는 임시값으로 CoreData에 새로운 Promise를 생성, 저장.
                     addPromise()
+                    
+                    // Popover 닫기
                     isShowingPopover.toggle()
                 } label: {
                     Text("완료")
@@ -62,11 +67,13 @@ struct AddPromisePopover: View {
             }
             
             ZStack {
+                // name, memo 텍스트필드를 붙어있는 것처럼 만들기 위한 사각형
                 RoundedRectangle(cornerRadius: 15)
-                    .frame(width: .infinity, height: 200)
+                    .frame(width: 760, height: 200)
                     .foregroundColor(.white)
                 
                 VStack {
+                    // name 수정하는 영역
                     TextField("", text: $name)
                         .background(.white)
                         .cornerRadius(15)
@@ -76,12 +83,15 @@ struct AddPromisePopover: View {
                         .padding(.horizontal, 8)
                         .foregroundColor(.gray)
                     
+                    // memo 수정하는 영역
                     TextEditor(text: $memo)
-                        .frame(width: .infinity, height: 130)
+                        .frame(width: 760, height: 130)
                         .cornerRadius(15)
                         .padding(.horizontal, 8)
                 }
             }
+            
+            // 반복 날짜 선택 버튼
             HStack {
                 Text("반복")
                     .font(.largeTitle)
@@ -107,6 +117,7 @@ struct AddPromisePopover: View {
         .background(.bar)
     }
     
+    // name, memo 변수에 저장되어 있는 임시값으로 CoreData에 새로운 Promise를 생성, 저장.
     private func addPromise() {
         withAnimation {
             let promise = Promise(context: viewContext)
@@ -120,6 +131,7 @@ struct AddPromisePopover: View {
             promise.isDone = false
             promise.isRepeat = false
             
+            // AddPromisePopover가 입력받은 subject enum 값에 따라 promise.subject 값을 다르게 설정. 
             switch subject {
             case .parent:
                 promise.subject = "parent"
