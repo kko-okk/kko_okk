@@ -31,7 +31,7 @@ struct PromiseCell: View {
                 
                 // 버튼 아이콘의 사이즈가 작아서, 위에 투명한 사각형을 덧댐.
                 Rectangle()
-                    .fill(parentColor.opacity(0.0))
+                    .fill(Color.clear)
                     .frame(width: 40, height: 40)
             }
             .onTapGesture {
