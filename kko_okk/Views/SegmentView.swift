@@ -8,37 +8,80 @@
 import SwiftUI
 
 struct SegmentView: View {
+    @State private var isShowingTodoBoard = true
+    @State private var isShowingReportBoard = false
+    @Binding var isPressedSettingButton: Bool
+//    @State var isPressedSettingButton = false
+    
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
+            
             // Custom Tab Bar 만들기 (ex. 약속 만들기, 약속 리포트(이행률) 보기, 설정)
-            HStack{
-                Button(action: {
+                HStack{
                     
-                }, label: {
-                    Text("약속 만들기")
-                })
-                
-                Button(action: {
+                    Button(action: {
+                        
+                        isShowingTodoBoard.toggle()
+                        
+                        if (isShowingReportBoard) {
+                            isShowingReportBoard.toggle()
+                        }
+                        
+                    }, label: {
+                        Text("약속 만들기")
+                            .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                            .font(Font.Kkookk.boardTabSelected)
+                        
+                    })
+                    .animation(.default, value: isShowingTodoBoard)
+                    .buttonStyle(.plain)
                     
-                }, label: {
-                    Text("이행률 보기")
-                })
-                Button(action: {
+                    Button(action: {
+                        
+                        isShowingReportBoard.toggle()
+                        
+                        if (isShowingTodoBoard) {
+                            isShowingTodoBoard.toggle()
+                        }
+
+                    }, label: {
+                        Text("이행률 보기")
+                            .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                            .font(Font.Kkookk.boardTabSelected)
+                    })
+                    .animation(.default, value: isShowingReportBoard)
+                    .buttonStyle(.plain)
                     
-                }, label: {
-                    Text("설정")
-                })
-            }.padding(10)
+                    Spacer()
+                    
+                    Button(action: {
+                        isPressedSettingButton.toggle()
+                    }, label: {
+                        Text("설정")
+                            .foregroundColor(.Kkookk.commonBlack)
+                            .font(Font.Kkookk.boardSettingButton)
+                    })
+                    
+                }.padding(15)
+            
+            // 임시 Divider
+            Divider()
             
             // Tab에 따라 보여줄 Board
-            TodoBoardView()
-        }.padding(10)
+            if (isShowingTodoBoard) {
+                TodoBoardView()
+            } else {
+                ReportBoardView()
+            }
+            
+        }.padding(26)
         
     }
 }
 
-struct BoardView_Previews: PreviewProvider {
-    static var previews: some View {
-        SegmentView()
-    }
-}
+//
+//struct BoardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SegmentView(isPressedSettingButton: $isPre)
+//    }
+//}

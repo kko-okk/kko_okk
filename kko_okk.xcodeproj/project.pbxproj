@@ -14,6 +14,7 @@
 		70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */; };
 		70DAECBD284E6209009AAB79 /* RollingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBC284E6209009AAB79 /* RollingBannerView.swift */; };
 		70DAECBF284E62D4009AAB79 /* BannerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBE284E62D4009AAB79 /* BannerViews.swift */; };
+		70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBA284C8327009AAB79 /* DatePickerView.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
 		9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* ContentView.swift */; };
 		9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B4082846289100AFD9C5 /* Assets.xcassets */; };
@@ -103,6 +104,7 @@
 		70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewAssets.swift; sourceTree = "<group>"; };
 		70DAECBC284E6209009AAB79 /* RollingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingBannerView.swift; sourceTree = "<group>"; };
 		70DAECBE284E62D4009AAB79 /* BannerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViews.swift; sourceTree = "<group>"; };
+		70DAECBA284C8327009AAB79 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
 		9D55B4062846289000AFD9C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */,
 				70DAECBC284E6209009AAB79 /* RollingBannerView.swift */,
 				70DAECBE284E62D4009AAB79 /* BannerViews.swift */,
+				70DAECBA284C8327009AAB79 /* DatePickerView.swift */,
 			);
 			path = HeaderViews;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
+				70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */,
 				A8C834A828471D0400C65BE0 /* Size.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
