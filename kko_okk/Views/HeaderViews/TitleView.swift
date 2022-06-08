@@ -16,18 +16,6 @@ struct TitleView: View {
     let HVA = HeaderViewAssets()
     
     var body: some View {
-//         ZStack{
-            
-//             Rectangle()
-//                 .frame(width: KkookkSize.titleWidth, height: KkookkSize.titleHeight)
-//                 .foregroundColor(.Kkookk.backgroundGray)
-            
-//             ZStack{
-//                 Text("TitleView 영역입니다.")
-//                     .font(.Kkookk.headerDefaultTitle)
-//                     .foregroundColor(.Kkookk.commonBlack)
-//             }
-//         }
 
         ZStack(alignment: .bottomLeading){
 //            Color.brown
@@ -75,7 +63,7 @@ struct TitleLeadingView: View {
 
             HStack(){
                 Text("\(HVA.kkookkDate(date: date))")
-                    .font(.system(size:20 ,weight:.light))
+                    .font(Font.Kkookk.headerDate)
                     .foregroundColor(Color.Kkookk.commonBlack)
                     .padding(.top,15)
 
@@ -88,7 +76,7 @@ struct TitleLeadingView: View {
             
             HStack{
                 Text("오늘 가족과의 약속은")
-                    .font(.system(size:30 ,weight:.regular))
+                    .font(Font.Kkookk.headerDefaultTitle)
                     .foregroundColor(Color.Kkookk.commonBlack)
                 Image("Ruyha_KKooKK")
                     .resizable()
@@ -99,7 +87,7 @@ struct TitleLeadingView: View {
                 // 이미지의 프레임을 조절 하려면 반드시 .resizable()를 사용해야 합니다.
                 
                 Text("지키셔야 돼요!")
-                    .font(.system(size:30 ,weight:.regular))
+                    .font(Font.Kkookk.headerDefaultTitle)
                     .foregroundColor(Color.Kkookk.commonBlack)
             }
             Spacer()
@@ -125,9 +113,9 @@ struct TiltleHandsView : View{
     var body: some View{
         HStack{
             Spacer()
-            Image("RuyhaHands")
+            Image("TitleHands")
                 .resizable()
-                .frame(width: 320, height:HVA.RTitleHandHeight,alignment: .trailing)
+                .frame(width: HVA.RTitleHandHeight * 1.7, height:HVA.RTitleHandHeight,alignment: .trailing)
                 .padding(.trailing,60)
             //아직 이미지 파일을 받지 못함...
         }
