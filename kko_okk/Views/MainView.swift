@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
+    @State var isShowingSettingView = false
+    
     var body: some View {
-        HeaderView()
-        SegmentView()
+        if isShowingSettingView {
+            SettingView(isShowingSettingView: $isShowingSettingView)
+        }
+        else {
+            HeaderView()
+            SegmentView(isPressedSettingButton: $isShowingSettingView)
+        }
     }
 }
 

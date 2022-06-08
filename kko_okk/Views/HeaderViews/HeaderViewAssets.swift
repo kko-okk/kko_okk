@@ -56,5 +56,27 @@ class HeaderViewAssets{
         return string
     }
     
+    func DateType2String() -> String{
+        let current = Date()
+        
+        let formatter = DateFormatter()
+        //한국 시간으로 표시
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        //형태 변환
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        return formatter.string(from: current)
+    }
+    
+    func kkookkDate(date:Date) -> String{
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        formatter.dateFormat = "yyyy년 MM월 dd일 EEEE"
+        return formatter.string(from: date)
+    }
+    // 원본코드 출처 https://hururuek-chapchap.tistory.com/156
+    
     
 }

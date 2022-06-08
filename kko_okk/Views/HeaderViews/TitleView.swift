@@ -56,6 +56,12 @@ struct TitleBackGroundView: View {
 
 
 struct TitleLeadingView: View {
+    @State var date = Date()
+    // date 값을 여기에서 넘긴 이유는 추후
+    // Date 값에 따라 하단 테이블뷰의 값이 달라져야 할 것 같아
+    // 일단 여기로 빼놨습니다.
+    // 안에서 찾으면 힘들잖아요.
+    
     let HVA = HeaderViewAssets()
     // 미리 만들어 놓은 HeaderViewAssets 클래스를 상수에 할당해 사용하는것입니다.
     
@@ -66,28 +72,41 @@ struct TitleLeadingView: View {
     var body: some View {
         VStack(alignment: .leading){
             Spacer()
-            
-            Text("2022년 5월 31일 화요일")
-                .font(.system(size:20 ,weight:.light))
-                .padding(.top,15)
+
+            HStack(){
+                Text("\(HVA.kkookkDate(date: date))")
+                    .font(.system(size:20 ,weight:.light))
+                    .foregroundColor(Color.Kkookk.commonBlack)
+                    .padding(.top,15)
+
+                DatePickerView(date: $date)
+                    .frame(width: 20, height: 20, alignment: .leading)
+                    .padding(.top,15)
+            }//HStack
+
             Spacer()
             
             HStack{
                 Text("오늘 가족과의 약속은")
                     .font(.system(size:30 ,weight:.regular))
+                    .foregroundColor(Color.Kkookk.commonBlack)
                 Image("Ruyha_KKooKK")
                     .resizable()
                     .frame(width: 100, height:40,alignment: .trailing)
+                    .foregroundColor(Color.Kkookk.commonBlack)
+
                 // 이미지를 받지 못해 대충 캡쳐해서 넣어서 Ruyha를 붙여 이름을 넣어 사용했습니다.
                 // 이미지의 프레임을 조절 하려면 반드시 .resizable()를 사용해야 합니다.
                 
                 Text("지키셔야 돼요!")
                     .font(.system(size:30 ,weight:.regular))
+                    .foregroundColor(Color.Kkookk.commonBlack)
             }
             Spacer()
             
             Text(tips[HVA.RandomTipInt()].conent)
                 .font(.system(size:15 ,weight:.light))
+                .foregroundColor(Color.Kkookk.commonBlack)
                 .padding(.bottom,15)
             //  Text(tips[HVA.RandomTipInt()].conent)
             //  Text(tips[0].conent) 이런식으로 사용해도 되지만
