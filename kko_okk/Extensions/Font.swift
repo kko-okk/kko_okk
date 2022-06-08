@@ -44,7 +44,7 @@ extension Font {
     }
 }
 
-private extension Font {
+extension Font {
     static func kkookkFont(weight: AppleSDGothicNeoWeight, size: CGFloat) -> Font {
         Font.custom(weight.rawValue, size: size)
     }
