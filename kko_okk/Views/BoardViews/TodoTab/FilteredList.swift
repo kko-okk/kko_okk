@@ -27,11 +27,14 @@ struct FilteredList: View {
             Text(nowSubject)
             List {
                 ForEach(fetchRequest) { item in
-                   PromiseCell(promise: item)
+                    PromiseCell(promise: item)
                 }
                 .onDelete(perform: deleteItems)
             }
+            // 회색 영역(버튼 추가 영역)에 코더 라운드 추가
+            .cornerRadius(15)
         }
+        .padding(5)
     }
     
     init(filter: String, formatter: String) {
@@ -51,5 +54,13 @@ struct FilteredList: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+}
+
+struct FilteredList_Previews: PreviewProvider {
+    static var previews: some View {
+        FilteredList(filter: "parent", formatter: "subject == 'parent'")
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
     }
 }

@@ -23,16 +23,23 @@ struct PromiseCell: View {
             // 약속 수정하기 버튼
             ZStack {
                 // 버튼 아이콘
-                Image(systemName: "ellipsis")
-                    .resizable()
-                    .frame(width: 30, height: 6)
-                    .rotationEffect(.degrees(90))
-                    .foregroundColor(.black)
+//                Image(systemName: "ellipsis")
+//                    .resizable()
+//                    .frame(width: 30, height: 6)
+//                    .rotationEffect(.degrees(90))
+//                    .foregroundColor(.black)
+//
+//                // 버튼 아이콘의 사이즈가 작아서, 위에 투명한 사각형을 덧댐.
+//                Rectangle()
+//                    .fill(Color.clear)
+//                    .frame(width: 40, height: 40)
                 
-                // 버튼 아이콘의 사이즈가 작아서, 위에 투명한 사각형을 덧댐.
-                Rectangle()
-                    .fill(Color.clear)
+                // 새로 짠 코드로 교체. 바로 위에 있던 원래 코드는 주석 처리
+                Image(systemName: "ellipsis")
+                    .rotationEffect(.degrees(90))
+                    .foregroundColor(.white)
                     .frame(width: 40, height: 40)
+                    .padding(.top, 10)
             }
             .onTapGesture {
                 // 약속 수정하는 Popover 띄우기

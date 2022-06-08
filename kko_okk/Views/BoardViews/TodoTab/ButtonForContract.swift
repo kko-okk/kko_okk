@@ -11,7 +11,7 @@ import SwiftUI
 // btnColor는 임의로 purple 색으로 넣어 놨음.
 // 함수에 isParent, isChild 같은 함수가 있으면 true일 때 그 값에 해당하는 색을 받아와서 바꿔주는 식으로 코딩할까 생각 중
 // 그런 함수가 없으면 뭔가 받아올 수 있는 값이 있겠죵?
-var btnColor = Color.purple
+var buttonColor = Color.purple  // 변수명 btnColor -> buttonColor: SwiftUI Coding Convention
 
 struct ButtonForContract: View {
     var body: some View {
@@ -27,11 +27,9 @@ struct ButtonForContract: View {
                     Text("아이와 놀이공원 가기!")
                         .font(.system(size: 23, weight: .black, design: .rounded))
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 20)
-                        .padding(.top, 20)
+                        .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
                         .padding(.bottom, 5)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Image(systemName: "ellipsis")
                         .rotationEffect(.degrees(90))
@@ -45,13 +43,12 @@ struct ButtonForContract: View {
                     .foregroundColor(.white)
                     .lineLimit(3)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
+                    .padding([.leading, .bottom], 20)  // padding 배열 처리
                     .padding(.trailing, 30)
                     .padding(.top, 5)
-                    .padding(.bottom, 20)
             }
         }
-        .background(btnColor)
+        .background(buttonColor)
         .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
     }
 }
