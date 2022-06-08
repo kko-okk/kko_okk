@@ -15,12 +15,12 @@ struct TodoBoardView: View {
             
             HStack {
                 ParentWishView()
-                    .padding(.leading, 10)
+                    .padding(.leading, 8)
 
                 ContractView()
 
                 ChildWishView()
-                    .padding(.trailing, 10)
+                    .padding(.trailing, 8)
             }
         }
     }
