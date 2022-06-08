@@ -19,15 +19,18 @@ struct RollingBannerView: View {
             }
         }//TabView
         .tabViewStyle(PageTabViewStyle())
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
         .onAppear{
             playRollingBanner()
         }
         
         
     }
+    
 }
 
+// View에는 View에 해당하는 코드만 깔끔하게 들어가길 바라며
+// 사용되는 extension을 사용했습니다.
 extension RollingBannerView{
     func playRollingBanner(){
         Timer.scheduledTimer(withTimeInterval: RBTime, repeats: true){(Timer) in
@@ -41,6 +44,14 @@ extension RollingBannerView{
             }
         }
     }
+    
+    //롤링베너 Indicator의 사이즈를 변경하기위해 제작
+    //색상까지는 변경 가능하나 사이즈는 변경 불가.
+    func setupAppearance() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .black
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+        //사이즈 변경은 어렵네요..
+    }
 }
 
 struct RollingBannerView_Previews: PreviewProvider {
@@ -51,16 +62,16 @@ struct RollingBannerView_Previews: PreviewProvider {
 
 /*
  주석1
-  if selectedItem == BannerViews.allCases.count - 1{
-        selectedItem = 0
-    }else{
-    selectedItem = selectedItem + 1
-    }
+ if selectedItem == BannerViews.allCases.count - 1{
+ selectedItem = 0
+ }else{
+ selectedItem = selectedItem + 1
+ }
  이 코드와
  
  guard selectedItem == BannerViews.allCases.count - 1 else {
-     selectedItem = selectedItem + 1
-     return
+ selectedItem = selectedItem + 1
+ return
  }
  selectedItem = 0
  이 코드는 동일하게 동작합니다.

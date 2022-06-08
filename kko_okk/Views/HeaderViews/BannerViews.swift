@@ -31,7 +31,6 @@ class RollingBannerController{
 
 //롤링배너에 들어갈 View들 입니다.
 //아직 정해진것이 없어서 가데이터로 넣어 놨습니다.
-
 struct BannerView_1: View {
     var body: some View {
         ZStack{
