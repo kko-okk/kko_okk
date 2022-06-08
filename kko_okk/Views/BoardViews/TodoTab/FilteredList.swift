@@ -34,7 +34,7 @@ struct FilteredList: View {
             // 회색 영역(버튼 추가 영역)에 코더 라운드 추가
             .cornerRadius(15)
         }
-        .padding(5)
+//        .padding(5)
     }
     
     init(filter: String, formatter: String) {
