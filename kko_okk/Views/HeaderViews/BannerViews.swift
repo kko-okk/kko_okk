@@ -34,22 +34,30 @@ class RollingBannerController{
 
 struct BannerView_1: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.blue
+            Text("1")
+        }
     }
 }
 
 
 struct BannerView_2: View {
     var body: some View {
-        Text("Hello, World!")
+        ZStack{
+            Color.red
+            Text("2")
+        }
     }
 }
 
 
 struct BannerView_3: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        ZStack{
+            Color.green
+            Text("3")
+        }    }
 }
 
 
