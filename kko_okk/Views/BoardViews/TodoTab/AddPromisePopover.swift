@@ -18,8 +18,8 @@ struct AddPromisePopover: View {
     @Binding var isShowingPopover: Bool
     
     // 완료 버튼을 누르기 전까지 임시 값을 저장하는 변수
-    @State var name: String = "할 일"
-    @State var memo: String = "상세 내용"
+    @State var name: String = ""
+    @State var memo: String = ""
     
     // 반복 요일
     @State var repeatedDaysOfWeekDict: [String: Bool] = ["월요일": false,
@@ -80,7 +80,7 @@ struct AddPromisePopover: View {
                 
                 VStack {
                     // name 수정하는 영역
-                    TextField("", text: $name)
+                    TextField("할 일", text: $name)
                         .background(.white)
                         .cornerRadius(15)
                         .padding(.horizontal, 13)
@@ -90,10 +90,21 @@ struct AddPromisePopover: View {
                         .foregroundColor(.gray)
                     
                     // memo 수정하는 영역
-                    TextEditor(text: $memo)
-                        .frame(width: 760, height: 130)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 8)
+                    ZStack(alignment: .topLeading) {
+                        TextEditor(text: $memo)
+                            .frame(width: 760, height: 130)
+                            .cornerRadius(15)
+                            .padding(.horizontal, 8)
+                        
+                        // placeholder
+                        if memo.isEmpty {
+                            Text("메모 추가하기")
+                                .cornerRadius(15)
+                                .padding(.horizontal, 15)
+                                .padding(.top, 10)
+                                .foregroundColor(Color.Kkookk.unselectedTabGray)
+                        }
+                    }
                 }
             }
             
@@ -119,11 +130,6 @@ struct AddPromisePopover: View {
                                 .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? Color.Kkookk.commonWhite : Color.Kkookk.commonBlack)
                         }
                     })
-                    
-                    //                    .background(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.unselectedTabGray)
-                    //                    .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? Color.Kkookk.commonWhite : Color.Kkookk.commonBlack)
-                    
-                    
                 }
             }
         }

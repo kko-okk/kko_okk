@@ -77,7 +77,7 @@ struct EditPromisePopover: View {
                 
                 VStack {
                     // name 수정하는 영역
-                    TextField("", text: $name)
+                    TextField("할 일", text: $name)
                         .background(.white)
                         .cornerRadius(15)
                         .padding(.horizontal, 13)
@@ -87,10 +87,22 @@ struct EditPromisePopover: View {
                         .foregroundColor(.gray)
                     
                     // memo 수정하는 영역
-                    TextEditor(text: $memo)
-                        .frame(width: 760, height: 130)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 8)
+                    ZStack(alignment: .leading) {
+                        TextEditor(text: $memo)
+                            .frame(width: 760, height: 130)
+                            .cornerRadius(15)
+                            .padding(.horizontal, 8)
+                        
+                        // placeholder
+                        if memo.isEmpty {
+                            Text("memo")
+                                .frame(width: 760, height: 130)
+                                .cornerRadius(15)
+                                .padding(.horizontal, 15)
+                                .padding(.top, 10)
+                                .foregroundColor(Color.Kkookk.unselectedTabGray)
+                        }
+                    }
                 }
             }
             
