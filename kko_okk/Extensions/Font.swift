@@ -41,10 +41,14 @@ extension Font {
         // BoardView - Cell
         static var cellTitle: Font { Font.kkookkFont(weight: .extraBold, size: 23) }
         static var cellContent: Font { Font.kkookkFont(weight: .regular, size: 16) }
+        
+        // DailyReportView - Cell
+        static var dailyReportViewMainCell: Font { Font.kkookkFont(weight: .semiBold, size: 16) }
+        static var dailyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15)}
     }
 }
 
-extension Font {
+private extension Font {
     static func kkookkFont(weight: AppleSDGothicNeoWeight, size: CGFloat) -> Font {
         Font.custom(weight.rawValue, size: size)
     }

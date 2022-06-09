@@ -12,7 +12,7 @@ struct DailyReportView: View {
         VStack(spacing: 50) {
             // 리딩값 재설정 필요, Font 파일 Yeni에게 문의(private 관련)
             Text("오늘의 약속률")
-                .font(.kkookkFont(weight: .semiBold, size: 16))
+                .font(.Kkookk.dailyReportViewMainCell)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity)
                 .padding(.leading, -265)
@@ -31,10 +31,10 @@ struct DailyReportView: View {
                         Label {
                             HStack(alignment: .bottom, spacing: 20) {
                                 Text(dailyReportData.assignment)
-                                    .font(.kkookkFont(weight: .semiBold, size: 15))
+                                    .font(.Kkookk.dailyReportViewContentCell)
 
                                 Text("\(Int(dailyReportData.progress))%")
-                                    .font(.kkookkFont(weight: .semiBold, size: 15))
+                                    .font(.Kkookk.dailyReportViewContentCell)
                                     .foregroundColor(.gray)
                             }
                         } icon: {
@@ -79,7 +79,7 @@ struct AnimatedDailyReportView: View {
         }
         .padding(CGFloat(index) * 37)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
                 withAnimation(.interactiveSpring(response: 1, dampingFraction: 1, blendDuration: 1).delay(Double(index) * 0.1)) {
                     showAnimated = true
                 }
