@@ -21,8 +21,14 @@ struct AddPromisePopover: View {
     @State var name: String = "할 일"
     @State var memo: String = "상세 내용"
     
-    // 반복 가능 요일
-    let days: [String] = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
+    // 반복 요일
+    @State var repeatedDaysOfWeekDict: [String: Bool] = ["월요일": false,
+                                                         "화요일": false,
+                                                         "수요일": false,
+                                                         "목요일": false,
+                                                         "금요일": false,
+                                                         "토요일": false,
+                                                         "일요일": false]
     
     var body: some View {
         VStack {
@@ -100,15 +106,24 @@ struct AddPromisePopover: View {
             }
             
             HStack {
-                ForEach(days, id: \.self) { day in
+                ForEach(Array(repeatedDaysOfWeekDict.keys), id: \.self) { key in
                     Button(action: {
-                        
+                        repeatedDaysOfWeekDict[key]?.toggle()
                     }, label: {
-                        Text(day)
-                            .foregroundColor(.black)
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 100, height: 40)
+                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.unselectedTabGray)
+                                .cornerRadius(10, antialiased:  true)
+                            Text(key)
+                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? Color.Kkookk.commonWhite : Color.Kkookk.commonBlack)
+                        }
                     })
-                    .buttonStyle(.bordered)
-                    .padding(.horizontal)
+                    
+                    //                    .background(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.unselectedTabGray)
+                    //                    .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? Color.Kkookk.commonWhite : Color.Kkookk.commonBlack)
+                    
+                    
                 }
             }
         }
@@ -130,17 +145,26 @@ struct AddPromisePopover: View {
             promise.childCheck = false
             promise.isDone = false
             promise.isRepeat = false
+            promise.repeatType = ""
             
-            // AddPromisePopover가 입력받은 subject enum 값에 따라 promise.subject 값을 다르게 설정. 
+            // AddPromisePopover가 입력받은 subject enum 값에 따라 promise.subject 값을 다르게 설정.
             switch subject {
             case .parent:
                 promise.subject = "parent"
             case .child:
                 promise.subject = "child"
             }
-
-            promise.repeatType = ""
             
+            // 반복 요일 입력. 초기값은 전부 false.
+            promise.isRepeatedOnMonday = repeatedDaysOfWeekDict["월요일"] ?? false
+            promise.isRepeatedOnTuesday = repeatedDaysOfWeekDict["화요일"] ?? false
+            promise.isRepeatedOnWednesday = repeatedDaysOfWeekDict["수요일"] ?? false
+            promise.isRepeatedOnThursday = repeatedDaysOfWeekDict["목요일"] ?? false
+            promise.isRepeatedOnFriday = repeatedDaysOfWeekDict["금요일"] ?? false
+            promise.isRepeatedOnSaturday = repeatedDaysOfWeekDict["토요일"] ?? false
+            promise.isRepeatedOnSunday = repeatedDaysOfWeekDict["일요일"] ?? false
+            
+            // 데이터 저장
             do {
                 try viewContext.save()
             } catch {
