@@ -37,6 +37,10 @@ struct ChildWishView: View {
             
             Divider()
             
+            
+            Spacer()
+                .frame(height: 23)
+            
             Spacer()
             // 약속이 안된 것
             FilteredList(filter: "child", formatter: "promised == FALSE")

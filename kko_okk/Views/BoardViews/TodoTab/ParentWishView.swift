@@ -39,6 +39,9 @@ struct ParentWishView: View {
             .padding(.trailing, 10)
 
             Divider()
+            
+            Spacer()
+                .frame(height: 23)
 
             Spacer()
             // 약속이 안된 것

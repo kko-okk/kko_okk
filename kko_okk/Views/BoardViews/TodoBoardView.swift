@@ -11,7 +11,7 @@ import SwiftUI
 struct TodoBoardView: View {
     var body: some View {
         VStack {
-            Divider()
+//            Divider()
             
             HStack {
                 ParentWishView()

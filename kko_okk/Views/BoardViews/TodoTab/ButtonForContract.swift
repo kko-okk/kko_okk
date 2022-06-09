@@ -48,6 +48,7 @@ struct ButtonForContract: View {
         // 삼항연산자로 isParent가 true일 때는 버튼 색이 Color.Kkookk.parentPurple로, false일 때는 Color.Kkookk.childGreen으로 변경
         .background((nowSubject == "parent") ? Color.Kkookk.parentPurple : Color.Kkookk.childGreen)
         .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
+        .padding([.leading, .trailing], 14)
     }
 }
 
