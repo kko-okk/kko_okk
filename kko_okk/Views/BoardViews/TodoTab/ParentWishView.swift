@@ -10,10 +10,11 @@ import SwiftUI
 
 struct ParentWishView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [],
         animation: .default)
+    
     private var items: FetchedResults<Promise>
     
     // Popover 띄우고 닫을 용도
