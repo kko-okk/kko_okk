@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HeaderView: View {
-//     var isNowSubject: String = "p"
-//     var body: some View {
-//         Text("HeaderView 영역입니다")
-//         TitleView()
-//         Text("HeaderView 영역입니다")
-//     }
+    //     var isNowSubject: String = "p"
+    //     var body: some View {
+    //         Text("HeaderView 영역입니다")
+    //         TitleView()
+    //         Text("HeaderView 영역입니다")
+    //     }
     let HVA = HeaderViewAssets()
     
     var body: some View {
@@ -23,22 +23,25 @@ struct HeaderView: View {
             // TitleView와 RuyhaTestVeiw의 배경색을 작업할때 같은 흰색이면 끔찍해서
             // 구분하기 위해 넣었습니다. 추후 삭제 예정
             
-            HStack{
-                TitleView()
-//                    .cornerRadius(HVA.cornerRadius)
-                    .frame(width: 965, height: 180, alignment: .leading)
-                    .padding(.trailing,25)
+            GeometryReader { geometry in
                 
-                RollingBannerView()
-                    .cornerRadius(HVA.cornerRadius)
-                    .frame(width: 300, height: 145, alignment: .bottomTrailing)
-                    .padding(.top,35)
-            }//HStack
-            .padding(.top,50)
+                HStack{
+                    TitleView()
+//                        .frame(width: 965, height: 180, alignment: .leading)
+                        .frame(width: geometry.size.width * 0.7, height: 180,alignment: .bottomLeading)
+                        .padding(.trailing,25)
+                    
+                    RollingBannerView()
+                        .cornerRadius(HVA.cornerRadius)
+                        .frame(width:  geometry.size.width * 0.25, height: 145, alignment: .bottomTrailing)
+                        .padding(.top,35)
+                }//HStack
+                .frame(width: geometry.size.width)
+            }//GeometryReader
         }//ZStack
-        .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0,maxHeight: 200, alignment: .bottomLeading)
+        .frame(minWidth: 0,maxWidth: KkookkSize.fullWidth, minHeight: 0,maxHeight: 180, alignment: .bottomLeading)
         //손가락 모양이박스 위로 돌출 되는 형태인데 아직 정확한 높이가 나오지 않아서 임시 값을 넣어 놨습니다.
-
+        
     }//View
 }
 
