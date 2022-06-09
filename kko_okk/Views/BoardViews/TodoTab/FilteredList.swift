@@ -40,23 +40,21 @@ struct FilteredList: View {
             // 이때 nowSubject를 기준으로 버튼의 색상이 변경되어 출력되도록 ButtonForContract() 내에 nowSubject: nowSubject 를 추가함.
             // 이때 nowSubject는 부모의 약속인지 아이의 약속인지 구분하기 위한 String. 부모: "parent", 아이: "child"
             ForEach(fetchRequest) { item in
-                VStack {
-                    // 조건문은 합의된 계약인지 아닌지에 따라 뷰에 추가해야 한다고 생각했음.
-                    // 그래서 item.promised가 true일 때 nowSubject가 contract 인 경우 ContractView에 추가하고
-                    // false일 때 ParentWishView와 ChildWishView에 추가하도록 하였음.
-                    // 이 조건문은 사실 좀 뭔가 잘못된 듯한 느낌적인 느낌이 있어서 다시 보기는 해야 함. 하지만 오늘은 피곤하니까 잘래!
-                    if (item.promised == true) {
-                        if (nowSubject == "contract") {
-                            ButtonForContract(nowSubject: nowSubject)
-                        }
-                    } else {
-                        if (nowSubject != "contract") {
-                            ButtonForContract(nowSubject: nowSubject)
-                        }
+                // 조건문은 합의된 계약인지 아닌지에 따라 뷰에 추가해야 한다고 생각했음.
+                // 그래서 item.promised가 true일 때 nowSubject가 contract 인 경우 ContractView에 추가하고
+                // false일 때 ParentWishView와 ChildWishView에 추가하도록 하였음.
+                // 이 조건문은 사실 좀 뭔가 잘못된 듯한 느낌적인 느낌이 있어서 다시 보기는 해야 함. 하지만 오늘은 피곤하니까 잘래!
+                if (item.promised == true) {
+                    if (nowSubject == "contract") {
+                        ButtonForContract(nowSubject: nowSubject)
+                    }
+                } else {
+                    if (nowSubject != "contract") {
+                        ButtonForContract(nowSubject: nowSubject)
                     }
                 }
             }
-                    .onDelete(perform: deleteItems)
+            Spacer()
         }
     }
     
