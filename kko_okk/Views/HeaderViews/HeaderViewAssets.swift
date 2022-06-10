@@ -14,6 +14,22 @@
 import SwiftUI
 
 
+
+extension Color{
+    init(hex:String){
+        let scanner = Scanner(string: hex)
+        _ = scanner.scanString("#")
+        
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >> 8) & 0xFF) / 255.0
+        let b = Double((rgb >> 0) & 0xFF) / 255.0
+        self.init(red:r , green: g , blue: b)
+    }
+}
+
 class HeaderViewAssets{
     let cornerRadius      : CGFloat = 15
     let RTitleWidth       : CGFloat = 965
@@ -26,7 +42,7 @@ class HeaderViewAssets{
     let headerViewfullWidth = KkookkSize.fullWidth - 80 //헤더뷰 전체 길이 - 좌우 패딩 40씩
     let headerViewfullheight = KkookkSize.fullHeight * 0.172
     let headerViewCellheight = KkookkSize.fullHeight * 0.141
-
+    
     
     
     
@@ -55,7 +71,7 @@ class HeaderViewAssets{
     func changeFont(allString: String,allStringFont:Font, partialString: String, partialStringFont:Font) -> AttributedString {
         var string = AttributedString(allString)
         string.font = allStringFont
-
+        
         if let range = string.range(of: partialString) {
             string[range].font = partialStringFont
         }
@@ -85,4 +101,27 @@ class HeaderViewAssets{
     // 원본코드 출처 https://hururuek-chapchap.tistory.com/156
     
     
+    
+    var headerImageHeight:Double {
+        if KkookkSize.fullHeight > 1000{
+           return 40
+        }else{
+            return 30
+        }
+    }
+
+    
+    var headerImageWidth:Double {
+        if KkookkSize.fullHeight > 1000{
+           return 100
+        }else{
+            return 75
+        }
+    }
+    
 }
+
+
+/*
+ 미니가 2048 ~ 2266 2360 / 
+ */

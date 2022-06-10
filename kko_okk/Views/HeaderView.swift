@@ -8,34 +8,19 @@
 import SwiftUI
 
 struct HeaderView: View {
-    //     var isNowSubject: String = "p"
-    //     var body: some View {
-    //         Text("HeaderView 영역입니다")
-    //         TitleView()
-    //         Text("HeaderView 영역입니다")
-    //     }
+
     let HVA = HeaderViewAssets()
     
     var body: some View {
         ZStack{
-            Color.gray
+            Color.gray//F5F7F9
+//            Color(hex: "#F5F7F9")
             // ZStack과 배경색을 대충 넣은이유는ㄴ
             // TitleView와 RuyhaTestVeiw의 배경색을 작업할때 같은 흰색이면 끔찍해서
             // 구분하기 위해 넣었습니다. 추후 삭제 예정
-            
             GeometryReader { geometry in
                 HStack{
-//                    TitleView()
-//                        .frame(width: geometry.size.width * 0.7, height: 180,alignment: .bottomLeading)
-//                        .padding(.trailing,25)
-//                    
-//                    RollingBannerView()
-//                        .cornerRadius(HVA.cornerRadius)
-//                        .frame(width:  geometry.size.width * 0.25, height: 145, alignment: .bottomTrailing)
-//                        .padding(.top,35)
-                    
                     TitleView()
-//                    BannerView_1()
                         .frame(width: geometry.size.width * 0.75, height: HVA.headerViewfullheight,alignment: .bottomLeading)
                     Spacer()//View 사이의 간격은 유동적으로 하기로 합의봄(이안과..)
                     RollingBannerView()

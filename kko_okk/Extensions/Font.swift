@@ -26,7 +26,17 @@ extension Font {
     enum Kkookk {
         // HeaderView
         // "꼬-옥"은 에셋으로
-        static var headerDefaultTitle: Font { Font.kkookkFont(weight: .regular, size: 30) }
+        
+//        static var headerDefaultTitle: Font { Font.kkookkFont(weight: .regular, size: 30) }\
+        
+        static var headerDefaultTitle :Font {
+            if KkookkSize.fullHeight > 1000{
+               return Font.kkookkFont(weight: .regular, size: 30)
+            }else{
+                return Font.kkookkFont(weight: .regular, size: 25)
+            }
+        }
+        
         static var headerDate: Font { Font.kkookkFont(weight: .light, size: 20) }
 
         // BoardView - Tab
