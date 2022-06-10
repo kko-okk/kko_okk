@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8A02851372E007CDEDC /* DailyReportData.swift */; };
 		0A17F8AE2853757F007CDEDC /* WeeklyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */; };
+		0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
@@ -98,6 +99,7 @@
 /* Begin PBXFileReference section */
 		0A17F8A02851372E007CDEDC /* DailyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportData.swift; sourceTree = "<group>"; };
 		0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportData.swift; sourceTree = "<group>"; };
+		0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				2261FB102853113600339B23 /* DailyReportView.swift */,
+				0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */,
 			);
 			path = ReportTab;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
 				70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */,
 				A8C834A828471D0400C65BE0 /* Size.swift in Sources */,
+				0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
 				F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */,
