@@ -25,13 +25,7 @@ struct EditPromisePopover: View {
     @State var memo: String = ""
     
     // 반복 요일
-    @State var repeatedDaysOfWeekDict: [String: Bool] = ["월요일": false,
-                                                         "화요일": false,
-                                                         "수요일": false,
-                                                         "목요일": false,
-                                                         "금요일": false,
-                                                         "토요일": false,
-                                                         "일요일": false]
+    @State var isRepeating: [Bool] = [false, false, false, false, false, false, false]
     
     var body: some View {
         VStack {
@@ -74,7 +68,7 @@ struct EditPromisePopover: View {
             EditContentsOfPromiseView(name: $name, memo: $memo)
             
             // 반복 날짜 선택 버튼
-            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
+            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
         }
         .onAppear() {
             // 뷰를 그릴 때, 받아온 약속의 name, memo 값을 임시값에 저장
@@ -82,13 +76,13 @@ struct EditPromisePopover: View {
             memo = promise.memo ?? ""
             
             // CoreData의 요일값 불러오기.
-            repeatedDaysOfWeekDict["월요일"] = promise.isRepeatedOnMonday
-            repeatedDaysOfWeekDict["화요일"] = promise.isRepeatedOnTuesday
-            repeatedDaysOfWeekDict["수요일"] = promise.isRepeatedOnWednesday
-            repeatedDaysOfWeekDict["목요일"] = promise.isRepeatedOnThursday
-            repeatedDaysOfWeekDict["금요일"] = promise.isRepeatedOnFriday
-            repeatedDaysOfWeekDict["토요일"] = promise.isRepeatedOnSaturday
-            repeatedDaysOfWeekDict["일요일"] = promise.isRepeatedOnSunday
+            isRepeating[0] = promise.isRepeatedOnMonday
+            isRepeating[1] = promise.isRepeatedOnTuesday
+            isRepeating[2] = promise.isRepeatedOnWednesday
+            isRepeating[3] = promise.isRepeatedOnThursday
+            isRepeating[4] = promise.isRepeatedOnFriday
+            isRepeating[5] = promise.isRepeatedOnSaturday
+            isRepeating[6] = promise.isRepeatedOnSunday
         }
         .padding()
         .frame(width: 800, height: 500)
@@ -105,13 +99,13 @@ extension EditPromisePopover {
             promise.memo = memo
             
             // 반복 요일 변경.
-            promise.isRepeatedOnMonday = repeatedDaysOfWeekDict["월요일"] ?? false
-            promise.isRepeatedOnTuesday = repeatedDaysOfWeekDict["화요일"] ?? false
-            promise.isRepeatedOnWednesday = repeatedDaysOfWeekDict["수요일"] ?? false
-            promise.isRepeatedOnThursday = repeatedDaysOfWeekDict["목요일"] ?? false
-            promise.isRepeatedOnFriday = repeatedDaysOfWeekDict["금요일"] ?? false
-            promise.isRepeatedOnSaturday = repeatedDaysOfWeekDict["토요일"] ?? false
-            promise.isRepeatedOnSunday = repeatedDaysOfWeekDict["일요일"] ?? false
+            promise.isRepeatedOnMonday = isRepeating[0]
+            promise.isRepeatedOnTuesday = isRepeating[1]
+            promise.isRepeatedOnWednesday = isRepeating[2]
+            promise.isRepeatedOnThursday = isRepeating[3]
+            promise.isRepeatedOnFriday = isRepeating[4]
+            promise.isRepeatedOnSaturday = isRepeating[5]
+            promise.isRepeatedOnSunday = isRepeating[6]
 
             // CoreData에 저장하기
             do {

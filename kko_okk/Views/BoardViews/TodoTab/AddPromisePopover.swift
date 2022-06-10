@@ -22,13 +22,7 @@ struct AddPromisePopover: View {
     @State var memo: String = ""
     
     // 반복 요일
-    @State var repeatedDaysOfWeekDict: [String: Bool] = ["월요일": false,
-                                                         "화요일": false,
-                                                         "수요일": false,
-                                                         "목요일": false,
-                                                         "금요일": false,
-                                                         "토요일": false,
-                                                         "일요일": false]
+    @State var isRepeating: [Bool] = [false, false, false, false, false, false, false]
     
     var body: some View {
         VStack {
@@ -70,8 +64,11 @@ struct AddPromisePopover: View {
             // 약속 제목과 메모를 수정하는 부분
             EditContentsOfPromiseView(name: $name, memo: $memo)
             
+            //            // 반복 날짜 선택 버튼
+            //            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
+            
             // 반복 날짜 선택 버튼
-            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
+            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
         }
         .padding()
         .frame(width: 800, height: 500)
@@ -106,13 +103,13 @@ extension AddPromisePopover {
             }
             
             // 반복 요일 입력. 초기값은 전부 false.
-            promise.isRepeatedOnMonday = repeatedDaysOfWeekDict["월요일"] ?? false
-            promise.isRepeatedOnTuesday = repeatedDaysOfWeekDict["화요일"] ?? false
-            promise.isRepeatedOnWednesday = repeatedDaysOfWeekDict["수요일"] ?? false
-            promise.isRepeatedOnThursday = repeatedDaysOfWeekDict["목요일"] ?? false
-            promise.isRepeatedOnFriday = repeatedDaysOfWeekDict["금요일"] ?? false
-            promise.isRepeatedOnSaturday = repeatedDaysOfWeekDict["토요일"] ?? false
-            promise.isRepeatedOnSunday = repeatedDaysOfWeekDict["일요일"] ?? false
+            promise.isRepeatedOnMonday = isRepeating[0]
+            promise.isRepeatedOnTuesday = isRepeating[1]
+            promise.isRepeatedOnWednesday = isRepeating[2]
+            promise.isRepeatedOnThursday = isRepeating[3]
+            promise.isRepeatedOnFriday = isRepeating[4]
+            promise.isRepeatedOnSaturday = isRepeating[5]
+            promise.isRepeatedOnSunday = isRepeating[6]
             
             // 데이터 저장
             do {
