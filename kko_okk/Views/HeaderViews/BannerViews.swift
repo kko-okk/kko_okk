@@ -11,7 +11,7 @@ import SwiftUI
 enum BannerViews : CaseIterable{
     case view1
     case view2
-    case view3
+    case view3 
 }
 
 class RollingBannerController{

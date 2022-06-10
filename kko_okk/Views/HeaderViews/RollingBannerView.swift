@@ -4,7 +4,7 @@
 //
 //  Created by Ruyha on 2022/06/07.
 //
-
+ 
 import SwiftUI
 
 struct RollingBannerView: View {
