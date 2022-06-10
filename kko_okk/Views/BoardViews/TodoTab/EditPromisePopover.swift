@@ -36,8 +36,8 @@ struct EditPromisePopover: View {
     var body: some View {
         VStack {
             HStack {
+                // Popover 닫기
                 Button {
-                    // Popover 열기
                     isPresented.toggle()
                 } label: {
                     Text("취소")
@@ -45,12 +45,18 @@ struct EditPromisePopover: View {
                 
                 Spacer()
                 
-                Text("약속 수정하기")
+                // 입력받은 enum 값에 따라 popover 상단 바의 제목을 바꿔주기.
+                switch subject {
+                case .parent:
+                    Text("부모의 약속 만들기")
+                case .child:
+                    Text("아이의 약속 만들기")
+                }
                 
                 Spacer()
                 
                 Button {
-                    // name, memo 변수에 저장되어 있는 임시값을 CoreData에 업데이트
+                    // name, memo 변수에 저장되어 있는 임시값으로 CoreData에 새로운 Promise를 생성, 저장.
                     updatePromise(promise: promise)
                     
                     // Popover 닫기
@@ -62,75 +68,10 @@ struct EditPromisePopover: View {
             .padding()
             .font(.title3)
             
-            HStack {
-                Text("할 일 정하기")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            ZStack {
-                // name, memo 텍스트필드를 붙어있는 것처럼 만들기 위한 사각형
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 760, height: 200)
-                    .foregroundColor(.white)
-                
-                VStack {
-                    // name 수정하는 영역
-                    TextField("할 일", text: $name)
-                        .background(.white)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 13)
-                    
-                    Divider()
-                        .padding(.horizontal, 8)
-                        .foregroundColor(.gray)
-                    
-                    // memo 수정하는 영역
-                    ZStack(alignment: .leading) {
-                        TextEditor(text: $memo)
-                            .frame(width: 760, height: 130)
-                            .cornerRadius(15)
-                            .padding(.horizontal, 8)
-                        
-                        // placeholder
-                        if memo.isEmpty {
-                            Text("memo")
-                                .frame(width: 760, height: 130)
-                                .cornerRadius(15)
-                                .padding(.horizontal, 15)
-                                .padding(.top, 10)
-                                .foregroundColor(Color.Kkookk.unselectedTabGray)
-                        }
-                    }
-                }
-            }
+            EditContentsOfPromiseView(name: $name, memo: $memo)
             
             // 반복 날짜 선택 버튼
-            HStack {
-                Text("반복")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            HStack {
-                ForEach(Array(repeatedDaysOfWeekDict.keys), id: \.self) { key in
-                    Button(action: {
-                        repeatedDaysOfWeekDict[key]?.toggle()
-                    }, label: {
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 100, height: 40)
-                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.unselectedTabGray)
-                                .cornerRadius(10, antialiased:  true)
-                            Text(key)
-                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? Color.Kkookk.commonWhite : Color.Kkookk.commonBlack)
-                            
-                        }
-                    })
-                }
-            }
+            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
         }
         .onAppear() {
             // 뷰를 그릴 때, 받아온 약속의 name, memo 값을 임시값에 저장

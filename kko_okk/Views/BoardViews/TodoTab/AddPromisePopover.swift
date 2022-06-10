@@ -15,7 +15,7 @@ struct AddPromisePopover: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     // popover 띄우고 닫을 변수
-    @Binding var isShowingPopover: Bool
+    @Binding var isPresented: Bool
     
     // 완료 버튼을 누르기 전까지 임시 값을 저장하는 변수
     @State var name: String = ""
@@ -33,9 +33,9 @@ struct AddPromisePopover: View {
     var body: some View {
         VStack {
             HStack {
+                // Popover 닫기
                 Button {
-                    // Popover 띄우기
-                    isShowingPopover.toggle()
+                    isPresented.toggle()
                 } label: {
                     Text("취소")
                 }
@@ -57,7 +57,7 @@ struct AddPromisePopover: View {
                     addPromise()
                     
                     // Popover 닫기
-                    isShowingPopover.toggle()
+                    isPresented.toggle()
                 } label: {
                     Text("완료")
                 }
@@ -65,73 +65,10 @@ struct AddPromisePopover: View {
             .padding()
             .font(.title3)
             
-            HStack {
-                Text("할 일 정하기")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            ZStack {
-                // name, memo 텍스트필드를 붙어있는 것처럼 만들기 위한 사각형
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 760, height: 200)
-                    .foregroundColor(.white)
-                
-                VStack {
-                    // name 수정하는 영역
-                    TextField("할 일", text: $name)
-                        .background(.white)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 13)
-                    
-                    Divider()
-                        .padding(.horizontal, 8)
-                        .foregroundColor(.gray)
-                    
-                    // memo 수정하는 영역
-                    ZStack(alignment: .topLeading) {
-                        TextEditor(text: $memo)
-                            .frame(width: 760, height: 130)
-                            .cornerRadius(15)
-                            .padding(.horizontal, 8)
-                        
-                        // placeholder
-                        if memo.isEmpty {
-                            Text("메모 추가하기")
-                                .cornerRadius(15)
-                                .padding(.horizontal, 15)
-                                .padding(.top, 10)
-                                .foregroundColor(Color.Kkookk.unselectedTabGray)
-                        }
-                    }
-                }
-            }
+            EditContentsOfPromiseView(name: $name, memo: $memo)
             
             // 반복 날짜 선택 버튼
-            HStack {
-                Text("반복")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            HStack {
-                ForEach(Array(repeatedDaysOfWeekDict.keys), id: \.self) { key in
-                    Button(action: {
-                        repeatedDaysOfWeekDict[key]?.toggle()
-                    }, label: {
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 100, height: 40)
-                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.unselectedTabGray)
-                                .cornerRadius(10, antialiased:  true)
-                            Text(key)
-                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? Color.Kkookk.commonWhite : Color.Kkookk.commonBlack)
-                        }
-                    })
-                }
-            }
+            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
         }
         .padding()
         .frame(width: 800, height: 500)
@@ -142,6 +79,7 @@ struct AddPromisePopover: View {
     private func addPromise() {
         withAnimation {
             let promise = Promise(context: viewContext)
+            
             promise.id = UUID()
             promise.name = name
             promise.memo = memo
@@ -180,6 +118,7 @@ struct AddPromisePopover: View {
         }
     }
 }
+
 
 //struct AddWishPopover_Previews: PreviewProvider {
 //    static var previews: some View {

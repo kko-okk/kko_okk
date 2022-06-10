@@ -31,7 +31,7 @@ struct ParentWishView: View {
                         .frame(width: 30, height: 30)
                 }
                 .popover(isPresented: $isShowingPopover) {
-                    AddPromisePopover(subject: .parent, isShowingPopover: $isShowingPopover)
+                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
                 }
             }
             .padding(.trailing, 10)
