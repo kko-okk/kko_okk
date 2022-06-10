@@ -77,6 +77,9 @@ struct AddPromisePopover: View {
         .frame(width: 800, height: 500)
         .background(.bar)
     }
+}
+
+extension AddPromisePopover {
     
     // name, memo 변수에 저장되어 있는 임시값으로 CoreData에 새로운 Promise를 생성, 저장.
     private func addPromise() {

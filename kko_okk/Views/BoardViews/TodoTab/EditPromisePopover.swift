@@ -94,6 +94,9 @@ struct EditPromisePopover: View {
         .frame(width: 800, height: 500)
         .background(.bar)
     }
+}
+
+extension EditPromisePopover {
     
     // name, memo 변수에 저장되어 있는 임시값을 CoreData에 업데이트.
     private func updatePromise(promise: Promise) {
