@@ -44,6 +44,7 @@ struct HeaderView: View {
                         .padding(.top,HVA.headerViewfullheight - HVA.headerViewCellheight)
                 }//HStack
             }//GeometryReader
+
         }//ZStack
         .frame(minWidth: 0,maxWidth: HVA.headerViewfullWidth, minHeight: 0,maxHeight:  HVA.headerViewfullheight, alignment: .bottomLeading)
         //손가락 모양이박스 위로 돌출 되는 형태인데 아직 정확한 높이가 나오지 않아서 임시 값을 넣어 놨습니다.

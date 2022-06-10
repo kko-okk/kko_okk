@@ -13,7 +13,7 @@ struct FilteredList: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     // CoreData에 저장된 Promise 값 불러오기
-    @FetchRequest(sortDescriptors: [], animation: .default)
+    @FetchRequest(sortDescriptors: [], animation: .default)  // 리스트 추가시 정렬 조건이 추가되는 부분: sortDescriptors: []
     private var fetchRequest: FetchedResults<Promise>
     
     // 부모의 약속인지 아이의 약속인지 구분하기 위한 String. 부모: "parent", 아이: "child"
@@ -23,13 +23,27 @@ struct FilteredList: View {
     @State private var isShowingPopover: Bool = false
     
     var body: some View {
-        VStack {
-            Text(nowSubject)
-            List {
+        ScrollView {
+            VStack {
+    //            Text(nowSubject)
+    //            List {
+    //                ForEach(fetchRequest) { item in
+    //                    PromiseCell(promise: item)
+    //                }
+    //                .onDelete(perform: deleteItems)
+    //            }
+    //            // 회색 영역(버튼 추가 영역)에 코더 라운드 추가
+    //            .cornerRadius(15)
+    //            ButtonForContract(isParent: (nowSubject == "parent") ? true : false)
+
+                // 원래 리스트로 추가되던 부분. + 버튼을 눌러서 임시 약속(wish)을 만들었을 때 버튼(ButtonForContract)이 추가되도록 변경
+                // ForEach 문 내에서 fetchRequest가 있는 경우 VStack 내에 ButtonForContract 뷰가 부모 또는 아이 뷰에 추가되도록 하였음.
+                // 이때 nowSubject를 기준으로 버튼의 색상이 변경되어 출력되도록 ButtonForContract() 내에 nowSubject: nowSubject 를 추가함.
+                // nowSubject는 부모의 약속인지 아이의 약속인지 구분하기 위한 String. 부모: "parent", 아이: "child"
                 ForEach(fetchRequest) { item in
-                   PromiseCell(promise: item)
+                    ButtonForContract(contract: item, nowSubject: nowSubject)
                 }
-                .onDelete(perform: deleteItems)
+                Spacer()
             }
         }
     }
@@ -51,5 +65,13 @@ struct FilteredList: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+}
+
+struct FilteredList_Previews: PreviewProvider {
+    static var previews: some View {
+        FilteredList(filter: "parent", formatter: "subject == 'parent'")
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
     }
 }

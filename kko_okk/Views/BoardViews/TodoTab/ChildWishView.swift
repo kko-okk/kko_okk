@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 
 struct ChildWishView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) private var viewContext  // @Environment: 앱 환경 정보를 제공하는 프로퍼티
+    // \. : 현재 프로터티를 의미함. 즉, 앱 환경 정보를 제공하는 프로퍼티를 의미함.
     
-    @FetchRequest(sortDescriptors: [], animation: .default)
+    @FetchRequest(sortDescriptors: [], animation: .default)  // sortDescriptors: 정렬 조건, animation: 애니메이션
     private var items: FetchedResults<Promise>
     
     // Popover 띄우고 닫을 용도
@@ -36,6 +37,10 @@ struct ChildWishView: View {
             .padding(.trailing, 10)
             
             Divider()
+            
+            
+            Spacer()
+                .frame(height: 23)
             
             Spacer()
             // 약속이 안된 것
