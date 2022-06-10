@@ -15,7 +15,8 @@ struct ContractView: View {
                 TextField("엄빠-아이 계약!", text: .constant(""))
                     .padding(.leading, 10)
                 
-                Circle()
+                Circle()  // 자신이 주체가 된 약속의 갯수를 나타내는 원
+                // 쉽게 말해 자신에게 할당된 작업 == 상대방이 생성한 약속에 대해 동의해서 수행해야 하는 약속으로 들어간 갯수
                     .fill(Color.gray.opacity(0.4))
                     .frame(width: 20, height: 20)
                     .overlay(
