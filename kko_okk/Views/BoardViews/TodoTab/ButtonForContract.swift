@@ -55,7 +55,7 @@ struct ButtonForContract: View {
     // 버튼 색을 반환하는 함수
     private func backGroundColor(for contract: Promise, now nowList: String) -> Color {
         // parameter: contract: Promise(Promise 인스턴스), nowList: String (String 타입, 현재 뷰에서 그리는 리스트)
-        // contract: Promise 앞의 for, nowList: String 앞의 now는 각각을 for, now로 사용할 수 있도록 하는 신택스 요소
+        // contract: Promise 앞의 for, nowList: String 앞의 now는 각각을 for, now로 사용할 수 있도록 하는 신택스 컴포넌트
         var result: Color  // result 변수는 Color 값이 들어감
 
         if nowList == "parent" {  // nowList 값이 parent와 같은 경우
