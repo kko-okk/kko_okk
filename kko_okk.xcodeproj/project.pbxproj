@@ -141,10 +141,10 @@
 		A8C834A92847334400C65BE0 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBoardView.swift; sourceTree = "<group>"; };
 		A8C834C12848A34E00C65BE0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		A8C834C32848A37400C65BE0 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyReportView.swift; path = kko_okk/Views/BoardViews/DailyReportView.swift; sourceTree = SOURCE_ROOT; };
-		A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeeklyReportView.swift; path = kko_okk/Views/BoardViews/WeeklyReportView.swift; sourceTree = SOURCE_ROOT; };
-		A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthlyReportView.swift; path = kko_okk/Views/BoardViews/MonthlyReportView.swift; sourceTree = SOURCE_ROOT; };
-		A8C834C92848A39200C65BE0 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountView.swift; path = kko_okk/Views/BoardViews/CountView.swift; sourceTree = SOURCE_ROOT; };
+		A8C834C32848A37400C65BE0 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyReportView.swift; path = kko_okk/Views/ReportTab/DailyReportView.swift; sourceTree = SOURCE_ROOT; };
+		A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeeklyReportView.swift; path = kko_okk/Views/ReportTab/WeeklyReportView.swift; sourceTree = SOURCE_ROOT; };
+		A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthlyReportView.swift; path = kko_okk/Views/ReportTab/MonthlyReportView.swift; sourceTree = SOURCE_ROOT; };
+		A8C834C92848A39200C65BE0 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountView.swift; path = kko_okk/Views/ReportTab/CountView.swift; sourceTree = SOURCE_ROOT; };
 		F87E1F8F284B2D5900AD05B3 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromisePopover.swift; sourceTree = "<group>"; };
 		F889B518284C797B006DFEFC /* PromiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCell.swift; sourceTree = "<group>"; };
@@ -194,6 +194,17 @@
 				0A17F89F285136B4007CDEDC /* MockupData */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2261FB0E2853101800339B23 /* ReportTab */ = {
+			isa = PBXGroup;
+			children = (
+				A8C834C32848A37400C65BE0 /* DailyReportView.swift */,
+				A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */,
+				A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */,
+				A8C834C92848A39200C65BE0 /* CountView.swift */,
+			);
+			path = ReportTab;
 			sourceTree = "<group>";
 		};
 		9D55B3F82846289000AFD9C5 = {
@@ -318,29 +329,10 @@
 				9DEB3A3028462AA10001959A /* TodoBoardView.swift */,
 				A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */,
 				A8C834C12848A34E00C65BE0 /* SettingView.swift */,
+				2261FB0E2853101800339B23 /* ReportTab */,
 				9DEB3A22284629E90001959A /* TodoTab */,
-				A8C834992847169600C65BE0 /* ReportTab */,
-				A8C8349A284716A300C65BE0 /* SettingTab */,
 			);
 			path = BoardViews;
-			sourceTree = "<group>";
-		};
-		A8C834992847169600C65BE0 /* ReportTab */ = {
-			isa = PBXGroup;
-			children = (
-				A8C834C32848A37400C65BE0 /* DailyReportView.swift */,
-				A8C834C52848A37D00C65BE0 /* WeeklyReportView.swift */,
-				A8C834C72848A38C00C65BE0 /* MonthlyReportView.swift */,
-				A8C834C92848A39200C65BE0 /* CountView.swift */,
-			);
-			path = ReportTab;
-			sourceTree = "<group>";
-		};
-		A8C8349A284716A300C65BE0 /* SettingTab */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SettingTab;
 			sourceTree = "<group>";
 		};
 		A8C834A328471C0900C65BE0 /* Extensions */ = {
