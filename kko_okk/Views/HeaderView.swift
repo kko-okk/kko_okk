@@ -29,7 +29,7 @@ struct HeaderView: View {
                     .frame(width: 965, height: 180, alignment: .leading)
                     .padding(.trailing,25)
                 
-                RollingBannerView()
+                RuyhaTestView()
                     .cornerRadius(HVA.cornerRadius)
                     .frame(width: 300, height: 145, alignment: .bottomTrailing)
                     .padding(.top,35)

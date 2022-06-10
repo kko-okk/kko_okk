@@ -11,9 +11,7 @@ import SwiftUI
 struct ParentWishView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(
-        sortDescriptors: [],
-        animation: .default)
+    @FetchRequest(sortDescriptors: [], animation: .default)
     
     private var items: FetchedResults<Promise>
     
@@ -44,7 +42,8 @@ struct ParentWishView: View {
                 .frame(height: 23)
 
             Spacer()
-            // 약속이 안된 것
+
+            // 아직 합의에 도달하지 못한 약속
             FilteredList(filter: "parent", formatter: "promised == FALSE")
         }
     }
