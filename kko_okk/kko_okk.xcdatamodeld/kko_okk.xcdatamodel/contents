@@ -9,6 +9,13 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isRepeat" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnFriday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnMonday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnSaturday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnSunday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnThursday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnTuesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnWednesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="madeTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="memo" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -20,6 +27,6 @@
     <elements>
         <element name="Entity" positionX="-9" positionY="117" width="128" height="29"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="Promise" positionX="-36" positionY="18" width="128" height="194"/>
+        <element name="Promise" positionX="-36" positionY="18" width="128" height="299"/>
     </elements>
 </model>

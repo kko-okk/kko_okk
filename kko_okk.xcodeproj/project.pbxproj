@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8A02851372E007CDEDC /* DailyReportData.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
 		22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */; };
@@ -97,6 +98,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A17F8A02851372E007CDEDC /* DailyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportData.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -177,6 +179,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A17F89F285136B4007CDEDC /* MockupData */ = {
+			isa = PBXGroup;
+			children = (
+				0A17F8A02851372E007CDEDC /* DailyReportData.swift */,
+			);
+			path = MockupData;
+			sourceTree = "<group>";
+		};
 		221CC2C228479F68009F4851 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +194,7 @@
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
+				0A17F89F285136B4007CDEDC /* MockupData */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -529,6 +540,7 @@
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
 				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
+				0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */,
 				A8A477212849FB430005B4E2 /* Font.swift in Sources */,
 				F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
