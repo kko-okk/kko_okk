@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct EditRepeatingDaysOfPromiseView: View {
+    // 임시 날짜 데이터 받아오기
     @Binding var repeatedDaysOfWeekDict: [String: Bool]
     
+    // 날짜가 선택되었을 때 버튼의 색을 결정하기 위해 subject 값을 받아오기
     var subject: Subject
     
     var body: some View {
         VStack {
+            // 제목, 내용 수정 타이틀
             HStack {
                 Text("반복")
                     .font(.largeTitle)
@@ -21,6 +24,7 @@ struct EditRepeatingDaysOfPromiseView: View {
                 Spacer()
             }
             
+            // 반복 날짜 선택 버튼
             HStack {
                 ForEach(Array(repeatedDaysOfWeekDict.keys), id: \.self) { key in
                     Button(action: {

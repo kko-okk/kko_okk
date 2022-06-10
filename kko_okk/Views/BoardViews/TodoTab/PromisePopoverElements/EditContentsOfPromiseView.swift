@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct EditContentsOfPromiseView: View {
+    // 약속 제목과 이름을 받아오는 부분.
     @Binding var name: String
     @Binding var memo: String
     
     var body: some View {
         VStack {
+            // 제목, 내용 수정 타이틀
             HStack {
                 Text("할 일 정하기")
                     .font(.largeTitle)

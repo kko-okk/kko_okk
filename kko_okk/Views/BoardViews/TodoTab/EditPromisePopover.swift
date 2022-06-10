@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditPromisePopover: View {
-    // Subject enum이 .parent인지 .child인지에 따라 뷰의 기능이 달라짐.
+    // Subject enum이 .parent인지 .child인지에 따라 뷰의 포인트 컬러와 subject attribute 기능이 달라짐.
     var subject: Subject
     
     // PromiseCell로부터 약속 받아오기
@@ -35,6 +35,8 @@ struct EditPromisePopover: View {
     
     var body: some View {
         VStack {
+            // 팝오버 헤더.
+            // 취소, 타이틀, 완료 버튼(기존 약속 내용 수정 및 CoreData 업데이트)으로 구성.
             HStack {
                 // Popover 닫기
                 Button {
@@ -68,6 +70,7 @@ struct EditPromisePopover: View {
             .padding()
             .font(.title3)
             
+            // 약속 제목과 메모를 수정하는 부분
             EditContentsOfPromiseView(name: $name, memo: $memo)
             
             // 반복 날짜 선택 버튼
