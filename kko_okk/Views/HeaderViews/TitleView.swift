@@ -77,6 +77,7 @@ struct TitleLeadingView: View {
             HStack(spacing:0){
                 Text("오늘 가족과의 약속은")
                     .font(Font.Kkookk.headerDefaultTitle)
+//                    .font(.system(size:25 ,weight:.light))
                     .foregroundColor(Color.Kkookk.commonBlack)
                 Image("Ruyha_KKooKK")
                     .resizable()
@@ -87,6 +88,7 @@ struct TitleLeadingView: View {
                 // 이미지의 프레임을 조절 하려면 반드시 .resizable()를 사용해야 합니다.
                 Text("지키셔야 돼요!")
                     .font(Font.Kkookk.headerDefaultTitle)
+//                    .font(.system(size:25 ,weight:.light))
                     .foregroundColor(Color.Kkookk.commonBlack)
             }
             Spacer()
