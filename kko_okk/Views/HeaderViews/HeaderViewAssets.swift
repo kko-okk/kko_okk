@@ -23,6 +23,12 @@ class HeaderViewAssets{
     // 추후 수정시 모두 동일한 값으로 수정해야 하는 값을들
     // 할당해 놨습니다.
     
+    let headerViewfullWidth = KkookkSize.fullWidth - 80 //헤더뷰 전체 길이 - 좌우 패딩 40씩
+    let headerViewfullheight = KkookkSize.fullHeight * 0.172
+    let headerViewCellheight = KkookkSize.fullHeight * 0.141
+
+    
+    
     
     //대충 팁의 갯수를 파악해서 랜덤 값을 뽑아서 던저주는 함수입니다.
     //view 안에 만들어 놓으면 코드가 더러워질것 같아서 여기에 넣어 봤어요.
