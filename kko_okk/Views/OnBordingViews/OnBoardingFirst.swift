@@ -9,7 +9,25 @@ import SwiftUI
 
 struct OnBoardingFirst: View {
     var body: some View {
-        Text("1st")
+        VStack {
+            VStack(alignment: .leading) {
+                Text("안녕하세요 !")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 10)
+                Text("꼬옥은 부모님과 아이가 함께 약속을 만들고 지켜 나가며")
+                Text("바람직한 생활 습관을 기를 수 있도록 도와줍니다.")
+                Text("지금부터 꼬옥을 어떻게 사용하는지 간단하게 안내해 드리겠습니다.")
+            }
+            .padding(.bottom, 20)
+            Text("시작하기")
+                .font(.title3)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 150)
+                .foregroundColor(.white)
+                .background(.blue)
+                .cornerRadius(10)
+        }
     }
 }
 
