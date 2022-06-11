@@ -9,7 +9,27 @@ import SwiftUI
 
 struct WeeklyReportView: View {
     var body: some View {
-        BarGraph(parentWeeklyReportDatas: parentWeeklyReportDatas, childWeeklyReportDatas: childrenWeeklyReportDatas)
+        VStack {
+            HStack {
+                Text("한 주간 약속률")
+                    .font(.Kkookk.dailyReportViewMainCell)
+                    .fontWeight(.semibold)
+                Spacer()
+                ForEach(dailyReportDatas) { dailyReportData in
+                    Label {
+                        HStack(alignment: .bottom, spacing: 20) {
+                            Text(dailyReportData.assignment)
+                                .font(.Kkookk.dailyReportViewContentCell)
+                        }
+                    } icon: {
+                        Circle()
+                            .frame(width: 10, height: 10)
+                            .foregroundColor(dailyReportData.keyColor)
+                    }
+                }
+            }
+            BarGraph(parentWeeklyReportDatas: parentWeeklyReportDatas, childWeeklyReportDatas: childrenWeeklyReportDatas)
+        }
     }
 }
 
