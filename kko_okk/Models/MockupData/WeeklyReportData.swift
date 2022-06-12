@@ -32,7 +32,7 @@ var parentWeeklyReportDatas: [ParentWeeklyReportData] = [
     ParentWeeklyReportData(value: 75,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.daySixDayBefore)),
-    ParentWeeklyReportData(value: 30,
+    ParentWeeklyReportData(value: 80,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
     ParentWeeklyReportData(value: 50,
@@ -41,25 +41,25 @@ var parentWeeklyReportDatas: [ParentWeeklyReportData] = [
     ParentWeeklyReportData(value: 100,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayThreeDayBefore)),
-    ParentWeeklyReportData(value: 10,
+    ParentWeeklyReportData(value: 50,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayTwoDayBefore)),
-    ParentWeeklyReportData(value: 10,
+    ParentWeeklyReportData(value: 33,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayOneDayBefore)),
-    ParentWeeklyReportData(value: 10,
+    ParentWeeklyReportData(value: 75,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay))
 ]
 
 var childrenWeeklyReportDatas: [ChildrenWeeklyReportData] = [
-    ChildrenWeeklyReportData(value: 60, key: "6월 4일"),
+    ChildrenWeeklyReportData(value: 80, key: "6월 4일"),
     ChildrenWeeklyReportData(value: 50, key: "6월 5일"),
-    ChildrenWeeklyReportData(value: 23, key: "6월 6일"),
-    ChildrenWeeklyReportData(value: 65, key: "6월 7일"),
-    ChildrenWeeklyReportData(value: 36, key: "6월 8일"),
-    ChildrenWeeklyReportData(value: 48, key: "6월 9일"),
-    ChildrenWeeklyReportData(value: 56, key: "6월 10일"),
+    ChildrenWeeklyReportData(value: 25, key: "6월 6일"),
+    ChildrenWeeklyReportData(value: 75, key: "6월 7일"),
+    ChildrenWeeklyReportData(value: 75, key: "6월 8일"),
+    ChildrenWeeklyReportData(value: 100, key: "6월 9일"),
+    ChildrenWeeklyReportData(value: 50, key: "6월 10일"),
 ]
 
 var commonWeeklyReportDatas: [CommonWeeklyReportData] = [

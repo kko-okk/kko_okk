@@ -10,7 +10,7 @@ import SwiftUI
 struct WeeklyReportView: View {
     var body: some View {
         VStack {
-            HStack(spacing:0){
+            HStack(spacing: 20) {
                 Text("한 주간 약속률")
                     .font(.Kkookk.weeklyReportViewMainCell)
                 Spacer()
@@ -45,7 +45,6 @@ struct BarGraph: View {
     
     var body: some View {
         GraphView()
-            .padding(.top, 20)
     }
     
     @ViewBuilder
@@ -62,7 +61,7 @@ struct BarGraph: View {
                                 .foregroundColor(.gray)
 //                                .frame(height: 20)
                             Rectangle()
-                                .fill(Color.gray.opacity(0.2))
+                                .fill(Color.gray.opacity(0.1))
                                 .frame(height: 1)
                         }
                         .frame(maxHeight: .infinity, alignment:  .bottom)
@@ -72,7 +71,7 @@ struct BarGraph: View {
                 .frame(width: proxy.size.width, height: proxy.size.height * 0.75 ,alignment: .top)
                 .padding(.bottom,proxy.size.height * 0.25)
                 // 데이터에 따른 막대그래프의 값을 표현해줍니다.
-                HStack(spacing:0){
+                HStack(spacing:0) {
                     ForEach(parentWeeklyReportDatas.indices, id: \.self) { index in
                         let parentWeeklyReportData = parentWeeklyReportDatas[index]
                         let childWeeklyReportData = childWeeklyReportDatas[index]
@@ -94,33 +93,29 @@ struct BarGraph: View {
                                 .frame(width: 15)
                                 .frame(height: getBarHeight(point: childWeeklyReportData.value, size: proxy.size) * 0.75)
                             }
-//                            .padding(.bottom, proxy.size.height * 0.2)
                             .frame(height: proxy.size.height * 0.75 ,alignment: .bottom)
 
-
-                            
                             // x축(월,일)을 표현합니다.
                             VStack(alignment: .center) {
                                 Spacer()
+                                //일
                                 Text(
                                     "\(parentWeeklyReportData.dayData)"
                                 )
                                     .font(.Kkookk.weeklyReportViewMainCell)
-                                //일
+                                //월
                                 Text(
                                     "\(parentWeeklyReportData.monthData)"
                                 )
-                                    .font(.Kkookk.weeklyReportViewMainCell)
-                                //월
+                                    .font(.Kkookk.weeklyReportViewContentCell)
+                                    .foregroundColor(.Kkookk.unselectedTabGray)
                             }
                             .frame(height: proxy.size.height * 0.25 ,alignment: .bottom)
-
-                            
+                            .offset(y: 10)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                     }
                 }
-                .padding(.leading, 30)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }

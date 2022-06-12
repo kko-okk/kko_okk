@@ -11,7 +11,7 @@ import SwiftUI
 
 enum AppleSDGothicNeoWeight: String {
     case ultraLight = "AppleSDGothicNeoUL00"
-    case thine = "AppleSDGothicNeoT00"
+    case thin = "AppleSDGothicNeoT00"
     case light = "AppleSDGothicNeoL00"
     case regular = "AppleSDGothicNeoR00"
     case medium = "AppleSDGothicNeoM00"
@@ -47,8 +47,8 @@ extension Font {
         static var dailyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15) }
         
         // WeeklyReportView - Cell
-        static var weeklyReportViewMainCell: Font { Font.kkookkFont(weight: .semiBold, size: 16) }
-        static var weeklyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15) }
+        static var weeklyReportViewMainCell: Font { Font.kkookkFont(weight: .regular, size: 16) }
+        static var weeklyReportViewContentCell: Font { Font.kkookkFont(weight: .light, size: 14) }
         
     }
 }
