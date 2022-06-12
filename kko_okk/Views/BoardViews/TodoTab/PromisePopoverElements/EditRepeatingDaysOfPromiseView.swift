@@ -14,25 +14,30 @@ struct EditRepeatingDaysOfPromiseView: View {
     // 날짜가 선택되었을 때 버튼의 색을 결정하기 위해 subject 값을 받아오기
     var subject: Subject
     
+    //
+    let popoverAssets = PopoverAssets()
+    
     var body: some View {
         VStack {
             // 제목, 내용 수정 타이틀
             HStack {
                 Text("반복")
                     .font(Font.Kkookk.popoverTitle)
+                    .padding(.horizontal, popoverAssets.popoverHorizontalTrailingPadding)
                 Spacer()
             }
             
+            
             // 반복 날짜 선택 버튼
-            HStack {
+            HStack(spacing: popoverAssets.popoverHorizontalPaddingBetweenButton) {
                 ForEach(Array(repeatedDaysOfWeekDict.keys), id: \.self) { key in
                     Button(action: {
                         repeatedDaysOfWeekDict[key]?.toggle()
                     }, label: {
                         ZStack {
                             Rectangle()
-                                .frame(width: 100, height: 40)
-                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.unselectedTabGray)
+                                .frame(width: popoverAssets.popoverDaysButtonWidth, height: popoverAssets.popoverDaysButtonHeight)
+                                .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.commonWhite)
                                 .cornerRadius(10, antialiased:  true)
                             Text(key)
                                 .font(Font.Kkookk.popoverDays)

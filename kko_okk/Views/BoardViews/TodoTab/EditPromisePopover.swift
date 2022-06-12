@@ -33,6 +33,9 @@ struct EditPromisePopover: View {
                                                          "토요일": false,
                                                          "일요일": false]
     
+    //
+    let popoverAssets = PopoverAssets()
+    
     var body: some View {
         VStack {
             // 팝오버 네비게이션 바
@@ -71,13 +74,15 @@ struct EditPromisePopover: View {
                         .font(Font.Kkookk.popoverNavigationButton)
                 }
             }
-            .padding()
+            .frame(width: popoverAssets.popoverEditingBoxWidth * 0.98)
             
             // 약속 제목과 메모를 수정하는 부분
             EditContentsOfPromiseView(name: $name, memo: $memo)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
             
             // 반복 날짜 선택 버튼
             EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
         }
         .onAppear() {
             // 뷰를 그릴 때, 받아온 약속의 name, memo 값을 임시값에 저장
@@ -94,7 +99,7 @@ struct EditPromisePopover: View {
             repeatedDaysOfWeekDict["일요일"] = promise.isRepeatedOnSunday
         }
         .padding()
-        .frame(width: 800, height: 500)
+        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight)
         .background(.bar)
     }
 }
