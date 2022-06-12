@@ -39,19 +39,26 @@ struct BannerView_1: View {
         
         GeometryReader { geometry in
             ZStack{
-                Color.yellow
-                
+                Color(hex: "#F5F0F6")//#61A0AF
 //                VStack{
 //                    Spacer()
 //                    Image("OneHand")//1174 × 1394 //1.187
 //                        .resizable()
 //                        .frame(width: geometry.size.width * 0.4 , height:  geometry.size.width * 0.4 * 1.187)
 //                }
+//                partialColorString
                 VStack{
-                    Text("이번주에 \(promise)개의")
-                        .font(Font.Kkookk.headerDefaultTitle)
+                    HStack{
+                        Text("이번주에 ")
+                            .font(Font.Kkookk.headerDate)
+                        Text("\(promise)개")
+                            .font(Font.Kkookk.headerDefaultTitle)
+                            .foregroundColor(Color.green)
+                        Text("의")
+                            .font(Font.Kkookk.headerDate)
+                    }
                     Text("약속을 지켰어요")
-                        .font(Font.Kkookk.headerDefaultTitle)
+                        .font(Font.Kkookk.headerDate)
                 }//VStack
                 
                 
