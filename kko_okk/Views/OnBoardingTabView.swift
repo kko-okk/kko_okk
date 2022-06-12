@@ -11,9 +11,13 @@ struct OnBoardingTabView: View {
     var body: some View {
         TabView {
             OnBoardingFirst()
+                .tag(0)
             OnBoardingSecond()
+                .tag(1)
             OnBoardingThird()
+                .tag(2)
             OnBoardingForth()
+                .tag(3)
         }
         .tabViewStyle(PageTabViewStyle())
     }

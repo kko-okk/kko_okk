@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnBoardingThird: View {
+    var promises: [PromiseModel] = PromiseModel.promises
+    
     var body: some View {
         ZStack {
             Image("onBoarding")
@@ -15,24 +17,15 @@ struct OnBoardingThird: View {
                 .aspectRatio(contentMode: .fit)
                 .padding(.bottom, 100)
             HStack {
-                Text("시작하기")
-                    .font(.title3)
-                    .padding(.vertical, 30)
-                    .padding(.horizontal, 80)
-                    .foregroundColor(.white)
-                    .background(.blue)
-                    .cornerRadius(10)
+                ButtonForOnboarding(contract: promises[0], nowSubject: "parent")
+                    .padding(.trailing, 145)
+                
                 Spacer()
-                Text("시작하기")
-                    .font(.title3)
-                    .padding(.vertical, 30)
-                    .padding(.horizontal, 80)
-                    .foregroundColor(.white)
-                    .background(.blue)
-                    .cornerRadius(10)
+                ButtonForOnboarding(contract: promises[1], nowSubject: "child")
+                    .padding(.leading, 145)
             }
-            .padding(.horizontal, 175)
-            .padding(.bottom, 170)
+            .padding(.horizontal, 160)
+            .padding(.bottom, 160)
         }
         .padding(120)
     }
