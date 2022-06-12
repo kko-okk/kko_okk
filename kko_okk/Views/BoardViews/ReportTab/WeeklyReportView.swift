@@ -10,7 +10,7 @@ import SwiftUI
 struct WeeklyReportView: View {
     var body: some View {
         VStack {
-            HStack {
+            HStack(spacing:0){
                 Text("한 주간 약속률")
                     .font(.Kkookk.weeklyReportViewMainCell)
                 Spacer()
@@ -52,24 +52,27 @@ struct BarGraph: View {
     func GraphView() -> some View {
         GeometryReader { proxy in
             ZStack {
+//                Color.blue
                 VStack(spacing: 0) {
                     // 그래프의 y축을 그립니다.
                     ForEach(getGraphLines(), id: \.self) { line in
-                        HStack(spacing: 8) {
+                        HStack() {
                             Text("\(Int(line))")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                                .frame(height: 20)
+//                                .frame(height: 20)
                             Rectangle()
                                 .fill(Color.gray.opacity(0.2))
                                 .frame(height: 1)
                         }
                         .frame(maxHeight: .infinity, alignment:  .bottom)
-                        .offset(y: -15)
+                        .offset(y: 7)
                     }
-                }.padding(.bottom,35)
+                }//.padding(.bottom,35)
+                .frame(width: proxy.size.width, height: proxy.size.height * 0.75 ,alignment: .top)
+                .padding(.bottom,proxy.size.height * 0.25)
                 // 데이터에 따른 막대그래프의 값을 표현해줍니다.
-                HStack {
+                HStack(spacing:0){
                     ForEach(parentWeeklyReportDatas.indices, id: \.self) { index in
                         let parentWeeklyReportData = parentWeeklyReportDatas[index]
                         let childWeeklyReportData = childWeeklyReportDatas[index]
@@ -83,17 +86,22 @@ struct BarGraph: View {
                                 
                                 // 부모님의 막대 그래프의 넓이를 조절합니다.
                                 .frame(width: 15)
-                                .frame(height: getBarHeight(point: parentWeeklyReportData.value, size: proxy.size))
+                                .frame(height: getBarHeight(point: parentWeeklyReportData.value, size: proxy.size) * 0.75)
                                 VStack(spacing: 0) {
                                         ChildrenAnimateBarGraph(childrenWeeklyReportData: childrenWeeklyReportDatas[index], index: index)
                                 }
                                 // 아이의 막대 그래프의 넓이를 조절합니다.
                                 .frame(width: 15)
-                                .frame(height: getBarHeight(point: childWeeklyReportData.value, size: proxy.size))
-                            }.padding(.bottom,20)
+                                .frame(height: getBarHeight(point: childWeeklyReportData.value, size: proxy.size) * 0.75)
+                            }
+//                            .padding(.bottom, proxy.size.height * 0.2)
+                            .frame(height: proxy.size.height * 0.75 ,alignment: .bottom)
+
+
                             
                             // x축(월,일)을 표현합니다.
                             VStack(alignment: .center) {
+                                Spacer()
                                 Text(
                                     "\(parentWeeklyReportData.dayData)"
                                 )
@@ -105,6 +113,8 @@ struct BarGraph: View {
                                     .font(.Kkookk.weeklyReportViewMainCell)
                                 //월
                             }
+                            .frame(height: proxy.size.height * 0.25 ,alignment: .bottom)
+
                             
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
