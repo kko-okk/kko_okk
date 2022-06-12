@@ -31,6 +31,8 @@
 		9DEB3A2628462A240001959A /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2528462A240001959A /* ContractView.swift */; };
 		9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2728462A4B0001959A /* ButtonForContract.swift */; };
 		9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A3028462AA10001959A /* TodoBoardView.swift */; };
+		A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FA285326B4009E9938 /* LicenseView.swift */; };
+		A81DE5FD285326C7009E9938 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FC285326C7009E9938 /* EditView.swift */; };
 		A8A477212849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
 		A8A477222849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
 		A8A477232849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
@@ -125,6 +127,8 @@
 		9DEB3A2528462A240001959A /* ContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		9DEB3A2728462A4B0001959A /* ButtonForContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForContract.swift; sourceTree = "<group>"; };
 		9DEB3A3028462AA10001959A /* TodoBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBoardView.swift; sourceTree = "<group>"; };
+		A81DE5FA285326B4009E9938 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
+		A81DE5FC285326C7009E9938 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		A8A4771F2849F5BF0005B4E2 /* kko-okk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "kko-okk-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A8A477202849FB430005B4E2 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		A8A477242849FB4A0005B4E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -308,6 +312,15 @@
 			path = HeaderViews;
 			sourceTree = "<group>";
 		};
+		A81DE5F92853268D009E9938 /* SettingViews */ = {
+			isa = PBXGroup;
+			children = (
+				A81DE5FA285326B4009E9938 /* LicenseView.swift */,
+				A81DE5FC285326C7009E9938 /* EditView.swift */,
+			);
+			path = SettingViews;
+			sourceTree = "<group>";
+		};
 		A8A4770A2849F2BE0005B4E2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,8 +343,9 @@
 				9DEB3A3028462AA10001959A /* TodoBoardView.swift */,
 				A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */,
 				A8C834C12848A34E00C65BE0 /* SettingView.swift */,
-				2261FB0E2853101800339B23 /* ReportTab */,
 				9DEB3A22284629E90001959A /* TodoTab */,
+				2261FB0E2853101800339B23 /* ReportTab */,
+				A81DE5F92853268D009E9938 /* SettingViews */,
 			);
 			path = BoardViews;
 			sourceTree = "<group>";
@@ -542,6 +556,7 @@
 				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				7080B195285320A400A7BD44 /* BannerViews.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
+				A81DE5FD285326C7009E9938 /* EditView.swift in Sources */,
 				0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */,
 				A8A477212849FB430005B4E2 /* Font.swift in Sources */,
 				F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */,
@@ -549,6 +564,7 @@
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
 				70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */,
+				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
 				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
 				22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
