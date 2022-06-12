@@ -9,10 +9,34 @@ import Foundation
 import SwiftUI
 
 struct ButtonForContract: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+
     var contract: Promise
     var nowSubject: String
     
+    // Gesture 프로퍼티
+    @GestureState var isDetectingLongPress = false
+    @State var completedLongPress = false
+    
+    // Gesture 뷰
+    var longPress: some Gesture {
+        LongPressGesture(minimumDuration: 2)
+            .updating($isDetectingLongPress) { currentState, gestureState,
+                    transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 1.0)
+            }
+            .onEnded { finished in
+                self.completedLongPress = finished
+                self.contract.promised = true
+                contract.promised = true
+                contract.isDone = false
+            }
+    }
+    
     var body: some View {
+        
         // Stack을 버튼으로 사용하기 위한 UI
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
@@ -20,6 +44,7 @@ struct ButtonForContract: View {
             // VStack 내부는 크게 두 줄로 나뉨: 첫 줄은 제목 + 점 세 개 짜리 버튼
             // 두 번째 줄은 세부 내용이 들어가는 영역
             VStack {
+                
                 HStack {
                     Text(contract.name!)  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                         .font(.system(size: 23, weight: .black, design: .rounded))
@@ -45,6 +70,16 @@ struct ButtonForContract: View {
                     .padding([.leading, .bottom], 20)  // padding 배열 처리
                     .padding(.trailing, 30)
                     .padding(.top, 5)
+  
+            }
+            
+            // Gesture를 적용한 Stack
+            ZStack {
+                Rectangle()
+                    .fill(self.isDetectingLongPress ?
+                                 Color.yellow :
+                            (self.completedLongPress ? Color.clear : Color.yellow.opacity(0.001)))
+                             .gesture(longPress)
             }
         }
         .background(backGroundColor(for: self.contract, now: self.nowSubject))
