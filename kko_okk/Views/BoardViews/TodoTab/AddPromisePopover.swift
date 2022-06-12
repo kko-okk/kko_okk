@@ -32,7 +32,7 @@ struct AddPromisePopover: View {
     
     var body: some View {
         VStack {
-            // 팝오버 헤더.
+            // 팝오버 네비게이션 바
             // 취소, 타이틀, 완료 버튼(약속 생성 및 CoreData 업데이트)으로 구성.
             HStack {
                 // Popover 닫기
@@ -45,7 +45,7 @@ struct AddPromisePopover: View {
                 
                 Spacer()
                 
-                // 입력받은 enum 값에 따라 popover 상단 바의 제목을 바꿔주기.
+                // 입력받은 enum 값에 따라 popover 네비게이션 바의 제목을 바꿔주기.
                 switch subject {
                 case .parent:
                     Text("부모의 약속 만들기")
