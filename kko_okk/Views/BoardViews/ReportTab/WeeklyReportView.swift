@@ -12,19 +12,18 @@ struct WeeklyReportView: View {
         VStack {
             HStack {
                 Text("한 주간 약속률")
-                    .font(.Kkookk.dailyReportViewMainCell)
-                    .fontWeight(.semibold)
+                    .font(.Kkookk.weeklyReportViewMainCell)
                 Spacer()
-                ForEach(dailyReportDatas) { dailyReportData in
+                ForEach(commonWeeklyReportDatas) { commonWeeklyReportData in
                     Label {
                         HStack(alignment: .bottom, spacing: 20) {
-                            Text(dailyReportData.assignment)
+                            Text(commonWeeklyReportData.assignment)
                                 .font(.Kkookk.dailyReportViewContentCell)
                         }
                     } icon: {
                         Circle()
                             .frame(width: 10, height: 10)
-                            .foregroundColor(dailyReportData.keyColor)
+                            .foregroundColor(commonWeeklyReportData.keyColor)
                     }
                 }
             }

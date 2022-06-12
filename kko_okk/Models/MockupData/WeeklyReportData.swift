@@ -21,6 +21,12 @@ struct ChildrenWeeklyReportData: Identifiable {
     var color: Color = Color.Kkookk.childGreen
 }
 
+struct CommonWeeklyReportData: Identifiable {
+    var id = UUID().uuidString
+    var assignment: String
+    var keyColor: Color
+}
+
 var parentWeeklyReportDatas: [ParentWeeklyReportData] = [
     ParentWeeklyReportData(value: 70, key: "6월 4일"),
     ParentWeeklyReportData(value: 66, key: "6월 5일"),
@@ -41,3 +47,7 @@ var childrenWeeklyReportDatas: [ChildrenWeeklyReportData] = [
     ChildrenWeeklyReportData(value: 56, key: "6월 10일"),
 ]
 
+var commonWeeklyReportDatas: [CommonWeeklyReportData] = [
+    CommonWeeklyReportData(assignment: "부모님", keyColor: Color("kkookkPurple")),
+    CommonWeeklyReportData(assignment: "아이", keyColor: Color("kkookkGreen"))
+]

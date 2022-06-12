@@ -44,7 +44,12 @@ extension Font {
         
         // DailyReportView - Cell
         static var dailyReportViewMainCell: Font { Font.kkookkFont(weight: .semiBold, size: 16) }
-        static var dailyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15)}
+        static var dailyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15) }
+        
+        // WeeklyReportView - Cell
+        static var weeklyReportViewMainCell: Font { Font.kkookkFont(weight: .semiBold, size: 16) }
+        static var weeklyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15) }
+        
     }
 }
 
