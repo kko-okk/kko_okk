@@ -76,7 +76,7 @@
 		F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F889B518284C797B006DFEFC /* PromiseCell.swift */; };
 		F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89CAB762849D761006C72BD /* AddPromisePopover.swift */; };
 		F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */; };
-		F8A424BB2853295F007123E8 /* PopoverViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BA2853295F007123E8 /* PopoverViewAssets.swift */; };
+		F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BA2853295F007123E8 /* PopoverAssets.swift */; };
 		F8A424BD28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */; };
 /* End PBXBuildFile section */
 
@@ -149,7 +149,7 @@
 		F889B518284C797B006DFEFC /* PromiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCell.swift; sourceTree = "<group>"; };
 		F89CAB762849D761006C72BD /* AddPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromisePopover.swift; sourceTree = "<group>"; };
 		F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsOfPromiseView.swift; sourceTree = "<group>"; };
-		F8A424BA2853295F007123E8 /* PopoverViewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewAssets.swift; sourceTree = "<group>"; };
+		F8A424BA2853295F007123E8 /* PopoverAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAssets.swift; sourceTree = "<group>"; };
 		F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepeatingDaysOfPromiseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -360,7 +360,7 @@
 			children = (
 				F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */,
 				F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */,
-				F8A424BA2853295F007123E8 /* PopoverViewAssets.swift */,
+				F8A424BA2853295F007123E8 /* PopoverAssets.swift */,
 			);
 			path = PromisePopoverElements;
 			sourceTree = "<group>";
@@ -556,7 +556,7 @@
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,
 				A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */,
-				F8A424BB2853295F007123E8 /* PopoverViewAssets.swift in Sources */,
+				F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
