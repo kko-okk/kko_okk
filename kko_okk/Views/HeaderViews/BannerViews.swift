@@ -32,13 +32,39 @@ class RollingBannerController{
 //롤링배너에 들어갈 View들 입니다.
 //아직 정해진것이 없어서 가데이터로 넣어 놨습니다.
 struct BannerView_1: View {
+    let HVA = HeaderViewAssets()
+    @State var promise : Int = 6
+    // 코어데이터 적용해서 ㅋ
     var body: some View {
-        ZStack{
-            Color.blue
-            Text("1")
-        }
-    }
+        
+        GeometryReader { geometry in
+            ZStack{
+                Color.yellow
+                
+//                VStack{
+//                    Spacer()
+//                    Image("OneHand")//1174 × 1394 //1.187
+//                        .resizable()
+//                        .frame(width: geometry.size.width * 0.4 , height:  geometry.size.width * 0.4 * 1.187)
+//                }
+                VStack{
+                    Text("이번주에 \(promise)개의")
+                        .font(Font.Kkookk.headerDefaultTitle)
+                    Text("약속을 지켰어요")
+                        .font(Font.Kkookk.headerDefaultTitle)
+                }//VStack
+                
+                
+            }//ZStack
+        }//Geo
+        
+        
+        .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0,maxHeight:  HVA.headerViewfullheight, alignment: .bottomLeading)
+    }//View
 }
+
+
+
 
 
 struct BannerView_2: View {
@@ -63,8 +89,8 @@ struct BannerView_3: View {
 
 
 
-//struct BannerViews_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BannerViews()
-//    }
-//}
+struct BannerViews_Previews: PreviewProvider {
+    static var previews: some View {
+        BannerView_1()
+    }
+}

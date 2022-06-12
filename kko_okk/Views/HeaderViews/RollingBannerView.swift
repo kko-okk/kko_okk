@@ -9,7 +9,9 @@ import SwiftUI
 
 struct RollingBannerView: View {
     @State var selectedItem = 0
+    
     var RBC = RollingBannerController()
+    
     let RBTime : Double = 5
     // RollingBanner Time 롤링베너가 몇 초에 한번씩 변경할지 정합니다.
     var body: some View {

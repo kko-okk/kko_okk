@@ -32,9 +32,9 @@ extension Color{
 
 class HeaderViewAssets{
     let cornerRadius      : CGFloat = 15
-    let RTitleWidth       : CGFloat = 965
-    let RTitleHeight      : CGFloat = 145
-    let RTitleHandHeight  : CGFloat = 180
+//    let RTitleWidth       : CGFloat = 965
+//    let RTitleHeight      : CGFloat = 145
+//    let RTitleHandHeight  : CGFloat = 180
     // ZStack으로 View를 쌓는 방식으로 디자인했는데
     // 추후 수정시 모두 동일한 값으로 수정해야 하는 값을들
     // 할당해 놨습니다.

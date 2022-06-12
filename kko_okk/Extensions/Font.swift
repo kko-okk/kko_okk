@@ -35,7 +35,7 @@ extension Font {
             }else{
                 return Font.kkookkFont(weight: .regular, size: 25)
             }
-        }
+        }//화면 크기에 따라 폰트가 달라짐
         
         static var headerDate: Font { Font.kkookkFont(weight: .light, size: 20) }
 
