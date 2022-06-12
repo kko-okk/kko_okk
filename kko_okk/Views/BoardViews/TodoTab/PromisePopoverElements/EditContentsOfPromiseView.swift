@@ -17,8 +17,7 @@ struct EditContentsOfPromiseView: View {
             // 제목, 내용 수정 타이틀
             HStack {
                 Text("할 일 정하기")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                    .font(Font.Kkookk.popoverTitle)
                 Spacer()
             }
             
@@ -31,6 +30,7 @@ struct EditContentsOfPromiseView: View {
                 VStack {
                     // name 수정하는 영역
                     TextField("할 일", text: $name)
+                        .font(Font.Kkookk.popoverName)
                         .background(.white)
                         .cornerRadius(15)
                         .padding(.horizontal, 13)
@@ -42,6 +42,7 @@ struct EditContentsOfPromiseView: View {
                     // memo 수정하는 영역
                     ZStack(alignment: .topLeading) {
                         TextEditor(text: $memo)
+                            .font(Font.Kkookk.popoverMemo)
                             .frame(width: 760, height: 130)
                             .cornerRadius(15)
                             .padding(.horizontal, 8)
@@ -49,6 +50,7 @@ struct EditContentsOfPromiseView: View {
                         // placeholder
                         if memo.isEmpty {
                             Text("메모 추가하기")
+                                .font(Font.Kkookk.popoverMemo)
                                 .cornerRadius(15)
                                 .padding(.horizontal, 15)
                                 .padding(.top, 10)

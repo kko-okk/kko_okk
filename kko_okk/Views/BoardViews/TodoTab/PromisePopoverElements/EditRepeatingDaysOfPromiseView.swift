@@ -19,8 +19,7 @@ struct EditRepeatingDaysOfPromiseView: View {
             // 제목, 내용 수정 타이틀
             HStack {
                 Text("반복")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                    .font(Font.Kkookk.popoverTitle)
                 Spacer()
             }
             
@@ -36,6 +35,7 @@ struct EditRepeatingDaysOfPromiseView: View {
                                 .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? getPointColor(subject: subject) : Color.Kkookk.unselectedTabGray)
                                 .cornerRadius(10, antialiased:  true)
                             Text(key)
+                                .font(Font.Kkookk.popoverDays)
                                 .foregroundColor(repeatedDaysOfWeekDict[key] ?? false ? Color.Kkookk.commonWhite : Color.Kkookk.commonBlack)
                         }
                     })

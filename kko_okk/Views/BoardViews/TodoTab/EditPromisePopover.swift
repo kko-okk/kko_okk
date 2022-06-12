@@ -43,6 +43,7 @@ struct EditPromisePopover: View {
                     isPresented.toggle()
                 } label: {
                     Text("취소")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
                 
                 Spacer()
@@ -51,8 +52,10 @@ struct EditPromisePopover: View {
                 switch subject {
                 case .parent:
                     Text("부모의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
                 case .child:
                     Text("아이의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
                 }
                 
                 Spacer()
@@ -65,10 +68,10 @@ struct EditPromisePopover: View {
                     isPresented.toggle()
                 } label: {
                     Text("완료")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
             }
             .padding()
-            .font(.title3)
             
             // 약속 제목과 메모를 수정하는 부분
             EditContentsOfPromiseView(name: $name, memo: $memo)
