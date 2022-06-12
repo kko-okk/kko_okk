@@ -67,7 +67,7 @@ struct BarGraph: View {
                         .frame(maxHeight: .infinity, alignment:  .bottom)
                         .offset(y: -15)
                     }
-                }
+                }.padding(.bottom,35)
                 // 데이터에 따른 막대그래프의 값을 표현해줍니다.
                 HStack {
                     ForEach(parentWeeklyReportDatas.indices, id: \.self) { index in
@@ -76,10 +76,11 @@ struct BarGraph: View {
 
                         VStack(spacing: 0) {
                             // 부모님과 아이의 막대 그래프 사이의 간격을 spacing을 조절합니다
-                            HStack(alignment:.bottom, spacing: 4) {
+                            HStack(alignment: .bottom, spacing: 4) {
                                 VStack(spacing: 0) {
                                         ParentAnimatedBarGraph(parentWeeklyReportData: parentWeeklyReportDatas[index], index: index)
                                 }
+                                
                                 // 부모님의 막대 그래프의 넓이를 조절합니다.
                                 .frame(width: 15)
                                 .frame(height: getBarHeight(point: parentWeeklyReportData.value, size: proxy.size))
@@ -89,13 +90,22 @@ struct BarGraph: View {
                                 // 아이의 막대 그래프의 넓이를 조절합니다.
                                 .frame(width: 15)
                                 .frame(height: getBarHeight(point: childWeeklyReportData.value, size: proxy.size))
-                            }
+                            }.padding(.bottom,20)
+                            
                             // x축(월,일)을 표현합니다.
-                            Text(
-                                parentWeeklyReportData.key
-                            )
-                                .font(.caption)
-                                .frame(height: 25, alignment: .bottom)
+                            VStack(alignment: .center) {
+                                Text(
+                                    "\(parentWeeklyReportData.dayData)"
+                                )
+                                    .font(.Kkookk.weeklyReportViewMainCell)
+                                //일
+                                Text(
+                                    "\(parentWeeklyReportData.monthData)"
+                                )
+                                    .font(.Kkookk.weeklyReportViewMainCell)
+                                //월
+                            }
+                            
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                     }

@@ -10,7 +10,8 @@ import SwiftUI
 struct ParentWeeklyReportData: Identifiable {
     var id = UUID().uuidString
     var value: CGFloat
-    var key: String
+    var monthData: String
+    var dayData: String
     var color: Color = Color.Kkookk.parentPurple
 }
 
@@ -28,13 +29,27 @@ struct CommonWeeklyReportData: Identifiable {
 }
 
 var parentWeeklyReportDatas: [ParentWeeklyReportData] = [
-    ParentWeeklyReportData(value: 70, key: "6월 4일"),
-    ParentWeeklyReportData(value: 66, key: "6월 5일"),
-    ParentWeeklyReportData(value: 80, key: "6월 6일"),
-    ParentWeeklyReportData(value: 53, key: "6월 7일"),
-    ParentWeeklyReportData(value: 97, key: "6월 8일"),
-    ParentWeeklyReportData(value: 23, key: "6월 9일"),
-    ParentWeeklyReportData(value: 90, key: "6월 10일")
+    ParentWeeklyReportData(value: 70,
+                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.daySixDayBefore)),
+    ParentWeeklyReportData(value: 66,
+                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
+    ParentWeeklyReportData(value: 80,
+                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFourDayBefore)),
+    ParentWeeklyReportData(value: 53,
+                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayThreeDayBefore)),
+    ParentWeeklyReportData(value: 97,
+                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayTwoDayBefore)),
+    ParentWeeklyReportData(value: 23,
+                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayOneDayBefore)),
+    ParentWeeklyReportData(value: 90,
+                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay))
 ]
 
 var childrenWeeklyReportDatas: [ChildrenWeeklyReportData] = [
@@ -51,3 +66,4 @@ var commonWeeklyReportDatas: [CommonWeeklyReportData] = [
     CommonWeeklyReportData(assignment: "부모님", keyColor: Color("kkookkPurple")),
     CommonWeeklyReportData(assignment: "아이", keyColor: Color("kkookkGreen"))
 ]
+

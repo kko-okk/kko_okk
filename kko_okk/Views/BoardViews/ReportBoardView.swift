@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ReportBoardView: View {
     var body: some View {
-        Spacer()
-        Text("Report Board View")
-        Spacer()
+        VStack {
+            DailyReportView()
+            WeeklyReportView()
+        }
     }
 }
 
