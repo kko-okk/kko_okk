@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomDatePicker: View {
     @Binding var currentDate: Date
+    @State var currentMonth: Int = 0
+    
     let days: [String] = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
     
     var body: some View {
@@ -49,6 +51,25 @@ struct CustomDatePicker: View {
                         .frame(maxWidth: .infinity)
                 }
             }
+            
+            let columns = Array(repeating: GridItem(.flexible()), count: 7)
+            
+            LazyVGrid(columns: columns, spacing: 15) {
+                ForEach(extractDate()) { value in
+                    Text("\(value.day)")
+                        .font(.title3.bold())
+                }
+            }
+        }
+    }
+    func extractDate() -> [DateValue] {
+        let calendar = Calendar.current
+        guard let currentMonth = calendar.date(byAdding: .month, value: self.currentMonth, to: Date()) else { return [] }
+        
+        return currentMonth.getAllDates().compactMap { date -> DateValue in
+            let day = calendar.component(.day, from: date)
+            
+            return DateValue(day: day, date: date)
         }
     }
 }
@@ -63,6 +84,7 @@ extension Date {
     func getAllDates() -> [Date] {
         let calendar = Calendar.current
         let range = calendar.range(of: .day, in: .month, for: self)!
+        
         return range.compactMap { day -> Date in
             return calendar.date(byAdding: .day, value: day, to: self)!
         }

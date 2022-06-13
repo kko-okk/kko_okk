@@ -13,6 +13,7 @@
 		0A6770002855E0BB007458BE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A676FFF2855E0BB007458BE /* Date.swift */; };
 		0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A677021285722E7007458BE /* MonthlyReportView.swift */; };
 		0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6770242857C07B007458BE /* CustomDatePicker.swift */; };
+		0A6770272857C882007458BE /* MonthlyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6770262857C882007458BE /* MonthlyReportData.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
@@ -111,6 +112,7 @@
 		0A676FFF2855E0BB007458BE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		0A677021285722E7007458BE /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportView.swift; sourceTree = "<group>"; };
 		0A6770242857C07B007458BE /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		0A6770262857C882007458BE /* MonthlyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportData.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				0A17F8A02851372E007CDEDC /* DailyReportData.swift */,
 				0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */,
+				0A6770262857C882007458BE /* MonthlyReportData.swift */,
 			);
 			path = MockupData;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
 				0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */,
 				A81DE5FD285326C7009E9938 /* EditView.swift in Sources */,
+				0A6770272857C882007458BE /* MonthlyReportData.swift in Sources */,
 				0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */,
 				A8A477212849FB430005B4E2 /* Font.swift in Sources */,
 				0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */,
