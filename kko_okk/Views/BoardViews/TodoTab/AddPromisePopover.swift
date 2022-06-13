@@ -24,9 +24,12 @@ struct AddPromisePopover: View {
     // 반복 요일
     @State var isRepeating: [Bool] = [false, false, false, false, false, false, false]
     
+    //
+    let popoverAssets = PopoverAssets()
+    
     var body: some View {
         VStack {
-            // 팝오버 헤더.
+            // 팝오버 네비게이션 바
             // 취소, 타이틀, 완료 버튼(약속 생성 및 CoreData 업데이트)으로 구성.
             HStack {
                 // Popover 닫기
@@ -34,16 +37,19 @@ struct AddPromisePopover: View {
                     isPresented.toggle()
                 } label: {
                     Text("취소")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
                 
                 Spacer()
                 
-                // 입력받은 enum 값에 따라 popover 상단 바의 제목을 바꿔주기.
+                // 입력받은 enum 값에 따라 popover 네비게이션 바의 제목을 바꿔주기.
                 switch subject {
                 case .parent:
                     Text("부모의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
                 case .child:
                     Text("아이의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
                 }
                 
                 Spacer()
@@ -56,22 +62,23 @@ struct AddPromisePopover: View {
                     isPresented.toggle()
                 } label: {
                     Text("완료")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
             }
-            .padding()
-            .font(.title3)
+            .frame(width: popoverAssets.popoverEditingBoxWidth * 0.98)
             
             // 약속 제목과 메모를 수정하는 부분
             EditContentsOfPromiseView(name: $name, memo: $memo)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
             
             //            // 반복 날짜 선택 버튼
             //            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
             
             // 반복 날짜 선택 버튼
-            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
+            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
         }
-        .padding()
-        .frame(width: 800, height: 500)
+        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight)
         .background(.bar)
     }
 }
