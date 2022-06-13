@@ -57,16 +57,23 @@ struct TitleLeadingView: View {
         VStack(alignment: .leading){
             Spacer()
             
-            HStack(spacing:0){
-                Text("\(HVA.kkookkDate(date: date))")
-                    .font(Font.Kkookk.headerDate)
-                    .foregroundColor(Color.Kkookk.commonBlack)
+            ZStack{
+                HStack{
+                    Text("\(HVA.kkookkDate(date: date))")
+                        .font(Font.Kkookk.headerDate)
+                        .foregroundColor(Color.Kkookk.commonBlack)
+                       Spacer()
+                }//HStack
                 
-                DatePickerView(date: $date)
-                    .frame(width: 20, height: 20, alignment: .leading)
-                    .padding(.leading,5)
-            }//HStack
-            
+                HStack{
+                    DatePickerView(date: $date)
+                        .frame(width: 20, height: 20, alignment: .leading)
+                        .padding(.leading,220)
+                    Spacer()
+                }//HStack
+             
+            }//ZStack
+
             Spacer()
             
             HStack(spacing:0){
