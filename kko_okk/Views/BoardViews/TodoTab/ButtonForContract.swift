@@ -9,8 +9,15 @@ import Foundation
 import SwiftUI
 
 struct ButtonForContract: View {
+    // CoreData 사용을 위해 viewContext 받아오기
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    // 약속, Subject(아이 또는 부모) 받아오기
     var contract: Promise
     var nowSubject: String
+    
+    // Popover 띄우고 닫을 용도
+    @State private var isShowingPopover: Bool = false
     
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
@@ -29,12 +36,21 @@ struct ButtonForContract: View {
                         .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
                         .padding(.bottom, 5)
                         .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Image(systemName: "ellipsis")
-                        .rotationEffect(.degrees(90))
-                        .foregroundColor(.white)
-                        .frame(width: 40, height: 40)
-                        .padding(.top, 10)
+                    
+                    Menu {
+                        Button("수정하기") {
+                            
+                        }
+                        Button("삭제하기") {
+                            
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .rotationEffect(.degrees(90))
+                            .foregroundColor(.white)
+                            .frame(width: 40, height: 40)
+                            .padding(.top, 10)
+                    }
                 }
 
                 Text(contract.memo!)  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
@@ -64,5 +80,9 @@ struct ButtonForContract: View {
             result = contract.subject == "child" ? Color.Kkookk.childGreen : Color.Kkookk.tabDividerGray  // contract.subject가 child인 경우 childGreen, 아니면 tabDividerGray
         }
         return result
+    }
+    
+    private func deletePromise(promise: Promise) {
+        
     }
 }
