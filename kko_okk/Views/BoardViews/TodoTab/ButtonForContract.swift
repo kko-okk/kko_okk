@@ -83,6 +83,16 @@ struct ButtonForContract: View {
     }
     
     private func deletePromise(promise: Promise) {
+        withAnimation {
+            viewContext.delete(promise)
+        }
         
+        // 데이터 저장
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
     }
 }
