@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-enum BannerViews : CaseIterable{
+enum BannerViews: CaseIterable{
     case view1
     case view2
     case view3
@@ -16,37 +16,29 @@ enum BannerViews : CaseIterable{
 
 class RollingBannerController{
     @ViewBuilder
-    func pageing(view:BannerViews) -> some View{
+    func pageing(view: BannerViews) -> some View{
         switch view{
         case .view1:
-            BannerView_1()
+            BannerView1()
         case .view2:
-            BannerView_2()
+            BannerView2()
         case .view3:
-            BannerView_3()
+            BannerView3()
         }
     }
 }
 
 
-//롤링배너에 들어갈 View들 입니다.
-//아직 정해진것이 없어서 가데이터로 넣어 놨습니다.
-struct BannerView_1: View {
+//TODO: BannerView1~3은 롤링배너를 안에 들어갈 임시 view들 입니다.
+struct BannerView1: View {
     let HVA = HeaderViewAssets()
-    @State var promise : Int = 6
-    // 코어데이터 적용해서 ㅋ
+    @State var promise: Int = 6
     var body: some View {
-        
         GeometryReader { geometry in
             ZStack{
-                Color(hex: "#F5F0F6")//#61A0AF
-//                VStack{
-//                    Spacer()
-//                    Image("OneHand")//1174 × 1394 //1.187
-//                        .resizable()
-//                        .frame(width: geometry.size.width * 0.4 , height:  geometry.size.width * 0.4 * 1.187)
-//                }
-//                partialColorString
+                Color(hex: "#F5F0F6")
+                //Fix된 색상이 아닙니다.
+                //롤링배너에 들어갈 View가 정해지지 않았습니다.
                 VStack{
                     HStack{
                         Text("이번주에 ")
@@ -59,22 +51,15 @@ struct BannerView_1: View {
                     }
                     Text("약속을 지켰어요")
                         .font(Font.Kkookk.headerDate)
-                }//VStack
-                
-                
-            }//ZStack
-        }//Geo
-        
-        
-        .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0,maxHeight:  HVA.headerViewfullheight, alignment: .bottomLeading)
-    }//View
+                }
+            }
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:  HVA.headerViewfullheight, alignment: .bottomLeading)
+    }
 }
 
 
-
-
-
-struct BannerView_2: View {
+struct BannerView2: View {
     var body: some View {
         ZStack{
             Color.red
@@ -84,20 +69,18 @@ struct BannerView_2: View {
 }
 
 
-struct BannerView_3: View {
+struct BannerView3: View {
     var body: some View {
         ZStack{
             Color.green
             Text("3")
-        }    }
+        }
+    }
 }
-
-
-
 
 
 struct BannerViews_Previews: PreviewProvider {
     static var previews: some View {
-        BannerView_1()
+        BannerView1()
     }
 }

@@ -16,9 +16,7 @@ struct TitleView: View {
     let HVA = HeaderViewAssets()
     
     var body: some View {
-        
         ZStack(alignment: .bottomLeading){
-            //            Color.brown
             TitleBackGroundView()
                 .frame(height: HVA.headerViewCellheight, alignment: .bottomLeading)
                 .cornerRadius(HVA.cornerRadius)
@@ -26,18 +24,16 @@ struct TitleView: View {
             TitleLeadingView()
                 .frame(height: HVA.headerViewCellheight, alignment: .bottomLeading)
                 .clipped()
+            
             TiltleHandsView()
                 .frame(height: HVA.headerViewfullheight, alignment: .bottomTrailing)
-            
-        }//ZStack
+        }
     }
 }
 
 
 struct TitleBackGroundView: View {
-    let HVA = HeaderViewAssets()
     var body: some View {
-        //                Color.red
         Color.white
     }
 }
@@ -45,11 +41,7 @@ struct TitleBackGroundView: View {
 
 struct TitleLeadingView: View {
     @State var date = Date()
-    
     let HVA = HeaderViewAssets()
-    // 미리 만들어 놓은 HeaderViewAssets 클래스를 상수에 할당해 사용하는것입니다.
-    
-    
     let tips: [TipModel] = TipModel.tips
     // 구엘이 미리 만들어 놓은 팁 모델에서 팁을 가져오는 것 입니다.
     
@@ -62,21 +54,20 @@ struct TitleLeadingView: View {
                     Text("\(HVA.kkookkDate(date: date))")
                         .font(Font.Kkookk.headerDate)
                         .foregroundColor(Color.Kkookk.commonBlack)
-                       Spacer()
-                }//HStack
+                    Spacer()
+                }
                 
                 HStack{
                     DatePickerView(date: $date)
                         .frame(width: 20, height: 20, alignment: .leading)
                         .padding(.leading,220)
                     Spacer()
-                }//HStack
-             
-            }//ZStack
-
+                }
+            }
+            
             Spacer()
             
-            HStack(spacing:0){
+            HStack(spacing: 0){
                 Text("오늘 가족과의 약속은 ")
                     .font(Font.Kkookk.headerDefaultTitle)
                     .foregroundColor(Color.Kkookk.commonBlack)
@@ -85,8 +76,6 @@ struct TitleLeadingView: View {
                     .frame(width: HVA.headerImageWidth, height:HVA.headerImageHeight,alignment: .trailing)
                     .foregroundColor(Color.Kkookk.commonBlack)
                 
-                // 이미지를 받지 못해 대충 캡쳐해서 넣어서 Ruyha를 붙여 이름을 넣어 사용했습니다.
-                // 이미지의 프레임을 조절 하려면 반드시 .resizable()를 사용해야 합니다.
                 Text(" 지키셔야 돼요!")
                     .font(Font.Kkookk.headerDefaultTitle)
                     .foregroundColor(Color.Kkookk.commonBlack)
@@ -94,9 +83,9 @@ struct TitleLeadingView: View {
             
             Spacer()
             
-            HStack(spacing:0){
+            HStack(spacing: 0){
                 Text(" TIP ")
-                    .font(.system(size:15 ,weight:.semibold))
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(Color.white)
                     .background(
                         RoundedRectangle(cornerRadius: 5)
@@ -105,12 +94,12 @@ struct TitleLeadingView: View {
                     ).padding(.trailing,5)
                 
                 Text(tips[HVA.RandomTipInt()].conent)
-                    .font(.system(size:15 ,weight:.light))
+                    .font(.system(size: 15, weight: .light))
                     .foregroundColor(Color.Kkookk.commonBlack)
             }
             
             Spacer()
-
+            
         }.padding(.leading,HVA.headerViewfullWidth * 0.02)
     }
 }
@@ -122,7 +111,7 @@ struct TiltleHandsView : View{
             Spacer()
             Image("TitleHands")
                 .resizable()
-                .frame(width: HVA.headerViewfullheight * 1.57, height:HVA.headerViewfullheight,alignment: .trailing)
+                .frame(width: HVA.headerViewfullheight * 1.57, height:HVA.headerViewfullheight, alignment: .trailing)
                 .padding(.trailing,HVA.headerViewfullWidth * 0.053)
         }
     }

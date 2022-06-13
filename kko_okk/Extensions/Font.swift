@@ -24,21 +24,12 @@ enum AppleSDGothicNeoWeight: String {
 
 extension Font {
     enum Kkookk {
-        // HeaderView
-        // "꼬-옥"은 에셋으로
-        
-//        static var headerDefaultTitle: Font { Font.kkookkFont(weight: .regular, size: 30) }\
-        
         static var headerDefaultTitle :Font {
-            if KkookkSize.fullHeight > 1000{
-               return Font.kkookkFont(weight: .regular, size: 30)
-            }else{
-                return Font.kkookkFont(weight: .regular, size: 25)
-            }
+            Font.kkookkFont(weight: .regular, size: KkookkSize.fullHeight > 1000 ? 30.0 : 25.0)
         }//화면 크기에 따라 폰트가 달라짐
         
         static var headerDate: Font { Font.kkookkFont(weight: .light, size: 20) }
-
+        
         // BoardView - Tab
         static var boardTabSelected: Font { Font.kkookkFont(weight: .bold, size: 20) }
         static var boardTabUnselected: Font { Font.kkookkFont(weight: .bold, size: 19) }
