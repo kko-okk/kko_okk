@@ -15,6 +15,7 @@ struct MonthlyReportView: View {
             VStack(spacing: 20) {
                 CustomDatePicker(currentDate: $currentDate)
             }
+            .padding(.vertical)
         }
     }
 }

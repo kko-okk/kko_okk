@@ -72,6 +72,35 @@ struct CustomDatePicker: View {
                         }
                 }
             }
+            
+            VStack(spacing: 15) {
+                Text("우리가 한 약속들을 확인해보세요!")
+                    .font(.title2.bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 20)
+
+                if let task = tasks.first(where: { task in
+                    return isSameDay(date1: task.taskDate, date2: currentDate)
+                }) {
+                    ForEach(task.task) { task in
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(task.time.addingTimeInterval(CGFloat.random(in: 0...5000)), style: .time)
+                            Text(task.title)
+                                .font(.title2.bold())
+                        }
+                        .padding(.vertical, 10)
+                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            Color("kkookkGreen")
+                                .cornerRadius(10)
+                            )
+                    }
+                } else {
+                    Text("오늘 우리 가족은 약속이 없었어요!!")
+                }
+            }
+            .padding()
         }
         .onChange(of: currentMonth) { newValue in
             currentDate = getCurrentMonth()
