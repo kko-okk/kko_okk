@@ -75,7 +75,7 @@ struct EditPromisePopover: View {
                 .padding(.top, popoverAssets.popoverVerticalPadding)
             
             // 반복 날짜 선택 버튼
-            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
+            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
                 .padding(.top, popoverAssets.popoverVerticalPadding)
         }
         .onAppear() {
