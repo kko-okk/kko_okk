@@ -14,7 +14,18 @@ struct ButtonForContract: View {
     
     // 약속, Subject(아이 또는 부모) 받아오기
     var contract: Promise
+    
     var nowSubject: String
+    var subject: Subject {
+        switch nowSubject {
+        case "parent":
+            return .parent
+        case "child":
+            return .child
+        default:
+            return .parent
+        }
+    }
     
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
@@ -38,12 +49,18 @@ struct ButtonForContract: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Menu {
-                        Button("수정하기") {
-                            
+                        Button {
+                            isShowingPopover.toggle()
+                        } label: {
+                            Label("수정하기", systemImage: "pencil")
                         }
-                        Button("삭제하기") {
-                            
+                        
+                        Button(role: .destructive) {
+                            deletePromise(promise: contract)
+                        } label: {
+                            Label("삭제하기", systemImage: "trash")
                         }
+                        
                     } label: {
                         Image(systemName: "ellipsis")
                             .rotationEffect(.degrees(90))
@@ -51,8 +68,11 @@ struct ButtonForContract: View {
                             .frame(width: 40, height: 40)
                             .padding(.top, 10)
                     }
+                    .popover(isPresented: $isShowingPopover) {
+                        EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
+                    }
                 }
-
+                
                 Text(contract.memo!)  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
                     .foregroundColor(.white)
@@ -73,7 +93,7 @@ struct ButtonForContract: View {
         // parameter: contract: Promise(Promise 인스턴스), nowList: String (String 타입, 현재 뷰에서 그리는 리스트)
         // contract: Promise 앞의 for, nowList: String 앞의 now는 각각을 for, now로 사용할 수 있도록 하는 신택스 컴포넌트
         var result: Color  // result 변수는 Color 값이 들어감
-
+        
         if nowList == "parent" {  // nowList 값이 parent와 같은 경우
             result = contract.subject == "parent" ? Color.Kkookk.parentPurple : Color.Kkookk.tabDividerGray  // contract.subject가 parent인 경우 parentPurple, 아니면 tabDividerGray
         } else {  // nowList 값이 parent가 아닌 경우
