@@ -11,7 +11,7 @@ import SwiftUI
 
 enum AppleSDGothicNeoWeight: String {
     case ultraLight = "AppleSDGothicNeoUL00"
-    case thine = "AppleSDGothicNeoT00"
+    case thin = "AppleSDGothicNeoT00"
     case light = "AppleSDGothicNeoL00"
     case regular = "AppleSDGothicNeoR00"
     case medium = "AppleSDGothicNeoM00"
@@ -42,9 +42,22 @@ extension Font {
         static var cellTitle: Font { Font.kkookkFont(weight: .extraBold, size: 23) }
         static var cellContent: Font { Font.kkookkFont(weight: .regular, size: 16) }
         
+        // AddPromisePopover, EditPromisePopover, EditContentsOfPromiseView, EditRepeatingDaysOfPromiseView
+        static var popoverNavigationTitle: Font { Font.kkookkFont(weight: .bold, size: 24) }
+        static var popoverNavigationButton: Font { Font.kkookkFont(weight: .regular, size: 24) }
+        static var popoverTitle: Font { Font.kkookkFont(weight: .bold, size: 20) }
+        static var popoverName: Font { Font.kkookkFont(weight: .regular, size: 16) }
+        static var popoverMemo: Font { Font.kkookkFont(weight: .light, size: 16) }
+        static var popoverDays: Font { Font.kkookkFont(weight: .regular, size: 16) }
+        
         // DailyReportView - Cell
         static var dailyReportViewMainCell: Font { Font.kkookkFont(weight: .semiBold, size: 16) }
-        static var dailyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15)}
+        static var dailyReportViewContentCell: Font { Font.kkookkFont(weight: .semiBold, size: 15) }
+        
+        // WeeklyReportView - Cell
+        static var weeklyReportViewMainCell: Font { Font.kkookkFont(weight: .regular, size: 16) }
+        static var weeklyReportViewContentCell: Font { Font.kkookkFont(weight: .light, size: 14) }
+        
     }
 }
 
