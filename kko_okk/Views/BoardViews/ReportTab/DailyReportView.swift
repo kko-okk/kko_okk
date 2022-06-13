@@ -1,3 +1,10 @@
+//
+//  WeeklyReportView.swift
+//  kko_okk
+//
+//  Created by 이성노 on 2022/06/10.
+//
+
 import SwiftUI
 
 struct DailyReportView: View {

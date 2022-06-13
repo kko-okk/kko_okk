@@ -11,6 +11,8 @@
 		0A17F8AE2853757F007CDEDC /* WeeklyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */; };
 		0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */; };
 		0A6770002855E0BB007458BE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A676FFF2855E0BB007458BE /* Date.swift */; };
+		0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A677021285722E7007458BE /* MonthlyReportView.swift */; };
+		0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6770242857C07B007458BE /* CustomDatePicker.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
@@ -107,6 +109,8 @@
 		0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportData.swift; sourceTree = "<group>"; };
 		0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
 		0A676FFF2855E0BB007458BE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0A677021285722E7007458BE /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportView.swift; sourceTree = "<group>"; };
+		0A6770242857C07B007458BE /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -197,6 +201,15 @@
 			path = MockupData;
 			sourceTree = "<group>";
 		};
+		0A6770232857C05F007458BE /* MonthlyReportView */ = {
+			isa = PBXGroup;
+			children = (
+				0A677021285722E7007458BE /* MonthlyReportView.swift */,
+				0A6770242857C07B007458BE /* CustomDatePicker.swift */,
+			);
+			path = MonthlyReportView;
+			sourceTree = "<group>";
+		};
 		221CC2C228479F68009F4851 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +228,7 @@
 			children = (
 				2261FB102853113600339B23 /* DailyReportView.swift */,
 				0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */,
+				0A6770232857C05F007458BE /* MonthlyReportView */,
 			);
 			path = ReportTab;
 			sourceTree = "<group>";
@@ -567,9 +581,11 @@
 				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				7080B195285320A400A7BD44 /* BannerViews.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
+				0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */,
 				A81DE5FD285326C7009E9938 /* EditView.swift in Sources */,
 				0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */,
 				A8A477212849FB430005B4E2 /* Font.swift in Sources */,
+				0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */,
 				F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
