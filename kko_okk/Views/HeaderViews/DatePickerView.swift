@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DatePickerView: View {
     @Binding var date: Date
-    
+
     let imageSize: CGFloat = 20
     var body: some View {
         ZStack{

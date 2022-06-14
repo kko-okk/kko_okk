@@ -30,15 +30,13 @@ class RollingBannerController{
 
 
 //TODO: BannerView1~3은 롤링배너를 안에 들어갈 임시 view들 입니다.
+//TODO: 사용된 색상또한 임시값입니다.
 struct BannerView1: View {
-    let HVA = HeaderViewAssets()
     @State var promise: Int = 6
     var body: some View {
         GeometryReader { geometry in
             ZStack{
                 Color(hex: "#F5F0F6")
-                //Fix된 색상이 아닙니다.
-                //롤링배너에 들어갈 View가 정해지지 않았습니다.
                 VStack{
                     HStack{
                         Text("이번주에 ")
@@ -54,7 +52,7 @@ struct BannerView1: View {
                 }
             }
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:  HVA.headerViewfullheight, alignment: .bottomLeading)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:  HeaderViewConst.shared.fullHeight, alignment: .bottomLeading)
     }
 }
 

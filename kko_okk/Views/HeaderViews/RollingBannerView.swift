@@ -46,12 +46,6 @@ extension RollingBannerView{
         }
     }
     
-    //롤링베너 Indicator의 사이즈를 변경하기위해 제작
-    //색상까지는 변경 가능하나 사이즈는 변경 불가.
-    func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .black
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-    }
 }
 
 struct RollingBannerView_Previews: PreviewProvider {

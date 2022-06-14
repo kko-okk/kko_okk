@@ -13,26 +13,26 @@
 import SwiftUI
 
 struct TitleView: View {
-    let HVA = HeaderViewAssets()
+   
     
     var body: some View {
         ZStack(alignment: .bottomLeading){
-            TitleBackGroundView()
-                .frame(height: HVA.headerViewCellheight, alignment: .bottomLeading)
-                .cornerRadius(HVA.cornerRadius)
+            TitleBackgroundView()
+                .frame(height: HeaderViewConst.shared.cellHeight, alignment: .bottomLeading)
+                .cornerRadius(HeaderViewConst.shared.cornerRadius)
             
             TitleLeadingView()
-                .frame(height: HVA.headerViewCellheight, alignment: .bottomLeading)
+                .frame(height: HeaderViewConst.shared.cellHeight, alignment: .bottomLeading)
                 .clipped()
             
             TiltleHandsView()
-                .frame(height: HVA.headerViewfullheight, alignment: .bottomTrailing)
+                .frame(height: HeaderViewConst.shared.fullHeight, alignment: .bottomTrailing)
         }
     }
 }
 
 
-struct TitleBackGroundView: View {
+struct TitleBackgroundView: View {
     var body: some View {
         Color.white
     }
@@ -41,17 +41,15 @@ struct TitleBackGroundView: View {
 
 struct TitleLeadingView: View {
     @State var date = Date()
-    let HVA = HeaderViewAssets()
     let tips: [TipModel] = TipModel.tips
     // 구엘이 미리 만들어 놓은 팁 모델에서 팁을 가져오는 것 입니다.
-    
     var body: some View {
         VStack(alignment: .leading){
             Spacer()
             
             ZStack{
                 HStack{
-                    Text("\(HVA.kkookkDate(date: date))")
+                    Text("\(HeaderViewConst.shared.dateToString(date: date))")
                         .font(Font.Kkookk.headerDate)
                         .foregroundColor(Color.Kkookk.commonBlack)
                     Spacer()
@@ -73,7 +71,7 @@ struct TitleLeadingView: View {
                     .foregroundColor(Color.Kkookk.commonBlack)
                 Image("Ruyha_KKooKK")
                     .resizable()
-                    .frame(width: HVA.headerImageWidth, height:HVA.headerImageHeight,alignment: .trailing)
+                    .frame(width: HeaderViewConst.shared.titleImageWidth, height:HeaderViewConst.shared.titleImageHeight,alignment: .trailing)
                     .foregroundColor(Color.Kkookk.commonBlack)
                 
                 Text(" 지키셔야 돼요!")
@@ -93,26 +91,25 @@ struct TitleLeadingView: View {
                             .frame(width: 38, height: 23)
                     ).padding(.trailing,5)
                 
-                Text(tips[HVA.RandomTipInt()].conent)
+                Text(tips[HeaderViewConst.shared.RandomTipInt()].conent)
                     .font(.system(size: 15, weight: .light))
                     .foregroundColor(Color.Kkookk.commonBlack)
             }
             
             Spacer()
             
-        }.padding(.leading,HVA.headerViewfullWidth * 0.02)
+        }.padding(.leading,HeaderViewConst.shared.fullWidth * 0.02)
     }
 }
 
 struct TiltleHandsView : View{
-    let HVA = HeaderViewAssets()
     var body: some View{
         HStack{
             Spacer()
             Image("TitleHands")
                 .resizable()
-                .frame(width: HVA.headerViewfullheight * 1.57, height:HVA.headerViewfullheight, alignment: .trailing)
-                .padding(.trailing,HVA.headerViewfullWidth * 0.053)
+                .frame(width: HeaderViewConst.shared.fullHeight * 1.57, height:HeaderViewConst.shared.fullHeight, alignment: .trailing)
+                .padding(.trailing,HeaderViewConst.shared.fullWidth * 0.053)
         }
     }
 }
