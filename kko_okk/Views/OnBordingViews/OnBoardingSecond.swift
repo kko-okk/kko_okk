@@ -27,7 +27,7 @@ struct OnBoardingSecond: View {
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
-            Text("시작하기")
+            Text("다음으로")
                 .font(.system(size: 20, weight: .semibold))
                 .padding(.vertical, 10)
                 .padding(.horizontal, KkookkSize.fullWidth / 5.5)
@@ -35,7 +35,7 @@ struct OnBoardingSecond: View {
                 .background(.blue)
                 .cornerRadius(10)
                 .onTapGesture {
-                    selectedTag = 1
+                    selectedTag = 2
                 }
         }
     }
