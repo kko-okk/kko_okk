@@ -11,29 +11,93 @@ import SwiftUI
 struct ButtonForContract: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-
     var contract: Promise
     var nowSubject: String
     
-    // Gesture 프로퍼티
-    @GestureState var isDetectingLongPress = false
-    @State var completedLongPress = false
+    var cellPairBag: [Promise] = []
     
-    // Gesture 뷰
-    var longPress: some Gesture {
+    // Gesture간 싱크를 맞추기 위한 타이머
+//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var countDownTimer = 2
+    @State var timerRunning = true
+    
+    // Gesture 프로퍼티
+    @GestureState var isDetectingParentLongPress = false
+    @State var completedParentLongPress = false
+    @GestureState var isDetectingChildLongPress = false
+    @State var completedChildLongPress = false
+    
+    @State var isTappedParentCell = false
+    @State var isTappedChildCell = false
+    
+    var rectangleGesture: some Gesture {
+        let longPressGuesture = LongPressGesture(minimumDuration: 2)
+            .updating($isDetectingParentLongPress) { currentState, gestureState,
+                    transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 1.0)
+            }
+            .onEnded { _ in
+                contract.isDone = false
+                contract.promised = true
+            }
+        
+        if contract.subject == "parent" {
+            contract.subject == "parent"
+        } else {
+            contract.subject == "child"
+        }
+        
+        return longPressGuesture
+    }
+    
+    // Parent Gesture 뷰
+    var parentLongPress: some Gesture {
         LongPressGesture(minimumDuration: 2)
-            .updating($isDetectingLongPress) { currentState, gestureState,
+            .updating($isDetectingParentLongPress) { currentState, gestureState,
                     transaction in
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 1.0)
             }
             .onEnded { finished in
-                self.completedLongPress = finished
-                self.contract.promised = true
-                contract.promised = true
-                contract.isDone = false
+                timerRunning = true
+                self.completedParentLongPress = finished
+                self.isTappedParentCell = true
+                
+                
+                print(self.contract.subject == "parent")
+                guard let id = contract.id else { return }
+                print(id)
+                
+//                if (isTappedChildCell && isTappedParentCell) {
+                
+                    contract.isDone = false
+                    contract.promised = true
+//                }
             }
     }
+    
+    // Child Gsture 뷰
+    var childLongPress: some Gesture {
+        LongPressGesture(minimumDuration: 2)
+            .updating($isDetectingChildLongPress) { currentState, gestureState,
+                    transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 1.0)
+            }
+            .onEnded { finished in
+                timerRunning = true
+                self.completedChildLongPress = finished
+                self.isTappedChildCell = true
+//                if (isTappedChildCell && isTappedParentCell) {
+                    contract.isDone = false
+                    contract.promised = true
+                    print(self)
+//                }
+                
+            }
+    }
+
     
     var body: some View {
         
@@ -75,11 +139,32 @@ struct ButtonForContract: View {
             
             // Gesture를 적용한 Stack
             ZStack {
+                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle()
                 Rectangle()
-                    .fill(self.isDetectingLongPress ?
+                    .fill(self.isDetectingParentLongPress ?
                                  Color.yellow :
-                            (self.completedLongPress ? Color.clear : Color.yellow.opacity(0.001)))
-                             .gesture(longPress)
+                            (self.completedParentLongPress ? Color.clear : Color.yellow.opacity(0.001)))
+                    .gesture(rectangleGesture)
+//                    .gesture(parentLongPress)
+                /*
+                             .onReceive(timer) { _ in
+                                 if countDownTimer > 0 && timerRunning {
+                                     if (isTappedParentCell && isTappedChildCell) {
+                                         contract.promised = true
+                                         contract.isDone = false
+                                     }
+                                     print(countDownTimer)
+                                     print(timerRunning)
+                                     countDownTimer -= 1
+                                 } else {
+                                     timerRunning = false
+                                     isTappedParentCell = false
+                                     isTappedChildCell = false
+                                    
+//                                     print("timeout")
+                                 }
+                             }
+                 */
             }
         }
         .background(backGroundColor(for: self.contract, now: self.nowSubject))
@@ -100,4 +185,14 @@ struct ButtonForContract: View {
         }
         return result
     }
+    
+    
+    
+    mutating func controlCellPairBag(input id: UUID){
+        print(cellPairBag[0], cellPairBag[1])
+        if cellPairBag.count == 2 {
+            cellPairBag.removeAll()
+        }
+    }
+    
 }
