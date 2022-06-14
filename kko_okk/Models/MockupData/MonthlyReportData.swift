@@ -13,15 +13,15 @@ struct DateValue: Identifiable {
     var date: Date
 }
 
-struct Task: Identifiable {
+struct MonthlyReportDataTask: Identifiable {
     var id = UUID().uuidString
     var title: String
     var time: Date = Date()
 }
 
-struct TaskMetaData: Identifiable {
+struct MonthlyReportDataTaskMetaData: Identifiable {
     var id = UUID().uuidString
-    var task: [Task]
+    var task: [MonthlyReportDataTask]
     var taskDate: Date
 }
 
@@ -32,22 +32,22 @@ func getSampleDate(offset: Int) -> Date {
     return date ?? Date()
 }
 
-var tasks: [TaskMetaData] = [
-    TaskMetaData(task: [
-        Task(title: "안녕하세요 시험해봅니다?"),
-        Task(title: "반갑습니다 뛰어봅니다?"),
-        Task(title: "누구세요? 팩폭해봅니다?")
+var monthlyReportDataTasks: [MonthlyReportDataTaskMetaData] = [
+    MonthlyReportDataTaskMetaData(task: [
+        MonthlyReportDataTask(title: "안녕하세요 시험해봅니다?"),
+        MonthlyReportDataTask(title: "반갑습니다 뛰어봅니다?"),
+        MonthlyReportDataTask(title: "누구세요? 팩폭해봅니다?")
     ], taskDate: getSampleDate(offset: 1)),
     
-    TaskMetaData(task: [
-        Task(title: "지금은 넬 노래를 듣고있어요")
+    MonthlyReportDataTaskMetaData(task: [
+        MonthlyReportDataTask(title: "지금은 넬 노래를 듣고있어요")
     ], taskDate: getSampleDate(offset: -3)),
     
-    TaskMetaData(task: [
-        Task(title: "참새랑 고양이랑 한 가운데에서 놀고있어요")
+    MonthlyReportDataTaskMetaData(task: [
+        MonthlyReportDataTask(title: "참새랑 고양이랑 한 가운데에서 놀고있어요")
     ], taskDate: getSampleDate(offset: -8)),
     
-    TaskMetaData(task: [
-        Task(title: "마지막으로 씁니다.")
+    MonthlyReportDataTaskMetaData(task: [
+        MonthlyReportDataTask(title: "마지막으로 씁니다.")
     ], taskDate: getSampleDate(offset: 10))
 ]

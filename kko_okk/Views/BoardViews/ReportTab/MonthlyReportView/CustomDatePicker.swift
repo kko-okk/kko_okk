@@ -34,6 +34,7 @@ struct CustomDatePicker: View {
                 } label: {
                     Image(systemName: "chevron.left")
                         .font(.title2)
+                        .foregroundColor(.pink)
                 }
                 
                 Button {
@@ -43,6 +44,7 @@ struct CustomDatePicker: View {
                 } label: {
                     Image(systemName: "chevron.right")
                         .font(.title2)
+                        .foregroundColor(.pink)
                 }
             }
             .padding(.horizontal)
@@ -79,21 +81,20 @@ struct CustomDatePicker: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 20)
 
-                if let task = tasks.first(where: { task in
+                if let task = monthlyReportDataTasks.first(where: { task in
                     return isSameDay(date1: task.taskDate, date2: currentDate)
                 }) {
                     ForEach(task.task) { task in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(task.time.addingTimeInterval(CGFloat.random(in: 0...5000)), style: .time)
-                            Text(task.title)
-                                .font(.title2.bold())
-                        }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        Text(task.title)
+                            .font(.title2.bold())
+                        .padding(.vertical, 30)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(.white)
+                        // 백엔드와 협력하여 부모용, 아이용 셀을 만들 예정입니다.
                         .background(
                             Color("kkookkGreen")
-                                .cornerRadius(10)
+                                .cornerRadius(15)
+                                .frame(height: 80)
                             )
                     }
                 } else {
@@ -111,7 +112,7 @@ struct CustomDatePicker: View {
     func CardView(value: DateValue) -> some View {
         VStack {
             if value.day != -1 {
-                if let task = tasks.first(where: { task in
+                if let task = monthlyReportDataTasks.first(where: { task in
                     return isSameDay(date1: task.taskDate, date2: value.date)
                 }) {
                     Text("\(value.day)")
@@ -146,7 +147,7 @@ struct CustomDatePicker: View {
     
     func extraDate() -> [String] {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY MMMM"
+        formatter.dateFormat = "YYYY M월"
         let date = formatter.string(from: currentDate)
         return date.components(separatedBy: " ")
     }

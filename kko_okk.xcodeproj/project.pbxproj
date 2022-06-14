@@ -246,6 +246,14 @@
 			path = AnimatedBarGragh;
 			sourceTree = "<group>";
 		};
+		0AD4971E2858707400C52FA1 /* DailyReportView */ = {
+			isa = PBXGroup;
+			children = (
+				2261FB102853113600339B23 /* DailyReportView.swift */,
+			);
+			path = DailyReportView;
+			sourceTree = "<group>";
+		};
 		221CC2C228479F68009F4851 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,7 +270,7 @@
 		2261FB0E2853101800339B23 /* ReportTab */ = {
 			isa = PBXGroup;
 			children = (
-				2261FB102853113600339B23 /* DailyReportView.swift */,
+				0AD4971E2858707400C52FA1 /* DailyReportView */,
 				0AD4971528586E2400C52FA1 /* WeeklyReportView */,
 				0A6770232857C05F007458BE /* MonthlyReportView */,
 			);
