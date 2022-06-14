@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8A02851372E007CDEDC /* DailyReportData.swift */; };
+		0A17F8AE2853757F007CDEDC /* WeeklyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */; };
+		0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */; };
+		0A6770002855E0BB007458BE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A676FFF2855E0BB007458BE /* Date.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
@@ -31,6 +34,8 @@
 		9DEB3A2628462A240001959A /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2528462A240001959A /* ContractView.swift */; };
 		9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2728462A4B0001959A /* ButtonForContract.swift */; };
 		9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A3028462AA10001959A /* TodoBoardView.swift */; };
+		A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FA285326B4009E9938 /* LicenseView.swift */; };
+		A81DE5FD285326C7009E9938 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FC285326C7009E9938 /* EditView.swift */; };
 		A8A477212849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
 		A8A477222849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
 		A8A477232849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
@@ -75,6 +80,9 @@
 		F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */; };
 		F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F889B518284C797B006DFEFC /* PromiseCell.swift */; };
 		F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89CAB762849D761006C72BD /* AddPromisePopover.swift */; };
+		F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */; };
+		F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BA2853295F007123E8 /* PopoverAssets.swift */; };
+		F8A424BD28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +104,9 @@
 
 /* Begin PBXFileReference section */
 		0A17F8A02851372E007CDEDC /* DailyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportData.swift; sourceTree = "<group>"; };
+		0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportData.swift; sourceTree = "<group>"; };
+		0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
+		0A676FFF2855E0BB007458BE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -122,6 +133,8 @@
 		9DEB3A2528462A240001959A /* ContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		9DEB3A2728462A4B0001959A /* ButtonForContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForContract.swift; sourceTree = "<group>"; };
 		9DEB3A3028462AA10001959A /* TodoBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBoardView.swift; sourceTree = "<group>"; };
+		A81DE5FA285326B4009E9938 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
+		A81DE5FC285326C7009E9938 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		A8A4771F2849F5BF0005B4E2 /* kko-okk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "kko-okk-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A8A477202849FB430005B4E2 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		A8A477242849FB4A0005B4E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -145,6 +158,9 @@
 		F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromisePopover.swift; sourceTree = "<group>"; };
 		F889B518284C797B006DFEFC /* PromiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCell.swift; sourceTree = "<group>"; };
 		F89CAB762849D761006C72BD /* AddPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromisePopover.swift; sourceTree = "<group>"; };
+		F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsOfPromiseView.swift; sourceTree = "<group>"; };
+		F8A424BA2853295F007123E8 /* PopoverAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAssets.swift; sourceTree = "<group>"; };
+		F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepeatingDaysOfPromiseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				0A17F8A02851372E007CDEDC /* DailyReportData.swift */,
+				0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */,
 			);
 			path = MockupData;
 			sourceTree = "<group>";
@@ -187,6 +204,7 @@
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
+				0A676FFF2855E0BB007458BE /* Date.swift */,
 				0A17F89F285136B4007CDEDC /* MockupData */,
 			);
 			path = Models;
@@ -196,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				2261FB102853113600339B23 /* DailyReportView.swift */,
+				0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */,
 			);
 			path = ReportTab;
 			sourceTree = "<group>";
@@ -277,6 +296,7 @@
 		9DEB3A22284629E90001959A /* TodoTab */ = {
 			isa = PBXGroup;
 			children = (
+				F8A424B928532494007123E8 /* PromisePopoverElements */,
 				9DEB3A20284629E30001959A /* ParentWishView.swift */,
 				9DEB3A2328462A100001959A /* ChildWishView.swift */,
 				9DEB3A2528462A240001959A /* ContractView.swift */,
@@ -301,6 +321,15 @@
 			path = HeaderViews;
 			sourceTree = "<group>";
 		};
+		A81DE5F92853268D009E9938 /* SettingViews */ = {
+			isa = PBXGroup;
+			children = (
+				A81DE5FA285326B4009E9938 /* LicenseView.swift */,
+				A81DE5FC285326C7009E9938 /* EditView.swift */,
+			);
+			path = SettingViews;
+			sourceTree = "<group>";
+		};
 		A8A4770A2849F2BE0005B4E2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,8 +352,9 @@
 				9DEB3A3028462AA10001959A /* TodoBoardView.swift */,
 				A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */,
 				A8C834C12848A34E00C65BE0 /* SettingView.swift */,
-				2261FB0E2853101800339B23 /* ReportTab */,
 				9DEB3A22284629E90001959A /* TodoTab */,
+				2261FB0E2853101800339B23 /* ReportTab */,
+				A81DE5F92853268D009E9938 /* SettingViews */,
 			);
 			path = BoardViews;
 			sourceTree = "<group>";
@@ -346,6 +376,16 @@
 				9D55B4082846289100AFD9C5 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8A424B928532494007123E8 /* PromisePopoverElements */ = {
+			isa = PBXGroup;
+			children = (
+				F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */,
+				F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */,
+				F8A424BA2853295F007123E8 /* PopoverAssets.swift */,
+			);
+			path = PromisePopoverElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,29 +547,36 @@
 			files = (
 				9DEB3A2428462A100001959A /* ChildWishView.swift in Sources */,
 				A8C8349C28471A3B00C65BE0 /* MainView.swift in Sources */,
+				0A17F8AE2853757F007CDEDC /* WeeklyReportData.swift in Sources */,
 				A8A477252849FB4A0005B4E2 /* Color.swift in Sources */,
 				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
 				70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */,
 				A8C834A828471D0400C65BE0 /* Size.swift in Sources */,
+				0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
+				F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */,
 				F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */,
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
 				F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */,
 				22E9005E2849D677000A82BE /* FilteredList.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
+				F8A424BD28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift in Sources */,
 				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				7080B195285320A400A7BD44 /* BannerViews.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
+				A81DE5FD285326C7009E9938 /* EditView.swift in Sources */,
 				0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */,
 				A8A477212849FB430005B4E2 /* Font.swift in Sources */,
 				F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
+				0A6770002855E0BB007458BE /* Date.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
 				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
+				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
 				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
 				22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
@@ -537,6 +584,7 @@
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,
 				A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */,
+				F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
