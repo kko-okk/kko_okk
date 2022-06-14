@@ -1,34 +1,17 @@
 //
-//  ButtonForContract.swift
+//  ButtonForOnboarding.swift
 //  kko_okk
 //
-//  Created by Kim, Che-Pill on 2022/05/30.
+//  Created by Geunil Park on 2022/06/12.
 //
 
 import Foundation
 import SwiftUI
 
-struct ButtonForContract: View {
-    // CoreData 사용을 위해 viewContext 받아오기
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    // 약속, Subject(아이 또는 부모) 받아오기
-    var contract: Promise
-    
+struct ButtonForOnboarding: View {
+    var contract: PromiseModel
     var nowSubject: String
-    var subject: Subject {
-        switch nowSubject {
-        case "parent":
-            return .parent
-        case "child":
-            return .child
-        default:
-            return .parent
-        }
-    }
-    
-    // Popover 띄우고 닫을 용도
-    @State private var isShowingPopover: Bool = false
+    @State private var animationAmount: CGFloat = 1
     
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
@@ -39,7 +22,7 @@ struct ButtonForContract: View {
             // 두 번째 줄은 세부 내용이 들어가는 영역
             VStack {
                 HStack {
-                    Text(contract.name!)  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
+                    Text(contract.name)  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                         .font(.system(size: 23, weight: .black, design: .rounded))
                         .foregroundColor(  // contract.subject 와 nowSubject가 같은 경우 폰트 색을 검은 색(Kkkook.backgroundGray), 아니면 흰 색으로 변경
                             contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
@@ -47,33 +30,15 @@ struct ButtonForContract: View {
                         .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
                         .padding(.bottom, 5)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Menu {
-                        Button {
-                            isShowingPopover.toggle()
-                        } label: {
-                            Label("수정하기", systemImage: "pencil")
-                        }
-                        
-                        Button(role: .destructive) {
-                            deletePromise(promise: contract)
-                        } label: {
-                            Label("삭제하기", systemImage: "trash")
-                        }
-                        
-                    } label: {
-                        Image(systemName: "ellipsis")
-                            .rotationEffect(.degrees(90))
-                            .foregroundColor(.white)
-                            .frame(width: 40, height: 40)
-                            .padding(.top, 10)
-                    }
-                    .popover(isPresented: $isShowingPopover) {
-                        EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
-                    }
+
+                    Image(systemName: "ellipsis")
+                        .rotationEffect(.degrees(90))
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                        .padding(.top, 10)
                 }
-                
-                Text(contract.memo!)  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
+
+                Text(contract.memo)  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
                     .foregroundColor(.white)
                     .lineLimit(3)
@@ -86,33 +51,30 @@ struct ButtonForContract: View {
         .background(backGroundColor(for: self.contract, now: self.nowSubject))
         .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
         .padding([.leading, .trailing], 14)
+        .overlay(
+            Circle()
+                .stroke(Color.yellow, lineWidth: 2)
+                .scaleEffect(animationAmount)
+                //animationAmount가 1이면 불트명이 1이고, 2이면 불투명도가 0이다
+                .opacity(Double(2 - animationAmount))
+                .animation(Animation.easeInOut(duration: 1)
+                                    .repeatForever(autoreverses: false),
+                           value: animationAmount)
+        )
+        .onAppear { self.animationAmount = 2 }
     }
     
     // 버튼 색을 반환하는 함수
-    private func backGroundColor(for contract: Promise, now nowList: String) -> Color {
+    private func backGroundColor(for contract: PromiseModel, now nowList: String) -> Color {
         // parameter: contract: Promise(Promise 인스턴스), nowList: String (String 타입, 현재 뷰에서 그리는 리스트)
         // contract: Promise 앞의 for, nowList: String 앞의 now는 각각을 for, now로 사용할 수 있도록 하는 신택스 컴포넌트
         var result: Color  // result 변수는 Color 값이 들어감
-        
+
         if nowList == "parent" {  // nowList 값이 parent와 같은 경우
             result = contract.subject == "parent" ? Color.Kkookk.parentPurple : Color.Kkookk.tabDividerGray  // contract.subject가 parent인 경우 parentPurple, 아니면 tabDividerGray
         } else {  // nowList 값이 parent가 아닌 경우
             result = contract.subject == "child" ? Color.Kkookk.childGreen : Color.Kkookk.tabDividerGray  // contract.subject가 child인 경우 childGreen, 아니면 tabDividerGray
         }
         return result
-    }
-    
-    private func deletePromise(promise: Promise) {
-        withAnimation {
-            viewContext.delete(promise)
-        }
-        
-        // 데이터 저장
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
     }
 }
