@@ -85,7 +85,6 @@
 		A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C12848A34E00C65BE0 /* SettingView.swift */; };
 		F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F8F284B2D5900AD05B3 /* Subject.swift */; };
 		F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */; };
-		F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F889B518284C797B006DFEFC /* PromiseCell.swift */; };
 		F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89CAB762849D761006C72BD /* AddPromisePopover.swift */; };
 		F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */; };
 		F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BA2853295F007123E8 /* PopoverAssets.swift */; };
@@ -170,7 +169,6 @@
 		A8C834C12848A34E00C65BE0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F87E1F8F284B2D5900AD05B3 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromisePopover.swift; sourceTree = "<group>"; };
-		F889B518284C797B006DFEFC /* PromiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCell.swift; sourceTree = "<group>"; };
 		F89CAB762849D761006C72BD /* AddPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromisePopover.swift; sourceTree = "<group>"; };
 		F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsOfPromiseView.swift; sourceTree = "<group>"; };
 		F8A424BA2853295F007123E8 /* PopoverAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAssets.swift; sourceTree = "<group>"; };
@@ -333,7 +331,6 @@
 				F89CAB762849D761006C72BD /* AddPromisePopover.swift */,
 				F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */,
 				22E9005D2849D677000A82BE /* FilteredList.swift */,
-				F889B518284C797B006DFEFC /* PromiseCell.swift */,
 			);
 			path = TodoTab;
 			sourceTree = "<group>";
@@ -591,7 +588,6 @@
 				F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */,
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
 				2261FB1C285471B100339B23 /* OnBoardingForth.swift in Sources */,
-				F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */,
 				22E9005E2849D677000A82BE /* FilteredList.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
 				F8A424BD28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift in Sources */,
