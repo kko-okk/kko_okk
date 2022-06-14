@@ -30,7 +30,7 @@ struct ButtonForContract: View {
     @State var isTappedParentCell = false
     @State var isTappedChildCell = false
     
-    var rectangleGesture: some Gesture {
+    var doneGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 2)
             .updating($isDetectingParentLongPress) { currentState, gestureState,
                     transaction in
@@ -38,15 +38,35 @@ struct ButtonForContract: View {
                 transaction.animation = Animation.easeIn(duration: 1.0)
             }
             .onEnded { _ in
+                contract.isDone = true
+            }
+        
+        return longPressGuesture
+    }
+    
+    var rectangleGesture: some Gesture {
+        let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+            .updating($isDetectingParentLongPress) { currentState, gestureState,
+                    transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+                
+                guard let id = contract.id else { fatalError() }
+                
+                if contract.subject == "parent" {
+                    print("아빠, \(id) \(Unmanaged.passUnretained(contract).toOpaque())")
+                } else {
+                    print("아이, \(id) \(Unmanaged.passUnretained(contract).toOpaque())")
+                }
+                
+                
+            }
+            .onEnded { _ in
                 contract.isDone = false
                 contract.promised = true
             }
         
-        if contract.subject == "parent" {
-            contract.subject == "parent"
-        } else {
-            contract.subject == "child"
-        }
+        
         
         return longPressGuesture
     }
@@ -138,14 +158,30 @@ struct ButtonForContract: View {
             }
             
             // Gesture를 적용한 Stack
+
             ZStack {
                 // fill modifier를 사용하기 위해 Spacer()대신 Rectangle()
-                Rectangle()
-                    .fill(self.isDetectingParentLongPress ?
-                                 Color.yellow :
-                            (self.completedParentLongPress ? Color.clear : Color.yellow.opacity(0.001)))
-                    .gesture(rectangleGesture)
-//                    .gesture(parentLongPress)
+                if contract.promised {
+                    Rectangle()
+                        .fill(self.isDetectingParentLongPress ?
+                                     Color.pink :
+                                (self.completedParentLongPress ? .blue : Color.yellow.opacity(0.5)))
+                        .frame(width: 40, height: 40, alignment: .bottom)
+                        .gesture(doneGesture)
+                } else {
+                    Rectangle()
+                        .fill(self.isDetectingParentLongPress ?
+                                     Color.yellow :
+                                (self.completedParentLongPress ? .blue : Color.yellow.opacity(0.001)))
+                        .gesture(rectangleGesture)
+                }
+                
+                
+//                Rectangle()
+//                    .fill(self.isDetectingParentLongPress ?
+//                                 Color.yellow :
+//                            (self.completedParentLongPress ? .blue : Color.yellow.opacity(0.001)))
+//                    .gesture(rectangleGesture)
                 /*
                              .onReceive(timer) { _ in
                                  if countDownTimer > 0 && timerRunning {
