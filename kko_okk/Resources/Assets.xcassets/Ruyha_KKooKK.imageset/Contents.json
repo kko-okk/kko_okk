@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Ruyha_KKooKK.png",
+      "filename" : "koko-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Ruyha_KKooKK-1.png",
+      "filename" : "koko.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Ruyha_KKooKK-2.png",
+      "filename" : "koko-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -8,14 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8A02851372E007CDEDC /* DailyReportData.swift */; };
+		0A17F8AE2853757F007CDEDC /* WeeklyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */; };
+		0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */; };
+		0A6770002855E0BB007458BE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A676FFF2855E0BB007458BE /* Date.swift */; };
+		0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A677021285722E7007458BE /* MonthlyReportView.swift */; };
+		0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6770242857C07B007458BE /* CustomDatePicker.swift */; };
+		0A6770272857C882007458BE /* MonthlyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6770262857C882007458BE /* MonthlyReportData.swift */; };
+		0AD4971728586E3700C52FA1 /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971628586E3700C52FA1 /* BarGraph.swift */; };
+		0AD4971A28586E9C00C52FA1 /* ParentAnimatedBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */; };
+		0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
+		2261FB1428546EC200339B23 /* OnBoardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB1328546EC200339B23 /* OnBoardingTabView.swift */; };
+		2261FB162854718B00339B23 /* OnBoardingFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB152854718B00339B23 /* OnBoardingFirst.swift */; };
+		2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB172854719F00339B23 /* OnBoardingSecond.swift */; };
+		2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB19285471A800339B23 /* OnBoardingThird.swift */; };
+		2261FB1C285471B100339B23 /* OnBoardingForth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB1B285471B100339B23 /* OnBoardingForth.swift */; };
+		227607702855955600EE86C6 /* PromiseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276076F2855955600EE86C6 /* PromiseModel.swift */; };
+		22760772285596AC00EE86C6 /* ButtonForOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22760771285596AC00EE86C6 /* ButtonForOnboarding.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
 		22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */; };
 		22E9005E2849D677000A82BE /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9005D2849D677000A82BE /* FilteredList.swift */; };
 		7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B1922853209200A7BD44 /* RollingBannerView.swift */; };
 		7080B195285320A400A7BD44 /* BannerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B194285320A400A7BD44 /* BannerViews.swift */; };
-		70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */; };
+		70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */; };
 		70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBA284C8327009AAB79 /* DatePickerView.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
 		9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* ContentView.swift */; };
@@ -75,10 +91,9 @@
 		A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C12848A34E00C65BE0 /* SettingView.swift */; };
 		F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F8F284B2D5900AD05B3 /* Subject.swift */; };
 		F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */; };
-		F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F889B518284C797B006DFEFC /* PromiseCell.swift */; };
 		F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89CAB762849D761006C72BD /* AddPromisePopover.swift */; };
 		F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */; };
-		F8A424BB2853295F007123E8 /* PopoverViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BA2853295F007123E8 /* PopoverViewAssets.swift */; };
+		F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BA2853295F007123E8 /* PopoverAssets.swift */; };
 		F8A424BD28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,14 +116,30 @@
 
 /* Begin PBXFileReference section */
 		0A17F8A02851372E007CDEDC /* DailyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportData.swift; sourceTree = "<group>"; };
+		0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportData.swift; sourceTree = "<group>"; };
+		0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyReportView.swift; sourceTree = "<group>"; };
+		0A676FFF2855E0BB007458BE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0A677021285722E7007458BE /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportView.swift; sourceTree = "<group>"; };
+		0A6770242857C07B007458BE /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		0A6770262857C882007458BE /* MonthlyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportData.swift; sourceTree = "<group>"; };
+		0AD4971628586E3700C52FA1 /* BarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
+		0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentAnimatedBarGraph.swift; sourceTree = "<group>"; };
+		0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenAnimatedBarGraph.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
+		2261FB1328546EC200339B23 /* OnBoardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingTabView.swift; sourceTree = "<group>"; };
+		2261FB152854718B00339B23 /* OnBoardingFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFirst.swift; sourceTree = "<group>"; };
+		2261FB172854719F00339B23 /* OnBoardingSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSecond.swift; sourceTree = "<group>"; };
+		2261FB19285471A800339B23 /* OnBoardingThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingThird.swift; sourceTree = "<group>"; };
+		2261FB1B285471B100339B23 /* OnBoardingForth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingForth.swift; sourceTree = "<group>"; };
+		2276076F2855955600EE86C6 /* PromiseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseModel.swift; sourceTree = "<group>"; };
+		22760771285596AC00EE86C6 /* ButtonForOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForOnboarding.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22E9005D2849D677000A82BE /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 		7080B1922853209200A7BD44 /* RollingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingBannerView.swift; sourceTree = "<group>"; };
 		7080B194285320A400A7BD44 /* BannerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViews.swift; sourceTree = "<group>"; };
-		70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewAssets.swift; sourceTree = "<group>"; };
+		70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConst.swift; sourceTree = "<group>"; };
 		70DAECBA284C8327009AAB79 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
@@ -150,10 +181,9 @@
 		A8C834C12848A34E00C65BE0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F87E1F8F284B2D5900AD05B3 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromisePopover.swift; sourceTree = "<group>"; };
-		F889B518284C797B006DFEFC /* PromiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCell.swift; sourceTree = "<group>"; };
 		F89CAB762849D761006C72BD /* AddPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromisePopover.swift; sourceTree = "<group>"; };
 		F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentsOfPromiseView.swift; sourceTree = "<group>"; };
-		F8A424BA2853295F007123E8 /* PopoverViewAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewAssets.swift; sourceTree = "<group>"; };
+		F8A424BA2853295F007123E8 /* PopoverAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAssets.swift; sourceTree = "<group>"; };
 		F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepeatingDaysOfPromiseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,8 +216,54 @@
 			isa = PBXGroup;
 			children = (
 				0A17F8A02851372E007CDEDC /* DailyReportData.swift */,
+				0A17F8AD2853757E007CDEDC /* WeeklyReportData.swift */,
+				0A6770262857C882007458BE /* MonthlyReportData.swift */,
 			);
 			path = MockupData;
+			sourceTree = "<group>";
+		};
+		0A6770232857C05F007458BE /* MonthlyReportView */ = {
+			isa = PBXGroup;
+			children = (
+				0A677021285722E7007458BE /* MonthlyReportView.swift */,
+				0A6770242857C07B007458BE /* CustomDatePicker.swift */,
+			);
+			path = MonthlyReportView;
+			sourceTree = "<group>";
+		};
+		0AD4971528586E2400C52FA1 /* WeeklyReportView */ = {
+			isa = PBXGroup;
+			children = (
+				0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */,
+				0AD4971828586E8900C52FA1 /* BarGraph */,
+			);
+			path = WeeklyReportView;
+			sourceTree = "<group>";
+		};
+		0AD4971828586E8900C52FA1 /* BarGraph */ = {
+			isa = PBXGroup;
+			children = (
+				0AD4971628586E3700C52FA1 /* BarGraph.swift */,
+				0AD4971D28586F0400C52FA1 /* AnimatedBarGragh */,
+			);
+			path = BarGraph;
+			sourceTree = "<group>";
+		};
+		0AD4971D28586F0400C52FA1 /* AnimatedBarGragh */ = {
+			isa = PBXGroup;
+			children = (
+				0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */,
+				0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */,
+			);
+			path = AnimatedBarGragh;
+			sourceTree = "<group>";
+		};
+		0AD4971E2858707400C52FA1 /* DailyReportView */ = {
+			isa = PBXGroup;
+			children = (
+				2261FB102853113600339B23 /* DailyReportView.swift */,
+			);
+			path = DailyReportView;
 			sourceTree = "<group>";
 		};
 		221CC2C228479F68009F4851 /* Models */ = {
@@ -196,7 +272,9 @@
 				22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */,
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
+				2276076F2855955600EE86C6 /* PromiseModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
+				0A676FFF2855E0BB007458BE /* Date.swift */,
 				0A17F89F285136B4007CDEDC /* MockupData */,
 			);
 			path = Models;
@@ -205,9 +283,23 @@
 		2261FB0E2853101800339B23 /* ReportTab */ = {
 			isa = PBXGroup;
 			children = (
-				2261FB102853113600339B23 /* DailyReportView.swift */,
+				0AD4971E2858707400C52FA1 /* DailyReportView */,
+				0AD4971528586E2400C52FA1 /* WeeklyReportView */,
+				0A6770232857C05F007458BE /* MonthlyReportView */,
 			);
 			path = ReportTab;
+			sourceTree = "<group>";
+		};
+		2261FB1228546E8500339B23 /* OnBordingViews */ = {
+			isa = PBXGroup;
+			children = (
+				2261FB152854718B00339B23 /* OnBoardingFirst.swift */,
+				2261FB172854719F00339B23 /* OnBoardingSecond.swift */,
+				2261FB19285471A800339B23 /* OnBoardingThird.swift */,
+				2261FB1B285471B100339B23 /* OnBoardingForth.swift */,
+				22760771285596AC00EE86C6 /* ButtonForOnboarding.swift */,
+			);
+			path = OnBordingViews;
 			sourceTree = "<group>";
 		};
 		9D55B3F82846289000AFD9C5 = {
@@ -278,6 +370,8 @@
 				A8C8349B28471A3B00C65BE0 /* MainView.swift */,
 				A8C8349D28471A7D00C65BE0 /* HeaderView.swift */,
 				A8C8349F28471AA300C65BE0 /* SegmentView.swift */,
+				2261FB1328546EC200339B23 /* OnBoardingTabView.swift */,
+				2261FB1228546E8500339B23 /* OnBordingViews */,
 				9DEB3A2928462A5C0001959A /* HeaderViews */,
 				A8C834982847167300C65BE0 /* BoardViews */,
 			);
@@ -295,7 +389,6 @@
 				F89CAB762849D761006C72BD /* AddPromisePopover.swift */,
 				F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */,
 				22E9005D2849D677000A82BE /* FilteredList.swift */,
-				F889B518284C797B006DFEFC /* PromiseCell.swift */,
 			);
 			path = TodoTab;
 			sourceTree = "<group>";
@@ -304,7 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				A8C834A92847334400C65BE0 /* TitleView.swift */,
-				70DAECB42849E0F5009AAB79 /* HeaderViewAssets.swift */,
+				70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */,
 				70DAECBA284C8327009AAB79 /* DatePickerView.swift */,
 				7080B1922853209200A7BD44 /* RollingBannerView.swift */,
 				7080B194285320A400A7BD44 /* BannerViews.swift */,
@@ -374,7 +467,7 @@
 			children = (
 				F8A424B728532486007123E8 /* EditContentsOfPromiseView.swift */,
 				F8A424BC28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift */,
-				F8A424BA2853295F007123E8 /* PopoverViewAssets.swift */,
+				F8A424BA2853295F007123E8 /* PopoverAssets.swift */,
 			);
 			path = PromisePopoverElements;
 			sourceTree = "<group>";
@@ -538,41 +631,56 @@
 			files = (
 				9DEB3A2428462A100001959A /* ChildWishView.swift in Sources */,
 				A8C8349C28471A3B00C65BE0 /* MainView.swift in Sources */,
+				0A17F8AE2853757F007CDEDC /* WeeklyReportData.swift in Sources */,
 				A8A477252849FB4A0005B4E2 /* Color.swift in Sources */,
+				0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */,
+				2261FB162854718B00339B23 /* OnBoardingFirst.swift in Sources */,
 				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
 				70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */,
 				A8C834A828471D0400C65BE0 /* Size.swift in Sources */,
+				0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
+				0AD4971728586E3700C52FA1 /* BarGraph.swift in Sources */,
 				F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */,
 				F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */,
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
-				F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */,
+				0AD4971A28586E9C00C52FA1 /* ParentAnimatedBarGraph.swift in Sources */,
+				2261FB1C285471B100339B23 /* OnBoardingForth.swift in Sources */,
 				22E9005E2849D677000A82BE /* FilteredList.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,
 				F8A424BD28532C15007123E8 /* EditRepeatingDaysOfPromiseView.swift in Sources */,
 				A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */,
 				7080B195285320A400A7BD44 /* BannerViews.swift in Sources */,
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
+				0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */,
 				A81DE5FD285326C7009E9938 /* EditView.swift in Sources */,
+				0A6770272857C882007458BE /* MonthlyReportData.swift in Sources */,
 				0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */,
 				A8A477212849FB430005B4E2 /* Font.swift in Sources */,
+				0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */,
 				F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
+				0A6770002855E0BB007458BE /* Date.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
-				70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */,
+				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
+				227607702855955600EE86C6 /* PromiseModel.swift in Sources */,
 				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
 				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
 				22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
+				2261FB1428546EC200339B23 /* OnBoardingTabView.swift in Sources */,
+				2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */,
+				2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */,
+				22760772285596AC00EE86C6 /* ButtonForOnboarding.swift in Sources */,
 				7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */,
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,
 				A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */,
-				F8A424BB2853295F007123E8 /* PopoverViewAssets.swift in Sources */,
+				F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

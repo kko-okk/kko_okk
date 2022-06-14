@@ -12,21 +12,24 @@ struct ContractView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("엄빠-아이 계약!", text: .constant(""))
+                TextField("우리가 만든 약속", text: .constant(""))
                     .padding(.leading, 10)
                 
-                Circle()  // 자신이 주체가 된 약속의 갯수를 나타내는 원
-                // 쉽게 말해 자신에게 할당된 작업 == 상대방이 생성한 약속에 대해 동의해서 수행해야 하는 약속으로 들어간 갯수
+                // 만든 약속의 갯수
+                Circle()
                     .fill(Color.gray.opacity(0.4))
                     .frame(width: 20, height: 20)
                     .overlay(
-                        Text("1")
+                        Text("10")
                             .font(.system(size: 10))
                     )
                 
-                Spacer()
-                    .frame(width: 50, height: 30)
                 
+                Spacer()
+                    .frame(width: 10, height: 30)
+                
+                
+                /*
                 Button(action: {
                     print("No-function rectangle tapped")
                 }) {
@@ -35,6 +38,7 @@ struct ContractView: View {
                         .fill(Color.white)
                         .frame(width: 30, height: 30)
                 }
+                 */
             }
             .padding(.trailing, 10)
 
