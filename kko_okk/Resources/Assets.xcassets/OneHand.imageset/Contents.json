@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "koko-2.png",
+      "filename" : "OneHand.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "koko.png",
+      "filename" : "OneHand-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "koko-1.png",
+      "filename" : "OneHand-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
