@@ -11,10 +11,13 @@ import SwiftUI
 struct ButtonForContract: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     // 약속, Subject(아이 또는 부모) 받아오기
     @ObservedObject var contract: Promise
-    
+
+    // Popover 띄우고 닫을 용도
+    @State private var isShowingPopover: Bool = false
+
     var nowSubject: String
     var subject: Subject {
         switch nowSubject {
@@ -26,18 +29,13 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-    
-    // Popover 띄우고 닫을 용도
-    @State private var isShowingPopover: Bool = false
-    
-    var cellPairBag: [Promise] = []
-    
-    // Gesture간 싱크를 맞추기 위한 타이머
-////    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
+//   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 //    @State var countDownTimer = 2
 //    @State var timerRunning = true
-    
-    // Gesture 프로퍼티
+
+    // MARK: - Gesture 프로퍼티
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
     
@@ -45,9 +43,8 @@ struct ButtonForContract: View {
     @GestureState var isDetachingChildCheck = false
     @State var completedParentCheck = false
     @State var completedChildCheck = false
-    
-    
-    
+
+    // MARK: - 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingParentCheck) { currentState, gestureState,
@@ -63,12 +60,11 @@ struct ButtonForContract: View {
                 } else {
                     self.completedParentCheck = false
                 }
-                
             }
-        
         return longPressGuesture
     }
-    
+
+    // MARK: - 자식이 약속 이행을 확인하는 Gesture
     var childCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingChildCheck) { currentState, gestureState,
@@ -85,44 +81,16 @@ struct ButtonForContract: View {
                     self.completedChildCheck = false
                 }
             }
-        
+
         return longPressGuesture
     }
-    
-    
-    
-/*
-    var doneGesture: some Gesture {
-        let longPressGuesture = LongPressGesture(minimumDuration: 2)
-            .updating($isDetectingLongPress) { currentState, gestureState,
-                    transaction in
-                gestureState = currentState
-                transaction.animation = Animation.easeIn(duration: 1.0)
-            }
-            .onEnded { _ in
-                contract.isDone = true
-            }
-        
-        return longPressGuesture
-    }
-*/
+
     var promiseGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetectingLongPress) { currentState, gestureState,
                     transaction in
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
-                
-                
-                /*
-                guard let id = contract.id else { fatalError() }
-                
-                if contract.subject == "parent" {
-                    print("아빠, \(id) \(Unmanaged.passUnretained(contract).toOpaque())")
-                } else {
-                    print("아이, \(id) \(Unmanaged.passUnretained(contract).toOpaque())")
-                }
-                 */
             }
             .onEnded { _ in
                 contract.isDone = false
@@ -130,9 +98,8 @@ struct ButtonForContract: View {
             }
         return longPressGuesture
     }
-    
+
     var body: some View {
-        
         // Stack을 버튼으로 사용하기 위한 UI
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
@@ -175,7 +142,7 @@ struct ButtonForContract: View {
                         EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                     }
                 }
-                
+
                 Text(contract.memo ?? "내용 없음")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
                     .foregroundColor(.white)
@@ -184,13 +151,12 @@ struct ButtonForContract: View {
                     .padding([.leading, .bottom], 20)  // padding 배열 처리
                     .padding(.trailing, 30)
                     .padding(.top, 5)
-  
             }
-            
-            // Gesture를 적용한 Stack
 
+            // Gesture Stack
             ZStack {
-                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle()
+                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle() 사용
+                // TODO: - if문이 길어져서 코드 가독성이 떨어짐. 다음 PR 때 다른 방식으로 코드 수정.
                 if contract.promised {
                     HStack{
                         Spacer()
@@ -214,8 +180,6 @@ struct ButtonForContract: View {
                             )
                         Spacer()
                     }
-
-                    
                 } else {
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
@@ -223,39 +187,13 @@ struct ButtonForContract: View {
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
                         .gesture(promiseGesture)
                 }
-                
-                
-//                Rectangle()
-//                    .fill(self.isDetectingParentLongPress ?
-//                                 Color.yellow :
-//                            (self.completedParentLongPress ? .blue : Color.yellow.opacity(0.001)))
-//                    .gesture(rectangleGesture)
-                /*
-                             .onReceive(timer) { _ in
-                                 if countDownTimer > 0 && timerRunning {
-                                     if (isTappedParentCell && isTappedChildCell) {
-                                         contract.promised = true
-                                         contract.isDone = false
-                                     }
-                                     print(countDownTimer)
-                                     print(timerRunning)
-                                     countDownTimer -= 1
-                                 } else {
-                                     timerRunning = false
-                                     isTappedParentCell = false
-                                     isTappedChildCell = false
-                                    
-//                                     print("timeout")
-                                 }
-                             }
-                 */
             }
         }
         .background(backGroundColor(for: self.contract, now: self.nowSubject))
         .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
         .padding([.leading, .trailing], 14)
     }
-    
+
     // 버튼 색을 반환하는 함수
     private func backGroundColor(for contract: Promise, now nowList: String) -> Color {
         // parameter: contract: Promise(Promise 인스턴스), nowList: String (String 타입, 현재 뷰에서 그리는 리스트)
@@ -269,20 +207,11 @@ struct ButtonForContract: View {
         }
         return result
     }
-    
-//    mutating func controlCellPairBag(input id: UUID){
-//        print(cellPairBag[0], cellPairBag[1])
-//        if cellPairBag.count == 2 {
-//            cellPairBag.removeAll()
-//        }
-//    }
-    
 
     private func deletePromise(promise: Promise) {
         withAnimation {
             viewContext.delete(promise)
         }
-        
         // 데이터 저장
         do {
             try viewContext.save()
