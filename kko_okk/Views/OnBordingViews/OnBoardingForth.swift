@@ -10,6 +10,7 @@ import SwiftUI
 struct OnBoardingForth: View {
     var promises: [PromiseModel] = PromiseModel.promises
     @State private var animationAmount: CGFloat = 1
+    @Binding var selectedTag: Int
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -42,6 +43,17 @@ struct OnBoardingForth: View {
             }
             .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 15)
             .padding(.bottom, 10)
+            .overlay(
+                Circle()
+                    .stroke(Color.yellow, lineWidth: 2)
+                    .scaleEffect(animationAmount)
+                    //animationAmount가 1이면 불트명이 1이고, 2이면 불투명도가 0이다
+                    .opacity(Double(2 - animationAmount))
+                    .animation(Animation.easeInOut(duration: 1)
+                                        .repeatForever(autoreverses: false),
+                               value: animationAmount)
+            )
+            .onAppear { self.animationAmount = 2 }
             
             Text("약속하러 가기")
                 .font(.system(size: 20, weight: .semibold))
@@ -51,11 +63,5 @@ struct OnBoardingForth: View {
                 .background(.blue)
                 .cornerRadius(10)
         }
-    }
-}
-
-struct OnBoardingForth_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingForth()
     }
 }

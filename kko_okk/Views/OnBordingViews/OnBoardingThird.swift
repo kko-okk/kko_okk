@@ -10,6 +10,7 @@ import SwiftUI
 struct OnBoardingThird: View {
     var promises: [PromiseModel] = PromiseModel.promises
     @State private var animationAmount: CGFloat = 1
+    @Binding var selectedTag: Int
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -82,9 +83,3 @@ struct OnBoardingThird: View {
     }
 }
 
-struct OnBoardingThird_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingThird()
-            .previewInterfaceOrientation(.landscapeRight)
-    }
-}

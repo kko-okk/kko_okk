@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnBoardingSecond: View {
+    @Binding var selectedTag: Int
+    
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -32,12 +34,9 @@ struct OnBoardingSecond: View {
                 .foregroundColor(.white)
                 .background(.blue)
                 .cornerRadius(10)
+                .onTapGesture {
+                    selectedTag = 1
+                }
         }
-    }
-}
-
-struct OnBoardingSecond_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingSecond()
     }
 }
