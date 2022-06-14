@@ -39,7 +39,7 @@ struct ButtonForContract: View {
             // 두 번째 줄은 세부 내용이 들어가는 영역
             VStack {
                 HStack {
-                    Text(contract.name!)  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
+                    Text(contract.name ?? "이름 없음")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                         .font(.system(size: 23, weight: .black, design: .rounded))
                         .foregroundColor(  // contract.subject 와 nowSubject가 같은 경우 폰트 색을 검은 색(Kkkook.backgroundGray), 아니면 흰 색으로 변경
                             contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
@@ -73,7 +73,7 @@ struct ButtonForContract: View {
                     }
                 }
                 
-                Text(contract.memo!)  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
+                Text(contract.memo ?? "내용 없음")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
                     .foregroundColor(.white)
                     .lineLimit(3)
