@@ -11,10 +11,14 @@ struct ReportBoardView: View {
     var body: some View {
         HStack {
             VStack {
-                DailyReportView()
+                HStack {
+                    DailyReportView()
+                    DailyReportView()
+                }
                 WeeklyReportView()
                 Spacer()
             }
+            MonthlyReportView()
         }
     }
 }

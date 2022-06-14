@@ -14,6 +14,9 @@
 		0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A677021285722E7007458BE /* MonthlyReportView.swift */; };
 		0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6770242857C07B007458BE /* CustomDatePicker.swift */; };
 		0A6770272857C882007458BE /* MonthlyReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6770262857C882007458BE /* MonthlyReportData.swift */; };
+		0AD4971728586E3700C52FA1 /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971628586E3700C52FA1 /* BarGraph.swift */; };
+		0AD4971A28586E9C00C52FA1 /* ParentAnimatedBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */; };
+		0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
@@ -113,6 +116,9 @@
 		0A677021285722E7007458BE /* MonthlyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportView.swift; sourceTree = "<group>"; };
 		0A6770242857C07B007458BE /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		0A6770262857C882007458BE /* MonthlyReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportData.swift; sourceTree = "<group>"; };
+		0AD4971628586E3700C52FA1 /* BarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
+		0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentAnimatedBarGraph.swift; sourceTree = "<group>"; };
+		0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenAnimatedBarGraph.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -213,6 +219,33 @@
 			path = MonthlyReportView;
 			sourceTree = "<group>";
 		};
+		0AD4971528586E2400C52FA1 /* WeeklyReportView */ = {
+			isa = PBXGroup;
+			children = (
+				0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */,
+				0AD4971828586E8900C52FA1 /* BarGraph */,
+			);
+			path = WeeklyReportView;
+			sourceTree = "<group>";
+		};
+		0AD4971828586E8900C52FA1 /* BarGraph */ = {
+			isa = PBXGroup;
+			children = (
+				0AD4971628586E3700C52FA1 /* BarGraph.swift */,
+				0AD4971D28586F0400C52FA1 /* AnimatedBarGragh */,
+			);
+			path = BarGraph;
+			sourceTree = "<group>";
+		};
+		0AD4971D28586F0400C52FA1 /* AnimatedBarGragh */ = {
+			isa = PBXGroup;
+			children = (
+				0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */,
+				0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */,
+			);
+			path = AnimatedBarGragh;
+			sourceTree = "<group>";
+		};
 		221CC2C228479F68009F4851 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				2261FB102853113600339B23 /* DailyReportView.swift */,
-				0A17F8AF28537ADF007CDEDC /* WeeklyReportView.swift */,
+				0AD4971528586E2400C52FA1 /* WeeklyReportView */,
 				0A6770232857C05F007458BE /* MonthlyReportView */,
 			);
 			path = ReportTab;
@@ -566,6 +599,7 @@
 				A8C8349C28471A3B00C65BE0 /* MainView.swift in Sources */,
 				0A17F8AE2853757F007CDEDC /* WeeklyReportData.swift in Sources */,
 				A8A477252849FB4A0005B4E2 /* Color.swift in Sources */,
+				0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */,
 				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
@@ -574,9 +608,11 @@
 				0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
+				0AD4971728586E3700C52FA1 /* BarGraph.swift in Sources */,
 				F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */,
 				F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */,
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
+				0AD4971A28586E9C00C52FA1 /* ParentAnimatedBarGraph.swift in Sources */,
 				F889B519284C797B006DFEFC /* PromiseCell.swift in Sources */,
 				22E9005E2849D677000A82BE /* FilteredList.swift in Sources */,
 				9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */,

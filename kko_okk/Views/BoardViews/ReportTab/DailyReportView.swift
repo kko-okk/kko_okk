@@ -10,7 +10,6 @@ import SwiftUI
 struct DailyReportView: View {
     var body: some View {
         VStack(spacing: 50) {
-            // 리딩값 재설정 필요, Font 파일 Yeni에게 문의(private 관련)
             Text("오늘의 약속률")
                 .font(.Kkookk.dailyReportViewMainCell)
                 .fontWeight(.semibold)

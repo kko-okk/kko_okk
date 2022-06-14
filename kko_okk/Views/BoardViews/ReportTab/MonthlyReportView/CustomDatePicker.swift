@@ -11,7 +11,7 @@ struct CustomDatePicker: View {
     @Binding var currentDate: Date
     @State var currentMonth: Int = 0
     
-    let days: [String] = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
+    private let days: [String] = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
     
     var body: some View {
         VStack(spacing: 35) {
