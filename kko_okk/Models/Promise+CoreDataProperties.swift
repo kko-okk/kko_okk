@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension Promise {
+extension Promise: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Promise> {
         return NSFetchRequest<Promise>(entityName: "Promise")
@@ -47,6 +47,3 @@ extension Promise {
     }
 }
 
-extension Promise : Identifiable {
-
-}
