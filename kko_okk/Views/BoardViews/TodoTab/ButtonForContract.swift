@@ -33,20 +33,68 @@ struct ButtonForContract: View {
     var cellPairBag: [Promise] = []
     
     // Gesture간 싱크를 맞추기 위한 타이머
-//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var countDownTimer = 2
-    @State var timerRunning = true
+////    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//    @State var countDownTimer = 2
+//    @State var timerRunning = true
     
     // Gesture 프로퍼티
-    @GestureState var isDetectingParentLongPress = false
-    @State var completedParentLongPress = false
+    @GestureState var isDetectingLongPress = false
+    @State var completedLongPress = false
     
-    @State var isTappedParentCell = false
-    @State var isTappedChildCell = false
+    @GestureState var isDetachingParentCheck = false
+    @GestureState var isDetachingChildCheck = false
+    @State var completedParentCheck = false
+    @State var completedChildCheck = false
     
+    
+    
+    var parentCheckGesture: some Gesture {
+        let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+            .updating($isDetachingParentCheck) { currentState, gestureState,
+                    transaction in
+                print("parent tapped")
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+            }
+            .onEnded { _ in
+                if completedParentCheck == false {
+                    self.completedParentCheck = true
+                    if completedChildCheck { contract.isDone = true}
+                } else {
+                    self.completedParentCheck = false
+                }
+                
+            }
+        
+        return longPressGuesture
+    }
+    
+    var childCheckGesture: some Gesture {
+        let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+            .updating($isDetachingChildCheck) { currentState, gestureState,
+                    transaction in
+                print("child tapped")
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+            }
+            .onEnded { _ in
+                if completedChildCheck == false {
+                    self.completedChildCheck = true
+                    if completedParentCheck { contract.isDone = true}
+                } else {
+                    self.completedChildCheck = false
+                }
+            }
+        
+        return longPressGuesture
+    }
+    
+    
+    
+/*
     var doneGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 2)
-            .updating($isDetectingParentLongPress) { currentState, gestureState,
+            .updating($isDetectingLongPress) { currentState, gestureState,
                     transaction in
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 1.0)
@@ -57,14 +105,16 @@ struct ButtonForContract: View {
         
         return longPressGuesture
     }
-    
+*/
     var promiseGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
-            .updating($isDetectingParentLongPress) { currentState, gestureState,
+            .updating($isDetectingLongPress) { currentState, gestureState,
                     transaction in
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
                 
+                
+                /*
                 guard let id = contract.id else { fatalError() }
                 
                 if contract.subject == "parent" {
@@ -72,6 +122,7 @@ struct ButtonForContract: View {
                 } else {
                     print("아이, \(id) \(Unmanaged.passUnretained(contract).toOpaque())")
                 }
+                 */
             }
             .onEnded { _ in
                 contract.isDone = false
@@ -141,17 +192,35 @@ struct ButtonForContract: View {
             ZStack {
                 // fill modifier를 사용하기 위해 Spacer()대신 Rectangle()
                 if contract.promised {
-                    Rectangle()
-                        .fill(self.isDetectingParentLongPress ?
-                                     Color.pink :
-                                (self.completedParentLongPress ? .blue : Color.yellow.opacity(0.5)))
-                        .frame(width: 40, height: 40, alignment: .bottom)
-                        .gesture(doneGesture)
+                    HStack{
+                        Spacer()
+                        Text("부모 확인")
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(self.isDetachingParentCheck ?
+                                                 Color.pink :
+                                            (self.completedParentCheck ? .blue : Color.yellow.opacity(0.5)))
+                                    .frame(width: 100, height: 50, alignment: .center)
+                                    .gesture(parentCheckGesture)
+                            )
+                        Spacer()
+                        Text("아이 확인")
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .fill(self.isDetachingChildCheck ?
+                                             Color.pink :
+                                        (self.completedChildCheck ? .blue : Color.yellow.opacity(0.5)))
+                                .frame(width: 100, height: 50, alignment: .center)
+                                .gesture(childCheckGesture)
+                            )
+                        Spacer()
+                    }
+
+                    
                 } else {
                     Rectangle()
-                        .fill(self.isDetectingParentLongPress ?
+                        .fill(self.isDetectingLongPress ?
                                      Color.yellow :
-                                (self.completedParentLongPress ? .blue : Color.yellow.opacity(0.001)))
+                                (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
                         .gesture(promiseGesture)
                 }
                 
