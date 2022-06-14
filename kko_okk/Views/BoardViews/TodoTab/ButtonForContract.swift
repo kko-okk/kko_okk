@@ -13,7 +13,7 @@ struct ButtonForContract: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     // 약속, Subject(아이 또는 부모) 받아오기
-    var contract: Promise
+    @ObservedObject var contract: Promise
     
     var nowSubject: String
     var subject: Subject {
