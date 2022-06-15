@@ -118,29 +118,33 @@ struct ButtonForContract: View {
                         .padding(.bottom, 5)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Menu {
-                        Button {
-                            isShowingPopover.toggle()
+                    
+                    if !contract.promised {
+                        Menu {
+                            Button {
+                                isShowingPopover.toggle()
+                            } label: {
+                                Label("수정하기", systemImage: "pencil")
+                            }
+                            
+                            Button(role: .destructive) {
+                                deletePromise(promise: contract)
+                            } label: {
+                                Label("삭제하기", systemImage: "trash")
+                            }
+                            
                         } label: {
-                            Label("수정하기", systemImage: "pencil")
+                            Image(systemName: "ellipsis")
+                                .rotationEffect(.degrees(90))
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .padding(.top, 10)
                         }
-                        
-                        Button(role: .destructive) {
-                            deletePromise(promise: contract)
-                        } label: {
-                            Label("삭제하기", systemImage: "trash")
+                        .popover(isPresented: $isShowingPopover) {
+                            EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                         }
-                        
-                    } label: {
-                        Image(systemName: "ellipsis")
-                            .rotationEffect(.degrees(90))
-                            .foregroundColor(.white)
-                            .frame(width: 40, height: 40)
-                            .padding(.top, 10)
                     }
-                    .popover(isPresented: $isShowingPopover) {
-                        EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
-                    }
+                    
                 }      
                 Text(contract.memo ?? "")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
@@ -172,7 +176,7 @@ struct ButtonForContract: View {
                                         .gesture(parentCheckGesture)
                                 )
                             Spacer()
-                            Text("C")           
+                            Text("C")
                                 .foregroundColor(.gray)
                                 .background(
                                     Circle()
@@ -184,7 +188,7 @@ struct ButtonForContract: View {
                                 )
                             Spacer()
                         }
-                        .padding(.trailing, 60)
+                        .padding(.trailing, 35)
                     }
                     
                 } else {
