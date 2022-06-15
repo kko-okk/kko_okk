@@ -29,7 +29,16 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-
+    
+    // MARK: - Animation Properties
+    @State private var parentRemoveInnerFill = 45
+    @State private var parentShowCheckmark = 0
+    @State private var parentRotate3D = -180
+    
+    @State private var childRemoveInnerFill = 45
+    @State private var childShowCheckmark = 0
+    @State private var childRotate3D = -180
+    
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
 //   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 //    @State var countDownTimer = 2
@@ -55,9 +64,19 @@ struct ButtonForContract: View {
             }
             .onEnded { _ in
                 if completedParentCheck == false {
+                    // Animation
+                    parentRemoveInnerFill  = 4
+                    parentRotate3D = 180
+                    parentShowCheckmark = 1
+                    // Promise Status
                     self.completedParentCheck = true
                     if completedChildCheck { contract.isDone = true}
                 } else {
+                    // Animation
+                    parentRemoveInnerFill  = 45
+                    parentRotate3D = -180
+                    parentShowCheckmark = 0
+                    // Promise Status
                     self.completedParentCheck = false
                 }
             }
@@ -75,11 +94,22 @@ struct ButtonForContract: View {
             }
             .onEnded { _ in
                 if completedChildCheck == false {
+                    // Animation
+                    childRemoveInnerFill  = 4
+                    childRotate3D = 180
+                    childShowCheckmark = 1
+                    // Promise Status
                     self.completedChildCheck = true
                     if completedParentCheck { contract.isDone = true}
                 } else {
+                    // Animation
+                    childRemoveInnerFill  = 45
+                    childRotate3D = -180
+                    childShowCheckmark = 0
+                    // Promise Status
                     self.completedChildCheck = false
                 }
+                
             }
         return longPressGuesture
     }
@@ -94,6 +124,7 @@ struct ButtonForContract: View {
             .onEnded { _ in
                 contract.isDone = false
                 contract.promised = true
+
             }
         return longPressGuesture
     }
@@ -114,8 +145,7 @@ struct ButtonForContract: View {
                             .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
                             .padding(.bottom, 5)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                    
+
                         if !contract.promised {
                             Menu {
                                 Button {
@@ -129,7 +159,6 @@ struct ButtonForContract: View {
                                 } label: {
                                     Label("삭제하기", systemImage: "trash")
                                 }
-                                
                             } label: {
                                 Image(systemName: "ellipsis")
                                     .rotationEffect(.degrees(90))
@@ -142,7 +171,7 @@ struct ButtonForContract: View {
                             }
                         }
                     }
-                    
+
                 // contract의 memo(하단 자세한 내용)
                 Text(contract.memo ?? "")
                     .font(.system(size: 17, weight: .regular, design: .rounded))
@@ -156,32 +185,61 @@ struct ButtonForContract: View {
                 // promised List에서 check 버튼활성화
                 if contract.promised {
                     Spacer()
+                    Spacer()
+                    Spacer()
                     VStack{
                         Spacer()
-                        Text("P")
-                            .foregroundColor(.gray)
-                            .background(
-                                Circle()
-                                    .fill(self.isDetachingParentCheck ?
+//                        GeometryReader { geometry in
+                                Text("P")
+                                    .foregroundColor(.gray)
+                                    .background(
+                                        Circle()
+                                            .fill(self.isDetachingParentCheck ?
+                                                             Color.pink :
+                                                        (self.completedParentCheck ? .blue : Color.Kkookk.commonWhite))
+                                            .frame(width: 35, height: 35, alignment: .center)
+                                            .gesture(parentCheckGesture)
+                                        ).padding(.bottom, 15)
+                             ZStack{
+                                Path { path in
+                                    path.move(to: CGPoint(x: -1, y: -1))
+                                           path.addCurve(to: CGPoint(x: 21, y: 26), control1: CGPoint(x: -1, y: -1), control2: CGPoint(x: 22, y: 26))
+                                           path.addCurve(to: CGPoint(x: 56, y: -28), control1: CGPoint(x: 20, y: 26), control2: CGPoint(x: 56, y: -28))
+                                           path.move(to: CGPoint(x: -1, y: -1))
+
+                                }
+                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
+                                .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                .offset(x: 0, y: 0)
+                                .animation(Animation.easeInOut(duration: 0.5).delay(0))
+                            }
+                        
+                        
+                            Text("C")
+                                .foregroundColor(.gray)
+                                .background(
+                                    Circle()
+                                        .fill(self.isDetachingChildCheck ?
                                                      Color.pink :
-                                                (self.completedParentCheck ? .blue : Color.Kkookk.commonWhite))
-                                    .frame(width: 35, height: 35, alignment: .center)
-                                    .gesture(parentCheckGesture)
-                                ).padding(.bottom, 15)
-                            
-                        Text("C")
-                            .foregroundColor(.gray)
-                            .background(
-                                Circle()
-                                    .fill(self.isDetachingChildCheck ?
-                                                 Color.pink :
-                                            (self.completedChildCheck ? .blue : Color.Kkookk.commonWhite))
-                                    .frame(width: 35, height: 35, alignment: .center)
-                                    .gesture(childCheckGesture)
-                                )
-                            Spacer()
+                                                (self.completedChildCheck ? .blue : Color.Kkookk.commonWhite))
+                                        .frame(width: 35, height: 35, alignment: .center)
+                                        .gesture(childCheckGesture)
+                                    )
+                        ZStack{
+                            Path { path in
+                                path.move(to: CGPoint(x: -1, y: -1))
+                                       path.addCurve(to: CGPoint(x: 21, y: 26), control1: CGPoint(x: -1, y: -1), control2: CGPoint(x: 22, y: 26))
+                                       path.addCurve(to: CGPoint(x: 56, y: -28), control1: CGPoint(x: 20, y: 26), control2: CGPoint(x: 56, y: -28))
+                                       path.move(to: CGPoint(x: -1, y: -1))
+
+                            }
+                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
+                            .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                            .offset(x: 0, y: 0)
+                            .animation(Animation.easeInOut(duration: 0.5).delay(0))
+                            }
                         }
-                        .padding(.trailing, 30)
+                    .padding(.trailing, 10)
                 }
             }
 
