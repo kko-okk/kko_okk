@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnBoardingSecond: View {
+    @Binding var selectedTag: Int
+    
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -25,19 +27,16 @@ struct OnBoardingSecond: View {
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
-            Text("시작하기")
+            Text("다음으로")
                 .font(.system(size: 20, weight: .semibold))
                 .padding(.vertical, 10)
                 .padding(.horizontal, KkookkSize.fullWidth / 5.5)
                 .foregroundColor(.white)
                 .background(.blue)
                 .cornerRadius(10)
+                .onTapGesture {
+                    selectedTag = 2
+                }
         }
-    }
-}
-
-struct OnBoardingSecond_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingSecond()
     }
 }

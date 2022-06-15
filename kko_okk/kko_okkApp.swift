@@ -17,7 +17,7 @@ struct kko_okkApp: App {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .fullScreenCover(isPresented: $isFirstLaunching) {
-                    OnBoardingTabView()
+                    OnBoardingTabView(selectedTag: 0)
                 }
         }
     }

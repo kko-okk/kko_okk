@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct OnBoardingTabView: View {
+    @State var selectedTag: Int
     var body: some View {
-        TabView {
-            OnBoardingFirst()
+        TabView(selection: $selectedTag) {
+            OnBoardingFirst(selectedTag: $selectedTag)
                 .tag(0)
-            OnBoardingSecond()
+            OnBoardingSecond(selectedTag: $selectedTag)
                 .tag(1)
-            OnBoardingThird()
+            OnBoardingThird(selectedTag: $selectedTag)
                 .tag(2)
-            OnBoardingForth()
+            OnBoardingForth(selectedTag: $selectedTag)
                 .tag(3)
         }
         .tabViewStyle(PageTabViewStyle())
-    }
-}
-
-struct OnBoardingTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingTabView()
     }
 }
