@@ -11,10 +11,13 @@ import SwiftUI
 struct ButtonForContract: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     // 약속, Subject(아이 또는 부모) 받아오기
     @ObservedObject var contract: Promise
-    
+
+    // Popover 띄우고 닫을 용도
+    @State private var isShowingPopover: Bool = false
+
     var nowSubject: String
     var subject: Subject {
         switch nowSubject {
@@ -26,10 +29,76 @@ struct ButtonForContract: View {
             return .parent
         }
     }
+
+    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
+//   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//    @State var countDownTimer = 2
+//    @State var timerRunning = true
+
+    // MARK: - Gesture 프로퍼티
+    @GestureState var isDetectingLongPress = false
+    @State var completedLongPress = false
     
-    // Popover 띄우고 닫을 용도
-    @State private var isShowingPopover: Bool = false
-    
+    @GestureState var isDetachingParentCheck = false
+    @GestureState var isDetachingChildCheck = false
+    @State var completedParentCheck = false
+    @State var completedChildCheck = false
+
+    // MARK: - 부모가 약속 이행을 확인하는 Gesture
+    var parentCheckGesture: some Gesture {
+        let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+            .updating($isDetachingParentCheck) { currentState, gestureState,
+                    transaction in
+                print("parent tapped")
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+            }
+            .onEnded { _ in
+                if completedParentCheck == false {
+                    self.completedParentCheck = true
+                    if completedChildCheck { contract.isDone = true}
+                } else {
+                    self.completedParentCheck = false
+                }
+            }
+        return longPressGuesture
+    }
+
+    // MARK: - 자식이 약속 이행을 확인하는 Gesture
+    var childCheckGesture: some Gesture {
+        let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+            .updating($isDetachingChildCheck) { currentState, gestureState,
+                    transaction in
+                print("child tapped")
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+            }
+            .onEnded { _ in
+                if completedChildCheck == false {
+                    self.completedChildCheck = true
+                    if completedParentCheck { contract.isDone = true}
+                } else {
+                    self.completedChildCheck = false
+                }
+            }
+
+        return longPressGuesture
+    }
+
+    var promiseGesture: some Gesture {
+        let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+            .updating($isDetectingLongPress) { currentState, gestureState,
+                    transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+            }
+            .onEnded { _ in
+                contract.isDone = false
+                contract.promised = true
+            }
+        return longPressGuesture
+    }
+
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
@@ -38,6 +107,7 @@ struct ButtonForContract: View {
             // VStack 내부는 크게 두 줄로 나뉨: 첫 줄은 제목 + 점 세 개 짜리 버튼
             // 두 번째 줄은 세부 내용이 들어가는 영역
             VStack {
+                
                 HStack {
                     Text(contract.name ?? "이름 없음")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                         .font(.system(size: 23, weight: .black, design: .rounded))
@@ -72,7 +142,7 @@ struct ButtonForContract: View {
                         EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                     }
                 }
-                
+
                 Text(contract.memo ?? "내용 없음")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
                     .foregroundColor(.white)
@@ -82,12 +152,48 @@ struct ButtonForContract: View {
                     .padding(.trailing, 30)
                     .padding(.top, 5)
             }
+
+            // Gesture Stack
+            ZStack {
+                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle() 사용
+                // TODO: - if문이 길어져서 코드 가독성이 떨어짐. 다음 PR 때 다른 방식으로 코드 수정.
+                if contract.promised {
+                    HStack{
+                        Spacer()
+                        Text("부모 확인")
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(self.isDetachingParentCheck ?
+                                                 Color.pink :
+                                            (self.completedParentCheck ? .blue : Color.yellow.opacity(0.5)))
+                                    .frame(width: 100, height: 50, alignment: .center)
+                                    .gesture(parentCheckGesture)
+                            )
+                        Spacer()
+                        Text("아이 확인")
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .fill(self.isDetachingChildCheck ?
+                                             Color.pink :
+                                        (self.completedChildCheck ? .blue : Color.yellow.opacity(0.5)))
+                                .frame(width: 100, height: 50, alignment: .center)
+                                .gesture(childCheckGesture)
+                            )
+                        Spacer()
+                    }
+                } else {
+                    Rectangle()
+                        .fill(self.isDetectingLongPress ?
+                                     Color.yellow :
+                                (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
+                        .gesture(promiseGesture)
+                }
+            }
         }
         .background(backGroundColor(for: self.contract, now: self.nowSubject))
         .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
         .padding([.leading, .trailing], 14)
     }
-    
+
     // 버튼 색을 반환하는 함수
     private func backGroundColor(for contract: Promise, now nowList: String) -> Color {
         // parameter: contract: Promise(Promise 인스턴스), nowList: String (String 타입, 현재 뷰에서 그리는 리스트)
@@ -101,12 +207,11 @@ struct ButtonForContract: View {
         }
         return result
     }
-    
+
     private func deletePromise(promise: Promise) {
         withAnimation {
             viewContext.delete(promise)
         }
-        
         // 데이터 저장
         do {
             try viewContext.save()
