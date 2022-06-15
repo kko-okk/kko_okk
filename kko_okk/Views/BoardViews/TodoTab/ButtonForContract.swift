@@ -146,6 +146,40 @@ struct ButtonForContract: View {
                             EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                         }
                     }
+                    
+                    
+                    
+                    
+                    if contract.promised {
+                            VStack{
+                                Spacer()
+                                Text("P")
+                                    .foregroundColor(.gray)
+                                    .background(
+                                        Circle()
+                                            .fill(self.isDetachingParentCheck ?
+                                                         Color.pink :
+                                                    (self.completedParentCheck ? .blue : Color.Kkookk.commonWhite))
+                                            .frame(width: 35, height: 35, alignment: .center)
+                                            .gesture(parentCheckGesture)
+                                    )
+                                    .padding(.bottom, 15)
+                                
+                                Text("C")
+                                    .foregroundColor(.gray)
+                                    .background(
+                                        Circle()
+                                        .fill(self.isDetachingChildCheck ?
+                                                     Color.pink :
+                                                (self.completedChildCheck ? .blue : Color.Kkookk.commonWhite))
+                                        .frame(width: 35, height: 35, alignment: .center)
+                                        .gesture(childCheckGesture)
+                                    )
+                                Spacer()
+                        }.padding(.trailing, 35)
+                    }
+                    
+                    
                 }      
                 Text(contract.memo ?? "")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
@@ -157,37 +191,6 @@ struct ButtonForContract: View {
                     .padding(.top, 5)
                 // 최소 높이
                 }
-                
-                
-                if contract.promised {
-                        VStack{
-                            Spacer()
-                            Text("P")
-                                .foregroundColor(.gray)
-                                .background(
-                                    Circle()
-                                        .fill(self.isDetachingParentCheck ?
-                                                     Color.pink :
-                                                (self.completedParentCheck ? .blue : Color.Kkookk.commonWhite))
-                                        .frame(width: 35, height: 35, alignment: .center)
-                                        .gesture(parentCheckGesture)
-                                )
-                                .padding(.bottom, 15)
-                            
-                            Text("C")
-                                .foregroundColor(.gray)
-                                .background(
-                                    Circle()
-                                    .fill(self.isDetachingChildCheck ?
-                                                 Color.pink :
-                                            (self.completedChildCheck ? .blue : Color.Kkookk.commonWhite))
-                                    .frame(width: 35, height: 35, alignment: .center)
-                                    .gesture(childCheckGesture)
-                                )
-                            Spacer()
-                    }.padding(.trailing, 35)
-                }
-                
                 
             }.frame(minHeight: 100)
 
