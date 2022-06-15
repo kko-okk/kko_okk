@@ -106,6 +106,8 @@ struct ButtonForContract: View {
         ZStack {
             // VStack 내부는 크게 두 줄로 나뉨: 첫 줄은 제목 + 점 세 개 짜리 버튼
             // 두 번째 줄은 세부 내용이 들어가는 영역
+            HStack{
+                
             VStack {
                 
                 HStack {
@@ -144,7 +146,6 @@ struct ButtonForContract: View {
                             EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                         }
                     }
-                    
                 }      
                 Text(contract.memo ?? "")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
                     .font(.system(size: 17, weight: .regular, design: .rounded))
@@ -154,15 +155,11 @@ struct ButtonForContract: View {
                     .padding([.leading, .bottom], 20)  // padding 배열 처리
                     .padding(.trailing, 30)
                     .padding(.top, 5)
-            }
-
-            // Gesture Stack
-            ZStack {
-                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle() 사용
-                // TODO: - if문이 길어져서 코드 가독성이 떨어짐. 다음 PR 때 다른 방식으로 코드 수정.
+                // 최소 높이
+                }
+                
+                
                 if contract.promised {
-                    HStack{
-                        Spacer()
                         VStack{
                             Spacer()
                             Text("P")
@@ -175,7 +172,8 @@ struct ButtonForContract: View {
                                         .frame(width: 35, height: 35, alignment: .center)
                                         .gesture(parentCheckGesture)
                                 )
-                            Spacer()
+                                .padding(.bottom, 15)
+                            
                             Text("C")
                                 .foregroundColor(.gray)
                                 .background(
@@ -187,11 +185,27 @@ struct ButtonForContract: View {
                                     .gesture(childCheckGesture)
                                 )
                             Spacer()
-                        }
-                        .padding(.trailing, 35)
-                    }
-                    
-                } else {
+                    }.padding(.trailing, 35)
+                }
+                
+                
+            }.frame(minHeight: 100)
+
+            // Gesture Stack
+                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle() 사용
+                // TODO: - if문이 길어져서 코드 가독성이 떨어짐. 다음 PR 때 다른 방식으로 코드 수정.
+                 /*else {
+                    Rectangle()
+                        .fill(self.isDetectingLongPress ?
+                                     Color.yellow :
+                                (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
+                        .gesture(promiseGesture)
+                }*/
+            
+            
+            /// 덮는거
+            ZStack{
+                if !contract.promised {
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
                                      Color.yellow :
