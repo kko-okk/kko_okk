@@ -12,9 +12,6 @@ struct ChildWishView: View {
     @Environment(\.managedObjectContext) private var viewContext  // @Environment: 앱 환경 정보를 제공하는 프로퍼티
     // \. : 현재 프로터티를 의미함. 즉, 앱 환경 정보를 제공하는 프로퍼티를 의미함.
     
-    @FetchRequest(sortDescriptors: [], animation: .default)  // sortDescriptors: 정렬 조건, animation: 애니메이션
-    private var items: FetchedResults<Promise>
-    
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
     

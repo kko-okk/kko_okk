@@ -1,43 +1,11 @@
 //
-//  WeeklyReportView.swift
+//  BarGraph.swift
 //  kko_okk
 //
-//  Created by 이성노 on 2022/06/10.
+//  Created by 이성노 on 2022/06/14.
 //
 
 import SwiftUI
-
-struct WeeklyReportView: View {
-    var body: some View {
-        VStack {
-            HStack(spacing: 20) {
-                Text("한 주간 약속률")
-                    .font(.Kkookk.weeklyReportViewMainCell)
-                Spacer()
-                ForEach(commonWeeklyReportDatas) { commonWeeklyReportData in
-                    Label {
-                        HStack(alignment: .bottom, spacing: 20) {
-                            Text(commonWeeklyReportData.assignment)
-                                .font(.Kkookk.dailyReportViewContentCell)
-                        }
-                    } icon: {
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(commonWeeklyReportData.keyColor)
-                    }
-                }
-            }
-            BarGraph(parentWeeklyReportDatas: parentWeeklyReportDatas, childWeeklyReportDatas: childrenWeeklyReportDatas)
-        }
-    }
-}
-
-struct WeeklyReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeeklyReportView()
-            .previewInterfaceOrientation(.portraitUpsideDown)
-    }
-}
 
 struct BarGraph: View {
     var parentWeeklyReportDatas: [ParentWeeklyReportData]
@@ -139,48 +107,9 @@ struct BarGraph: View {
         return lines
     }
 }
-// 부모님 막대 그래프의 애니메이션을 담당합니다.
-struct ParentAnimatedBarGraph: View {
-    var parentWeeklyReportData: ParentWeeklyReportData
-    var index: Int
-    
-    @State var showBar: Bool = false
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            Spacer(minLength: 0)
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(parentWeeklyReportData.color)
-                .frame(height: showBar ? nil : 0, alignment: .bottom)
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.8, blendDuration: 0.8).delay(Double(index) * 0.1)) {
-                    showBar = true
-                }
-            }
-        }
-    }
-}
-// 아이 막대 그래프의 애니메이션을 담당합니다.
-struct ChildrenAnimateBarGraph: View {
-    var childrenWeeklyReportData: ChildrenWeeklyReportData
-    var index: Int
-    
-    @State var showBar: Bool = false
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(childrenWeeklyReportData.color)
-                .frame(height: showBar ? nil : 0, alignment: .bottom)
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.8, blendDuration: 0.8).delay(Double(index) * 0.1)) {
-                    showBar = true
-                }
-            }
-        }
+
+struct BarGraph_Previews: PreviewProvider {
+    static var previews: some View {
+        WeeklyReportView()
     }
 }
