@@ -12,6 +12,7 @@ struct OnBoardingThird: View {
     @State var now: Int = 0
     @State var isFatherPressing: Bool = false
     @State var isChildPressing: Bool = false
+    @State var isContractPressed: Bool = false
     @State var perfectCircle: CGFloat = 0
     @State var fill: CGFloat = 0
     
@@ -33,11 +34,18 @@ struct OnBoardingThird: View {
                 .padding(.bottom, 10)
                 
                 HStack {
-                    OnBoardingButton(buttonText: "부모님의 약속", nowSubject: "parent", pressed: $isFatherPressing)
-                    Divider()
+                    OnBoardingButton(buttonText: "부모님 약속", nowSubject: "parent", pressed: $isFatherPressing)
+                        .opacity(1)
                     Spacer()
                     Divider()
+                    Spacer()
+                    OnBoardingButton(buttonText: "우리의 약속", nowSubject: "contract", pressed: $isContractPressed)
+                        .opacity(0)
+                    Spacer()
+                    Divider()
+                    Spacer()
                     OnBoardingButton(buttonText: "아이의 약속", nowSubject: "child", pressed: $isChildPressing)
+                        .opacity(1)
                 }
                 .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 15)
                 .padding(.bottom, 10)
@@ -50,51 +58,13 @@ struct OnBoardingThird: View {
                     .background(Color.Kkookk.onBoardingGray)
                     .cornerRadius(10)
             }
-            
+            Text("\(String(isFatherPressing))   \(String(isChildPressing))")
             Circle()
                 .trim(from: 0, to: self.fill)
                 .stroke(Color.Kkookk.parentPurple, style: StrokeStyle(lineWidth: 40))
                 .frame(width: 250, height: 250)
                 .rotationEffect(.init(degrees: -90))
                 .animation(Animation.linear(duration: 3), value: fill)
-                
-            if isChildPressing == true {
-                if isFatherPressing == true {
-                    Circle()
-                        .fill(Color.Kkookk.backgroundGray)
-                        .frame(width: 250, height: 250)
-                    Text("잠시만 기다려주세요 !")
-                        .onAppear {
-                            self.fill = 1.0
-                        }
-                } else {
-                    Circle()
-                        .fill(Color.Kkookk.backgroundGray)
-                        .frame(width: 250, height: 250)
-                    Text("두 버튼을 다 눌러주세요.")
-                        .onAppear() {
-                            self.fill = 0
-                        }
-                }
-            } else {
-                if isChildPressing == true {
-                    Circle()
-                        .fill(Color.Kkookk.backgroundGray)
-                        .frame(width: 250, height: 250)
-                    Text("잠시만 기다려주세요 !")
-                        .onAppear {
-                            self.fill = 1.0
-                        }
-                } else {
-                    Circle()
-                        .fill(Color.Kkookk.backgroundGray)
-                        .frame(width: 250, height: 250)
-                    Text("두 버튼을 다 눌러주세요.")
-                        .onAppear() {
-                            self.fill = 0
-                        }
-                }
-            }
         }
     }
     

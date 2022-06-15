@@ -12,29 +12,30 @@ struct OnBoardingButton: View {
     var buttonText: String
     var nowSubject: String
     @Binding var pressed: Bool
-    
+    @State private var flag = false
+    @State private var durateTime: Double = 1.0
     var body: some View {
         Text(buttonText)
             .font(.system(size: 20, weight: .semibold))
             .padding(.vertical, 10)
-            .padding(.horizontal, KkookkSize.fullWidth / 33)
+            .padding(.horizontal, KkookkSize.fullWidth / 34)
             .foregroundColor(textColor(now: nowSubject))
-            .background(backGroundColor(now: nowSubject))
-            .cornerRadius(10)
+//            .background(backGroundColor(now: nowSubject))
             .overlay(
-                Circle()
-                    .stroke(Color.yellow, lineWidth: 2)
-                    .scaleEffect(animationAmount)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(backGroundColor(now: nowSubject))
+                    .frame(width: flag ? KkookkSize.fullWidth / 8 : KkookkSize.fullWidth / 7.7, height: flag ? 45 : 55, alignment: .center)
                     //animationAmount가 1이면 불트명이 1이고, 2이면 불투명도가 0이다
-                    .opacity(Double(2 - animationAmount))
-                    .animation(Animation.easeInOut(duration: 1)
-                                        .repeatForever(autoreverses: false),
-                               value: animationAmount)
+                    .opacity(0.5)
+//                    .blur(radius: 4)
+                    .animation(.easeInOut(duration: durateTime).repeatForever(autoreverses: true), value: flag)
+        
+                    .onTapGesture {
+                        pressed.toggle()
+                    }
             )
-            .onTapGesture {
-                pressed.toggle()
-            }
-            .onAppear { self.animationAmount = 2 }
+            
+            .onAppear { self.flag = true }
     }
     
     private func backGroundColor(now nowSubject: String) -> Color {
