@@ -77,6 +77,8 @@ struct EditPromisePopover: View {
             // 반복 날짜 선택 버튼
             EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
                 .padding(.top, popoverAssets.popoverVerticalPadding)
+            
+            Spacer()
         }
         .onAppear() {
             // 뷰를 그릴 때, 받아온 약속의 name, memo 값을 임시값에 저장
@@ -92,9 +94,9 @@ struct EditPromisePopover: View {
             isRepeating[5] = promise.isRepeatedOnSaturday
             isRepeating[6] = promise.isRepeatedOnSunday
         }
-        .padding(.top, 25)
         .frame(width: popoverAssets.popoverFullWidth,
                height: popoverAssets.popoverFullHeight)
+        .padding(.top, 25)
         .background(.bar)
     }
 }
