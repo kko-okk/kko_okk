@@ -185,16 +185,32 @@ struct ButtonForContract: View {
                                     .gesture(parentCheckGesture)
 
                                 Path { path in
+                                    // check 각도 테스트
+                                    // origin
+                                    /*
+                                    path.move(to: CGPoint(x: -1, y: -1))
+                                    path.addCurve(
+                                        to: CGPoint(x: 21, y: 26),
+                                        control1: CGPoint(x: -1, y: -1),
+                                        control2: CGPoint(x: 22, y: 26))
+                                    path.addCurve(
+                                        to: CGPoint(x: 56, y: -28),
+                                        control1: CGPoint(x: 20, y: 26),
+                                        control2: CGPoint(x: 56, y: -28))
+                                    path.move(to: CGPoint(x: -1, y: -1))
+                                    */
+                                    
                                     path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
                                     path.addCurve(
                                         to: CGPoint(x: 18, y: 22), // origin (21.26)
                                         control1: CGPoint(x: -1, y: -1), // origin (-1.-1)
                                         control2: CGPoint(x: 18, y: 22)) // origin (22.26)
                                     path.addCurve(
-                                        to: CGPoint(x: 60, y: -50), // origin (56.-28)
+                                        to: CGPoint(x: 40, y: -10), // origin (56.-28)
                                         control1: CGPoint(x: 18, y: 22), // origin (20.26) x: 시작점
-                                        control2: CGPoint(x: 60, y: -50)) // origin (56.-28)
-                                    path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
+                                        control2: CGPoint(x: 40, y: -10)) // origin (56.-28) x: 꼬리 각도
+                                    path.move(to: CGPoint(x: -1, y: -1)) // origin (-1.-1)
+                                     
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
@@ -217,17 +233,17 @@ struct ButtonForContract: View {
                                     .gesture(childCheckGesture)
                                 
                                 Path { path in
-                                    path.move(to: CGPoint(x: -1, y: -1))
+                                    path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
                                     path.addCurve(
-                                        to: CGPoint(x: 21, y: 26),
-                                        control1: CGPoint(x: -1, y: -1),
-                                        control2: CGPoint(x: 22, y: 26))
+                                        to: CGPoint(x: 18, y: 22), // origin (21.26)
+                                        control1: CGPoint(x: -1, y: -1), // origin (-1.-1)
+                                        control2: CGPoint(x: 18, y: 22)) // origin (22.26)
                                     path.addCurve(
-                                        to: CGPoint(x: 56, y: -28),
-                                        control1: CGPoint(x: 20, y: 26),
-                                        control2: CGPoint(x: 56, y: -28))
-                                    path.move(to: CGPoint(x: -1, y: -1)
-                                    )
+                                        to: CGPoint(x: 40, y: -10), // origin (56.-28)
+                                        control1: CGPoint(x: 18, y: 22), // origin (20.26) x: 시작점
+                                        control2: CGPoint(x: 40, y: -10)) // origin (56.-28) x: 꼬리 각도
+                                    path.move(to: CGPoint(x: -1, y: -1)) // origin (-1.-1)
+
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
@@ -236,7 +252,7 @@ struct ButtonForContract: View {
                                 .animation(Animation.easeInOut(duration: 0.5).delay(0))
 //                                .frame(width: geometry.size.width, height: geometry.size.height)
                                 // TODO: - 제스처 크기 하드코딩 수정
-                                .frame(width: 20, height: 20)
+                                .frame(width: 30, height: 30)
                                 .foregroundColor(Color.Kkookk.childGreen)
                                 }
 //                        }
