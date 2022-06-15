@@ -53,7 +53,7 @@ struct OnBoardingThird: View {
             
             Circle()
                 .trim(from: 0, to: self.fill)
-                .stroke(Color.Kkookk.parentPurple, style: StrokeStyle(lineWidth: 20))
+                .stroke(Color.Kkookk.parentPurple, style: StrokeStyle(lineWidth: 40))
                 .frame(width: 250, height: 250)
                 .rotationEffect(.init(degrees: -90))
                 .animation(Animation.linear(duration: 3), value: fill)
