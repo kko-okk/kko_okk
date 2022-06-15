@@ -15,6 +15,7 @@ import SwiftUI
 
 
 
+
 extension Color{
     init(hex:String){
         let scanner = Scanner(string: hex)
@@ -30,6 +31,7 @@ extension Color{
 }
 
 struct HeaderViewConst{
+    
     static let shared = HeaderViewConst()
     
     let cornerRadius: CGFloat = 15

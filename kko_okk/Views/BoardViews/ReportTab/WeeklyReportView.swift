@@ -10,13 +10,13 @@ import SwiftUI
 struct WeeklyReportView: View {
     var body: some View {
         VStack {
-            HStack(spacing: 20) {
+            HStack {
                 Text("한 주간 약속률")
-                    .font(.Kkookk.weeklyReportViewMainCell)
+                    .font(.Kkookk.dailyReportViewMainCell)
                 Spacer()
                 ForEach(commonWeeklyReportDatas) { commonWeeklyReportData in
                     Label {
-                        HStack(alignment: .bottom, spacing: 20) {
+                        HStack(alignment: .bottom) {
                             Text(commonWeeklyReportData.assignment)
                                 .font(.Kkookk.dailyReportViewContentCell)
                         }
@@ -29,13 +29,14 @@ struct WeeklyReportView: View {
             }
             BarGraph(parentWeeklyReportDatas: parentWeeklyReportDatas, childWeeklyReportDatas: childrenWeeklyReportDatas)
         }
+        .padding(15)
     }
 }
 
 struct WeeklyReportView_Previews: PreviewProvider {
     static var previews: some View {
         WeeklyReportView()
-            .previewInterfaceOrientation(.portraitUpsideDown)
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 
@@ -47,84 +48,100 @@ struct BarGraph: View {
         GraphView()
     }
     
+}
+
+extension BarGraph {
+    
     @ViewBuilder
     func GraphView() -> some View {
         GeometryReader { proxy in
             ZStack {
-//                Color.blue
-                VStack(spacing: 0) {
-                    // 그래프의 y축을 그립니다.
-                    ForEach(getGraphLines(), id: \.self) { line in
-                        HStack() {
-                            Text("\(Int(line))")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-//                                .frame(height: 20)
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.1))
-                                .frame(height: 1)
-                        }
-                        .frame(maxHeight: .infinity, alignment:  .bottom)
-                        .offset(y: 7)
-                    }
-                }//.padding(.bottom,35)
-                .frame(width: proxy.size.width, height: proxy.size.height * 0.75 ,alignment: .top)
-                .padding(.bottom,proxy.size.height * 0.25)
-                // 데이터에 따른 막대그래프의 값을 표현해줍니다.
-                HStack(spacing:0) {
-                    ForEach(parentWeeklyReportDatas.indices, id: \.self) { index in
-                        let parentWeeklyReportData = parentWeeklyReportDatas[index]
-                        let childWeeklyReportData = childWeeklyReportDatas[index]
-
-                        VStack(spacing: 0) {
-                            // 부모님과 아이의 막대 그래프 사이의 간격을 spacing을 조절합니다
-                            HStack(alignment: .bottom, spacing: 4) {
-                                VStack(spacing: 0) {
-                                        ParentAnimatedBarGraph(parentWeeklyReportData: parentWeeklyReportDatas[index], index: index)
-                                }
-                                
-                                // 부모님의 막대 그래프의 넓이를 조절합니다.
-                                .frame(width: 15)
-                                .frame(height: getBarHeight(point: parentWeeklyReportData.value, size: proxy.size) * 0.75)
-                                VStack(spacing: 0) {
-                                        ChildrenAnimateBarGraph(childrenWeeklyReportData: childrenWeeklyReportDatas[index], index: index)
-                                }
-                                // 아이의 막대 그래프의 넓이를 조절합니다.
-                                .frame(width: 15)
-                                .frame(height: getBarHeight(point: childWeeklyReportData.value, size: proxy.size) * 0.75)
+                VStack{
+                    VStack{
+                        ForEach(getGraphLines(), id: \.self) { line in
+                            HStack{
+                                Text("\(Int(line))")
+                                    .font(.caption)
+                                    .foregroundColor(.black)
+                                Rectangle()
+                                    .fill(Color.gray.opacity(0.1))
+                                    .frame(height: 1)
                             }
-                            .frame(height: proxy.size.height * 0.75 ,alignment: .bottom)
-
-                            // x축(월,일)을 표현합니다.
-                            VStack(alignment: .center) {
-                                Spacer()
-                                //일
-                                Text(
-                                    "\(parentWeeklyReportData.dayData)"
-                                )
-                                    .font(.Kkookk.weeklyReportViewMainCell)
-                                //월
-                                Text(
-                                    "\(parentWeeklyReportData.monthData)"
-                                )
-                                    .font(.Kkookk.weeklyReportViewContentCell)
-                                    .foregroundColor(.Kkookk.unselectedTabGray)
-                            }
-                            .frame(height: proxy.size.height * 0.25 ,alignment: .bottom)
-                            .offset(y: 10)
+                            .frame(maxHeight: .infinity, alignment:  .bottom)
+                            .offset(y: 7)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                        Spacer(minLength: 30)
                     }
-                }
+                    .frame(width: proxy.size.width, height: proxy.size.height * 0.7 ,alignment: .top)
+                    .padding(.bottom,30)
+                   // .padding(.bottom,proxy.size.height)
+                 }
+                
+//                 데이터에 따른 막대그래프의 값을 표현해줍니다.
+                HStack(alignment: .bottom){
+                                    ForEach(parentWeeklyReportDatas.indices, id: \.self) { index in
+                                        let parentWeeklyReportData = parentWeeklyReportDatas[index]
+                                        let childWeeklyReportData = childWeeklyReportDatas[index]
+                
+                                        VStack{
+                                            Spacer()
+
+                                            // 부모님과 아이의 막대 그래프 사이의 간격을 spacing을 조절합니다
+                                            HStack(alignment: .bottom) {
+                                                VStack{
+                                                        ParentAnimatedBarGraph(parentWeeklyReportData: parentWeeklyReportDatas[index], index: index)
+                                                }
+                
+                                                // 부모님의 막대 그래프의 넓이를 조절합니다.
+                                                .frame(width: 15,
+                                                       height: proxy.size.height * 0.515 * getBarHeight(point: parentWeeklyReportData.value))
+                                                //* getBarHeight(point: parentWeeklyReportData.value)
+                                                VStack{
+                                                        ChildrenAnimateBarGraph(childrenWeeklyReportData: childrenWeeklyReportDatas[index], index: index)
+                                                }
+                
+                                                // 아이의 막대 그래프의 넓이를 조절합니다.
+                                                .frame(width: 15,
+                                                       height: proxy.size.height * 0.515 * getBarHeight(point: childWeeklyReportData.value) )
+                                            }
+                                            .frame(height: proxy.size.height * 0.5  ,alignment: .bottom)
+//                                            .padding(.bottom,proxy.size.height * 0.176)
+                                            Spacer()
+//
+//                                             x축(월,일)을 표현합니다.
+                                            VStack(alignment: .center) {
+                                                //일
+                                                Text("\(parentWeeklyReportData.dayData)")
+                                                    .font(.Kkookk.weeklyReportViewMainCell)
+                                                //월
+                                                Text("\(parentWeeklyReportData.monthData)")
+                                                    .font(.Kkookk.weeklyReportViewContentCell)
+                                                    .foregroundColor(.Kkookk.unselectedTabGray)
+                                            
+                                            }.frame(height:30)
+//                                            .frame(height: proxy.size.height ,alignment: .bottom)
+//                                            .offset(y: 10)
+//                                                    .padding(.bottom,10)
+                                        }
+                                        .frame(maxWidth: .infinity, maxHeight: proxy.size.height, alignment: .bottom)
+//                                        .offset(y: 7)
+
+                                    }
+                                }
+
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+
+            //.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            
         }
-        .frame(height: 190)
     }
+    
     // 막대 그래프 바의 높이를 나타냅니다.
-    func getBarHeight(point: CGFloat, size: CGSize) -> CGFloat {
+    func getBarHeight(point: CGFloat) -> CGFloat {
         let max: CGFloat = 100
-        let height = (point / CGFloat(max)) * (size.height - 37)
+        let height = (point / CGFloat(max))
+        print("max:\(max)")
+        print("height:\(height)")
         return height
     }
     // 그래프의 y축을 그립니다.
@@ -139,6 +156,8 @@ struct BarGraph: View {
         return lines
     }
 }
+
+
 // 부모님 막대 그래프의 애니메이션을 담당합니다.
 struct ParentAnimatedBarGraph: View {
     var parentWeeklyReportData: ParentWeeklyReportData

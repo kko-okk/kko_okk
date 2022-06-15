@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct kko_okkApp: App {
     let persistenceController = PersistenceController.shared
-    @State var isFirstLaunching: Bool = true
+    @State var isFirstLaunching: Bool = false
     
     var body: some Scene {
         WindowGroup {

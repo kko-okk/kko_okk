@@ -29,25 +29,25 @@ struct CommonWeeklyReportData: Identifiable {
 }
 
 var parentWeeklyReportDatas: [ParentWeeklyReportData] = [
-    ParentWeeklyReportData(value: 75,
+    ParentWeeklyReportData(value: 10,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.daySixDayBefore)),
-    ParentWeeklyReportData(value: 80,
+    ParentWeeklyReportData(value: 25,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
     ParentWeeklyReportData(value: 50,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFourDayBefore)),
-    ParentWeeklyReportData(value: 100,
+    ParentWeeklyReportData(value: 75,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayThreeDayBefore)),
-    ParentWeeklyReportData(value: 50,
+    ParentWeeklyReportData(value: 100,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayTwoDayBefore)),
-    ParentWeeklyReportData(value: 33,
+    ParentWeeklyReportData(value: 100,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayOneDayBefore)),
-    ParentWeeklyReportData(value: 75,
+    ParentWeeklyReportData(value: 100,
                            monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
                            dayData: DailyDate.monthformat.string(from: DailyDate.todayDay))
 ]
