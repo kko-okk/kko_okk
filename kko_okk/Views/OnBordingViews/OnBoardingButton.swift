@@ -11,6 +11,8 @@ struct OnBoardingButton: View {
     @State private var animationAmount: CGFloat = 1
     var buttonText: String
     var nowSubject: String
+    @Binding var pressed: Bool
+    
     var body: some View {
         Text(buttonText)
             .font(.system(size: 20, weight: .semibold))
@@ -29,6 +31,9 @@ struct OnBoardingButton: View {
                                         .repeatForever(autoreverses: false),
                                value: animationAmount)
             )
+            .onTapGesture {
+                pressed.toggle()
+            }
             .onAppear { self.animationAmount = 2 }
     }
     

@@ -10,6 +10,7 @@ import SwiftUI
 struct OnBoardingForth: View {
     @State private var animationAmount: CGFloat = 1
     @Binding var selectedTag: Int
+    @State var isContractPressed: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -30,7 +31,7 @@ struct OnBoardingForth: View {
             HStack {
                 Spacer()
                 Divider()
-                OnBoardingButton(buttonText: "우리의 약속", nowSubject: "contract")
+                OnBoardingButton(buttonText: "우리의 약속", nowSubject: "contract", pressed: $isContractPressed)
                 Divider()
                 Spacer()
             }
