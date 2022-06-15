@@ -38,7 +38,7 @@ struct ButtonForContract: View {
     // MARK: - Gesture 프로퍼티
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
-    
+
     @GestureState var isDetachingParentCheck = false
     @GestureState var isDetachingChildCheck = false
     @State var completedParentCheck = false
@@ -81,7 +81,6 @@ struct ButtonForContract: View {
                     self.completedChildCheck = false
                 }
             }
-
         return longPressGuesture
     }
 
@@ -104,82 +103,48 @@ struct ButtonForContract: View {
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
         ZStack {
-            // VStack 내부는 크게 두 줄로 나뉨: 첫 줄은 제목 + 점 세 개 짜리 버튼
-            // 두 번째 줄은 세부 내용이 들어가는 영역
-            VStack {
-                
-                HStack {
-                    Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
-                        .font(.system(size: 23, weight: .black, design: .rounded))
-                        .foregroundColor(  // contract.subject 와 nowSubject가 같은 경우 폰트 색을 검은 색(Kkkook.backgroundGray), 아니면 흰 색으로 변경
-                            contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
-                        )
-                        .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
-                        .padding(.bottom, 5)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
+                VStack { // 약속 제목, 약속 추가 버튼?을 상단, 약속 내용을 하단에 놓는 VStack
+                    HStack { // 약속 제목과 약속 추가 버튼
+                        Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
+                            .font(.system(size: 23, weight: .black, design: .rounded))
+                            .foregroundColor(  // contract.subject 와 nowSubject가 같은 경우 폰트 색을 검은 색(Kkkook.backgroundGray), 아니면 흰 색으로 변경
+                                contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
+                            )
+                            .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
+                            .padding(.bottom, 5)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
                     
-                    
-                    if !contract.promised {
-                        Menu {
-                            Button {
-                                isShowingPopover.toggle()
+                        if !contract.promised {
+                            Menu {
+                                Button {
+                                    isShowingPopover.toggle()
+                                } label: {
+                                    Label("수정하기", systemImage: "pencil")
+                                }
+                                
+                                Button(role: .destructive) {
+                                    deletePromise(promise: contract)
+                                } label: {
+                                    Label("삭제하기", systemImage: "trash")
+                                }
+                                
                             } label: {
-                                Label("수정하기", systemImage: "pencil")
+                                Image(systemName: "ellipsis")
+                                    .rotationEffect(.degrees(90))
+                                    .foregroundColor(.white)
+                                    .frame(width: 40, height: 40)
+                                    .padding(.top, 10)
                             }
-                            
-                            Button(role: .destructive) {
-                                deletePromise(promise: contract)
-                            } label: {
-                                Label("삭제하기", systemImage: "trash")
+                            .popover(isPresented: $isShowingPopover) {
+                                EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                             }
-                            
-                        } label: {
-                            Image(systemName: "ellipsis")
-                                .rotationEffect(.degrees(90))
-                                .foregroundColor(.white)
-                                .frame(width: 40, height: 40)
-                                .padding(.top, 10)
-                        }
-                        .popover(isPresented: $isShowingPopover) {
-                            EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                         }
                     }
                     
-                    if contract.promised {
-                        VStack{
-                            Spacer()
-                                Text("P")
-                                    .foregroundColor(.gray)
-                                    .background(
-                                        Circle()
-                                            .fill(self.isDetachingParentCheck ?
-                                                         Color.pink :
-                                                    (self.completedParentCheck ? .blue : Color.Kkookk.commonWhite))
-                                            .frame(width: 35, height: 35, alignment: .center)
-                                            .gesture(parentCheckGesture)
-                                    ).padding(.bottom, 15)
-
-                                Text("C")
-                                    .foregroundColor(.gray)
-                                    .background(
-                                        Circle()
-                                        .fill(self.isDetachingChildCheck ?
-                                                     Color.pink :
-                                                (self.completedChildCheck ? .blue : Color.Kkookk.commonWhite))
-                                        .frame(width: 35, height: 35, alignment: .center)
-                                        .gesture(childCheckGesture)
-                                    )
-                                Spacer()
-                            }
-                            .padding(.trailing, 35)
-                            .padding(.top, 15)
-                        
-                        
-                    }
-                    
-                    
-                }      
-                Text(contract.memo ?? "")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
+                // contract의 memo(하단 자세한 내용)
+                Text(contract.memo ?? "")
                     .font(.system(size: 17, weight: .regular, design: .rounded))
                     .foregroundColor(.white)
                     .lineLimit(3)
@@ -188,16 +153,44 @@ struct ButtonForContract: View {
                     .padding(.trailing, 30)
                     .padding(.top, 5)
             }
+                // promised List에서 check 버튼활성화
+                if contract.promised {
+                    Spacer()
+                    VStack{
+                        Spacer()
+                        Text("P")
+                            .foregroundColor(.gray)
+                            .background(
+                                Circle()
+                                    .fill(self.isDetachingParentCheck ?
+                                                     Color.pink :
+                                                (self.completedParentCheck ? .blue : Color.Kkookk.commonWhite))
+                                    .frame(width: 35, height: 35, alignment: .center)
+                                    .gesture(parentCheckGesture)
+                                ).padding(.bottom, 15)
+                            
+                        Text("C")
+                            .foregroundColor(.gray)
+                            .background(
+                                Circle()
+                                    .fill(self.isDetachingChildCheck ?
+                                                 Color.pink :
+                                            (self.completedChildCheck ? .blue : Color.Kkookk.commonWhite))
+                                    .frame(width: 35, height: 35, alignment: .center)
+                                    .gesture(childCheckGesture)
+                                )
+                            Spacer()
+                        }
+                        .padding(.trailing, 30)
+                }
+            }
 
             // Gesture Stack
-            
-                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle() 사용
-                // TODO: - if문이 길어져서 코드 가독성이 떨어짐. 다음 PR 때 다른 방식으로 코드 수정.
+            ZStack {
                 if !contract.promised {
-                    ZStack {
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
-                                     Color.yellow :
+                              Color.yellow :
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
                         .gesture(promiseGesture)
                 }
