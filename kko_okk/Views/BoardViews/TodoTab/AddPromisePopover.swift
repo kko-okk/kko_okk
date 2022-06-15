@@ -78,8 +78,12 @@ struct AddPromisePopover: View {
             // 반복 날짜 선택 버튼
             EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
                 .padding(.top, popoverAssets.popoverVerticalPadding)
+            
+            Spacer()
         }
-        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight)
+        .frame(width: popoverAssets.popoverFullWidth,
+               height: popoverAssets.popoverFullHeight)
+        .padding(.top, 25)
         .background(.bar)
     }
 }
