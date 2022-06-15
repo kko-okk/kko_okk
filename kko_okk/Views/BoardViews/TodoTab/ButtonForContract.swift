@@ -29,12 +29,12 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-    
+
     // MARK: - Animation Properties
     var scaleAdjustment = 0.8
     @State private var parentShowCheckmark = 0
     @State private var childShowCheckmark = 0
-    
+
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
 //   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 //    @State var countDownTimer = 2
@@ -221,7 +221,7 @@ struct ButtonForContract: View {
                                 // TODO: - 제스처 크기 하드코딩 수정
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(Color.Kkookk.parentPurple)
-                                
+
                             }.padding(.bottom, 7)
 //                        }
 //                        GeometryReader { geometry in
@@ -231,7 +231,7 @@ struct ButtonForContract: View {
                                         .yellow : Color.Kkookk.commonWhite)
                                     .frame(width: 35, height: 35, alignment: .center)
                                     .gesture(childCheckGesture)
-                                
+
                                 Path { path in
                                     path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
                                     path.addCurve(
