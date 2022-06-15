@@ -22,6 +22,6 @@ class PopoverAssets {
     let popoverDaysButtonHeight = KkookkSize.fullHeight * (30 / 1024)
     
     let popoverHorizontalTrailingPadding = KkookkSize.fullWidth * (22 / 1024)
-    let popoverVerticalPadding = KkookkSize.fullHeight * (53 / 1366)
+    let popoverVerticalPadding = KkookkSize.fullHeight * (53 / 1366) * 0.8
     let popoverHorizontalPaddingBetweenButton = KkookkSize.fullWidth * (14 / 1366)
 }
