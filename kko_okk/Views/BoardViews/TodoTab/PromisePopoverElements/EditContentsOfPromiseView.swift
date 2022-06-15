@@ -69,7 +69,7 @@ struct EditContentsOfPromiseView: View {
                             Text("메모 추가하기")
                                 .font(Font.Kkookk.popoverMemo)
                                 .cornerRadius(15)
-                                .padding(.horizontal, 7)
+                                .padding(.horizontal, 6)
                                 .padding(.top, 8)
                                 .foregroundColor(Color.Kkookk.unselectedTabGray)
                                 .onTapGesture {
