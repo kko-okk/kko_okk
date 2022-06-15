@@ -64,6 +64,7 @@ struct AddPromisePopover: View {
                     Text("완료")
                         .font(Font.Kkookk.popoverNavigationButton)
                 }
+                .disabled(name.isEmpty ? true : false)
             }
             .frame(width: popoverAssets.popoverEditingBoxWidth * 0.98)
             
