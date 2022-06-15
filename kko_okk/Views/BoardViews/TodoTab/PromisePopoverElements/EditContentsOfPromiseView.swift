@@ -13,6 +13,14 @@ struct EditContentsOfPromiseView: View {
     @Binding var memo: String
     
     //
+    @FocusState private var focusedField: Field?
+    
+    enum Field: Hashable {
+        case name
+        case memo
+    }
+    
+    //
     let popoverAssets = PopoverAssets()
     
     var body: some View {
@@ -28,16 +36,19 @@ struct EditContentsOfPromiseView: View {
             ZStack {
                 // name, memo 텍스트필드를 붙어있는 것처럼 만들기 위한 사각형
                 RoundedRectangle(cornerRadius: 15)
-                    .frame(width: popoverAssets.popoverEditingBoxWidth, height: popoverAssets.popoverEditingBoxHeight)
+                    .frame(width: popoverAssets.popoverEditingBoxWidth,
+                           height: popoverAssets.popoverEditingBoxHeight)
                     .foregroundColor(.white)
                 
                 VStack {
                     // name 수정하는 영역
                     TextField("할 일", text: $name)
-                        .frame(width: popoverAssets.popoverEditingBoxWidth * 0.95, height: popoverAssets.popoverNameFieldHeight)
+                        .frame(width: popoverAssets.popoverEditingBoxWidth * 0.95,
+                               height: popoverAssets.popoverNameFieldHeight)
                         .font(Font.Kkookk.popoverName)
                         .background(.white)
                         .cornerRadius(15)
+                        .focused($focusedField, equals: .name)
                     
                     Divider()
                         .frame(width: popoverAssets.popoverEditingBoxWidth)
@@ -46,19 +57,27 @@ struct EditContentsOfPromiseView: View {
                     // memo 수정하는 영역
                     ZStack(alignment: .topLeading) {
                         TextEditor(text: $memo)
-                            .frame(width: popoverAssets.popoverEditingBoxWidth, height: popoverAssets.popoverMemoFieldHeight)
+                            .frame(width: popoverAssets.popoverEditingBoxWidth * 0.97,
+                                   height: popoverAssets.popoverMemoFieldHeight)
                             .font(Font.Kkookk.popoverMemo)
                             .cornerRadius(15)
+                            .background(.clear.opacity(0))
+                            .focused($focusedField, equals: .memo)
                         
                         // placeholder
                         if memo.isEmpty {
                             Text("메모 추가하기")
                                 .font(Font.Kkookk.popoverMemo)
                                 .cornerRadius(15)
-                                .padding(.horizontal, 15)
-                                .padding(.top, 10)
+                                .padding(.horizontal, 7)
+                                .padding(.top, 8)
                                 .foregroundColor(Color.Kkookk.unselectedTabGray)
+                                .onTapGesture {
+                                    focusedField = .memo
+                                }
                         }
+                        
+                        
                     }
                 }
             }
