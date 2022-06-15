@@ -31,13 +31,9 @@ struct ButtonForContract: View {
     }
     
     // MARK: - Animation Properties
-    @State private var parentRemoveInnerFill = 45
+    var scaleAdjustment = 0.8
     @State private var parentShowCheckmark = 0
-    @State private var parentRotate3D = -180
-    
-    @State private var childRemoveInnerFill = 45
     @State private var childShowCheckmark = 0
-    @State private var childRotate3D = -180
     
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
 //   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -65,16 +61,12 @@ struct ButtonForContract: View {
             .onEnded { _ in
                 if completedParentCheck == false {
                     // Animation
-                    parentRemoveInnerFill  = 4
-                    parentRotate3D = 180
                     parentShowCheckmark = 1
                     // Promise Status
                     self.completedParentCheck = true
                     if completedChildCheck { contract.isDone = true}
                 } else {
                     // Animation
-                    parentRemoveInnerFill  = 45
-                    parentRotate3D = -180
                     parentShowCheckmark = 0
                     // Promise Status
                     self.completedParentCheck = false
@@ -95,16 +87,12 @@ struct ButtonForContract: View {
             .onEnded { _ in
                 if completedChildCheck == false {
                     // Animation
-                    childRemoveInnerFill  = 4
-                    childRotate3D = 180
                     childShowCheckmark = 1
                     // Promise Status
                     self.completedChildCheck = true
                     if completedParentCheck { contract.isDone = true}
                 } else {
                     // Animation
-                    childRemoveInnerFill  = 45
-                    childRotate3D = -180
                     childShowCheckmark = 0
                     // Promise Status
                     self.completedChildCheck = false
@@ -197,16 +185,16 @@ struct ButtonForContract: View {
                                     .gesture(parentCheckGesture)
 
                                 Path { path in
-                                    path.move(to: CGPoint(x: -1, y: -1))
+                                    path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
                                     path.addCurve(
-                                        to: CGPoint(x: 21, y: 26),
-                                        control1: CGPoint(x: -1, y: -1),
-                                        control2: CGPoint(x: 22, y: 26))
+                                        to: CGPoint(x: 18, y: 22), // origin (21.26)
+                                        control1: CGPoint(x: -1, y: -1), // origin (-1.-1)
+                                        control2: CGPoint(x: 18, y: 22)) // origin (22.26)
                                     path.addCurve(
-                                        to: CGPoint(x: 56, y: -28),
-                                        control1: CGPoint(x: 20, y: 26),
-                                        control2: CGPoint(x: 56, y: -28))
-                                    path.move(to: CGPoint(x: -1, y: -1))
+                                        to: CGPoint(x: 60, y: -50), // origin (56.-28)
+                                        control1: CGPoint(x: 18, y: 22), // origin (20.26) x: 시작점
+                                        control2: CGPoint(x: 60, y: -50)) // origin (56.-28)
+                                    path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
@@ -238,7 +226,8 @@ struct ButtonForContract: View {
                                         to: CGPoint(x: 56, y: -28),
                                         control1: CGPoint(x: 20, y: 26),
                                         control2: CGPoint(x: 56, y: -28))
-                                    path.move(to: CGPoint(x: -1, y: -1))
+                                    path.move(to: CGPoint(x: -1, y: -1)
+                                    )
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
@@ -247,7 +236,7 @@ struct ButtonForContract: View {
                                 .animation(Animation.easeInOut(duration: 0.5).delay(0))
 //                                .frame(width: geometry.size.width, height: geometry.size.height)
                                 // TODO: - 제스처 크기 하드코딩 수정
-                                .frame(width: 30, height: 30)
+                                .frame(width: 20, height: 20)
                                 .foregroundColor(Color.Kkookk.childGreen)
                                 }
 //                        }
