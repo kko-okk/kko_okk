@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct OnBoardingForth: View {
-    var promises: [PromiseModel] = PromiseModel.promises
     @State private var animationAmount: CGFloat = 1
+    @Binding var selectedTag: Int
+    @State var isContractPressed: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -30,18 +31,13 @@ struct OnBoardingForth: View {
             HStack {
                 Spacer()
                 Divider()
-                Text("우리의 약속")
-                    .font(.system(size: 20, weight: .semibold))
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, KkookkSize.fullWidth / 33)
-                    .foregroundColor(Color.Kkookk.commonYellow)
-                    .background(Color.Kkookk.onBoardingYellow)
-                    .cornerRadius(10)
+                OnBoardingButton(buttonText: "우리의 약속", nowSubject: "contract", pressed: $isContractPressed)
                 Divider()
                 Spacer()
             }
             .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 15)
             .padding(.bottom, 10)
+            
             
             Text("약속하러 가기")
                 .font(.system(size: 20, weight: .semibold))
@@ -51,11 +47,5 @@ struct OnBoardingForth: View {
                 .background(.blue)
                 .cornerRadius(10)
         }
-    }
-}
-
-struct OnBoardingForth_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingForth()
     }
 }
