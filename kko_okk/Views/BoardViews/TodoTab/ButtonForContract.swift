@@ -159,26 +159,34 @@ struct ButtonForContract: View {
                 if contract.promised {
                     HStack{
                         Spacer()
-                        Text("부모 확인")
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(self.isDetachingParentCheck ?
+                        VStack{
+                            Spacer()
+                            Text("P")
+                                .foregroundColor(.gray)
+                                .background(
+                                    Circle()
+                                        .fill(self.isDetachingParentCheck ?
+                                                     Color.pink :
+                                                (self.completedParentCheck ? .blue : Color.Kkookk.commonWhite))
+                                        .frame(width: 35, height: 35, alignment: .center)
+                                        .gesture(parentCheckGesture)
+                                )
+                            Spacer()
+                            Text("C")           
+                                .foregroundColor(.gray)
+                                .background(
+                                    Circle()
+                                    .fill(self.isDetachingChildCheck ?
                                                  Color.pink :
-                                            (self.completedParentCheck ? .blue : Color.yellow.opacity(0.5)))
-                                    .frame(width: 100, height: 50, alignment: .center)
-                                    .gesture(parentCheckGesture)
-                            )
-                        Spacer()
-                        Text("아이 확인")
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(self.isDetachingChildCheck ?
-                                             Color.pink :
-                                        (self.completedChildCheck ? .blue : Color.yellow.opacity(0.5)))
-                                .frame(width: 100, height: 50, alignment: .center)
-                                .gesture(childCheckGesture)
-                            )
-                        Spacer()
+                                            (self.completedChildCheck ? .blue : Color.Kkookk.commonWhite))
+                                    .frame(width: 35, height: 35, alignment: .center)
+                                    .gesture(childCheckGesture)
+                                )
+                            Spacer()
+                        }
+                        .padding(.trailing, 60)
                     }
+                    
                 } else {
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
