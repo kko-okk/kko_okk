@@ -24,8 +24,7 @@
 		2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB172854719F00339B23 /* OnBoardingSecond.swift */; };
 		2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB19285471A800339B23 /* OnBoardingThird.swift */; };
 		2261FB1C285471B100339B23 /* OnBoardingForth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB1B285471B100339B23 /* OnBoardingForth.swift */; };
-		227607702855955600EE86C6 /* PromiseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276076F2855955600EE86C6 /* PromiseModel.swift */; };
-		22760772285596AC00EE86C6 /* ButtonForOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22760771285596AC00EE86C6 /* ButtonForOnboarding.swift */; };
+		22E218512858D921003A2864 /* OnBoardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E218502858D921003A2864 /* OnBoardingButton.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
 		22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */; };
 		22E9005E2849D677000A82BE /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9005D2849D677000A82BE /* FilteredList.swift */; };
@@ -132,8 +131,7 @@
 		2261FB172854719F00339B23 /* OnBoardingSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSecond.swift; sourceTree = "<group>"; };
 		2261FB19285471A800339B23 /* OnBoardingThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingThird.swift; sourceTree = "<group>"; };
 		2261FB1B285471B100339B23 /* OnBoardingForth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingForth.swift; sourceTree = "<group>"; };
-		2276076F2855955600EE86C6 /* PromiseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseModel.swift; sourceTree = "<group>"; };
-		22760771285596AC00EE86C6 /* ButtonForOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForOnboarding.swift; sourceTree = "<group>"; };
+		22E218502858D921003A2864 /* OnBoardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButton.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22E9005D2849D677000A82BE /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 				22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */,
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
-				2276076F2855955600EE86C6 /* PromiseModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
 				0A676FFF2855E0BB007458BE /* Date.swift */,
 				0A17F89F285136B4007CDEDC /* MockupData */,
@@ -297,7 +294,7 @@
 				2261FB172854719F00339B23 /* OnBoardingSecond.swift */,
 				2261FB19285471A800339B23 /* OnBoardingThird.swift */,
 				2261FB1B285471B100339B23 /* OnBoardingForth.swift */,
-				22760771285596AC00EE86C6 /* ButtonForOnboarding.swift */,
+				22E218502858D921003A2864 /* OnBoardingButton.swift */,
 			);
 			path = OnBordingViews;
 			sourceTree = "<group>";
@@ -666,6 +663,7 @@
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
 				0A6770002855E0BB007458BE /* Date.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
+				70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */,
 				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
 				227607702855955600EE86C6 /* PromiseModel.swift in Sources */,
 				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
@@ -675,7 +673,7 @@
 				2261FB1428546EC200339B23 /* OnBoardingTabView.swift in Sources */,
 				2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */,
 				2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */,
-				22760772285596AC00EE86C6 /* ButtonForOnboarding.swift in Sources */,
+				22E218512858D921003A2864 /* OnBoardingButton.swift in Sources */,
 				7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */,
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,
