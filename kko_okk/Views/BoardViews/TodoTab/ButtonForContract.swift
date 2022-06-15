@@ -185,66 +185,77 @@ struct ButtonForContract: View {
             }
                 // promised List에서 check 버튼활성화
                 if contract.promised {
-                    Spacer()
+                    // TODO: - 중복되는 코드 묶기
                     VStack{
                         Spacer()
-                        GeometryReader { geometry in
-                                Text("P")
-                                    .foregroundColor(.gray)
-                                    .background(
-                                        Circle()
-                                            .fill(self.isDetachingParentCheck ?
-                                                .yellow : Color.Kkookk.commonWhite)
-                                            .frame(width: 35, height: 35, alignment: .center)
-                                            .gesture(parentCheckGesture)
-                                        ).padding(.bottom, 15)
-                             ZStack{
+//                        GeometryReader { geometry in
+                            ZStack{
+                                Circle()
+                                    .fill(self.isDetachingParentCheck ?
+                                        .yellow : Color.Kkookk.commonWhite)
+                                    .frame(width: 35, height: 35, alignment: .center)
+                                    .gesture(parentCheckGesture)
+
                                 Path { path in
                                     path.move(to: CGPoint(x: -1, y: -1))
-                                           path.addCurve(to: CGPoint(x: 21, y: 26), control1: CGPoint(x: -1, y: -1), control2: CGPoint(x: 22, y: 26))
-                                           path.addCurve(to: CGPoint(x: 56, y: -28), control1: CGPoint(x: 20, y: 26), control2: CGPoint(x: 56, y: -28))
-                                           path.move(to: CGPoint(x: -1, y: -1))
-
+                                    path.addCurve(
+                                        to: CGPoint(x: 21, y: 26),
+                                        control1: CGPoint(x: -1, y: -1),
+                                        control2: CGPoint(x: 22, y: 26))
+                                    path.addCurve(
+                                        to: CGPoint(x: 56, y: -28),
+                                        control1: CGPoint(x: 20, y: 26),
+                                        control2: CGPoint(x: 56, y: -28))
+                                    path.move(to: CGPoint(x: -1, y: -1))
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
                                 .offset(x: 0, y: 0)
+                                // TODO: - deprectated 경고 지우기
                                 .animation(Animation.easeInOut(duration: 0.5).delay(0))
-                                .frame(width: geometry.size.width, height: geometry.size.height)
+//                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                // TODO: - 제스처 크기 하드코딩 수정
+                                .frame(width: 30, height: 30)
                                 .foregroundColor(Color.Kkookk.parentPurple)
-                            }
-                        }
-                        
-                        GeometryReader { geometry in
-                            Text("C")
-                                .foregroundColor(.gray)
-                                .background(
-                                    Circle()
-                                        .fill(self.isDetachingChildCheck ?
-                                            .yellow : Color.Kkookk.commonWhite)
-                                        .frame(width: 35, height: 35, alignment: .center)
-                                        .gesture(childCheckGesture)
-                                    )
+                                
+                            }.padding(.bottom, 7)
+//                        }
+//                        GeometryReader { geometry in
                             ZStack{
+                                Circle()
+                                    .fill(self.isDetachingChildCheck ?
+                                        .yellow : Color.Kkookk.commonWhite)
+                                    .frame(width: 35, height: 35, alignment: .center)
+                                    .gesture(childCheckGesture)
+                                
                                 Path { path in
                                     path.move(to: CGPoint(x: -1, y: -1))
-                                           path.addCurve(to: CGPoint(x: 21, y: 26), control1: CGPoint(x: -1, y: -1), control2: CGPoint(x: 22, y: 26))
-                                           path.addCurve(to: CGPoint(x: 56, y: -28), control1: CGPoint(x: 20, y: 26), control2: CGPoint(x: 56, y: -28))
-                                           path.move(to: CGPoint(x: -1, y: -1))
-
+                                    path.addCurve(
+                                        to: CGPoint(x: 21, y: 26),
+                                        control1: CGPoint(x: -1, y: -1),
+                                        control2: CGPoint(x: 22, y: 26))
+                                    path.addCurve(
+                                        to: CGPoint(x: 56, y: -28),
+                                        control1: CGPoint(x: 20, y: 26),
+                                        control2: CGPoint(x: 56, y: -28))
+                                    path.move(to: CGPoint(x: -1, y: -1))
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
                                 .offset(x: 0, y: 0)
+                                // TODO: - deprectated 경고 지우기
                                 .animation(Animation.easeInOut(duration: 0.5).delay(0))
-                                .frame(width: geometry.size.width, height: geometry.size.height)
+//                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                // TODO: - 제스처 크기 하드코딩 수정
+                                .frame(width: 30, height: 30)
                                 .foregroundColor(Color.Kkookk.childGreen)
                                 }
-                        }
+//                        }
                         Spacer()
                     }
+                    .frame(width: 35)
                     .padding([.top, .bottom], 5)
-                    .padding(.trailing, 10)
+                    .padding(.trailing, 15)
                 }
             }
 
