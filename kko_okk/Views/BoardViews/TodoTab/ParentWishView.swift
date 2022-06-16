@@ -11,6 +11,12 @@ import SwiftUI
 struct ParentWishView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
+    @FetchRequest(
+        sortDescriptors: [],
+        animation: .default)
+    
+    private var items: FetchedResults<Promise>
+    
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
     
@@ -27,7 +33,7 @@ struct ParentWishView: View {
                         .frame(width: 30, height: 30)
                 }
                 .popover(isPresented: $isShowingPopover) {
-                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
+                    AddPromisePopover(subject: .parent, isShowingPopover: $isShowingPopover)
                 }
             }
             .padding(.trailing, 10)
@@ -38,8 +44,7 @@ struct ParentWishView: View {
                 .frame(height: 23)
 
             Spacer()
-
-            // 아직 합의에 도달하지 못한 약속
+            // 약속이 안된 것
             FilteredList(filter: "parent", formatter: "promised == FALSE")
         }
     }

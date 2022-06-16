@@ -21,9 +21,8 @@ enum KkookkSize {
     
     // Board
 
+    
     // Padding
 
-    // OnBoard
-    static var onBoardingWidth: CGFloat{ KkookkSize.fullWidth / 5}
-    static var onBoardingHeight: CGFloat{ KkookkSize.fullHeight / 18}
+
 }

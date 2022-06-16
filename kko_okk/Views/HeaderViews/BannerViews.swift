@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-enum BannerViews: CaseIterable{
+enum BannerViews : CaseIterable{
     case view1
     case view2
     case view3
@@ -16,48 +16,32 @@ enum BannerViews: CaseIterable{
 
 class RollingBannerController{
     @ViewBuilder
-    func pageing(view: BannerViews) -> some View{
+    func pageing(view:BannerViews) -> some View{
         switch view{
         case .view1:
-            BannerView1()
+            BannerView_1()
         case .view2:
-            BannerView2()
+            BannerView_2()
         case .view3:
-            BannerView3()
+            BannerView_3()
         }
     }
 }
 
 
-//TODO: BannerView1~3은 롤링배너를 안에 들어갈 임시 view들 입니다.
-//TODO: 사용된 색상또한 임시값입니다.
-struct BannerView1: View {
-    @State var promise: Int = 6
+//롤링배너에 들어갈 View들 입니다.
+//아직 정해진것이 없어서 가데이터로 넣어 놨습니다.
+struct BannerView_1: View {
     var body: some View {
-        GeometryReader { geometry in
-            ZStack{
-                Color(hex: "#F5F0F6")
-                VStack{
-                    HStack{
-                        Text("이번주에 ")
-                            .font(Font.Kkookk.headerDate)
-                        Text("\(promise)개")
-                            .font(Font.Kkookk.headerDefaultTitle)
-                            .foregroundColor(Color.green)
-                        Text("의")
-                            .font(Font.Kkookk.headerDate)
-                    }
-                    Text("약속을 지켰어요")
-                        .font(Font.Kkookk.headerDate)
-                }
-            }
+        ZStack{
+            Color.blue
+            Text("1")
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:  HeaderViewConst.shared.fullHeight, alignment: .bottomLeading)
     }
 }
 
 
-struct BannerView2: View {
+struct BannerView_2: View {
     var body: some View {
         ZStack{
             Color.red
@@ -67,18 +51,20 @@ struct BannerView2: View {
 }
 
 
-struct BannerView3: View {
+struct BannerView_3: View {
     var body: some View {
         ZStack{
             Color.green
             Text("3")
-        }
-    }
+        }    }
 }
 
 
-struct BannerViews_Previews: PreviewProvider {
-    static var previews: some View {
-        BannerView1()
-    }
-}
+
+
+
+//struct BannerViews_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BannerViews()
+//    }
+//}
