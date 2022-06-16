@@ -248,7 +248,6 @@ struct ButtonForContract: View {
                                 .padding(.top, 5)
                         }
                     }
-                    }
                     .frame(minHeight: 100)
                 }
 
