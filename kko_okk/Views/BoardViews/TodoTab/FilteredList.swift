@@ -34,7 +34,7 @@ struct FilteredList: View {
     }
     
     init(filter: String, formatter: String) {
-        _fetchRequest = FetchRequest<Promise>(sortDescriptors: [SortDescriptor(\.madeTime, order: .forward)],
+        _fetchRequest = FetchRequest<Promise>(sortDescriptors: [SortDescriptor(\.isDone, order: .forward), SortDescriptor(\.madeTime, order: .forward)],
                                               predicate: NSPredicate(format: formatter),
                                               animation: .default)
         nowSubject = filter
