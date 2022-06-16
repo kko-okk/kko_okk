@@ -236,9 +236,8 @@ struct ButtonForContract: View {
                         
                         // contract의 memo(하단 자세한 내용)
                         // CoreData의 memo 항목에 값이 있을 때만 표시한다.
-                        if contract.memo!.isEmpty {
-
-                        } else {
+                        // Thanks, Guell!
+                        if !contract.memo!.isEmpty {
                             Text(contract.memo ?? "")
                                 .font(.system(size: 17, weight: .regular, design: .rounded))
                                 .foregroundColor(.white)
@@ -248,6 +247,7 @@ struct ButtonForContract: View {
                                 .padding(.trailing, 30)
                                 .padding(.top, 5)
                         }
+                    }
                     }
                     .frame(minHeight: 100)
                 }
