@@ -18,12 +18,11 @@ struct ReportBoardView: View {
                         VStack{
                             HStack{
                                 DailyReportView()
-//                                testView1()
                                     .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                     .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
-
+                                
                                 Spacer(minLength: 20)
-                                testView2()
+                                checkPromiseView()
                                     .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                     .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                             }
@@ -40,36 +39,11 @@ struct ReportBoardView: View {
                             .cornerRadius(HeaderViewConst.shared.cornerRadius)
                             .frame(width: geometry.size.width * 0.329)
                             .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
-                    }//1246
+                    }
                     Spacer(minLength: 20)
                 }
             }
         }
-    }
-}
-//이 뷰의 전체 높이 670 /366
-
-
-struct testView1: View {
-    var body: some View {
-        
-        Color.red
-    }
-}
-
-struct testView2: View {
-    var body: some View {
-        Color.green
-    }
-}
-struct testView3: View {
-    var body: some View {
-        Color.black
-    }
-}
-struct testView4: View {
-    var body: some View {
-        Color.yellow
     }
 }
 

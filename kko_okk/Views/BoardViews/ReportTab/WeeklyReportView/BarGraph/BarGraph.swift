@@ -1,11 +1,14 @@
+//
+//  WeeklyReportView.swift
+//  kko_okk
+//
+//  Created by 이성노 on 2022/06/10.
+//
 import SwiftUI
-
-
 
 struct BarGraph: View {
     var parentWeeklyReportDatas: [ParentWeeklyReportData]
     var childWeeklyReportDatas: [ChildrenWeeklyReportData]
-    
     var body: some View {
         GraphView()
     }
@@ -13,7 +16,6 @@ struct BarGraph: View {
 }
 
 extension BarGraph {
-    
     @ViewBuilder
     func GraphView() -> some View {
         GeometryReader { proxy in
@@ -36,10 +38,8 @@ extension BarGraph {
                     }
                     .frame(width: proxy.size.width, height: proxy.size.height * 0.7 ,alignment: .top)
                     .padding(.bottom,30)
-                   // .padding(.bottom,proxy.size.height)
                  }
                 
-//                 데이터에 따른 막대그래프의 값을 표현해줍니다.
                 HStack(alignment: .bottom){
                                     ForEach(parentWeeklyReportDatas.indices, id: \.self) { index in
                                         let parentWeeklyReportData = parentWeeklyReportDatas[index]
@@ -47,8 +47,6 @@ extension BarGraph {
                 
                                         VStack{
                                             Spacer()
-
-                                            // 부모님과 아이의 막대 그래프 사이의 간격을 spacing을 조절합니다
                                             HStack(alignment: .bottom) {
                                                 VStack{
                                                         ParentAnimatedBarGraph(parentWeeklyReportData: parentWeeklyReportDatas[index], index: index)
