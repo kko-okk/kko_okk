@@ -11,13 +11,13 @@ import SwiftUI
 struct ButtonForContract: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     // 약속, Subject(아이 또는 부모) 받아오기
     @ObservedObject var contract: Promise
-    
+
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
-    
+
     var nowSubject: String
     var subject: Subject {
         switch nowSubject {
@@ -36,10 +36,10 @@ struct ButtonForContract: View {
     @State private var childShowCheckmark = 0
 
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
-    // let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    // @State var countDownTimer = 2
-    // @State var timerRunning = true
-    
+//   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//    @State var countDownTimer = 2
+//    @State var timerRunning = true
+
     // MARK: - Gesture 프로퍼티
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
@@ -124,16 +124,14 @@ struct ButtonForContract: View {
 
     var promiseGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
-                .updating($isDetectingLongPress) { currentState, gestureState,
-                                                   transaction in
-                    gestureState = currentState
-                    transaction.animation = Animation.easeIn(duration: 0.3)
-                }
-                .onEnded { _ in
-                    contract.isDone = false
-                    contract.promised = true
-
-                }
+            .updating($isDetectingLongPress) { currentState, gestureState,
+                    transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+            }
+            .onEnded { _ in
+                contract.isDone = false
+                contract.promised = true
 
                 // CoreData 업데이트
                 do {
@@ -143,114 +141,63 @@ struct ButtonForContract: View {
                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
             }
-
         return longPressGuesture
     }
-    
+
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
         ZStack {
             HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
-                
-                if contract.memo!.isEmpty {  // CoreData의 memo 항목이 비어있을 경우: 수정 버튼(ellipsis) 위치 조절 때문에 새로 그림
-                    HStack {  // 약속 제목 및 약속 추가 버튼
+                VStack { // 약속 제목, 약속 추가 버튼?을 상단, 약속 내용을 하단에 놓는 VStack
+                    HStack { // 약속 제목과 약속 추가 버튼
                         Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                             .font(.system(size: 23, weight: .black, design: .rounded))
-                            .foregroundColor(  // contract.subject == nowSubject -> 폰트 색: Kkkook.backgroundGray, 아니면 흰 색
+                            .foregroundColor(  // contract.subject 와 nowSubject가 같은 경우 폰트 색을 검은 색(Kkkook.backgroundGray), 아니면 흰 색으로 변경
                                 contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
                             )
-                            .lineLimit(1)
-                            .padding([.leading, .trailing], 20.0)  // padding 배열 처리
+                            .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
+                            .padding(.bottom, 5)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         // 수정, 삭제 Popover
                         if !contract.promised {
-                            VStack {
-                                Menu {
-                                    Button {
-                                        isShowingPopover.toggle()
-                                    } label: {
-                                        Label("수정하기", systemImage: "pencil")
-                                    }
-
-                                    Button(role: .destructive) {
-                                        deletePromise(promise: contract)
-                                    } label: {
-                                        Label("삭제하기", systemImage: "trash")
-                                    }
+                            Menu {
+                                Button {
+                                    isShowingPopover.toggle()
                                 } label: {
-                                    Image(systemName: "ellipsis")
-                                        .rotationEffect(.degrees(90))
-                                        .foregroundColor(.white)
-                                        .frame(width: 40, height: 40)
-                                        .padding(.top, 8)
+                                    Label("수정하기", systemImage: "pencil")
                                 }
-                                .popover(isPresented: $isShowingPopover) {
-                                    EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
+                                
+                                Button(role: .destructive) {
+                                    deletePromise(promise: contract)
+                                } label: {
+                                    Label("삭제하기", systemImage: "trash")
                                 }
-                                Spacer()
+                            } label: {
+                                Image(systemName: "ellipsis")
+                                    .rotationEffect(.degrees(90))
+                                    .foregroundColor(.white)
+                                    .frame(width: 40, height: 40)
+                                    .padding(.top, 10)
+                            }
+                            .popover(isPresented: $isShowingPopover) {
+                                EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
                             }
                         }
                     }
-                    .frame(minHeight: 100)
-                } else {  // CoreData의 memo 항목이 존재하는 경우
-                    VStack {  // 약속 제목 및 약속 추가 버튼을 상단에, 약속 내용을 하단에 배치하는 VStack
-                        HStack {
-                            Text(contract.name ?? "")
-                                .font(.system(size: 23, weight: .black, design: .rounded))
-                                .foregroundColor(
-                                    contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
-                                )
-                                .lineLimit(1)
-                                .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
-                                .padding(.bottom, 5)
-                                .frame(maxWidth: .infinity, alignment: .leading)
 
-                            if !contract.promised {
-                                Menu {
-                                    Button {
-                                        isShowingPopover.toggle()
-                                    } label: {
-                                        Label("수정하기", systemImage: "pencil")
-                                    }
-
-                                    Button(role: .destructive) {
-                                        deletePromise(promise: contract)
-                                    } label: {
-                                        Label("삭제하기", systemImage: "trash")
-                                    }
-                                } label: {
-                                    Image(systemName: "ellipsis")
-                                        .rotationEffect(.degrees(90))
-                                        .foregroundColor(.white)
-                                        .frame(width: 40, height: 40)
-                                        .padding(.top, 8)
-                                }
-                                .popover(isPresented: $isShowingPopover) {
-                                    EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
-                                }
-                            }
-                        }
-                        
-                        // contract의 memo(하단 자세한 내용)
-                        // CoreData의 memo 항목에 값이 있을 때만 표시한다.
-                        // Thanks, Guell!
-                        if !contract.memo!.isEmpty {
-                            Text(contract.memo ?? "")
-                                .font(.system(size: 17, weight: .regular, design: .rounded))
-                                .foregroundColor(.white)
-                                .lineLimit(3)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding([.leading, .bottom], 20)  // padding 배열 처리
-                                .padding(.trailing, 30)
-                                .padding(.top, 5)
-                        }
-                    }
-                    .frame(minHeight: 100)
-                }
-
+                // contract의 memo(하단 자세한 내용)
+                Text(contract.memo ?? "")
+                    .font(.system(size: 17, weight: .regular, design: .rounded))
+                    .foregroundColor(.white)
+                    .lineLimit(3)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding([.leading, .bottom], 20)  // padding 배열 처리
+                    .padding(.trailing, 30)
+                    .padding(.top, 5)
+            }
                 // promised List에서 check 버튼활성화
                 if contract.promised {
                     VStack{
