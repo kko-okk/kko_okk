@@ -64,12 +64,23 @@ struct ButtonForContract: View {
                     parentShowCheckmark = 1
                     // Promise Status
                     self.completedParentCheck = true
-                    if completedChildCheck { contract.isDone = true}
+                    
+                    if completedChildCheck { contract.isDone = true }
                 } else {
                     // Animation
                     parentShowCheckmark = 0
                     // Promise Status
                     self.completedParentCheck = false
+                    
+                    contract.isDone = false
+                }
+                
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
             }
         return longPressGuesture
@@ -90,14 +101,23 @@ struct ButtonForContract: View {
                     childShowCheckmark = 1
                     // Promise Status
                     self.completedChildCheck = true
-                    if completedParentCheck { contract.isDone = true}
+                    if completedParentCheck { contract.isDone = true }
                 } else {
                     // Animation
                     childShowCheckmark = 0
                     // Promise Status
                     self.completedChildCheck = false
+                    
+                    contract.isDone = false
                 }
                 
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         return longPressGuesture
     }
@@ -113,6 +133,13 @@ struct ButtonForContract: View {
                 contract.isDone = false
                 contract.promised = true
 
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         return longPressGuesture
     }
