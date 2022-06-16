@@ -9,18 +9,21 @@ import SwiftUI
 
 struct RollingBannerView: View {
     @State var selectedItem = 0
+    let tips: [TipModel] = TipModel.tips
     var RBC = RollingBannerController()
-    let RBTime : Double = 5
+    let RBTime : Double = 0.5
     // RollingBanner Time 롤링베너가 몇 초에 한번씩 변경할지 정합니다.
     
     var body: some View {
         TabView(selection: $selectedItem){
-            ForEach((0...BannerViews.allCases.count - 1),id: \.self) {
-                RBC.pageing(view: BannerViews.allCases[$0])
+            ForEach((0...tips.count - 1),id:\.self){
+                RBC.tipViewMaker(text:"\(tips[$0].conent)" )
             }
         }
-        .tabViewStyle(PageTabViewStyle())
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        //  기존설정이 맘에든다면 하단의 주석을 사용하세요.
+        //        .tabViewStyle(PageTabViewStyle())
+        //        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
         .onAppear{
             playRollingBanner()
         }
@@ -37,7 +40,7 @@ extension RollingBannerView{
         Timer.scheduledTimer(withTimeInterval: RBTime, repeats: true){(Timer) in
             withAnimation(.easeInOut(duration: 1)){
                 // 하단 주석 1참고
-                guard selectedItem == BannerViews.allCases.count - 1 else {
+                guard selectedItem == tips.count - 1 else {
                     selectedItem = selectedItem + 1
                     return
                 }

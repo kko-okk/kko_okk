@@ -41,7 +41,7 @@ struct TitleBackgroundView: View {
 
 struct TitleLeadingView: View {
     @State var date = Date()
-    let tips: [TipModel] = TipModel.tips
+    //let tips: [TipModel] = TipModel.tips
     // 구엘이 미리 만들어 놓은 팁 모델에서 팁을 가져오는 것 입니다.
     var body: some View {
         VStack(alignment: .leading){
