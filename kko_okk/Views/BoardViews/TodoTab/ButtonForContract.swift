@@ -74,6 +74,14 @@ struct ButtonForContract: View {
                     
                     contract.isDone = false
                 }
+                
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         return longPressGuesture
     }
@@ -103,6 +111,13 @@ struct ButtonForContract: View {
                     contract.isDone = false
                 }
                 
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         return longPressGuesture
     }
@@ -118,6 +133,13 @@ struct ButtonForContract: View {
                 contract.isDone = false
                 contract.promised = true
 
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         return longPressGuesture
     }
