@@ -29,12 +29,12 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-    
+
     // MARK: - Animation Properties
     var scaleAdjustment = 0.8
     @State private var parentShowCheckmark = 0
     @State private var childShowCheckmark = 0
-    
+
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
     // let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     // @State var countDownTimer = 2
@@ -114,6 +114,7 @@ struct ButtonForContract: View {
                     contract.promised = true
 
                 }
+
         return longPressGuesture
     }
     
@@ -124,7 +125,7 @@ struct ButtonForContract: View {
         ZStack {
             HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
                 
-                if contract.memo!.isEmpty {  // CoreData의 memo 항목이 비어있을 경우: 수정 버튼(eppipsis) 위치 조절 때문에 새로 그림
+                if contract.memo!.isEmpty {  // CoreData의 memo 항목이 비어있을 경우: 수정 버튼(ellipsis) 위치 조절 때문에 새로 그림
                     HStack {  // 약속 제목 및 약속 추가 버튼
                         Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                             .font(.system(size: 23, weight: .black, design: .rounded))
@@ -221,7 +222,6 @@ struct ButtonForContract: View {
                     }
                     .frame(minHeight: 100)
                 }
-
 
                 // promised List에서 check 버튼활성화
                 if contract.promised {
