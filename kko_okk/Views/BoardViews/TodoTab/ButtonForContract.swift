@@ -215,8 +215,7 @@ struct ButtonForContract: View {
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
                                 .offset(x: 0, y: 0)
-                                // TODO: - deprectated 경고 지우기
-                                .animation(Animation.easeInOut(duration: 0.5).delay(0))
+                                .animation(Animation.easeInOut(duration: 0.5).delay(0), value: parentShowCheckmark)
 //                                .frame(width: geometry.size.width, height: geometry.size.height)
                                 // TODO: - 제스처 크기 하드코딩 수정
                                 .frame(width: 30, height: 30)
@@ -248,8 +247,7 @@ struct ButtonForContract: View {
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
                                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
                                 .offset(x: 0, y: 0)
-                                // TODO: - deprectated 경고 지우기
-                                .animation(Animation.easeInOut(duration: 0.5).delay(0))
+                                .animation(Animation.easeInOut(duration: 0.5).delay(0), value: childShowCheckmark)
 //                                .frame(width: geometry.size.width, height: geometry.size.height)
                                 // TODO: - 제스처 크기 하드코딩 수정
                                 .frame(width: 30, height: 30)
