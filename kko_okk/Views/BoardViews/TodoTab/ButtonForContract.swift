@@ -30,6 +30,11 @@ struct ButtonForContract: View {
         }
     }
 
+    // MARK: - Animation Properties
+    var scaleAdjustment = 0.8
+    @State private var parentShowCheckmark = 0
+    @State private var childShowCheckmark = 0
+
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
 //   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 //    @State var countDownTimer = 2
@@ -38,7 +43,7 @@ struct ButtonForContract: View {
     // MARK: - Gesture 프로퍼티
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
-    
+
     @GestureState var isDetachingParentCheck = false
     @GestureState var isDetachingChildCheck = false
     @State var completedParentCheck = false
@@ -55,10 +60,27 @@ struct ButtonForContract: View {
             }
             .onEnded { _ in
                 if completedParentCheck == false {
+                    // Animation
+                    parentShowCheckmark = 1
+                    // Promise Status
                     self.completedParentCheck = true
-                    if completedChildCheck { contract.isDone = true}
+                    
+                    if completedChildCheck { contract.isDone = true }
                 } else {
+                    // Animation
+                    parentShowCheckmark = 0
+                    // Promise Status
                     self.completedParentCheck = false
+                    
+                    contract.isDone = false
+                }
+                
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
             }
         return longPressGuesture
@@ -75,13 +97,28 @@ struct ButtonForContract: View {
             }
             .onEnded { _ in
                 if completedChildCheck == false {
+                    // Animation
+                    childShowCheckmark = 1
+                    // Promise Status
                     self.completedChildCheck = true
-                    if completedParentCheck { contract.isDone = true}
+                    if completedParentCheck { contract.isDone = true }
                 } else {
+                    // Animation
+                    childShowCheckmark = 0
+                    // Promise Status
                     self.completedChildCheck = false
+                    
+                    contract.isDone = false
+                }
+                
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
             }
-
         return longPressGuesture
     }
 
@@ -95,6 +132,14 @@ struct ButtonForContract: View {
             .onEnded { _ in
                 contract.isDone = false
                 contract.promised = true
+
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         return longPressGuesture
     }
@@ -104,45 +149,47 @@ struct ButtonForContract: View {
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
         ZStack {
-            // VStack 내부는 크게 두 줄로 나뉨: 첫 줄은 제목 + 점 세 개 짜리 버튼
-            // 두 번째 줄은 세부 내용이 들어가는 영역
-            VStack {
-                
-                HStack {
-                    Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
-                        .font(.system(size: 23, weight: .black, design: .rounded))
-                        .foregroundColor(  // contract.subject 와 nowSubject가 같은 경우 폰트 색을 검은 색(Kkkook.backgroundGray), 아니면 흰 색으로 변경
-                            contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
-                        )
-                        .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
-                        .padding(.bottom, 5)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Menu {
-                        Button {
-                            isShowingPopover.toggle()
-                        } label: {
-                            Label("수정하기", systemImage: "pencil")
+            HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
+                VStack { // 약속 제목, 약속 추가 버튼?을 상단, 약속 내용을 하단에 놓는 VStack
+                    HStack { // 약속 제목과 약속 추가 버튼
+                        Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
+                            .font(.system(size: 23, weight: .black, design: .rounded))
+                            .foregroundColor(  // contract.subject 와 nowSubject가 같은 경우 폰트 색을 검은 색(Kkkook.backgroundGray), 아니면 흰 색으로 변경
+                                contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
+                            )
+                            .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
+                            .padding(.bottom, 5)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        // 수정, 삭제 Popover
+                        if !contract.promised {
+                            Menu {
+                                Button {
+                                    isShowingPopover.toggle()
+                                } label: {
+                                    Label("수정하기", systemImage: "pencil")
+                                }
+                                
+                                Button(role: .destructive) {
+                                    deletePromise(promise: contract)
+                                } label: {
+                                    Label("삭제하기", systemImage: "trash")
+                                }
+                            } label: {
+                                Image(systemName: "ellipsis")
+                                    .rotationEffect(.degrees(90))
+                                    .foregroundColor(.white)
+                                    .frame(width: 40, height: 40)
+                                    .padding(.top, 10)
+                            }
+                            .popover(isPresented: $isShowingPopover) {
+                                EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
+                            }
                         }
-                        
-                        Button(role: .destructive) {
-                            deletePromise(promise: contract)
-                        } label: {
-                            Label("삭제하기", systemImage: "trash")
-                        }
-                        
-                    } label: {
-                        Image(systemName: "ellipsis")
-                            .rotationEffect(.degrees(90))
-                            .foregroundColor(.white)
-                            .frame(width: 40, height: 40)
-                            .padding(.top, 10)
                     }
-                    .popover(isPresented: $isShowingPopover) {
-                        EditPromisePopover(subject: subject, promise: contract, isPresented: $isShowingPopover)
-                    }
-                }      
-                Text(contract.memo ?? "")  // contract의 memo(하단 자세한 내용)을 받아와서 보여줌
+
+                // contract의 memo(하단 자세한 내용)
+                Text(contract.memo ?? "")
                     .font(.system(size: 17, weight: .regular, design: .rounded))
                     .foregroundColor(.white)
                     .lineLimit(3)
@@ -151,38 +198,67 @@ struct ButtonForContract: View {
                     .padding(.trailing, 30)
                     .padding(.top, 5)
             }
+                // promised List에서 check 버튼활성화
+                if contract.promised {
+                    VStack{
+                        Spacer()
+                            ZStack{
+                                Circle()
+                                    .fill(self.isDetachingParentCheck ?
+                                        .yellow : Color.Kkookk.commonWhite)
+                                    .frame(width: 35, height: 35, alignment: .center)
+                                    .gesture(parentCheckGesture)
+
+                                Path { path in
+                                    path.addLines([CGPoint(x: 2, y: 2),
+                                                   CGPoint(x: 9, y: 11),
+                                                   CGPoint(x: 20, y: -5)])
+                                     
+                                }
+                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
+                                .stroke(style: StrokeStyle(lineWidth: 3.5,
+                                                           lineCap: .round,
+                                                           lineJoin: .round))
+                                .offset(x: 6, y: 15)
+                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: parentShowCheckmark)
+                                .foregroundColor(Color.Kkookk.parentPurple)
+
+                            }.padding(.bottom, 7)
+
+                            ZStack{
+                                Circle()
+                                    .fill(self.isDetachingChildCheck ?
+                                        .yellow : Color.Kkookk.commonWhite)
+                                    .frame(width: 35, height: 35, alignment: .center)
+                                    .gesture(childCheckGesture)
+
+                                Path { path in
+                                    path.addLines([CGPoint(x: 2, y: 2),
+                                                   CGPoint(x: 9, y: 11),
+                                                   CGPoint(x: 20, y: -5)])
+                                }
+                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
+                                .stroke(style: StrokeStyle(lineWidth: 3.5,
+                                                           lineCap: .round,
+                                                           lineJoin: .round))
+                                .offset(x: 6, y: 15)
+                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: childShowCheckmark)
+                                .foregroundColor(Color.Kkookk.childGreen)
+                                }
+                        Spacer()
+                    }
+                    .frame(width: 35)
+                    .padding([.top, .bottom], 5)
+                    .padding(.trailing, 15)
+                }
+            }
 
             // Gesture Stack
             ZStack {
-                // fill modifier를 사용하기 위해 Spacer()대신 Rectangle() 사용
-                // TODO: - if문이 길어져서 코드 가독성이 떨어짐. 다음 PR 때 다른 방식으로 코드 수정.
-                if contract.promised {
-                    HStack{
-                        Spacer()
-                        Text("부모 확인")
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(self.isDetachingParentCheck ?
-                                                 Color.pink :
-                                            (self.completedParentCheck ? .blue : Color.yellow.opacity(0.5)))
-                                    .frame(width: 100, height: 50, alignment: .center)
-                                    .gesture(parentCheckGesture)
-                            )
-                        Spacer()
-                        Text("아이 확인")
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(self.isDetachingChildCheck ?
-                                             Color.pink :
-                                        (self.completedChildCheck ? .blue : Color.yellow.opacity(0.5)))
-                                .frame(width: 100, height: 50, alignment: .center)
-                                .gesture(childCheckGesture)
-                            )
-                        Spacer()
-                    }
-                } else {
+                if !contract.promised {
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
-                                     Color.yellow :
+                              Color.yellow :
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
                         .gesture(promiseGesture)
                 }
