@@ -271,6 +271,7 @@
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
+				A8C834A428471C3A00C65BE0 /* Resources */,
 				0A676FFF2855E0BB007458BE /* Date.swift */,
 				0A17F89F285136B4007CDEDC /* MockupData */,
 			);
@@ -324,7 +325,6 @@
 			children = (
 				A8A4771F2849F5BF0005B4E2 /* kko-okk-Info.plist */,
 				221CC2C228479F68009F4851 /* Models */,
-				A8C834A428471C3A00C65BE0 /* Resources */,
 				A8C834A328471C0900C65BE0 /* Extensions */,
 				9DEB3A1F284629BC0001959A /* Views */,
 				9D55B4042846289000AFD9C5 /* kko_okkApp.swift */,
