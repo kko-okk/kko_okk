@@ -64,12 +64,23 @@ struct ButtonForContract: View {
                     parentShowCheckmark = 1
                     // Promise Status
                     self.completedParentCheck = true
-                    if completedChildCheck { contract.isDone = true}
+                    
+                    if completedChildCheck { contract.isDone = true }
                 } else {
                     // Animation
                     parentShowCheckmark = 0
                     // Promise Status
                     self.completedParentCheck = false
+                    
+                    contract.isDone = false
+                }
+                
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
             }
         return longPressGuesture
@@ -90,14 +101,23 @@ struct ButtonForContract: View {
                     childShowCheckmark = 1
                     // Promise Status
                     self.completedChildCheck = true
-                    if completedParentCheck { contract.isDone = true}
+                    if completedParentCheck { contract.isDone = true }
                 } else {
                     // Animation
                     childShowCheckmark = 0
                     // Promise Status
                     self.completedChildCheck = false
+                    
+                    contract.isDone = false
                 }
                 
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         return longPressGuesture
     }
@@ -114,6 +134,15 @@ struct ButtonForContract: View {
                     contract.promised = true
 
                 }
+
+                // CoreData 업데이트
+                do {
+                    try viewContext.save()
+                } catch {
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
+            }
 
         return longPressGuesture
     }
@@ -225,10 +254,8 @@ struct ButtonForContract: View {
 
                 // promised List에서 check 버튼활성화
                 if contract.promised {
-                    // TODO: - 중복되는 코드 묶기
                     VStack{
                         Spacer()
-//                        GeometryReader { geometry in
                             ZStack{
                                 Circle()
                                     .fill(self.isDetachingParentCheck ?
@@ -237,46 +264,21 @@ struct ButtonForContract: View {
                                     .gesture(parentCheckGesture)
 
                                 Path { path in
-                                    // check 각도 테스트
-                                    // origin
-                                    /*
-                                    path.move(to: CGPoint(x: -1, y: -1))
-                                    path.addCurve(
-                                        to: CGPoint(x: 21, y: 26),
-                                        control1: CGPoint(x: -1, y: -1),
-                                        control2: CGPoint(x: 22, y: 26))
-                                    path.addCurve(
-                                        to: CGPoint(x: 56, y: -28),
-                                        control1: CGPoint(x: 20, y: 26),
-                                        control2: CGPoint(x: 56, y: -28))
-                                    path.move(to: CGPoint(x: -1, y: -1))
-                                    */
-                                    
-                                    path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
-                                    path.addCurve(
-                                        to: CGPoint(x: 18, y: 22), // origin (21.26)
-                                        control1: CGPoint(x: -1, y: -1), // origin (-1.-1)
-                                        control2: CGPoint(x: 18, y: 22)) // origin (22.26)
-                                    path.addCurve(
-                                        to: CGPoint(x: 40, y: -10), // origin (56.-28)
-                                        control1: CGPoint(x: 18, y: 22), // origin (20.26) x: 시작점
-                                        control2: CGPoint(x: 40, y: -10)) // origin (56.-28) x: 꼬리 각도
-                                    path.move(to: CGPoint(x: -1, y: -1)) // origin (-1.-1)
+                                    path.addLines([CGPoint(x: 2, y: 2),
+                                                   CGPoint(x: 9, y: 11),
+                                                   CGPoint(x: 20, y: -5)])
                                      
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
-                                .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                                .offset(x: 0, y: 0)
-                                // TODO: - deprectated 경고 지우기
-                                .animation(Animation.easeInOut(duration: 0.5).delay(0))
-//                                .frame(width: geometry.size.width, height: geometry.size.height)
-                                // TODO: - 제스처 크기 하드코딩 수정
-                                .frame(width: 30, height: 30)
+                                .stroke(style: StrokeStyle(lineWidth: 3.5,
+                                                           lineCap: .round,
+                                                           lineJoin: .round))
+                                .offset(x: 6, y: 15)
+                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: parentShowCheckmark)
                                 .foregroundColor(Color.Kkookk.parentPurple)
 
                             }.padding(.bottom, 7)
-//                        }
-//                        GeometryReader { geometry in
+
                             ZStack{
                                 Circle()
                                     .fill(self.isDetachingChildCheck ?
@@ -285,29 +287,18 @@ struct ButtonForContract: View {
                                     .gesture(childCheckGesture)
 
                                 Path { path in
-                                    path.move(to: CGPoint(x: 7, y: 7)) // origin (-1.-1)
-                                    path.addCurve(
-                                        to: CGPoint(x: 18, y: 22), // origin (21.26)
-                                        control1: CGPoint(x: -1, y: -1), // origin (-1.-1)
-                                        control2: CGPoint(x: 18, y: 22)) // origin (22.26)
-                                    path.addCurve(
-                                        to: CGPoint(x: 40, y: -10), // origin (56.-28)
-                                        control1: CGPoint(x: 18, y: 22), // origin (20.26) x: 시작점
-                                        control2: CGPoint(x: 40, y: -10)) // origin (56.-28) x: 꼬리 각도
-                                    path.move(to: CGPoint(x: -1, y: -1)) // origin (-1.-1)
-
+                                    path.addLines([CGPoint(x: 2, y: 2),
+                                                   CGPoint(x: 9, y: 11),
+                                                   CGPoint(x: 20, y: -5)])
                                 }
                                 .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
-                                .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                                .offset(x: 0, y: 0)
-                                // TODO: - deprectated 경고 지우기
-                                .animation(Animation.easeInOut(duration: 0.5).delay(0))
-//                                .frame(width: geometry.size.width, height: geometry.size.height)
-                                // TODO: - 제스처 크기 하드코딩 수정
-                                .frame(width: 30, height: 30)
+                                .stroke(style: StrokeStyle(lineWidth: 3.5,
+                                                           lineCap: .round,
+                                                           lineJoin: .round))
+                                .offset(x: 6, y: 15)
+                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: childShowCheckmark)
                                 .foregroundColor(Color.Kkookk.childGreen)
                                 }
-//                        }
                         Spacer()
                     }
                     .frame(width: 35)
