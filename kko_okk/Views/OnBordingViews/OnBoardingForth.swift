@@ -10,8 +10,8 @@ import SwiftUI
 struct OnBoardingForth: View {
     @State private var animationAmount: CGFloat = 1
     @Binding var selectedTag: Int
+    @Binding var isFirstLaunching: Bool
     
-    @State var isTogetherCheck: Bool = false
     // MARK: - Animation Properties
     var scaleAdjustment = 0.8
     @State private var parentShowCheckmark = 0
@@ -82,6 +82,7 @@ struct OnBoardingForth: View {
     }
     
     var body: some View {
+        
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
                 Text("약속을 지켰는지 확인하기")
@@ -171,7 +172,7 @@ struct OnBoardingForth: View {
             
             Button("약속하러 가기") {
                 withAnimation(.easeInOut(duration: 1)){
-                    selectedTag = 3
+                    isFirstLaunching.toggle()
                 }
             }
             .font(.system(size: 20, weight: .semibold))
