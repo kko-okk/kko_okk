@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension Promise {
+extension Promise: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Promise> {
         return NSFetchRequest<Promise>(entityName: "Promise")
@@ -28,6 +28,16 @@ extension Promise {
     @NSManaged public var repeatType: String?
     @NSManaged public var subject: String?
     
+    // 약속 반복일
+    @NSManaged public var isRepeatedOnMonday: Bool
+    @NSManaged public var isRepeatedOnTuesday: Bool
+    @NSManaged public var isRepeatedOnWednesday: Bool
+    @NSManaged public var isRepeatedOnThursday: Bool
+    @NSManaged public var isRepeatedOnFriday: Bool
+    @NSManaged public var isRepeatedOnSaturday: Bool
+    @NSManaged public var isRepeatedOnSunday: Bool
+    
+    
     var wrappedName: String {
         name ?? "Unknown"
     }
@@ -37,6 +47,3 @@ extension Promise {
     }
 }
 
-extension Promise : Identifiable {
-
-}

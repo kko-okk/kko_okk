@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EditPromisePopover: View {
+    // Subject enum이 .parent인지 .child인지에 따라 뷰의 포인트 컬러와 subject attribute 기능이 달라짐.
+    var subject: Subject
+    
     // PromiseCell로부터 약속 받아오기
     @ObservedObject var promise: Promise
     
@@ -21,107 +24,101 @@ struct EditPromisePopover: View {
     @State var name: String = ""
     @State var memo: String = ""
     
-    // 반복 가능 요일
-    let days: [String] = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
+    // 반복 요일
+    @State var isRepeating: [Bool] = [false, false, false, false, false, false, false]
+    
+    //
+    let popoverAssets = PopoverAssets()
     
     var body: some View {
         VStack {
+            // 팝오버 네비게이션 바
+            // 취소, 타이틀, 완료 버튼(기존 약속 내용 수정 및 CoreData 업데이트)으로 구성.
             HStack {
+                // Popover 닫기
                 Button {
-                    // Popover 열기
                     isPresented.toggle()
                 } label: {
                     Text("취소")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
                 
                 Spacer()
                 
-                Text("약속 수정하기")
+                // 입력받은 enum 값에 따라 popover 네비게이션 바의 제목을 바꿔주기.
+                switch subject {
+                case .parent:
+                    Text("부모의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
+                case .child:
+                    Text("아이의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
+                }
                 
                 Spacer()
                 
                 Button {
-                    // name, memo 변수에 저장되어 있는 임시값을 CoreData에 업데이트
+                    // name, memo 변수에 저장되어 있는 임시값으로 CoreData에 새로운 Promise를 생성, 저장.
                     updatePromise(promise: promise)
                     
                     // Popover 닫기
                     isPresented.toggle()
                 } label: {
                     Text("완료")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
             }
-            .padding()
-            .font(.title3)
+            .frame(width: popoverAssets.popoverEditingBoxWidth * 0.98)
             
-            HStack {
-                Text("할 일 정하기")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            ZStack {
-                // name, memo 텍스트필드를 붙어있는 것처럼 만들기 위한 사각형
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 760, height: 200)
-                    .foregroundColor(.white)
-                
-                VStack {
-                    // name 수정하는 영역
-                    TextField("", text: $name)
-                        .background(.white)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 13)
-                    
-                    Divider()
-                        .padding(.horizontal, 8)
-                        .foregroundColor(.gray)
-                    
-                    // memo 수정하는 영역
-                    TextEditor(text: $memo)
-                        .frame(width: 760, height: 130)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 8)
-                }
-            }
+            // 약속 제목과 메모를 수정하는 부분
+            EditContentsOfPromiseView(name: $name, memo: $memo)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
             
             // 반복 날짜 선택 버튼
-            HStack {
-                Text("반복")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
+            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
             
-            HStack {
-                ForEach(days, id: \.self) { day in
-                    Button(action: {
-                        
-                    }, label: {
-                        Text(day)
-                            .foregroundColor(.black)
-                    })
-                    .buttonStyle(.bordered)
-                    .padding(.horizontal)
-                }
-            }
+            Spacer()
         }
         .onAppear() {
             // 뷰를 그릴 때, 받아온 약속의 name, memo 값을 임시값에 저장
             name = promise.name ?? ""
             memo = promise.memo ?? ""
+            
+            // CoreData의 요일값 불러오기.
+            isRepeating[0] = promise.isRepeatedOnMonday
+            isRepeating[1] = promise.isRepeatedOnTuesday
+            isRepeating[2] = promise.isRepeatedOnWednesday
+            isRepeating[3] = promise.isRepeatedOnThursday
+            isRepeating[4] = promise.isRepeatedOnFriday
+            isRepeating[5] = promise.isRepeatedOnSaturday
+            isRepeating[6] = promise.isRepeatedOnSunday
         }
-        .padding()
-        .frame(width: 800, height: 500)
+        .frame(width: popoverAssets.popoverFullWidth,
+               height: popoverAssets.popoverFullHeight)
+        .padding(.top, 25)
         .background(.bar)
     }
+}
+
+extension EditPromisePopover {
     
     // name, memo 변수에 저장되어 있는 임시값을 CoreData에 업데이트.
     private func updatePromise(promise: Promise) {
         withAnimation {
             promise.name = name
             promise.memo = memo
+            
+            // 반복 요일 변경.
+            promise.isRepeatedOnMonday = isRepeating[0]
+            promise.isRepeatedOnTuesday = isRepeating[1]
+            promise.isRepeatedOnWednesday = isRepeating[2]
+            promise.isRepeatedOnThursday = isRepeating[3]
+            promise.isRepeatedOnFriday = isRepeating[4]
+            promise.isRepeatedOnSaturday = isRepeating[5]
+            promise.isRepeatedOnSunday = isRepeating[6]
 
+            // CoreData에 저장하기
             do {
                 try viewContext.save()
             } catch {
@@ -138,3 +135,4 @@ struct EditPromisePopover: View {
 //            .previewInterfaceOrientation(.landscapeRight)
 //    }
 //}
+ 

@@ -10,11 +10,15 @@ import SwiftUI
 @main
 struct kko_okkApp: App {
     let persistenceController = PersistenceController.shared
+    @State var isFirstLaunching: Bool = true
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .fullScreenCover(isPresented: $isFirstLaunching) {
+                    OnBoardingTabView(selectedTag: 0)
+                }
         }
     }
 }

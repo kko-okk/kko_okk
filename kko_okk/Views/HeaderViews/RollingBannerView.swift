@@ -12,12 +12,13 @@ struct RollingBannerView: View {
     var RBC = RollingBannerController()
     let RBTime : Double = 5
     // RollingBanner Time 롤링베너가 몇 초에 한번씩 변경할지 정합니다.
+    
     var body: some View {
         TabView(selection: $selectedItem){
             ForEach((0...BannerViews.allCases.count - 1),id: \.self) {
                 RBC.pageing(view: BannerViews.allCases[$0])
             }
-        }//TabView
+        }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
         .onAppear{
@@ -45,13 +46,6 @@ extension RollingBannerView{
         }
     }
     
-    //롤링베너 Indicator의 사이즈를 변경하기위해 제작
-    //색상까지는 변경 가능하나 사이즈는 변경 불가.
-    func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .black
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-        //사이즈 변경은 어렵네요..
-    }
 }
 
 struct RollingBannerView_Previews: PreviewProvider {
@@ -79,3 +73,4 @@ struct RollingBannerView_Previews: PreviewProvider {
  스위프트에서는 guard (거짓일떄 먼저 실행)을 많이 사용해 넣어 봤습니다.
  
  */
+

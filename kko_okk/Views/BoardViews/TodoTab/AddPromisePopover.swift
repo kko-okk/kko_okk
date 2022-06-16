@@ -8,40 +8,48 @@
 import SwiftUI
 
 struct AddPromisePopover: View {
-    // Subject enum이 .parent인지 .child인지에 따라 뷰의 기능이 달라짐.
+    // Subject enum이 .parent인지 .child인지에 따라 뷰의 포인트 컬러와 subject attribute 기능이 달라짐.
     var subject: Subject
     
     // viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
     
     // popover 띄우고 닫을 변수
-    @Binding var isShowingPopover: Bool
+    @Binding var isPresented: Bool
     
     // 완료 버튼을 누르기 전까지 임시 값을 저장하는 변수
-    @State var name: String = "할 일"
-    @State var memo: String = "상세 내용"
+    @State var name: String = ""
+    @State var memo: String = ""
     
-    // 반복 가능 요일
-    let days: [String] = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
+    // 반복 요일
+    @State var isRepeating: [Bool] = [false, false, false, false, false, false, false]
+    
+    //
+    let popoverAssets = PopoverAssets()
     
     var body: some View {
         VStack {
+            // 팝오버 네비게이션 바
+            // 취소, 타이틀, 완료 버튼(약속 생성 및 CoreData 업데이트)으로 구성.
             HStack {
+                // Popover 닫기
                 Button {
-                    // Popover 띄우기
-                    isShowingPopover.toggle()
+                    isPresented.toggle()
                 } label: {
                     Text("취소")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
                 
                 Spacer()
                 
-                // 입력받은 enum 값에 따라 popover 상단 바의 제목을 바꿔주기.
+                // 입력받은 enum 값에 따라 popover 네비게이션 바의 제목을 바꿔주기.
                 switch subject {
                 case .parent:
                     Text("부모의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
                 case .child:
                     Text("아이의 약속 만들기")
+                        .font(Font.Kkookk.popoverNavigationTitle)
                 }
                 
                 Spacer()
@@ -51,76 +59,42 @@ struct AddPromisePopover: View {
                     addPromise()
                     
                     // Popover 닫기
-                    isShowingPopover.toggle()
+                    isPresented.toggle()
                 } label: {
                     Text("완료")
+                        .font(Font.Kkookk.popoverNavigationButton)
                 }
+                .disabled(name.isEmpty ? true : false)
             }
-            .padding()
-            .font(.title3)
+            .frame(width: popoverAssets.popoverEditingBoxWidth * 0.98)
             
-            HStack {
-                Text("할 일 정하기")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
+            // 약속 제목과 메모를 수정하는 부분
+            EditContentsOfPromiseView(name: $name, memo: $memo)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
             
-            ZStack {
-                // name, memo 텍스트필드를 붙어있는 것처럼 만들기 위한 사각형
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 760, height: 200)
-                    .foregroundColor(.white)
-                
-                VStack {
-                    // name 수정하는 영역
-                    TextField("", text: $name)
-                        .background(.white)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 13)
-                    
-                    Divider()
-                        .padding(.horizontal, 8)
-                        .foregroundColor(.gray)
-                    
-                    // memo 수정하는 영역
-                    TextEditor(text: $memo)
-                        .frame(width: 760, height: 130)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 8)
-                }
-            }
+            //            // 반복 날짜 선택 버튼
+            //            EditRepeatingDaysOfPromiseView(repeatedDaysOfWeekDict: $repeatedDaysOfWeekDict, subject: subject)
             
             // 반복 날짜 선택 버튼
-            HStack {
-                Text("반복")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-            }
+            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
+                .padding(.top, popoverAssets.popoverVerticalPadding)
             
-            HStack {
-                ForEach(days, id: \.self) { day in
-                    Button(action: {
-                        
-                    }, label: {
-                        Text(day)
-                            .foregroundColor(.black)
-                    })
-                    .buttonStyle(.bordered)
-                    .padding(.horizontal)
-                }
-            }
+            Spacer()
         }
-        .padding()
-        .frame(width: 800, height: 500)
+        .frame(width: popoverAssets.popoverFullWidth,
+               height: popoverAssets.popoverFullHeight)
+        .padding(.top, 25)
         .background(.bar)
     }
+}
+
+extension AddPromisePopover {
     
     // name, memo 변수에 저장되어 있는 임시값으로 CoreData에 새로운 Promise를 생성, 저장.
     private func addPromise() {
         withAnimation {
             let promise = Promise(context: viewContext)
+            
             promise.id = UUID()
             promise.name = name
             promise.memo = memo
@@ -130,17 +104,26 @@ struct AddPromisePopover: View {
             promise.childCheck = false
             promise.isDone = false
             promise.isRepeat = false
+            promise.repeatType = ""
             
-            // AddPromisePopover가 입력받은 subject enum 값에 따라 promise.subject 값을 다르게 설정. 
+            // AddPromisePopover가 입력받은 subject enum 값에 따라 promise.subject 값을 다르게 설정.
             switch subject {
             case .parent:
                 promise.subject = "parent"
             case .child:
                 promise.subject = "child"
             }
-
-            promise.repeatType = ""
             
+            // 반복 요일 입력. 초기값은 전부 false.
+            promise.isRepeatedOnMonday = isRepeating[0]
+            promise.isRepeatedOnTuesday = isRepeating[1]
+            promise.isRepeatedOnWednesday = isRepeating[2]
+            promise.isRepeatedOnThursday = isRepeating[3]
+            promise.isRepeatedOnFriday = isRepeating[4]
+            promise.isRepeatedOnSaturday = isRepeating[5]
+            promise.isRepeatedOnSunday = isRepeating[6]
+            
+            // 데이터 저장
             do {
                 try viewContext.save()
             } catch {
@@ -150,6 +133,7 @@ struct AddPromisePopover: View {
         }
     }
 }
+
 
 //struct AddWishPopover_Previews: PreviewProvider {
 //    static var previews: some View {
