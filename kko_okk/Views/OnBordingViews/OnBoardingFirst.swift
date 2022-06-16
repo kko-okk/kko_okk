@@ -26,7 +26,9 @@ struct OnBoardingFirst: View {
             }
             .padding(.bottom, 20)
             Button("시작하기") {
-                selectedTag = 1
+                withAnimation(.easeInOut(duration: 1)){
+                    selectedTag = 1
+                }
             }
             .font(.system(size: 20, weight: .semibold))
             .padding(.vertical, 10)

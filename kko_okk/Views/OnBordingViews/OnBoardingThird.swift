@@ -55,7 +55,9 @@ struct OnBoardingThird: View {
                     .padding(.bottom, 10)
                     
                     Button("다음으로") {
-                        selectedTag = 3
+                        withAnimation(.easeInOut(duration: 1)){
+                            selectedTag = 3
+                        }
                     }
                     .font(.system(size: 20, weight: .semibold))
                     .padding(.vertical, 10)

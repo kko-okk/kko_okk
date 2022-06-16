@@ -28,7 +28,9 @@ struct OnBoardingSecond: View {
             }
             .padding(.bottom, 20)
             Button("다음으로") {
-                selectedTag = 2
+                withAnimation(.easeInOut(duration: 1)){
+                    selectedTag = 2
+                }
             }
             .font(.system(size: 20, weight: .semibold))
             .padding(.vertical, 10)
