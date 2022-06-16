@@ -11,7 +11,7 @@ struct HeaderView: View {
         
     var body: some View {
         ZStack{
-            Color.gray
+            Color(hex:"#F5F7F9")
             GeometryReader { geometry in
                 HStack{
                     TitleView()
