@@ -91,7 +91,7 @@ struct TitleLeadingView: View {
                             .frame(width: 38, height: 23)
                     ).padding(.trailing,5)
                 
-                Text(tips[HeaderViewConst.shared.randomTipMaker()].conent)
+                Text(tips[HeaderViewConst.shared.randomTipMaker()].contents)  // conent -> contents로 변경
                     .font(.system(size: 15, weight: .light))
                     .foregroundColor(Color.Kkookk.commonBlack)
             }
