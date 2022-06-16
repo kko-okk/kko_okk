@@ -31,7 +31,7 @@ struct OnBoardingForth: View {
             HStack {
                 Spacer()
                 Divider()
-                OnBoardingButton(buttonText: "우리의 약속", nowSubject: "contract", pressed: $isContractPressed)
+//                OnBoardingButton(buttonText: "우리의 약속", nowSubject: "contract", pressed: $isContractPressed)
                 Divider()
                 Spacer()
             }

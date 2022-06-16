@@ -7,35 +7,55 @@
 
 import SwiftUI
 
+extension Animation {
+    func `repeat`(while expression: Bool, autoreverses: Bool = true) -> Animation {
+        if expression {
+            return self.repeatForever(autoreverses: autoreverses)
+        } else {
+            return self
+        }
+    }
+}
+
 struct OnBoardingButton: View {
     @State private var animationAmount: CGFloat = 1
     var buttonText: String
     var nowSubject: String
-    @Binding var pressed: Bool
-    @State private var flag = false
-    @State private var durateTime: Double = 1.0
+    @Binding var parentPressed: Bool
+    @Binding var childPressed: Bool
+    @Binding var togetherPressed: Bool
+    @State private var animationState = false
+    @GestureState private var flag = true
+    
     var body: some View {
         Text(buttonText)
             .font(.system(size: 20, weight: .semibold))
             .padding(.vertical, 10)
             .padding(.horizontal, KkookkSize.fullWidth / 34)
             .foregroundColor(textColor(now: nowSubject))
-//            .background(backGroundColor(now: nowSubject))
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(backGroundColor(now: nowSubject))
-                    .frame(width: flag ? KkookkSize.fullWidth / 8 : KkookkSize.fullWidth / 7.7, height: flag ? 45 : 55, alignment: .center)
-                    //animationAmount가 1이면 불트명이 1이고, 2이면 불투명도가 0이다
+                    .frame(width: KkookkSize.fullWidth / 8, height: KkookkSize.fullHeight / 20)
                     .opacity(0.5)
-//                    .blur(radius: 4)
-                    .animation(.easeInOut(duration: durateTime).repeatForever(autoreverses: true), value: flag)
-        
-                    .onTapGesture {
-                        pressed.toggle()
+                    .scaleEffect(animationState ? 1 : 1.2)
+                    .animation(Animation.easeInOut(duration: 1).repeat(while: animationState), value: animationState)
+                    .onLongPressGesture(minimumDuration: 2, maximumDistance: 100) {
+                        if nowSubject == "parent" && childPressed == true {
+                            togetherPressed = true
+                        } else if nowSubject == "child" && parentPressed == true {
+                            togetherPressed = true
+                        }
+                    } onPressingChanged: { inProgress in
+                        if nowSubject == "parent" {
+                            parentPressed = inProgress
+                        } else if nowSubject == "child" {
+                            childPressed = inProgress
+                        }
+                        animationState = inProgress ? false : true
                     }
             )
-            
-            .onAppear { self.flag = true }
+            .onAppear { if nowSubject != "contract" { self.animationState = true }}
     }
     
     private func backGroundColor(now nowSubject: String) -> Color {

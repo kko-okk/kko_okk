@@ -25,16 +25,15 @@ struct OnBoardingFirst: View {
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
-            Text("시작하기")
-                .font(.system(size: 20, weight: .semibold))
-                .padding(.vertical, 10)
-                .padding(.horizontal, KkookkSize.fullWidth / 5.5)
-                .foregroundColor(.white)
-                .background(.blue)
-                .cornerRadius(10)
-                .onTapGesture {
-                    selectedTag = 1
-                }
+            Button("시작하기") {
+                selectedTag = 1
+            }
+            .font(.system(size: 20, weight: .semibold))
+            .padding(.vertical, 10)
+            .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
+            .foregroundColor(.white)
+            .background(.blue)
+            .cornerRadius(10)
         }
     }
 }

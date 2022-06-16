@@ -663,9 +663,8 @@
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
 				0A6770002855E0BB007458BE /* Date.swift in Sources */,
 				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
-				70DAECB52849E0F5009AAB79 /* HeaderViewAssets.swift in Sources */,
 				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
-				227607702855955600EE86C6 /* PromiseModel.swift in Sources */,
+				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
 				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
 				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
 				22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */,
@@ -841,7 +840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = JASCMY8XL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
@@ -872,7 +871,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = JASCMY8XL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
