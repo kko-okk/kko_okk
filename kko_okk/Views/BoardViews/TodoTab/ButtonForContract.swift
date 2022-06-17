@@ -251,7 +251,7 @@ struct ButtonForContract: View {
                                 }
                             }
                         }
-                        
+
                         // contract의 memo(하단 자세한 내용)
                         // CoreData의 memo 항목에 값이 있을 때만 표시한다.
                         // Thanks, Guell!
@@ -332,6 +332,7 @@ struct ButtonForContract: View {
                               Color.yellow :
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
                         // 스크롤뷰 제스처와 셀 제스쳐의 겹치는 현상 막기 위한 제스처 추가
+                        // TODO : - onTapGesture 추가시 longpressgesture의 updating이 안되는 문제 해결
 //                        .onTapGesture{
 //                            print("scrollview touched")
 //                        }
