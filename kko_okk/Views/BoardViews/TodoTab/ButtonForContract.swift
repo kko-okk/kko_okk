@@ -45,12 +45,6 @@ struct ButtonForContract: View {
     @State var completedParentCheck = false
     @GestureState var isDetachingChildCheck = false
     @State var completedChildCheck = false
-    
-    // MARK: - 같은 id를 가졌는지 판단하기 위한 Properties
-    @State var isSelectingParentWish:Bool = false
-    @State var isSelectingChildWish:Bool = false
-    @State var isSelectedParentWish:Bool = false
-    @State var isSelectedChildWish:Bool = false
 
     // MARK: - 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
@@ -142,30 +136,16 @@ struct ButtonForContract: View {
                         return
                     }
                     promisePair.appendIDPair(id)
+                    promisePair.appendSubject(nowSubject)
                     
                     print(promisePair.promiseIDPair)
-                    
-                    if nowSubject == "parent" {
-                        isSelectedParentWish = true
-                    } else {
-                        isSelectedChildWish = true
-                    }
+                    print(promisePair.promiseSubjectPair)
 
-//                    print("onEnded Selecting: ", isSelectingParentWish)
-                    print("onEnded Parent Selected: ", isSelectedParentWish)
-                    
                     // 2개일 때 비교, 상태 변화, 리셋
                     if promisePair.promiseIDPair.count == 2 {
-                        if promisePair.getId(0) == promisePair.getId(1) && isSelectedParentWish && isSelectedChildWish {
+                        if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
                             print(promisePair.getId(0) == promisePair.getId(1))
                             contract.promised = true
-                            // reset
-                            // 부모 선택 = false
-                            // 자식 선택 = false
-                        } else {
-                            //reset
-                            // 부모 선택 = false
-                            // 자식 선택 = false
                         }
                         // reset
                         promisePair.resetIDPair()
