@@ -135,33 +135,31 @@ struct ButtonForContract: View {
                 }
                 // Ended: 여기서 매칭 확인
                 .onEnded { _ in
+                    
+                    // id와 subject 확인
                     guard let id = contract.id else {
                         print("id 없음")
                         return
                     }
-                    idPair.append(id)
+                    promisePair.appendIDPair(id)
+                    promisePair.appendSubject(nowSubject)
                     
-                    print(idPair.promiseIDPair)
+                    print(promisePair.promiseIDPair)
+                    print(promisePair.promiseSubjectPair)
                     
                     if nowSubject == "parent" {
-//                        isSelectingParentWish = false
                         isSelectedParentWish = true
-                        print("parent selected")
                     } else {
-//                        isSelectingChildWish = false
                         isSelectedChildWish = true
-                        
-                        print("child selected")
                     }
-                    
-                    print(nowSubject)
+
 //                    print("onEnded Selecting: ", isSelectingParentWish)
                     print("onEnded Parent Selected: ", isSelectedParentWish)
                     
                     // 2개일 때 비교, 상태 변화, 리셋
-                    if idPair.promiseIDPair.count == 2 {
-                        if idPair.get(0) == idPair.get(1) /*&& isSelectedChildWish && isSelectedParentWish*/ {
-                            print(idPair.get(0) == idPair.get(1))
+                    if promisePair.promiseIDPair.count == 2 {
+                        if promisePair.getId(0) == promisePair.getId(1) && isSelectedParentWish && isSelectedChildWish {
+                            print(promisePair.getId(0) == promisePair.getId(1))
                             contract.promised = true
                             // reset
                             // 부모 선택 = false
@@ -172,7 +170,7 @@ struct ButtonForContract: View {
                             // 자식 선택 = false
                         }
                         // reset
-                        idPair.reset()
+                        promisePair.resetIDPair()
                     }
                 }
 

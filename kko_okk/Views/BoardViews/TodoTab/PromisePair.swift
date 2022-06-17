@@ -9,30 +9,40 @@ import Foundation
 
 class PromisePair {
     var promiseIDPair = [Promise.ID]()
+    var promiseSubjectPair = [String]()
     
     init() { }
     
-    func append(_ item: Promise.ID){
+    // Pair 메서드
+    func appendIDPair(_ item: Promise.ID){
         promiseIDPair.append(item)
     }
     
-    func reset(){
+    func resetIDPair(){
         promiseIDPair.removeAll()
     }
     
-    func get(_ index: Int) -> Promise.ID {
+    func getId(_ index: Int) -> Promise.ID {
         return promiseIDPair[index]
     }
     
-    func count() -> Int {
-        let count = promiseIDPair.count
-        return count
+    // Subject 메서드
+    func appendSubject(_ subject: String){
+        promiseSubjectPair.append(subject)
+    }
+        
+    func resetSubjectPair(){
+        promiseSubjectPair.removeAll()
+    }
+    
+    func getSubject(_ index: Int) -> Promise.ID {
+        return promiseIDPair[index]
     }
 }
 
-var idPair = PromisePair()
-var selectedParent: Bool = false
-var selectedChild: Bool = false
+var promisePair = PromisePair()
+//var selectedParent: Bool = false
+//var selectedChild: Bool = false
 
 //class TicketOffice {
 //    private var tickets = [Ticket]()
