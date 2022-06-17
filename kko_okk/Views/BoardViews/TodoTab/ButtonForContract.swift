@@ -11,13 +11,13 @@ import SwiftUI
 struct ButtonForContract: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     // 약속, Subject(아이 또는 부모) 받아오기
     @ObservedObject var contract: Promise
-    
+
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
-    
+
     var nowSubject: String
     var subject: Subject {
         switch nowSubject {
@@ -29,27 +29,24 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-
     // MARK: - Animation Properties
-    var scaleAdjustment = 0.8
     @State private var parentShowCheckmark = 0
     @State private var childShowCheckmark = 0
 
-    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
-    // let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머 (PromisePair 유효 시간)
+     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     // @State var countDownTimer = 2
     // @State var timerRunning = true
-    
-    // MARK: - Gesture 프로퍼티
+
+    // MARK: - isDone Gesture Properties
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
-
     @GestureState var isDetachingParentCheck = false
-    @GestureState var isDetachingChildCheck = false
     @State var completedParentCheck = false
+    @GestureState var isDetachingChildCheck = false
     @State var completedChildCheck = false
 
-    // MARK: - 부모가 약속 이행을 확인하는 Gesture
+    // MARK: - isDone으로 바꾸기 전, 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingParentCheck) { currentState, gestureState,
@@ -86,7 +83,7 @@ struct ButtonForContract: View {
         return longPressGuesture
     }
 
-    // MARK: - 자식이 약속 이행을 확인하는 Gesture
+    // MARK: - isDone으로 바꾸기 전, 자식이 약속 이행을 확인하는 Gesture
     var childCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingChildCheck) { currentState, gestureState,
@@ -122,17 +119,39 @@ struct ButtonForContract: View {
         return longPressGuesture
     }
 
-    var promiseGesture: some Gesture {
+    // MARK: - promised 상태로 전환하기 위한 부모, 자식 공통 Gesture
+    var commonPromiseGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+                // Updating: 애니메이션 적용 -> 근데 onGesture때문에 이 부분 실행 안됨
                 .updating($isDetectingLongPress) { currentState, gestureState,
                                                    transaction in
                     gestureState = currentState
                     transaction.animation = Animation.easeIn(duration: 0.3)
                 }
+                // Ended: 여기서 매칭 확인
                 .onEnded { _ in
-                    contract.isDone = false
-                    contract.promised = true
 
+                    // id와 subject 확인
+                    guard let id = contract.id else {
+                        print("id 없음")
+                        return
+                    }
+                    promisePair.appendIDPair(id)
+                    promisePair.appendSubject(nowSubject)
+
+                    print(promisePair.promiseIDPair)
+                    print(promisePair.promiseSubjectPair)
+
+                    // 2개일 때 비교, 상태 변화, 리셋
+                    if promisePair.promiseIDPair.count == 2 {
+                        if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
+                            print(promisePair.getId(0) == promisePair.getId(1))
+                            contract.promised = true
+                        }
+                        // reset
+                        promisePair.resetIDPair()
+                        promisePair.resetSubjectPair()
+                    }
                 }
 
                 // CoreData 업데이트
@@ -145,14 +164,14 @@ struct ButtonForContract: View {
 
         return longPressGuesture
     }
-    
+
+    // MARK: - Cell(Button 기능) UI
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
         ZStack {
             HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
-                
                 if contract.memo!.isEmpty {  // CoreData의 memo 항목이 비어있을 경우: 수정 버튼(ellipsis) 위치 조절 때문에 새로 그림
                     HStack {  // 약속 제목 및 약속 추가 버튼
                         Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
@@ -163,7 +182,7 @@ struct ButtonForContract: View {
                             .lineLimit(1)
                             .padding([.leading, .trailing], 20.0)  // padding 배열 처리
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         // 수정, 삭제 Popover
                         if !contract.promised {
                             VStack {
@@ -232,7 +251,7 @@ struct ButtonForContract: View {
                                 }
                             }
                         }
-                        
+
                         // contract의 memo(하단 자세한 내용)
                         // CoreData의 memo 항목에 값이 있을 때만 표시한다.
                         // Thanks, Guell!
@@ -305,14 +324,23 @@ struct ButtonForContract: View {
                 }
             }
 
-            // Gesture Stack
+            // MARK: - Gesture Stack
             ZStack {
                 if !contract.promised {
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
                               Color.yellow :
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
-                        .gesture(promiseGesture)
+                        // 스크롤뷰 제스처와 셀 제스쳐의 겹치는 현상 막기 위한 제스처 추가
+                        // TODO : - onTapGesture 추가시 longpressgesture의 updating이 안되는 문제 해결
+//                        .onTapGesture{
+//                            print("scrollview touched")
+//                        }
+                        .gesture(commonPromiseGesture)
+                        .onReceive(timer) { _ in
+                            promisePair.resetIDPair()
+                            promisePair.resetSubjectPair()
+                        }
                 }
             }
         }
