@@ -169,20 +169,21 @@ struct OnBoardingForth: View {
             .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 17)
             .padding(.top, 20)
             .padding(.bottom, 40)
-            
-            Text("약속하러가기")
-                .font(.system(size: 20, weight: .semibold))
-                .padding(.vertical, 10)
-                .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
-                .foregroundColor(.white)
-                .background(completedChildCheck == true && completedParentCheck == true ? .blue : Color.Kkookk.onBoardingGray)
-                .cornerRadius(10)
-                .disabled(completedChildCheck == false || completedParentCheck == false)
-                .onTapGesture {
-                    withAnimation(.easeInOut(duration: 1)) {
-                        isFirstLaunching.toggle()
+            VStack {
+                Text("약속하러가기")
+                    .font(.system(size: 20, weight: .semibold))
+                    .padding(.vertical, 10)
+                    .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
+                    .foregroundColor(.white)
+                    .background(completedChildCheck == true && completedParentCheck == true ? .blue : Color.Kkookk.onBoardingGray)
+                    .cornerRadius(10)
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 1)) {
+                            isFirstLaunching.toggle()
+                        }
                     }
-                }
+            }
+            .disabled(completedChildCheck == false || completedParentCheck == false)
         }
     }
 }
