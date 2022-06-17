@@ -29,9 +29,7 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-
     // MARK: - Animation Properties
-    var scaleAdjustment = 0.8
     @State private var parentShowCheckmark = 0
     @State private var childShowCheckmark = 0
 
@@ -40,14 +38,19 @@ struct ButtonForContract: View {
     // @State var countDownTimer = 2
     // @State var timerRunning = true
     
-    // MARK: - Gesture 프로퍼티
+    // MARK: - Gesture Properties
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
-
     @GestureState var isDetachingParentCheck = false
-    @GestureState var isDetachingChildCheck = false
     @State var completedParentCheck = false
+    @GestureState var isDetachingChildCheck = false
     @State var completedChildCheck = false
+    
+    // MARK: - 같은 id를 가졌는지 판단하기 위한 Properties
+    @State var isSelectingParentWish:Bool = false
+    @State var isSelectingChildWish:Bool = false
+    @State var isSelectedParentWish:Bool = false
+    @State var isSelectedChildWish:Bool = false
 
     // MARK: - 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
@@ -121,18 +124,56 @@ struct ButtonForContract: View {
             }
         return longPressGuesture
     }
-
-    var promiseGesture: some Gesture {
+ 
+    var commpnPromiseGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+                // Updating: 애니메이션 적용 -> 근데 onGesture때문에 이 부분 실행 안됨
                 .updating($isDetectingLongPress) { currentState, gestureState,
                                                    transaction in
                     gestureState = currentState
                     transaction.animation = Animation.easeIn(duration: 0.3)
                 }
+                // Ended: 여기서 매칭 확인
                 .onEnded { _ in
-                    contract.isDone = false
-                    contract.promised = true
-
+                    guard let id = contract.id else {
+                        print("id 없음")
+                        return
+                    }
+                    idPair.append(id)
+                    
+                    print(idPair.promiseIDPair)
+                    
+                    if nowSubject == "parent" {
+//                        isSelectingParentWish = false
+                        isSelectedParentWish = true
+                        print("parent selected")
+                    } else {
+//                        isSelectingChildWish = false
+                        isSelectedChildWish = true
+                        
+                        print("child selected")
+                    }
+                    
+                    print(nowSubject)
+//                    print("onEnded Selecting: ", isSelectingParentWish)
+                    print("onEnded Parent Selected: ", isSelectedParentWish)
+                    
+                    // 2개일 때 비교, 상태 변화, 리셋
+                    if idPair.promiseIDPair.count == 2 {
+                        if idPair.get(0) == idPair.get(1) /*&& isSelectedChildWish && isSelectedParentWish*/ {
+                            print(idPair.get(0) == idPair.get(1))
+                            contract.promised = true
+                            // reset
+                            // 부모 선택 = false
+                            // 자식 선택 = false
+                        } else {
+                            //reset
+                            // 부모 선택 = false
+                            // 자식 선택 = false
+                        }
+                        // reset
+                        idPair.reset()
+                    }
                 }
 
                 // CoreData 업데이트
@@ -142,10 +183,11 @@ struct ButtonForContract: View {
                     let nsError = error as NSError
                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
-
+        
         return longPressGuesture
     }
     
+    // MARK: - Button UI
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
@@ -312,7 +354,14 @@ struct ButtonForContract: View {
                         .fill(self.isDetectingLongPress ?
                               Color.yellow :
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
-                        .gesture(promiseGesture)
+                        // 스크롤뷰 제스처와 셀 제스쳐의 겹치는 현상 막기 위한 제스처 추가
+//                        .onTapGesture{
+//                            print("scrollview touched")
+//                        }
+                        .gesture(commpnPromiseGesture)
+                    
+                    
+                        
                 }
             }
         }
