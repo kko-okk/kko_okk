@@ -42,13 +42,3 @@ class PromisePair {
 }
 
 var promisePair = PromisePair()
-//var selectedParent: Bool = false
-//var selectedChild: Bool = false
-
-//class TicketOffice {
-//    private var tickets = [Ticket]()
-//
-//    func getTicket() -> Ticket {
-//        tickets.removeFirst()
-//    }
-//}
