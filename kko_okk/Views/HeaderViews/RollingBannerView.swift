@@ -11,13 +11,18 @@ struct RollingBannerView: View {
     @State var selectedItem = 0
     let tips: [TipModel] = TipModel.tips
     var RBC = RollingBannerController()
-    let RBTime : Double = 0.5
+    let RBTime : Double = 8
     // RollingBanner Time 롤링베너가 몇 초에 한번씩 변경할지 정합니다.
     
+    //TODO: 팁 설정하는 부분 혼자 결정하기 뭐해서 남겨 놓은 주석들입니다.
+    //TODO: 다들 별 문제 없다고 생각하면 6/19일 이후 삭제 예정
     var body: some View {
         TabView(selection: $selectedItem){
-            ForEach((0...tips.count - 1),id:\.self){
-                RBC.tipViewMaker(text:"\(tips[$0].conent)" )
+            ForEach((0...tips.count - 1),id:\.self){ gz in
+                // RBC.tipViewMaker(text:"\(tips[$0].conent)" )
+                // 팁을 순서대로 넣어 주는 코드 단점 : 앱을 사용하는 내내 앞에 있는 팁만 잘보임
+                RBC.tipViewMaker(text: "\(tips[HeaderViewConst.shared.randomTipMaker()].conent)")
+                //팁을 랜덤으로 보내줌
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
@@ -27,8 +32,6 @@ struct RollingBannerView: View {
         .onAppear{
             playRollingBanner()
         }
-        
-        
     }
     
 }
