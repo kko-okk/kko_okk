@@ -28,12 +28,14 @@ struct OnBoardingFirst: View {
             Text("시작하기")
                 .font(.system(size: 20, weight: .semibold))
                 .padding(.vertical, 10)
-                .padding(.horizontal, KkookkSize.fullWidth / 5.5)
+                .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
                 .foregroundColor(.white)
                 .background(.blue)
                 .cornerRadius(10)
                 .onTapGesture {
-                    selectedTag = 1
+                    withAnimation(.easeInOut(duration: 1)) {
+                        selectedTag = 1
+                    }
                 }
         }
     }

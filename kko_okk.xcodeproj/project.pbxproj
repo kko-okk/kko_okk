@@ -32,6 +32,7 @@
 		7080B195285320A400A7BD44 /* BannerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B194285320A400A7BD44 /* BannerViews.swift */; };
 		70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */; };
 		70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBA284C8327009AAB79 /* DatePickerView.swift */; };
+		70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F675B7285B2E7800F86719 /* checkPromiseView.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
 		9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* ContentView.swift */; };
 		9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B4082846289100AFD9C5 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		9DEB3A2628462A240001959A /* ContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2528462A240001959A /* ContractView.swift */; };
 		9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A2728462A4B0001959A /* ButtonForContract.swift */; };
 		9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB3A3028462AA10001959A /* TodoBoardView.swift */; };
+		A816CAAC285C0D900026C06A /* PromisePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A816CAAB285C0D900026C06A /* PromisePair.swift */; };
 		A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FA285326B4009E9938 /* LicenseView.swift */; };
 		A81DE5FD285326C7009E9938 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FC285326C7009E9938 /* EditView.swift */; };
 		A8A477212849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
@@ -139,6 +141,7 @@
 		7080B194285320A400A7BD44 /* BannerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViews.swift; sourceTree = "<group>"; };
 		70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConst.swift; sourceTree = "<group>"; };
 		70DAECBA284C8327009AAB79 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		70F675B7285B2E7800F86719 /* checkPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkPromiseView.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
 		9D55B4062846289000AFD9C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 		9DEB3A2528462A240001959A /* ContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractView.swift; sourceTree = "<group>"; };
 		9DEB3A2728462A4B0001959A /* ButtonForContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForContract.swift; sourceTree = "<group>"; };
 		9DEB3A3028462AA10001959A /* TodoBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBoardView.swift; sourceTree = "<group>"; };
+		A816CAAB285C0D900026C06A /* PromisePair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisePair.swift; sourceTree = "<group>"; };
 		A81DE5FA285326B4009E9938 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		A81DE5FC285326C7009E9938 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		A8A4771F2849F5BF0005B4E2 /* kko-okk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "kko-okk-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -271,6 +275,7 @@
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
+				A8C834A428471C3A00C65BE0 /* Resources */,
 				0A676FFF2855E0BB007458BE /* Date.swift */,
 				0A17F89F285136B4007CDEDC /* MockupData */,
 			);
@@ -280,6 +285,7 @@
 		2261FB0E2853101800339B23 /* ReportTab */ = {
 			isa = PBXGroup;
 			children = (
+				70F675B6285B2E6500F86719 /* checkPromiseView */,
 				0AD4971E2858707400C52FA1 /* DailyReportView */,
 				0AD4971528586E2400C52FA1 /* WeeklyReportView */,
 				0A6770232857C05F007458BE /* MonthlyReportView */,
@@ -297,6 +303,14 @@
 				22E218502858D921003A2864 /* OnBoardingButton.swift */,
 			);
 			path = OnBordingViews;
+			sourceTree = "<group>";
+		};
+		70F675B6285B2E6500F86719 /* checkPromiseView */ = {
+			isa = PBXGroup;
+			children = (
+				70F675B7285B2E7800F86719 /* checkPromiseView.swift */,
+			);
+			path = checkPromiseView;
 			sourceTree = "<group>";
 		};
 		9D55B3F82846289000AFD9C5 = {
@@ -324,7 +338,6 @@
 			children = (
 				A8A4771F2849F5BF0005B4E2 /* kko-okk-Info.plist */,
 				221CC2C228479F68009F4851 /* Models */,
-				A8C834A428471C3A00C65BE0 /* Resources */,
 				A8C834A328471C0900C65BE0 /* Extensions */,
 				9DEB3A1F284629BC0001959A /* Views */,
 				9D55B4042846289000AFD9C5 /* kko_okkApp.swift */,
@@ -383,6 +396,7 @@
 				9DEB3A2328462A100001959A /* ChildWishView.swift */,
 				9DEB3A2528462A240001959A /* ContractView.swift */,
 				9DEB3A2728462A4B0001959A /* ButtonForContract.swift */,
+				A816CAAB285C0D900026C06A /* PromisePair.swift */,
 				F89CAB762849D761006C72BD /* AddPromisePopover.swift */,
 				F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */,
 				22E9005D2849D677000A82BE /* FilteredList.swift */,
@@ -633,6 +647,7 @@
 				0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */,
 				2261FB162854718B00339B23 /* OnBoardingFirst.swift in Sources */,
 				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
+				70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
 				70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */,
@@ -666,6 +681,7 @@
 				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
 				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
 				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
+				A816CAAC285C0D900026C06A /* PromisePair.swift in Sources */,
 				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
 				22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
@@ -840,7 +856,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
-				DEVELOPMENT_TEAM = 22A6RK2943;
+				DEVELOPMENT_TEAM = JASCMY8XL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
@@ -871,7 +887,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
-				DEVELOPMENT_TEAM = 22A6RK2943;
+				DEVELOPMENT_TEAM = JASCMY8XL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";

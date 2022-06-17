@@ -31,7 +31,7 @@ struct ContractView: View {
                 .frame(height: 23)
             Spacer()
             // 약속은 만들어졌지만 완료는 안된 것.
-            FilteredList(filter: "promised", formatter: "promised == TRUE AND isDone == FALSE")
+            FilteredList(filter: "promised", formatter: "promised == TRUE")
         }
     }
 }

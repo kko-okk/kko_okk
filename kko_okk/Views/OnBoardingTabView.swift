@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnBoardingTabView: View {
     @State var selectedTag: Int
+    @Binding var isFirstLaunching: Bool
+    
     var body: some View {
         TabView(selection: $selectedTag) {
             OnBoardingFirst(selectedTag: $selectedTag)
@@ -17,7 +19,7 @@ struct OnBoardingTabView: View {
                 .tag(1)
             OnBoardingThird(selectedTag: $selectedTag)
                 .tag(2)
-            OnBoardingForth(selectedTag: $selectedTag)
+            OnBoardingForth(selectedTag: $selectedTag, isFirstLaunching: $isFirstLaunching)
                 .tag(3)
         }
         .tabViewStyle(PageTabViewStyle())
