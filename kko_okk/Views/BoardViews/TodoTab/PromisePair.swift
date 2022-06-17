@@ -9,7 +9,7 @@ import Foundation
 
 class PromisePair {
     var promiseIDPair = [Promise.ID]()
-    var promiseSubjectPair = [String]()
+//    var promiseSubjectPair = [String]()
     
     init() { }
     
@@ -25,7 +25,8 @@ class PromisePair {
     func getId(_ index: Int) -> Promise.ID {
         return promiseIDPair[index]
     }
-    
+
+    /*
     // Subject 메서드
     func appendSubject(_ subject: String){
         promiseSubjectPair.append(subject)
@@ -38,6 +39,7 @@ class PromisePair {
     func getSubject(_ index: Int) -> Promise.ID {
         return promiseIDPair[index]
     }
+     */
 }
 
 var promisePair = PromisePair()

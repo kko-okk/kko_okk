@@ -142,10 +142,8 @@ struct ButtonForContract: View {
                         return
                     }
                     promisePair.appendIDPair(id)
-                    promisePair.appendSubject(nowSubject)
                     
                     print(promisePair.promiseIDPair)
-                    print(promisePair.promiseSubjectPair)
                     
                     if nowSubject == "parent" {
                         isSelectedParentWish = true
@@ -171,6 +169,7 @@ struct ButtonForContract: View {
                         }
                         // reset
                         promisePair.resetIDPair()
+                        promisePair.resetSubjectPair()
                     }
                 }
 
