@@ -177,7 +177,6 @@ struct OnBoardingForth: View {
                     .foregroundColor(.white)
                     .background(completedChildCheck == true && completedParentCheck == true ? .blue : Color.Kkookk.onBoardingGray)
                     .cornerRadius(10)
-//                    .disabled(completedChildCheck == false || completedParentCheck == false)
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 1)) {
                             isFirstLaunching.toggle()
