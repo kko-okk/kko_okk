@@ -54,19 +54,21 @@ struct OnBoardingThird: View {
                     .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 15)
                     .padding(.bottom, 10)
                     
-                    Text("다음으로")
-                        .font(.system(size: 20, weight: .semibold))
-                        .padding(.vertical, 10)
-                        .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
-                        .foregroundColor(.white)
-                        .background(isTogetherPressed == true ? .blue : Color.Kkookk.onBoardingGray)
-                        .cornerRadius(10)
-                        .disabled(isTogetherPressed == false)
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 1)) {
-                                selectedTag = 3
+                    VStack {
+                        Text("다음으로")
+                            .font(.system(size: 20, weight: .semibold))
+                            .padding(.vertical, 10)
+                            .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
+                            .foregroundColor(.white)
+                            .background(isTogetherPressed == true ? .blue : Color.Kkookk.onBoardingGray)
+                            .cornerRadius(10)
+                            .onTapGesture {
+                                withAnimation(.easeInOut(duration: 1)) {
+                                    selectedTag = 3
+                                }
                             }
-                        }
+                    }
+                    .disabled(isTogetherPressed == false)
                 }
             }
         }
