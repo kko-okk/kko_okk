@@ -26,7 +26,25 @@ class RollingBannerController{
             BannerView3()
         }
     }
+    
+    @ViewBuilder
+    func tipViewMaker(text:String) -> some View{
+        tipView(txt: text)
+    }
+    
 }
+
+struct tipView: View {
+    @State var txt = ""
+    var body: some View {
+        ZStack{
+            Color.blue
+           Text("\(txt)")
+        }
+    }
+}
+
+
 
 
 //TODO: BannerView1~3은 롤링배너를 안에 들어갈 임시 view들 입니다.

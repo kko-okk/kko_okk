@@ -40,8 +40,10 @@ struct TitleBackgroundView: View {
 
 
 struct TitleLeadingView: View {
+    //MARK: 이부분이 데이터 피커에서 선택된 날짜값을 가지고 있습니다.
+    //코어 용사 구엘 화이팅!!
     @State var date = Date()
-    let tips: [TipModel] = TipModel.tips
+    //let tips: [TipModel] = TipModel.tips
     // 구엘이 미리 만들어 놓은 팁 모델에서 팁을 가져오는 것 입니다.
     var body: some View {
         VStack(alignment: .leading){
@@ -81,20 +83,20 @@ struct TitleLeadingView: View {
             
             Spacer()
             
-            HStack(spacing: 0){
-                Text(" TIP ")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(Color.white)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(Color(hex:"#474747"))
-                            .frame(width: 38, height: 23)
-                    ).padding(.trailing,5)
-                
-                Text(tips[HeaderViewConst.shared.randomTipMaker()].contents)  // conent -> contents로 변경
-                    .font(.system(size: 15, weight: .light))
-                    .foregroundColor(Color.Kkookk.commonBlack)
-            }
+//            HStack(spacing: 0){
+//                Text(" TIP ")
+//                    .font(.system(size: 15, weight: .semibold))
+//                    .foregroundColor(Color.white)
+//                    .background(
+//                        RoundedRectangle(cornerRadius: 5)
+//                            .fill(Color(hex:"#474747"))
+//                            .frame(width: 38, height: 23)
+//                    ).padding(.trailing,5)
+//
+//                Text(tips[HeaderViewConst.shared.randomTipMaker()].conent)
+//                    .font(.system(size: 15, weight: .light))
+//                    .foregroundColor(Color.Kkookk.commonBlack)
+//            }
             
             Spacer()
             
