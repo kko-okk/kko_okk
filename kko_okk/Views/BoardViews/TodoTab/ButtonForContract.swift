@@ -11,13 +11,13 @@ import SwiftUI
 struct ButtonForContract: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     // 약속, Subject(아이 또는 부모) 받아오기
     @ObservedObject var contract: Promise
-    
+
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
-    
+
     var nowSubject: String
     var subject: Subject {
         switch nowSubject {
@@ -33,12 +33,12 @@ struct ButtonForContract: View {
     @State private var parentShowCheckmark = 0
     @State private var childShowCheckmark = 0
 
-    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머입니다.
-    // let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머
+//     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     // @State var countDownTimer = 2
     // @State var timerRunning = true
-    
-    // MARK: - Gesture Properties
+
+    // MARK: - isDone Gesture Properties
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
     @GestureState var isDetachingParentCheck = false
@@ -46,7 +46,7 @@ struct ButtonForContract: View {
     @GestureState var isDetachingChildCheck = false
     @State var completedChildCheck = false
 
-    // MARK: - 부모가 약속 이행을 확인하는 Gesture
+    // MARK: - isDone으로 바꾸기 전, 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingParentCheck) { currentState, gestureState,
@@ -83,7 +83,7 @@ struct ButtonForContract: View {
         return longPressGuesture
     }
 
-    // MARK: - 자식이 약속 이행을 확인하는 Gesture
+    // MARK: - isDone으로 바꾸기 전, 자식이 약속 이행을 확인하는 Gesture
     var childCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingChildCheck) { currentState, gestureState,
@@ -118,8 +118,9 @@ struct ButtonForContract: View {
             }
         return longPressGuesture
     }
- 
-    var commpnPromiseGesture: some Gesture {
+
+    // MARK: - promised 상태로 전환하기 위한 부모, 자식 공통 Gesture
+    var commonPromiseGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
                 // Updating: 애니메이션 적용 -> 근데 onGesture때문에 이 부분 실행 안됨
                 .updating($isDetectingLongPress) { currentState, gestureState,
@@ -137,7 +138,7 @@ struct ButtonForContract: View {
                     }
                     promisePair.appendIDPair(id)
                     promisePair.appendSubject(nowSubject)
-                    
+
                     print(promisePair.promiseIDPair)
                     print(promisePair.promiseSubjectPair)
 
@@ -160,18 +161,17 @@ struct ButtonForContract: View {
                     let nsError = error as NSError
                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                 }
-        
+
         return longPressGuesture
     }
-    
-    // MARK: - Button UI
+
+    // MARK: - Cell(Button 기능) UI
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
         // Button으로 구현했을 때는 탭했을 때 Button 내부 컨텐츠가 깜빡이는 기본 효과가 있어서 Stack으로 구현함.
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
         ZStack {
             HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
-                
                 if contract.memo!.isEmpty {  // CoreData의 memo 항목이 비어있을 경우: 수정 버튼(ellipsis) 위치 조절 때문에 새로 그림
                     HStack {  // 약속 제목 및 약속 추가 버튼
                         Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
@@ -182,7 +182,7 @@ struct ButtonForContract: View {
                             .lineLimit(1)
                             .padding([.leading, .trailing], 20.0)  // padding 배열 처리
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         // 수정, 삭제 Popover
                         if !contract.promised {
                             VStack {
@@ -324,7 +324,7 @@ struct ButtonForContract: View {
                 }
             }
 
-            // Gesture Stack
+            // MARK: - Gesture Stack
             ZStack {
                 if !contract.promised {
                     Rectangle()
@@ -335,10 +335,7 @@ struct ButtonForContract: View {
 //                        .onTapGesture{
 //                            print("scrollview touched")
 //                        }
-                        .gesture(commpnPromiseGesture)
-                    
-                    
-                        
+                        .gesture(commonPromiseGesture)
                 }
             }
         }
