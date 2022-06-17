@@ -40,6 +40,8 @@ struct TitleBackgroundView: View {
 
 
 struct TitleLeadingView: View {
+    //MARK: 이부분이 데이터 피커에서 선택된 날짜값을 가지고 있습니다.
+    //코어 용사 구엘 화이팅!!
     @State var date = Date()
     //let tips: [TipModel] = TipModel.tips
     // 구엘이 미리 만들어 놓은 팁 모델에서 팁을 가져오는 것 입니다.
