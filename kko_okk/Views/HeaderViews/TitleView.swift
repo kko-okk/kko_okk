@@ -83,21 +83,6 @@ struct TitleLeadingView: View {
             
             Spacer()
             
-//            HStack(spacing: 0){
-//                Text(" TIP ")
-//                    .font(.system(size: 15, weight: .semibold))
-//                    .foregroundColor(Color.white)
-//                    .background(
-//                        RoundedRectangle(cornerRadius: 5)
-//                            .fill(Color(hex:"#474747"))
-//                            .frame(width: 38, height: 23)
-//                    ).padding(.trailing,5)
-//
-//                Text(tips[HeaderViewConst.shared.randomTipMaker()].conent)
-//                    .font(.system(size: 15, weight: .light))
-//                    .foregroundColor(Color.Kkookk.commonBlack)
-//            }
-            
             Spacer()
             
         }.padding(.leading,HeaderViewConst.shared.fullWidth * 0.02)

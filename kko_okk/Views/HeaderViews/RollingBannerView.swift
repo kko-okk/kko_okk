@@ -21,7 +21,7 @@ struct RollingBannerView: View {
             ForEach((0...tips.count - 1),id:\.self){ gz in
                 // RBC.tipViewMaker(text:"\(tips[$0].conent)" )
                 // 팁을 순서대로 넣어 주는 코드 단점 : 앱을 사용하는 내내 앞에 있는 팁만 잘보임
-                RBC.tipViewMaker(text: "\(tips[HeaderViewConst.shared.randomTipMaker()].conent)")
+                RBC.tipViewMaker(text: "\(tips[HeaderViewConst.shared.randomTipMaker()].contents)")
                 //팁을 랜덤으로 보내줌
             }
         }
@@ -59,24 +59,4 @@ struct RollingBannerView_Previews: PreviewProvider {
         RollingBannerView()
     }
 }
-
-/*
- 주석1
- if selectedItem == BannerViews.allCases.count - 1{
- selectedItem = 0
- }else{
- selectedItem = selectedItem + 1
- }
- 이 코드와
- 
- guard selectedItem == BannerViews.allCases.count - 1 else {
- selectedItem = selectedItem + 1
- return
- }
- selectedItem = 0
- 이 코드는 동일하게 동작합니다.
- 
- 스위프트에서는 guard (거짓일떄 먼저 실행)을 많이 사용해 넣어 봤습니다.
- 
- */
 
