@@ -33,8 +33,8 @@ struct ButtonForContract: View {
     @State private var parentShowCheckmark = 0
     @State private var childShowCheckmark = 0
 
-    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머
-//     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머 (PromisePair 유효 시간)
+     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     // @State var countDownTimer = 2
     // @State var timerRunning = true
 
@@ -130,7 +130,7 @@ struct ButtonForContract: View {
                 }
                 // Ended: 여기서 매칭 확인
                 .onEnded { _ in
-                    
+
                     // id와 subject 확인
                     guard let id = contract.id else {
                         print("id 없음")
@@ -336,6 +336,10 @@ struct ButtonForContract: View {
 //                            print("scrollview touched")
 //                        }
                         .gesture(commonPromiseGesture)
+                        .onReceive(timer) { _ in
+                            promisePair.resetIDPair()
+                            promisePair.resetSubjectPair()
+                        }
                 }
             }
         }
