@@ -172,47 +172,51 @@ struct ButtonForContract: View {
         // 전체적으로는 Stack을 그린 후 clipShape() 으로 잘라내서 사용하는 방식.
         ZStack {
             HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
-                if contract.memo!.isEmpty {  // CoreData의 memo 항목이 비어있을 경우: 수정 버튼(ellipsis) 위치 조절 때문에 새로 그림
-                    HStack {  // 약속 제목 및 약속 추가 버튼
-                        Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
-                            .font(.system(size: 23, weight: .black, design: .rounded))
-                            .foregroundColor(  // contract.subject == nowSubject -> 폰트 색: Kkkook.backgroundGray, 아니면 흰 색
-                                contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
-                            )
-                            .lineLimit(1)
-                            .padding([.leading, .trailing], 20.0)  // padding 배열 처리
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .frame(minHeight: 100)
-                } else {  // CoreData의 memo 항목이 존재하는 경우
-                    VStack {  // 약속 제목 및 약속 추가 버튼을 상단에, 약속 내용을 하단에 배치하는 VStack
-                        HStack {
-                            Text(contract.name ?? "")
+                if let memo = contract.memo {
+                    if memo.isEmpty { // CoreData의 memo 항목이 비어있을 경우: 수정 버튼(ellipsis) 위치 조절 때문에 새로 그림
+                        HStack {  // 약속 제목 및 약속 추가 버튼
+                            Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                                 .font(.system(size: 23, weight: .black, design: .rounded))
-                                .foregroundColor(
+                                .foregroundColor(  // contract.subject == nowSubject -> 폰트 색: Kkkook.backgroundGray, 아니면 흰 색
                                     contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
                                 )
                                 .lineLimit(1)
-                                .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
-                                .padding(.bottom, 5)
+                                .padding([.leading, .trailing], 20.0)  // padding 배열 처리
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
+                        .frame(minHeight: 100)
+                    } else {  // CoreData의 memo 항목이 존재하는 경우
+                        VStack {  // 약속 제목 및 약속 추가 버튼을 상단에, 약속 내용을 하단에 배치하는 VStack
+                            HStack {
+                                Text(contract.name ?? "")
+                                    .font(.system(size: 23, weight: .black, design: .rounded))
+                                    .foregroundColor(
+                                        contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
+                                    )
+                                    .lineLimit(1)
+                                    .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
+                                    .padding(.bottom, 5)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
 
-                        // contract의 memo(하단 자세한 내용)
-                        // CoreData의 memo 항목에 값이 있을 때만 표시한다.
-                        // Thanks, Guell!
-                        if !contract.memo!.isEmpty {
-                            Text(contract.memo ?? "")
-                                .font(.system(size: 17, weight: .regular, design: .rounded))
-                                .foregroundColor(.white)
-                                .lineLimit(3)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding([.leading, .bottom], 20)  // padding 배열 처리
-                                .padding(.trailing, 30)
-                                .padding(.top, 5)
+                            // contract의 memo(하단 자세한 내용)
+                            // CoreData의 memo 항목에 값이 있을 때만 표시한다.
+                            // Thanks, Guell!
+                            if let memo = contract.memo {
+                                if !memo.isEmpty {
+                                    Text(contract.memo ?? "")
+                                        .font(.system(size: 17, weight: .regular, design: .rounded))
+                                        .foregroundColor(.white)
+                                        .lineLimit(3)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding([.leading, .bottom], 20)  // padding 배열 처리
+                                        .padding(.trailing, 30)
+                                        .padding(.top, 5)
+                                }
+                            }
                         }
+                        .frame(minHeight: 100)
                     }
-                    .frame(minHeight: 100)
                 }
 
                 // promised List에서 check 버튼활성화
