@@ -24,6 +24,7 @@ struct FilteredList: View {
     
     var body: some View {
         ScrollView {
+            Text("\(String(fetchRequest.count))") 
             VStack {
                 ForEach(fetchRequest) { item in
                     ButtonForContract(contract: item, nowSubject: nowSubject)

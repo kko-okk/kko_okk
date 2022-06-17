@@ -355,10 +355,16 @@ struct ButtonForContract: View {
         // contract: Promise 앞의 for, nowList: String 앞의 now는 각각을 for, now로 사용할 수 있도록 하는 신택스 컴포넌트
         var result: Color  // result 변수는 Color 값이 들어감
         
-        if nowList == "parent" {  // nowList 값이 parent와 같은 경우
-            result = contract.subject == "parent" ? Color.Kkookk.parentPurple : Color.Kkookk.tabDividerGray  // contract.subject가 parent인 경우 parentPurple, 아니면 tabDividerGray
-        } else {  // nowList 값이 parent가 아닌 경우
-            result = contract.subject == "child" ? Color.Kkookk.childGreen : Color.Kkookk.tabDividerGray  // contract.subject가 child인 경우 childGreen, 아니면 tabDividerGray
+        if contract.promised == true {
+            result = contract.subject == "parent" ? Color.Kkookk.parentPurple : Color.Kkookk.childGreen
+            return result
+        }
+        else  {
+            if nowList == "parent" {  // nowList 값이 parent와 같은 경우
+                result = contract.subject == "parent" ? Color.Kkookk.parentPurple : Color.Kkookk.tabDividerGray  // contract.subject가 parent인 경우 parentPurple, 아니면 tabDividerGray
+            } else {  // nowList 값이 parent가 아닌 경우
+                result = contract.subject == "child" ? Color.Kkookk.childGreen : Color.Kkookk.tabDividerGray  // contract.subject가 child인 경우 childGreen, 아니면 tabDividerGray
+            }
         }
         return result
     }

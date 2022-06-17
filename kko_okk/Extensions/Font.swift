@@ -59,6 +59,9 @@ extension Font {
         static var weeklyReportViewMainCell: Font { Font.kkookkFont(weight: .regular, size: 16) }
         static var weeklyReportViewContentCell: Font { Font.kkookkFont(weight: .light, size: 14) }
         
+        // ReportTab
+        static var promiseUltraLight: Font { Font.kkookkFont(weight: .ultraLight, size: 20) }
+
     }
 }
 

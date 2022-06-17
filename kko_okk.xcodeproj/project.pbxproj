@@ -32,6 +32,7 @@
 		7080B195285320A400A7BD44 /* BannerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B194285320A400A7BD44 /* BannerViews.swift */; };
 		70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */; };
 		70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBA284C8327009AAB79 /* DatePickerView.swift */; };
+		70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F675B7285B2E7800F86719 /* checkPromiseView.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
 		9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* ContentView.swift */; };
 		9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B4082846289100AFD9C5 /* Assets.xcassets */; };
@@ -140,6 +141,7 @@
 		7080B194285320A400A7BD44 /* BannerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViews.swift; sourceTree = "<group>"; };
 		70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConst.swift; sourceTree = "<group>"; };
 		70DAECBA284C8327009AAB79 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		70F675B7285B2E7800F86719 /* checkPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkPromiseView.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
 		9D55B4062846289000AFD9C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		2261FB0E2853101800339B23 /* ReportTab */ = {
 			isa = PBXGroup;
 			children = (
+				70F675B6285B2E6500F86719 /* checkPromiseView */,
 				0AD4971E2858707400C52FA1 /* DailyReportView */,
 				0AD4971528586E2400C52FA1 /* WeeklyReportView */,
 				0A6770232857C05F007458BE /* MonthlyReportView */,
@@ -300,6 +303,14 @@
 				22E218502858D921003A2864 /* OnBoardingButton.swift */,
 			);
 			path = OnBordingViews;
+			sourceTree = "<group>";
+		};
+		70F675B6285B2E6500F86719 /* checkPromiseView */ = {
+			isa = PBXGroup;
+			children = (
+				70F675B7285B2E7800F86719 /* checkPromiseView.swift */,
+			);
+			path = checkPromiseView;
 			sourceTree = "<group>";
 		};
 		9D55B3F82846289000AFD9C5 = {
@@ -636,6 +647,7 @@
 				0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */,
 				2261FB162854718B00339B23 /* OnBoardingFirst.swift in Sources */,
 				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
+				70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
 				70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */,
@@ -844,7 +856,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
-				DEVELOPMENT_TEAM = 22A6RK2943;
+				DEVELOPMENT_TEAM = JASCMY8XL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
@@ -875,7 +887,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
-				DEVELOPMENT_TEAM = 22A6RK2943;
+				DEVELOPMENT_TEAM = JASCMY8XL7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
