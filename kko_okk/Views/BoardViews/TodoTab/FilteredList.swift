@@ -23,13 +23,49 @@ struct FilteredList: View {
     @State private var isShowingPopover: Bool = false
     
     var body: some View {
-        ScrollView {
-            Text("\(String(fetchRequest.count))") 
-            VStack {
-                ForEach(fetchRequest) { item in
-                    ButtonForContract(contract: item, nowSubject: nowSubject)
+        VStack {
+            HStack {
+                Circle()
+                    .foregroundColor(Color.Kkookk.parentPurple)
+                    .frame(width: 8, height: 8, alignment: .center)
+                if nowSubject == "parent" {
+                    Text("부모님이 지켜요!").font(.Kkookk.tableTitle)
+                } else if nowSubject == "child" {
+                    Text("아이가 지켜요!").font(.Kkookk.tableTitle)
+                } else {
+                    Text("우리 같이 꼬옥 지켜요!").font(.Kkookk.tableTitle)
                 }
+                Circle()
+                    .fill(Color.Kkookk.countBadgeGray)
+                    .frame(width: 25, height: 25)
+                    .overlay(Text("\(fetchRequest.count)")
+                        .font(.Kkookk.tableCountBadge))
                 Spacer()
+                Button {
+                    isShowingPopover.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .frame(width: 25, height: 25)
+                }
+                .popover(isPresented: $isShowingPopover) {
+                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
+                }
+            }
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
+            Divider()
+            
+//            Spacer()
+//                .frame(height: 23)
+//
+//            Spacer()
+            ScrollView {
+                VStack {
+                    ForEach(fetchRequest) { item in
+                        ButtonForContract(contract: item, nowSubject: nowSubject)
+                    }
+                    Spacer()
+                }
             }
         }
     }
