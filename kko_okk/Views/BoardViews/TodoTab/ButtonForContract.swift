@@ -268,8 +268,7 @@ struct ButtonForContract: View {
                                 }
                         Spacer()
                     }
-                    .frame(width: 35)
-                    .padding([.top, .bottom], 5)
+                    .frame(width: 35,height: 75)
                     .padding(.trailing, 15)
                 }
             }
