@@ -40,10 +40,15 @@ struct tipView: View {
         ZStack{
             Color.white
             GeometryReader{ geo in
+                VStack{
+                    Spacer()
                     Text("\(txt)")
                         .lineLimit(3)
                         .fitSystemFont()
                         .padding(.horizontal,geo.size.width * 0.1)
+                        .frame(height: geo.size.height * 0.45, alignment: .center)
+                    Spacer()
+                }
             }
         }
     }

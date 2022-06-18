@@ -12,15 +12,17 @@ struct RollingBannerView: View {
     let tips: [TipModel] = TipModel.tips
     var rollingController = RollingBannerController()
     let time: Double = 8
-    let viewCount: Int = 5
+    let viewCount: Int = TipModel.tips.count - 1
     
     //TODO: 팁 설정하는 부분 혼자 결정하기 뭐해서 남겨 놓은 주석들입니다.
     //TODO: 다들 별 문제 없다고 생각하면 6/19일 이후 삭제 예정
     var body: some View {
         TabView(selection: $selectedItem){
-            ForEach((1...viewCount),id:\.self){ gz in
+            ForEach((0...viewCount),id:\.self){ gz in
                 rollingController.tipViewMaker(text: //"\(tips[HeaderViewConst.shared.randomTipMaker()].contents)")
-                "\(tips[11].contents)")
+//                "\(tips[11].contents)")
+                                               "\(tips[gz].contents)")
+
             }
         }
         .tabViewStyle(PageTabViewStyle())
