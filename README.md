@@ -37,7 +37,7 @@ Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 
 
 ## Our Team
-Yeni | Guell | [Raymond](https://github.com/garlicvread) | Ruyha | Ian | Seodam
+[Yeni](https://github.com/yeniful) | [Guell](https://github.com/Valentino1994) | [Raymond](https://github.com/garlicvread) | [Ruyha](https://github.com/RuyHa) | [Ian](https://github.com/LeeSungNo-ian) | [Seodam](https://github.com/seodam-hst)
 
 
 ## Github Commit Convention
