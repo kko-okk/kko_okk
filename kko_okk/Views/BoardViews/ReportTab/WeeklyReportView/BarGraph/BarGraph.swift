@@ -100,8 +100,8 @@ extension BarGraph {
     func getBarHeight(point: CGFloat) -> CGFloat {
         let max: CGFloat = 100
         let height = (point / CGFloat(max))
-        print("max:\(max)")
-        print("height:\(height)")
+//        print("max:\(max)")
+//        print("height:\(height)")
         return height
     }
     // 그래프의 y축을 그립니다.

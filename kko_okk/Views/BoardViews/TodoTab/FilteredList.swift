@@ -36,7 +36,9 @@ struct FilteredList: View {
     
     init(filter: String, formatter: String, startDate: Date) {
         _fetchRequest = FetchRequest<Promise>(sortDescriptors: [SortDescriptor(\.isDone, order: .forward), SortDescriptor(\.madeTime, order: .forward)],
-                                              predicate: NSPredicate(format: formatter, Calendar.current.startOfDay(for: startDate) as CVarArg, Calendar.current.startOfDay(for: startDate).dayAfter as CVarArg),
+                                              predicate: NSPredicate(format: formatter,
+                                                                     Calendar.current.startOfDay(for: startDate) as CVarArg,
+                                                                     Calendar.current.startOfDay(for: startDate).dayAfter as CVarArg),
                                               animation: .default)
         nowSubject = filter
     }

@@ -11,7 +11,6 @@ struct SegmentView: View {
     @State private var isShowingTodoBoard = true
     @State private var isShowingReportBoard = false
     @Binding var isPressedSettingButton: Bool
-    
     @EnvironmentObject var pickedDate: PickedDate
     
     var body: some View {

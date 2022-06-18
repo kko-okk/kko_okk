@@ -20,7 +20,7 @@ extension Promise: Identifiable {
     @NSManaged public var id: UUID?
     @NSManaged public var isDone: Bool
     @NSManaged public var isRepeat: Bool
-    @NSManaged public var madeTime: Date?
+    @NSManaged public var madeTime: Date
     @NSManaged public var memo: String?
     @NSManaged public var name: String?
     @NSManaged public var parentCheck: Bool

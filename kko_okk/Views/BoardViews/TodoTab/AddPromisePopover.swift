@@ -24,6 +24,7 @@ struct AddPromisePopover: View {
     // 반복 요일
     @State var isRepeating: [Bool] = [false, false, false, false, false, false, false]
     
+    @EnvironmentObject var pickedDate: PickedDate
     //
     let popoverAssets = PopoverAssets()
     
@@ -98,7 +99,7 @@ extension AddPromisePopover {
             promise.id = UUID()
             promise.name = name
             promise.memo = memo
-            promise.madeTime = Date()
+            promise.madeTime = pickedDate.date
             promise.promised = false
             promise.parentCheck = false
             promise.childCheck = false
