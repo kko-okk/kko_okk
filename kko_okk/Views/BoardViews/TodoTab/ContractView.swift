@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ContractView: View {
+    @EnvironmentObject var pickedDate: PickedDate
     var body: some View {
         VStack {
             HStack {
@@ -31,7 +32,7 @@ struct ContractView: View {
                 .frame(height: 23)
             Spacer()
             // 약속은 만들어졌지만 완료는 안된 것.
-            FilteredList(filter: "promised", formatter: "promised == TRUE")
+            FilteredList(filter: "promised", formatter: "promised == TRUE AND %@ <= madeTime AND madeTime <= %@", startDate: pickedDate.date)
         }
     }
 }

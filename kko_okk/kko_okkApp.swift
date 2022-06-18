@@ -11,11 +11,12 @@ import SwiftUI
 struct kko_okkApp: App {
     let persistenceController = PersistenceController.shared
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
-    
+    @StateObject var pickedDate = PickedDate()
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(pickedDate)
                 .fullScreenCover(isPresented: $isFirstLaunching) {
                     OnBoardingTabView(selectedTag: 0, isFirstLaunching: $isFirstLaunching)
                 }

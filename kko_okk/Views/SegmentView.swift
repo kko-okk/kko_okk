@@ -11,7 +11,7 @@ struct SegmentView: View {
     @State private var isShowingTodoBoard = true
     @State private var isShowingReportBoard = false
     @Binding var isPressedSettingButton: Bool
-//    @State var isPressedSettingButton = false
+    @ObservedObject var pickedDate = PickedDate()
     
     var body: some View {
         VStack(alignment: .leading){

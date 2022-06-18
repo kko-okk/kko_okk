@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct DatePickerView: View {
-//    @ObservedObject var pickedDate = PickedDate()
-    @Binding var date: Date
+//    @Binding var date: Date
+    @EnvironmentObject var pickedDate: PickedDate
     
     let imageSize: CGFloat = 20
     var body: some View {
         ZStack{
-            DatePicker("", selection: $date, displayedComponents: .date)
+            DatePicker("", selection: $pickedDate.date, displayedComponents: .date)
                 .labelsHidden()                             //1
                 .datePickerStyle(.compact)                  //2
                 .frame(width: imageSize, height: imageSize) //3
                 .clipped()                                  //4
-            
             SwiftUIWrapper {
                 Image(systemName: "calendar")
                     .resizable()

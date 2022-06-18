@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ParentWishView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    @EnvironmentObject var pickedDate: PickedDate
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
     
@@ -19,7 +19,6 @@ struct ParentWishView: View {
             HStack {
                 TextField("부모용", text: .constant(""))
                     .padding(.leading, 10)
-
                 Button {
                     isShowingPopover.toggle()
                 } label: {
@@ -40,7 +39,7 @@ struct ParentWishView: View {
             Spacer()
 
             // 아직 합의에 도달하지 못한 약속
-            FilteredList(filter: "parent", formatter: "promised == FALSE")
+            FilteredList(filter: "parent", formatter: "promised == FALSE AND %@ <= madeTime AND madeTime <= %@", startDate: pickedDate.date)
         }
     }
 }

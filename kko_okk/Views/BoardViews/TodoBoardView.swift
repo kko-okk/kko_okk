@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct TodoBoardView: View {
+    @ObservedObject var pickedDate = PickedDate()
     var body: some View {
         VStack {
 //            Divider()
