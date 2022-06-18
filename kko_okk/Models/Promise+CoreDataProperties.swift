@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import SwiftUI
 
 extension Promise: Identifiable {
 
@@ -44,6 +44,13 @@ extension Promise: Identifiable {
     
     var wrappedMemo: String {
         memo ?? "Unknown"
+    }
+    
+    var dailyDatas: [DailyReportData] {
+        [
+            DailyReportData(progress: 50, assignment: "부모님", keyColor: Color("kkookkPurple")),
+            DailyReportData(progress: 66, assignment: "아이", keyColor: Color("kkookkGreen"))
+        ]
     }
 }
 

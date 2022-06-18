@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct DailyReportView: View {
+    // CoreData에 저장된 Promise 값 불러오기
+    @FetchRequest(sortDescriptors: [], animation: .default)
+    private var fetchRequest: FetchedResults<Promise>
+    
     var body: some View {
         GeometryReader { geometry in
             VStack() {
-            
 //MARK: 원형그래프 시작
                 HStack{
                     HStack{
                         ZStack {
-                            ForEach(dailyReportDatas.indices, id: \.self) { index in
+                            ForEach(fetchRequest[0].dailyDatas.indices, id: \.self) { index in
                                 AnimatedDailyReportView(dailyReportData: dailyReportDatas[index], index: index,
                                                         lineWidth: .constant(geometry.size.height * 0.1),
                                                         circleHeight:  .constant(geometry.size.height * 0.7))
@@ -65,44 +68,6 @@ struct DailyReportView: View {
         }
     }
 }
-
-struct DailyReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        DailyReportView()
-            .previewInterfaceOrientation(.landscapeRight)
-    }
-}
-
-struct AnimatedDailyReportView: View {
-    var dailyReportData: DailyReportData
-    var index: Int
-    @State var showAnimated: Bool = false
-    @Binding var lineWidth : CGFloat
-    @Binding var circleHeight : CGFloat
-    
-    var body: some View {
-        ZStack {
-            Circle()
-                .stroke(.gray.opacity(0.1), lineWidth: lineWidth)
-            
-            Circle()
-                .trim(from: 0, to: showAnimated ? dailyReportDatas[index].progress / 100 : 0)
-                .stroke(dailyReportDatas[index].keyColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
-                .rotationEffect(.init(degrees: -90))
-        }
-        //        .padding()
-        .padding(CGFloat(index) * lineWidth * 1.5)
-        .frame(width: circleHeight,height: circleHeight)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                withAnimation(.interactiveSpring(response: 1, dampingFraction: 1, blendDuration: 1).delay(Double(index) * 0.1)) {
-                    showAnimated = true
-                }
-            }
-        }
-    }
-}
-
 
 
 

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct DatePickerView: View {
+//    @ObservedObject var pickedDate = PickedDate()
     @Binding var date: Date
-
+    
     let imageSize: CGFloat = 20
     var body: some View {
         ZStack{
@@ -34,12 +35,6 @@ struct DatePickerView: View {
 //3 데이트피커의 프레임을 정하는코드
 //4 정해진 프레임으로 잘라버리는코드
 //  https://developer.apple.com/documentation/swiftui/path/clipped(antialiased:)
-
-struct DatePickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        DatePickerView(date: .constant(Date()))
-    }
-}
 
 
 /*

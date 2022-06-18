@@ -18,6 +18,8 @@
 		0AD4971A28586E9C00C52FA1 /* ParentAnimatedBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */; };
 		0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
+		22480FB3285D66C200C83ADD /* PickedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22480FB2285D66C200C83ADD /* PickedDate.swift */; };
+		2258B2B3285CB40900A19263 /* AnimatedDailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258B2B2285CB40900A19263 /* AnimatedDailyReportView.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
 		2261FB1428546EC200339B23 /* OnBoardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB1328546EC200339B23 /* OnBoardingTabView.swift */; };
 		2261FB162854718B00339B23 /* OnBoardingFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB152854718B00339B23 /* OnBoardingFirst.swift */; };
@@ -127,6 +129,8 @@
 		0AD4971928586E9C00C52FA1 /* ParentAnimatedBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentAnimatedBarGraph.swift; sourceTree = "<group>"; };
 		0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenAnimatedBarGraph.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
+		22480FB2285D66C200C83ADD /* PickedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedDate.swift; sourceTree = "<group>"; };
+		2258B2B2285CB40900A19263 /* AnimatedDailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedDailyReportView.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		2261FB1328546EC200339B23 /* OnBoardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingTabView.swift; sourceTree = "<group>"; };
 		2261FB152854718B00339B23 /* OnBoardingFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFirst.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				2261FB102853113600339B23 /* DailyReportView.swift */,
+				2258B2B2285CB40900A19263 /* AnimatedDailyReportView.swift */,
 			);
 			path = DailyReportView;
 			sourceTree = "<group>";
@@ -275,8 +280,9 @@
 				22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */,
 				221CC2C328479F74009F4851 /* TipModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
-				A8C834A428471C3A00C65BE0 /* Resources */,
 				0A676FFF2855E0BB007458BE /* Date.swift */,
+				22480FB2285D66C200C83ADD /* PickedDate.swift */,
+				A8C834A428471C3A00C65BE0 /* Resources */,
 				0A17F89F285136B4007CDEDC /* MockupData */,
 			);
 			path = Models;
@@ -689,10 +695,12 @@
 				2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */,
 				2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */,
 				22E218512858D921003A2864 /* OnBoardingButton.swift in Sources */,
+				22480FB3285D66C200C83ADD /* PickedDate.swift in Sources */,
 				7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */,
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,
 				A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */,
+				2258B2B3285CB40900A19263 /* AnimatedDailyReportView.swift in Sources */,
 				F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
