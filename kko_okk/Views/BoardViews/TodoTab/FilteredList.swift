@@ -25,21 +25,30 @@ struct FilteredList: View {
     var body: some View {
         VStack {
             HStack {
-                Circle()
-                    .foregroundColor(Color.Kkookk.parentPurple)
-                    .frame(width: 8, height: 8, alignment: .center)
+                // MARK: - 각 색상 표시와 타이틀
                 if nowSubject == "parent" {
+                    Circle()
+                        .foregroundColor(Color.Kkookk.parentPurple)
+                        .frame(width: 8, height: 8, alignment: .center)
                     Text("부모님이 지켜요!").font(.Kkookk.tableTitle)
                 } else if nowSubject == "child" {
+                    Circle()
+                        .foregroundColor(Color.Kkookk.childGreen)
+                        .frame(width: 8, height: 8, alignment: .center)
                     Text("아이가 지켜요!").font(.Kkookk.tableTitle)
                 } else {
+                    Circle()
+                        .foregroundColor(.clear)
+                        .frame(width: 8, height: 8, alignment: .center)
                     Text("우리 같이 꼬옥 지켜요!").font(.Kkookk.tableTitle)
                 }
+
                 Circle()
                     .fill(Color.Kkookk.countBadgeGray)
-                    .frame(width: 25, height: 25)
+                    .frame(width: 22, height: 22)
                     .overlay(Text("\(fetchRequest.count)")
                         .font(.Kkookk.tableCountBadge))
+                    .padding(.leading, 30)
                 Spacer()
                 Button {
                     isShowingPopover.toggle()
