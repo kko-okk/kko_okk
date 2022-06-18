@@ -39,12 +39,19 @@ struct tipView: View {
     var body: some View {
         ZStack{
             Color.white
-           Text("\(txt)")
-                .font(.caption)
+            GeometryReader{ geo in
+                    Text("\(txt)")
+                        .lineLimit(3)
+                        .fitSystemFont()
+                        .padding(.horizontal,geo.size.width * 0.1)
+            }
         }
     }
 }
 
+
+
+//MARK: 테스트코드
 
 
 

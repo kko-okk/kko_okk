@@ -27,7 +27,7 @@ extension TipModel {
             TipModel(id: UUID(), contents: "약속은 어렵지 않아요. 서로 신뢰와 믿음이 있다면요."),
             TipModel(id: UUID(), contents: "어릴 때의 경험이 나중 발달의 기초가 됩니다. 많은 경험을 하게 해 주세요."),
             TipModel(id: UUID(), contents: "모든 발달에는 단계별로 적절한 과업이 있어요. 시기를 놓치지 않는 것이 중요해요."),
-            TipModel(id: UUID(), contents: "피아제(Piaget)에 의하면 아동은 환경과의 상호작용을 통해 능동적으로 인지구조를 구성합니다."),
+            TipModel(id: UUID(), contents: "피아제(Piaget)에 의하면 아동은 환경과의\n상호작용을 통해 능동적으로 인지구조를\n구성합니다."),
             TipModel(id: UUID(), contents: "아동은 외부 환경과의 상호작용 속에서 인지 불균형을 경험하고, 이를 통해 인지가 발달합니다."),
             TipModel(id: UUID(), contents: "인지 발달에는 신경계의 성숙이 필요합니다. 무리한 선행학습은 좋지 않아요."),
             TipModel(id: UUID(), contents: "비고츠키(L. Vygotsky)는 언어적 상호작용을 통한 학습을 강조합니다! 대화가 필요해요!"),

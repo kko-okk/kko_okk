@@ -13,22 +13,6 @@
 
 import SwiftUI
 
-
-
-extension Color{
-    init(hex:String){
-        let scanner = Scanner(string: hex)
-        _ = scanner.scanString("#")
-        var rgb: UInt64 = 0
-        scanner.scanHexInt64(&rgb)
-        let r = Double((rgb >> 16) & 0xFF) / 255.0
-        let g = Double((rgb >> 8) & 0xFF) / 255.0
-        let b = Double((rgb >> 0) & 0xFF) / 255.0
-        self.init(red:r , green: g , blue: b)
-    }
-    //원본 코드 출처 : https://seons-dev.tistory.com/174
-}
-
 struct HeaderViewConst{
     static let shared = HeaderViewConst()
     
@@ -77,4 +61,45 @@ struct HeaderViewConst{
         return formatter.string(from: date)
     }
     // 원본코드 출처: https://hururuek-chapchap.tistory.com/156
+}
+
+//MARK: 색상을 헥사 코드를 사용가능 하게 만드는 코드
+extension Color{
+    init(hex:String){
+        let scanner = Scanner(string: hex)
+        _ = scanner.scanString("#")
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >> 8) & 0xFF) / 255.0
+        let b = Double((rgb >> 0) & 0xFF) / 255.0
+        self.init(red:r , green: g , blue: b)
+    }
+    //원본 코드 출처 : https://seons-dev.tistory.com/174
+}
+
+//MARK: 폰트의 사이즈를 유동적으로 변경 시켜주는 extension
+extension View {
+    func fitSystemFont(lineLimit: Int = 1, minimumScaleFactor: CGFloat = 0.01, percentage: CGFloat = 1) -> ModifiedContent<Self, FitSystemFont> {
+        return modifier(FitSystemFont(lineLimit: lineLimit, minimumScaleFactor: minimumScaleFactor, percentage: percentage))
+    }
+    //원본 코드 출처 : https://stackoverflow.com/questions/57035746/how-to-scale-text-to-fit-parent-view-with-swiftui
+}
+
+//MARK: 폰트의 사이즈를 유동적으로 변경 시켜주는 ViewModiFier
+struct FitSystemFont: ViewModifier {
+    var lineLimit: Int
+    var minimumScaleFactor: CGFloat
+    var percentage: CGFloat
+    
+    func body(content: Content) -> some View {
+        GeometryReader { geometry in
+            content
+                .font(.system(size: min(geometry.size.width, geometry.size.height) * percentage))
+                .lineLimit(self.lineLimit)
+                .minimumScaleFactor(self.minimumScaleFactor)
+                .position(x: geometry.frame(in: .local).midX, y: geometry.frame(in: .local).midY)
+        }
+    }
+    //원본 코드 출처 : https://stackoverflow.com/questions/57035746/how-to-scale-text-to-fit-parent-view-with-swiftui
 }
