@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-        
+    
     var body: some View {
         ZStack{
             Color(hex:"#F5F7F9")

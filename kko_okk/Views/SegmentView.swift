@@ -71,7 +71,7 @@ struct SegmentView: View {
             if (isShowingTodoBoard) {
                 TodoBoardView()
             } else {
-                ReportBoardView()
+                ReportBoardView(startDate: pickedDate.date)
             }
             
         }.padding(26)

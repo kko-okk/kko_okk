@@ -9,8 +9,7 @@ import SwiftUI
 
 struct DailyReportView: View {
     // CoreData에 저장된 Promise 값 불러오기
-    @FetchRequest(sortDescriptors: [], animation: .default)
-    private var fetchRequest: FetchedResults<Promise>
+    private var dailyData: [DailyReportData] = []
     
     var body: some View {
         GeometryReader { geometry in
@@ -19,7 +18,7 @@ struct DailyReportView: View {
                 HStack{
                     HStack{
                         ZStack {
-                            ForEach(fetchRequest[0].dailyDatas.indices, id: \.self) { index in
+                            ForEach(dailyReportDatas.indices, id: \.self) { index in
                                 AnimatedDailyReportView(dailyReportData: dailyReportDatas[index], index: index,
                                                         lineWidth: .constant(geometry.size.height * 0.1),
                                                         circleHeight:  .constant(geometry.size.height * 0.7))
@@ -67,8 +66,6 @@ struct DailyReportView: View {
                 .fill(.white)
         }
     }
+    
+    
 }
-
-
-
-

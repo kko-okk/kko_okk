@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ReportBoardView: View {
+    @FetchRequest(sortDescriptors: [], animation: .default)
+    private var fetchRequest: FetchedResults<Promise>
+    
     var body: some View {
         ZStack{
             Color(hex:"#F5F7F9")
@@ -20,7 +23,7 @@ struct ReportBoardView: View {
                                 DailyReportView()
                                     .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                     .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
-                                
+
                                 Spacer(minLength: 20)
                                 checkPromiseView()
                                     .cornerRadius(HeaderViewConst.shared.cornerRadius)
@@ -45,13 +48,17 @@ struct ReportBoardView: View {
             }
         }
     }
-}
-
-
-
-struct ReportBoardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReportBoardView()
-            .previewInterfaceOrientation(.landscapeRight)
+    
+    init(startDate: Date) {
+        _fetchRequest = FetchRequest<Promise>(sortDescriptors: [],
+                                              predicate: NSPredicate(format: "%@ <= madeTime",
+                                                                     Calendar.current.startOfDay(for: startDate).startOftheMonth as CVarArg),
+                                              animation: .default)
+    }
+    
+    func makeDailyData() -> [DailyReportData] {
+        var result: [DailyReportData] = []
+        
+        return result
     }
 }

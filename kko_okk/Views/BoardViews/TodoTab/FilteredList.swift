@@ -7,15 +7,7 @@
 
 // filteredList를 가져다 써주세요.
 import SwiftUI
-extension Date {
-    var dayAfter: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: self)!
-    }
-    
-    var dayBefore: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: self)!
-    }
-}
+
 struct FilteredList: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext

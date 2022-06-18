@@ -19,6 +19,7 @@
 		0AD4971C28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */; };
 		221CC2C428479F74009F4851 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CC2C328479F74009F4851 /* TipModel.swift */; };
 		22480FB3285D66C200C83ADD /* PickedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22480FB2285D66C200C83ADD /* PickedDate.swift */; };
+		22480FB5285DA19A00C83ADD /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22480FB4285DA19A00C83ADD /* DateExtension.swift */; };
 		2258B2B3285CB40900A19263 /* AnimatedDailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258B2B2285CB40900A19263 /* AnimatedDailyReportView.swift */; };
 		2261FB112853113600339B23 /* DailyReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB102853113600339B23 /* DailyReportView.swift */; };
 		2261FB1428546EC200339B23 /* OnBoardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB1328546EC200339B23 /* OnBoardingTabView.swift */; };
@@ -130,6 +131,7 @@
 		0AD4971B28586EC200C52FA1 /* ChildrenAnimatedBarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenAnimatedBarGraph.swift; sourceTree = "<group>"; };
 		221CC2C328479F74009F4851 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		22480FB2285D66C200C83ADD /* PickedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedDate.swift; sourceTree = "<group>"; };
+		22480FB4285DA19A00C83ADD /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2258B2B2285CB40900A19263 /* AnimatedDailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedDailyReportView.swift; sourceTree = "<group>"; };
 		2261FB102853113600339B23 /* DailyReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportView.swift; sourceTree = "<group>"; };
 		2261FB1328546EC200339B23 /* OnBoardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingTabView.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				221CC2C328479F74009F4851 /* TipModel.swift */,
 				F87E1F8F284B2D5900AD05B3 /* Subject.swift */,
 				0A676FFF2855E0BB007458BE /* Date.swift */,
+				22480FB4285DA19A00C83ADD /* DateExtension.swift */,
 				22480FB2285D66C200C83ADD /* PickedDate.swift */,
 				A8C834A428471C3A00C65BE0 /* Resources */,
 				0A17F89F285136B4007CDEDC /* MockupData */,
@@ -689,6 +692,7 @@
 				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
 				A816CAAC285C0D900026C06A /* PromisePair.swift in Sources */,
 				A8C834A028471AA300C65BE0 /* SegmentView.swift in Sources */,
+				22480FB5285DA19A00C83ADD /* DateExtension.swift in Sources */,
 				22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */,
 				9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */,
 				2261FB1428546EC200339B23 /* OnBoardingTabView.swift in Sources */,

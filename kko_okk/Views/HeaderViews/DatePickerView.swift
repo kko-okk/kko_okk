@@ -10,6 +10,8 @@ import SwiftUI
 struct DatePickerView: View {
 //    @Binding var date: Date
     @EnvironmentObject var pickedDate: PickedDate
+    @FetchRequest(sortDescriptors: [], animation: .default)
+    private var fetchRequest: FetchedResults<Promise>
     
     let imageSize: CGFloat = 20
     var body: some View {

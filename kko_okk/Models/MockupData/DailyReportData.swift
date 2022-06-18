@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DailyReportData: Identifiable {
-    var id = UUID().uuidString
+    var id = UUID()
     var progress: CGFloat
     var assignment: String
     var keyColor: Color
