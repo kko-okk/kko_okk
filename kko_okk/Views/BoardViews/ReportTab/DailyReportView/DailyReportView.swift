@@ -80,7 +80,7 @@ struct DailyReportView: View {
         
         let parentProgress: CGFloat = parentPromises.count != 0 ? CGFloat(Double(parentDoneCount) / Double(parentPromises.count) * 100) : 0
         let childProgress: CGFloat = childPromises.count != 0 ? CGFloat(Double(childDoneCount) / Double(childPromises.count) * 100) : 0
-
+ 
         dailyDatas = [
             DailyReportData(progress: parentProgress, assignment: "부모님", keyColor: Color("kkookkPurple")),
             DailyReportData(progress: childProgress, assignment: "아이", keyColor: Color("kkookkGreen"))
