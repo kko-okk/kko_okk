@@ -30,17 +30,20 @@ struct FilteredList: View {
                     Circle()
                         .foregroundColor(Color.Kkookk.parentPurple)
                         .frame(width: 8, height: 8, alignment: .center)
+                        .padding(.leading, 10)
                     Text("부모님이 지켜요!").font(.Kkookk.tableTitle)
                 } else if nowSubject == "child" {
                     Circle()
                         .foregroundColor(Color.Kkookk.childGreen)
                         .frame(width: 8, height: 8, alignment: .center)
+                        .padding(.leading, 10)
                     Text("아이가 지켜요!").font(.Kkookk.tableTitle)
                 } else {
                     Circle()
                         .foregroundColor(.clear)
                         .frame(width: 8, height: 8, alignment: .center)
                     Text("우리 같이 꼬옥 지켜요!").font(.Kkookk.tableTitle)
+                        .padding(.leading, 10)
                 }
 
                 Circle()
@@ -53,15 +56,21 @@ struct FilteredList: View {
                 Button {
                     isShowingPopover.toggle()
                 } label: {
-                    Image(systemName: "plus")
-                        .frame(width: 25, height: 25)
+                    ZStack{
+                        // 손가락 지문 들어올 곳
+                        Image(systemName: "plus")
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(Color.Kkookk.commonBlack)
+                    }
+                    
                 }
                 .popover(isPresented: $isShowingPopover) {
                     AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
                 }
             }
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
+            .padding([.leading, .trailing], 10)
+            .padding(.top, 15)
+            
             Divider()
             
 //            Spacer()

@@ -75,7 +75,8 @@ struct SegmentView: View {
             }
             
         }.padding(26)
-        
+     
+            .background(Color.Kkookk.backgroundGray)
     }
 }
 
