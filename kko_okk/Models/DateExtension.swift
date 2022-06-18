@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Date {
     var dayAfter: Date {
@@ -45,5 +46,30 @@ extension Date {
         let result: String = temp.joined(separator: "-")
         
         return dateFormatter.date(from: result) ?? Date()
+    }
+    
+    func calcParentProgress(dailyPromises: FetchedResults<Promise>, now: Date) -> CGFloat {
+        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: now).dayAfter }
+        
+        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent"}
+        
+        let parentDoneCount: Int = parentPromises.filter { $0.isDone == true }.count
+        
+        let parentProgress: CGFloat = parentPromises.count != 0 ? CGFloat(Double(parentDoneCount) / Double(parentPromises.count) * 100) : 0
+        
+        
+        return parentProgress
+    }
+    
+    func calcChildProgress(dailyPromises: FetchedResults<Promise>, now: Date) -> CGFloat {
+        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: now).dayAfter }
+        
+        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child"}
+        
+        let childDoneCount: Int = childPromises.filter { $0.isDone == true }.count
+        
+        let childProgress: CGFloat = childPromises.count != 0 ? CGFloat(Double(childDoneCount) / Double(childPromises.count) * 100) : 0
+        
+        return childProgress
     }
 }

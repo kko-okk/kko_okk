@@ -13,6 +13,3 @@ struct DailyReportData: Identifiable {
     var assignment: String
     var keyColor: Color
 }
-
-// 화면 구현을 위한 목업 데이터
-var dailyReportDatas: [DailyReportData] = []

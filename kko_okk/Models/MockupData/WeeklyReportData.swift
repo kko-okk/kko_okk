@@ -18,7 +18,8 @@ struct ParentWeeklyReportData: Identifiable {
 struct ChildrenWeeklyReportData: Identifiable {
     var id = UUID().uuidString
     var value: CGFloat
-    var key: String
+    var monthData: String
+    var dayData: String
     var color: Color = Color.Kkookk.childGreen
 }
 
@@ -53,13 +54,20 @@ var parentWeeklyReportDatas: [ParentWeeklyReportData] = [
 ]
 
 var childrenWeeklyReportDatas: [ChildrenWeeklyReportData] = [
-    ChildrenWeeklyReportData(value: 80, key: "6월 4일"),
-    ChildrenWeeklyReportData(value: 50, key: "6월 5일"),
-    ChildrenWeeklyReportData(value: 25, key: "6월 6일"),
-    ChildrenWeeklyReportData(value: 75, key: "6월 7일"),
-    ChildrenWeeklyReportData(value: 75, key: "6월 8일"),
-    ChildrenWeeklyReportData(value: 100, key: "6월 9일"),
-    ChildrenWeeklyReportData(value: 50, key: "6월 10일"),
+    ChildrenWeeklyReportData(value: 80, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
+    ChildrenWeeklyReportData(value: 50, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
+    ChildrenWeeklyReportData(value: 25, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
+    ChildrenWeeklyReportData(value: 75, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
+    ChildrenWeeklyReportData(value: 75, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
+    ChildrenWeeklyReportData(value: 100, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
+    ChildrenWeeklyReportData(value: 50, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
+                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
 ]
 
 var commonWeeklyReportDatas: [CommonWeeklyReportData] = [
