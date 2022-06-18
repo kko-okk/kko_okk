@@ -21,6 +21,7 @@ struct HeaderView: View {
                         .cornerRadius(HeaderViewConst.shared.cornerRadius)
                         .frame(width: geometry.size.width * 0.23, height: HeaderViewConst.shared.cellHeight, alignment: .bottomTrailing)
                         .padding(.top,HeaderViewConst.shared.fullHeight - HeaderViewConst.shared.cellHeight)
+                        .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                 }
             }
         }

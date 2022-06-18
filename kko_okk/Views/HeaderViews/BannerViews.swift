@@ -38,8 +38,9 @@ struct tipView: View {
     @State var txt = ""
     var body: some View {
         ZStack{
-            Color.blue
+            Color.white
            Text("\(txt)")
+                .font(.caption)
         }
     }
 }
