@@ -21,11 +21,11 @@ struct FilteredList: View {
     
     // Popover 띄우고 닫는 용도
     @State private var isShowingPopover: Bool = false
-    
+
     var body: some View {
         VStack {
             HStack {
-                // MARK: - 각 색상 표시와 타이틀
+                // MARK: - 각 리스트별 색상 표시와 타이틀
                 if nowSubject == "parent" {
                     Circle()
                         .foregroundColor(Color.Kkookk.parentPurple)
@@ -65,18 +65,17 @@ struct FilteredList: View {
                     
                 }
                 .popover(isPresented: $isShowingPopover) {
-                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
+                    nowSubject == "parent" ?
+                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover) :
+                    AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
                 }
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, 15)
-            
+
             Divider()
-            
-//            Spacer()
-//                .frame(height: 23)
-//
-//            Spacer()
+
+            // MARK: - 리스트
             ScrollView {
                 VStack {
                     ForEach(fetchRequest) { item in
@@ -87,19 +86,19 @@ struct FilteredList: View {
             }
         }
     }
-    
+
     init(filter: String, formatter: String) {
         _fetchRequest = FetchRequest<Promise>(sortDescriptors: [SortDescriptor(\.isDone, order: .forward), SortDescriptor(\.madeTime, order: .forward)],
                                               predicate: NSPredicate(format: formatter),
                                               animation: .default)
         nowSubject = filter
     }
-    
+
     private func deleteItems(offsets: IndexSet) {
         print(offsets)
         withAnimation {
             offsets.map { fetchRequest[$0] }.forEach(viewContext.delete)
-            
+
             do {
                 try viewContext.save()
             } catch {

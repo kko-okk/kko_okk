@@ -9,11 +9,6 @@ import Foundation
 import SwiftUI
 
 struct ParentWishView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    // Popover 띄우고 닫을 용도
-    @State private var isShowingPopover: Bool = false
-    
     var body: some View {
             // 아직 합의에 도달하지 못한 약속
             FilteredList(filter: "parent", formatter: "promised == FALSE")

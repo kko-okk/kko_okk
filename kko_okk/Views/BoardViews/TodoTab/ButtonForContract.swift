@@ -51,7 +51,6 @@ struct ButtonForContract: View {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingParentCheck) { currentState, gestureState,
                     transaction in
-                print("parent tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
@@ -88,7 +87,6 @@ struct ButtonForContract: View {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingChildCheck) { currentState, gestureState,
                     transaction in
-                print("child tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
@@ -133,19 +131,14 @@ struct ButtonForContract: View {
 
                     // id와 subject 확인
                     guard let id = contract.id else {
-                        print("id 없음")
-                        return
+                        fatalError()
                     }
                     promisePair.appendIDPair(id)
                     promisePair.appendSubject(nowSubject)
 
-                    print(promisePair.promiseIDPair)
-                    print(promisePair.promiseSubjectPair)
-
                     // 2개일 때 비교, 상태 변화, 리셋
                     if promisePair.promiseIDPair.count == 2 {
                         if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
-                            print(promisePair.getId(0) == promisePair.getId(1))
                             contract.promised = true
                         }
                         // reset
