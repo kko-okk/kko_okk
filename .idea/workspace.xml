@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a5e56b1b-39a3-4247-bd22-3e2733b16d86" name="Changes" comment="팀원 깃헙 링크 추가">
+      <change afterPath="$PROJECT_DIR$/.idea/mc2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22,_9_11_AM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22__9_11_AM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/childFingerprint.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/childFingerprint.imageset/childFingerprint.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/parentFingerprint.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/parentFingerprint.imageset/parentFingerprint.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kko_okk.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/xcode.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ChildWishView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ChildWishView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ParentWishView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ParentWishView.swift" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="updateReadMe" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="AppCode" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="1.2" />
+  </component>
+  <component name="ProjectId" id="2AfEwqHUBTJxy3yHwZZovp6KM4h" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5e56b1b-39a3-4247-bd22-3e2733b16d86" name="Changes" comment="" />
+      <created>1655392482513</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655392482513</updated>
+      <workItem from="1655392484571" duration="993000" />
+      <workItem from="1655510928971" duration="20000" />
+      <workItem from="1655510958801" duration="196000" />
+      <workItem from="1655511640978" duration="772000" />
+      <workItem from="1655512417789" duration="82000" />
+      <workItem from="1655538550626" duration="1813000" />
+      <workItem from="1655543023514" duration="1637000" />
+      <workItem from="1655611737696" duration="1573000" />
+    </task>
+    <task id="LOCAL-00001" summary="README.md 파일 수정했습니다.">
+      <created>1655540054214</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655540054214</updated>
+    </task>
+    <task id="LOCAL-00002" summary="팀원 깃헙 링크 추가">
+      <created>1655543264433</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655543264433</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="addFingerprint" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="README.md 파일 수정했습니다." />
+    <MESSAGE value="팀원 깃헙 링크 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="팀원 깃헙 링크 추가" />
+  </component>
+</project>

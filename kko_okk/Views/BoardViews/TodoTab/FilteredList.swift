@@ -23,13 +23,77 @@ struct FilteredList: View {
     @State private var isShowingPopover: Bool = false
     
     var body: some View {
-        ScrollView {
-            Text("\(String(fetchRequest.count))") 
-            VStack {
-                ForEach(fetchRequest) { item in
-                    ButtonForContract(contract: item, nowSubject: nowSubject)
+        VStack {
+            HStack {
+                // MARK: - 각 색상 표시와 타이틀
+                if nowSubject == "parent" {
+                    Circle()
+                        .foregroundColor(Color.Kkookk.parentPurple)
+                        .frame(width: 8, height: 8, alignment: .center)
+                        .padding(.leading, 10)
+                    Text("부모님이 지켜요!").font(.Kkookk.tableTitle)
+                } else if nowSubject == "child" {
+                    Circle()
+                        .foregroundColor(Color.Kkookk.childGreen)
+                        .frame(width: 8, height: 8, alignment: .center)
+                        .padding(.leading, 10)
+                    Text("아이가 지켜요!").font(.Kkookk.tableTitle)
+                } else {
+                    Circle()
+                        .foregroundColor(.clear)
+                        .frame(width: 8, height: 8, alignment: .center)
+                    Text("우리 같이 꼬옥 지켜요!").font(.Kkookk.tableTitle)
+                        .padding(.leading, 10)
                 }
+
+                Circle()
+                    .fill(Color.Kkookk.countBadgeGray)
+                    .frame(width: 22, height: 22)
+                    .overlay(Text("\(fetchRequest.count)")
+                        .font(.Kkookk.tableCountBadge))
+                    .padding(.leading, 30)
                 Spacer()
+                Button {
+                    isShowingPopover.toggle()
+                } label: {
+                    ZStack{  // fingertip, + 도형이 배치되는 곳
+                        // nowSubject에 따라 이미지 배치
+                        if nowSubject == "parent" {
+                            Image("parentFingerprint")
+                                    .resizable()
+                                    .frame(width: 26, height: 30)
+                        } else if nowSubject == "child" {
+                            Image("childFingerprint")
+                                    .resizable()
+                                    .frame(width: 26, height: 30)
+                        } else {}
+
+                        Image(systemName: "plus")
+                                .foregroundColor(.white)
+                                .frame(width: 30, height: 30)
+                    }
+                    
+                }
+                .popover(isPresented: $isShowingPopover) {
+                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
+                }
+            }
+            .padding([.leading, .trailing], 10)
+            .padding(.top, 15)
+            
+            Divider()
+            
+//            Spacer()
+//                .frame(height: 23)
+//
+//            Spacer()
+            ScrollView {
+                VStack {
+                    ForEach(fetchRequest) { item in
+                        ButtonForContract(contract: item, nowSubject: nowSubject)
+                    }
+                    Spacer()
+                }
             }
         }
     }

@@ -18,7 +18,6 @@ struct MainView: View {
             HeaderView()
             SegmentView(isPressedSettingButton: $isShowingSettingView)
         }
-            
     }
 }
 
