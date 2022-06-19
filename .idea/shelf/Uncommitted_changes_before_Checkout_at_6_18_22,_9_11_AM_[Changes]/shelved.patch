@@ -1,0 +1,57 @@
+Index: .idea/kko_okk.iml
+===================================================================
+diff --git a/.idea/kko_okk.iml b/.idea/kko_okk.iml
+deleted file mode 100644
+--- a/.idea/kko_okk.iml	(revision bad6dccdb405fb35e35e02ee0c797dcea62b8f8a)
++++ /dev/null	(revision bad6dccdb405fb35e35e02ee0c797dcea62b8f8a)
+@@ -1,2 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module classpath="AppCode" type="CIDR_MODULE" version="4" />
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision bad6dccdb405fb35e35e02ee0c797dcea62b8f8a)
++++ /dev/null	(revision bad6dccdb405fb35e35e02ee0c797dcea62b8f8a)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: .idea/xcode.xml
+===================================================================
+diff --git a/.idea/xcode.xml b/.idea/xcode.xml
+deleted file mode 100644
+--- a/.idea/xcode.xml	(revision bad6dccdb405fb35e35e02ee0c797dcea62b8f8a)
++++ /dev/null	(revision bad6dccdb405fb35e35e02ee0c797dcea62b8f8a)
+@@ -1,4 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="XcodeMetaData" PROJECT_DIR="$PROJECT_DIR$" PROJECT_FILE="$PROJECT_DIR$/kko_okk.xcodeproj" />
+-</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectModuleManager\">\n    <modules>\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/kko_okk.iml\" filepath=\"$PROJECT_DIR$/.idea/kko_okk.iml\" />\n    </modules>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision bad6dccdb405fb35e35e02ee0c797dcea62b8f8a)
++++ b/.idea/modules.xml	(date 1655510948959)
+@@ -2,7 +2,7 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/kko_okk.iml" filepath="$PROJECT_DIR$/.idea/kko_okk.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/mc2.iml" filepath="$PROJECT_DIR$/.idea/mc2.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
