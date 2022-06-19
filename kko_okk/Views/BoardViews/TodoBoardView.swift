@@ -11,6 +11,17 @@ import SwiftUI
 struct TodoBoardView: View {
     var body: some View {
         VStack {
+            HStack{
+                Button("warning") { HapticManager.instance.notification(type: .warning) }
+                Button("error") { HapticManager.instance.notification(type: .error) }
+                Button("success") { HapticManager.instance.notification(type: .success) }
+                Button("heavy") { HapticManager.instance.impact(style: .heavy) }
+                Button("light") { HapticManager.instance.impact(style: .light) }
+                Button("medium") { HapticManager.instance.impact(style: .medium) }
+                Button("rigid") { HapticManager.instance.impact(style: .rigid) }
+                Button("soft") { HapticManager.instance.impact(style: .soft) }
+            }
+            
             HStack {
                 ZStack{
                     RoundedRectangle(cornerRadius: 10).foregroundColor(Color.Kkookk.commonWhite)
