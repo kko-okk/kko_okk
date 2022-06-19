@@ -56,11 +56,22 @@ struct FilteredList: View {
                 Button {
                     isShowingPopover.toggle()
                 } label: {
-                    ZStack{
-                        // 손가락 지문 들어올 곳
+                    ZStack{  // fingertip, + 도형이 배치되는 곳
+                        // nowSubject에 따라 이미지 배치
+                        if nowSubject == "parent" {
+                            Image("parentFingerprint")
+                                    .resizable()
+                                    .frame(width: 26, height: 30)
+                        } else if nowSubject == "child" {
+                            Image("childFingerprint")
+                                    .resizable()
+                                    .frame(width: 26, height: 30)
+                        } else {}
+
+                        // foregroundColor() -> 디자인 대로 흰 색으로 변경
                         Image(systemName: "plus")
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(Color.Kkookk.commonBlack)
+                                .foregroundColor(.white)
+                                .frame(width: 30, height: 30)
                     }
                     
                 }
