@@ -15,6 +15,8 @@ struct checkPromiseView: View {
                 Color.white
                 VStack{
                     Spacer()
+                    Text("이번 달은")
+                        .font(.Kkookk.promiseUltraLight)
                     HStack(alignment:.center){
                         Text("총")
                             .font(.Kkookk.promiseUltraLight)

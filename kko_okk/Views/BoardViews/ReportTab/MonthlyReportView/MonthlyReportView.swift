@@ -38,20 +38,12 @@ struct MonthlyReportView: View {
         
         for i in (0..<montlyPromises.count) {
             if !montlyPromises[i].isEmpty {
-                print(i)
                 let data: MonthlyReportDataTaskMetaData = MonthlyReportDataTaskMetaData(task: montlyPromises[i], taskDate: getSampleDate(offset: i-todayDate))
                 monthlyReportDataTasks.append(data)
             }
         }
         
         monthlyDataTasks = monthlyReportDataTasks
-        
-        for i in (0..<monthlyDataTasks.count) {
-            for j in (0..<monthlyDataTasks[i].task.count) {
-                print(monthlyDataTasks[i].task[j].madeTime)
-            }
-        }
-        print("----")
     }
 }
 

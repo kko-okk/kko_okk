@@ -72,8 +72,6 @@ struct CustomDatePicker: View {
                         )
                         .onTapGesture {
                             pickedDate.date = value.date
-                            print(value.date)
-                            print(pickedDate.date)
                         }
                 }
             }
