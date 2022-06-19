@@ -47,7 +47,6 @@ struct checkPromiseView: View {
 
         //day를 기입하지 않아서 현재 달의 첫번쨰 날짜가 나오게 된다
         let startOfMonth = calendar.date(from: components)!
-        let comp1 = calendar.dateComponents([.day,.weekday,.weekOfMonth], from: startOfMonth)
 
         //이번 달의 마지막 날짜를 구해주기 위해서 다음달을 구한다 이것도 day를 넣어주지 않았기 때문에 1이 다음달의 1일이 나오게 된다
         let nextMonth = calendar.date(byAdding: .month, value: +1, to: startOfMonth)
