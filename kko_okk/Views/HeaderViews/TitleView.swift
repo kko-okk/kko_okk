@@ -20,6 +20,7 @@ struct TitleView: View {
             TitleBackgroundView()
                 .frame(height: HeaderViewConst.shared.cellHeight, alignment: .bottomLeading)
                 .cornerRadius(HeaderViewConst.shared.cornerRadius)
+                .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
             
             TitleLeadingView()
                 .frame(height: HeaderViewConst.shared.cellHeight, alignment: .bottomLeading)
