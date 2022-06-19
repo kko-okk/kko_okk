@@ -24,8 +24,15 @@ struct ChildWishView: View {
                 Button {
                     isShowingPopover.toggle()
                 } label: {
-                    Image(systemName: "plus")
-                        .frame(width: 30, height: 30)
+                    ZStack {
+                        Image("childFingerprint")
+                            .resizable()
+                            .frame(width: 26, height: 30)
+                        
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .frame(width: 30, height: 30)
+                    }
                 }
                 .popover(isPresented: $isShowingPopover) {
                     AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
