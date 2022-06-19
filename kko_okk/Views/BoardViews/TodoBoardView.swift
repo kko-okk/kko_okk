@@ -10,7 +10,6 @@ import SwiftUI
 
 struct TodoBoardView: View {
     var body: some View {
-        VStack {
             HStack {
                 ZStack{
                     RoundedRectangle(cornerRadius: 10).foregroundColor(Color.Kkookk.commonWhite)
@@ -30,7 +29,6 @@ struct TodoBoardView: View {
             }
             .padding([.leading, .trailing], 8)
             .padding(.top, 5)
-        }
         .background(Color.Kkookk.backgroundGray)
     }
 }
