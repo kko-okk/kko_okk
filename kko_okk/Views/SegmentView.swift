@@ -14,21 +14,26 @@ struct SegmentView: View {
     @State private var todoTabTextSize = CGSize()
     @State private var reportTabTextSize = CGSize()
     @Binding var isPressedSettingButton: Bool
-
+    
     var body: some View {
         VStack(alignment: .leading){
             // MARK: - Custom Tab Bar
             ZStack{
                 VStack{
                     Spacer()
-                    // TODO: - 디바이더의 패딩 부분은 하드코딩 했습니다...
-                    Divider()
-                        .padding(.top, -16)
-                        .padding([.leading, .trailing], 12)
+                    Rectangle()
+                        .foregroundColor(.Kkookk.unselectedTabGray)
+                        .frame(height: 2)
+                        .padding(.top, -17)
+                    //TODO: 기존 디바이더를 삭제하고 선택 되었을 때사용된 커스텀 디바이더 (Rectangle사용)
                 }
                 .frame(height: tabBarSize.height)
-
+                
                 HStack{
+                    //MARK: 리팩토링 시 참고사항
+                    //약속만들기 버튼과 이행률 보기 버튼은 기본적으로 동일한 구조를 가지고 있다.
+                    //에셋을 처럼 사용하면 코드를 줄일 수 있을 것 같습니다.
+                    
                     Button(
                         action: {
                             if (!isShowingTodoBoard) {
@@ -42,8 +47,8 @@ struct SegmentView: View {
                                     .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
                                     .font(Font.Kkookk.boardTabSelected)
                                     .readSize { textSize in
-                                                    todoTabTextSize = textSize
-                                                }
+                                        todoTabTextSize = textSize
+                                    }
                                 Rectangle()
                                     .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
                                     .frame(width: todoTabTextSize.width, height: 2)
@@ -52,7 +57,7 @@ struct SegmentView: View {
                     )
                     .animation(.default, value: isShowingTodoBoard)
                     .buttonStyle(.plain)
-
+                    
                     Button(action: {
                         if (!isShowingReportBoard) {
                             isShowingReportBoard.toggle()
@@ -64,8 +69,8 @@ struct SegmentView: View {
                                 .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
                                 .font(Font.Kkookk.boardTabSelected)
                                 .readSize { textSize in
-                                                reportTabTextSize = textSize
-                                            }
+                                    reportTabTextSize = textSize
+                                }
                             Rectangle()
                                 .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
                                 .frame(width: reportTabTextSize.width, height: 2)
@@ -76,21 +81,20 @@ struct SegmentView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        isPressedSettingButton.toggle()
-                    }, label: {
+                    Button(action: { isPressedSettingButton.toggle() },
+                           label: {
                         Text("설정")
                             .foregroundColor(.Kkookk.commonBlack)
                             .font(Font.Kkookk.boardSettingButton)
                     })
-                    
                 }
-                .padding(15)
+                .padding(.vertical,15)
                 .readSize { tabSize in
                     tabBarSize = tabSize
                 }
+                .background(Color.red)
             }
-
+            
             Spacer()
             // Tab에 따라 보여줄 Board
             if (isShowingTodoBoard) {
@@ -98,26 +102,24 @@ struct SegmentView: View {
             } else {
                 ReportBoardView()
             }
-            
-        }.padding(26)
-     
+        }.padding(.horizontal,HeaderViewConst.shared.kkookkPading)
             .background(Color.Kkookk.backgroundGray)
     }
 }
 
 extension View {
-  func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
-    background(
-      GeometryReader { geometryProxy in
-        Color.clear
-          .preference(key: SizePreferenceKey.self, value: geometryProxy.size)
-      }
-    )
-    .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
-  }
+    func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
+        background(
+            GeometryReader { geometryProxy in
+                Color.clear
+                    .preference(key: SizePreferenceKey.self, value: geometryProxy.size)
+            }
+        )
+        .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
+    }
 }
 
 private struct SizePreferenceKey: PreferenceKey {
-  static var defaultValue: CGSize = .zero
-  static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}
+    static var defaultValue: CGSize = .zero
+    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}
 }

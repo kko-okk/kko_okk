@@ -17,6 +17,7 @@ struct HeaderViewConst{
     static let shared = HeaderViewConst()
     
     let cornerRadius: CGFloat = 15
+    let kkookkPading: CGFloat = 40
     let fullWidth = KkookkSize.fullWidth - 80 //헤더뷰 전체 길이 - 좌우 패딩 40씩
     let fullHeight = KkookkSize.fullHeight * 0.172
     let cellHeight = KkookkSize.fullHeight * 0.141
