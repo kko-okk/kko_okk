@@ -1,8 +1,9 @@
 # kko_okk
 Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 
+<br>
 
-## Introduction of Kko_okk !
+## Introducing, Kko_okk !
 
 꼬-옥은 부모님과 자녀가 함께 약속을 만들고, 지켜나가는 과정을 돕는 앱입니다.
 
@@ -25,24 +26,34 @@ Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 
 꼬-옥을 통해 자녀와의 관계를 개선하고, 아이의 기본생활습관 형성을 촉진해 보세요.
 
+<br>
+
 ## Technology
 
 - Swift
 - SwiftUI
 
+<br>
+
 ## Design
 <img width="674" alt="image" src="https://user-images.githubusercontent.com/77421835/173480884-f8c839a2-30f3-4916-b77c-d75d2a6ede6b.png">
+
+<br>
 
 ## App Component Map
 <img width="948" alt="image" src="https://user-images.githubusercontent.com/77421835/173481021-b96f096c-12bd-4082-a493-ef4815d7565c.png">
 
+<br>
 
 ## Our Team
 [Yeni](https://github.com/yeniful) | [Guell](https://github.com/Valentino1994) | [Raymond](https://github.com/garlicvread) | [Ruyha](https://github.com/RuyHa) | [Ian](https://github.com/LeeSungNo-ian) | [Seodam](https://github.com/seodam-hst)
 
+<br>
 
 ## Github Commit Convention
 - [링크 참조](https://overcome-the-limits.tistory.com/entry/%ED%98%91%EC%97%85-%ED%98%91%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-git-%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+
+<br>
 
 ## Presentation Script
 - [국문 발표 스크립트](https://apple-developer-academy-mc2.notion.site/Flow-221817fa15ff4bd19204b03091c42351)
