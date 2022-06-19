@@ -14,7 +14,7 @@ struct MonthlyReportView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 20) {
-                CustomDatePicker(pickedDate: pickedDate, monthlyReportDataTasks: monthlyDataTasks)
+                CustomDatePicker(monthlyReportDataTasks: monthlyDataTasks)
             }
             .padding(.vertical)
         }

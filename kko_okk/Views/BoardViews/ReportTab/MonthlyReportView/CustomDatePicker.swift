@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomDatePicker: View {
-    var pickedDate: PickedDate
+    @EnvironmentObject var pickedDate: PickedDate
     var monthlyReportDataTasks: [MonthlyReportDataTaskMetaData]
     @State var currentMonth: Int = 0
     
