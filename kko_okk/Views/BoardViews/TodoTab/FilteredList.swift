@@ -68,7 +68,6 @@ struct FilteredList: View {
                                     .frame(width: 26, height: 30)
                         } else {}
 
-                        // foregroundColor() -> 디자인 대로 흰 색으로 변경
                         Image(systemName: "plus")
                                 .foregroundColor(.white)
                                 .frame(width: 30, height: 30)

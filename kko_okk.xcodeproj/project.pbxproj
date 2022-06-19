@@ -90,7 +90,6 @@
 		A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834A92847334400C65BE0 /* TitleView.swift */; };
 		A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */; };
 		A8C834C22848A34E00C65BE0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C834C12848A34E00C65BE0 /* SettingView.swift */; };
-		A8FF27E3285EFDC20081708F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FF27E2285EFDC20081708F /* HapticManager.swift */; };
 		F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F8F284B2D5900AD05B3 /* Subject.swift */; };
 		F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */; };
 		F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89CAB762849D761006C72BD /* AddPromisePopover.swift */; };
@@ -182,7 +181,6 @@
 		A8C834A92847334400C65BE0 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		A8C834BF2848A34400C65BE0 /* ReportBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBoardView.swift; sourceTree = "<group>"; };
 		A8C834C12848A34E00C65BE0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		A8FF27E2285EFDC20081708F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		F87E1F8F284B2D5900AD05B3 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		F87E1F91284B2FA700AD05B3 /* EditPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPromisePopover.swift; sourceTree = "<group>"; };
 		F89CAB762849D761006C72BD /* AddPromisePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromisePopover.swift; sourceTree = "<group>"; };
@@ -339,7 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				A8A4771F2849F5BF0005B4E2 /* kko-okk-Info.plist */,
-				A8FF27E1285EFD910081708F /* Helpers */,
 				221CC2C228479F68009F4851 /* Models */,
 				A8C834A328471C0900C65BE0 /* Extensions */,
 				9DEB3A1F284629BC0001959A /* Views */,
@@ -474,14 +471,6 @@
 				9D55B4082846289100AFD9C5 /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		A8FF27E1285EFD910081708F /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				A8FF27E2285EFDC20081708F /* HapticManager.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F8A424B928532494007123E8 /* PromisePopoverElements */ = {
@@ -667,7 +656,6 @@
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
 				9DEB3A2828462A4B0001959A /* ButtonForContract.swift in Sources */,
 				0AD4971728586E3700C52FA1 /* BarGraph.swift in Sources */,
-				A8FF27E3285EFDC20081708F /* HapticManager.swift in Sources */,
 				F8A424B828532486007123E8 /* EditContentsOfPromiseView.swift in Sources */,
 				F87E1F92284B2FA700AD05B3 /* EditPromisePopover.swift in Sources */,
 				221CC2C428479F74009F4851 /* TipModel.swift in Sources */,
