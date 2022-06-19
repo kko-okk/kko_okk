@@ -104,3 +104,23 @@ struct FitSystemFont: ViewModifier {
     }
     //원본 코드 출처 : https://stackoverflow.com/questions/57035746/how-to-scale-text-to-fit-parent-view-with-swiftui
 }
+
+//MARK: View의 특정 모서리만 코너를 주는 것
+//배열로 값을 받아오게 수정하고 싶은데 안되서 슬픔...
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+            clipShape(RoundedCorner(radius: radius, corners: corners))
+    }
+}
+
+struct RoundedCorner: Shape {
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+    //원본 코드 출처 : https://iamcho2.github.io/2020/11/19/swiftui-round-specific-coners
+}
+

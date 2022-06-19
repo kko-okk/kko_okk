@@ -83,16 +83,21 @@ struct SegmentView: View {
                     
                     Button(action: { isPressedSettingButton.toggle() },
                            label: {
-                        Text("설정")
-                            .foregroundColor(.Kkookk.commonBlack)
-                            .font(Font.Kkookk.boardSettingButton)
+                        HStack(alignment:.bottom,spacing: 1){
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(.Kkookk.commonBlack)
+                                .font(Font.Kkookk.boardSettingButtonIcon)
+                            Text("설정")
+                                .foregroundColor(.Kkookk.commonBlack)
+                                .font(Font.Kkookk.boardSettingButton)
+                        }
                     })
                 }
                 .padding(.vertical,15)
                 .readSize { tabSize in
                     tabBarSize = tabSize
                 }
-                .background(Color.red)
+//                .background(Color.red)
             }
             
             Spacer()

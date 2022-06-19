@@ -34,7 +34,8 @@ extension Font {
         static var boardTabSelected: Font { Font.kkookkFont(weight: .bold, size: 20) }
         static var boardTabUnselected: Font { Font.kkookkFont(weight: .bold, size: 19) }
         static var boardSettingButton: Font { Font.kkookkFont(weight: .bold, size: 16) }
-        
+        static var boardSettingButtonIcon: Font { Font.kkookkFont(weight: .bold, size: 15) }
+
         // BoardView - Table
         static var tableTitle: Font { Font.kkookkFont(weight: .bold, size: 20) }
         static var tableCountBadge: Font { Font.kkookkFont(weight: .medium, size: 16) }
