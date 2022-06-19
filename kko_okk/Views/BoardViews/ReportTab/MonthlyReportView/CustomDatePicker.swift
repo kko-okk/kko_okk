@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CustomDatePicker: View {
-    @Binding var currentDate: Date
+    var pickedDate: PickedDate
+    var monthlyReportDataTasks: [MonthlyReportDataTaskMetaData]
     @State var currentMonth: Int = 0
     
     private let days: [String] = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
@@ -59,7 +60,7 @@ struct CustomDatePicker: View {
             }
             
             let columns = Array(repeating: GridItem(.flexible()), count: 7)
-            
+            // 달력
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(extractDate()) { value in
                     CardView(value: value)
@@ -67,32 +68,36 @@ struct CustomDatePicker: View {
                             Capsule()
                                 .fill(Color.pink)
                                 .padding(.horizontal, 8)
-                                .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                                .opacity(isSameDay(date1: value.date, date2: pickedDate.date) ? 1 : 0)
                         )
                         .onTapGesture {
-                            currentDate = value.date
+                            pickedDate.date = value.date
+                            print(value.date)
+                            print(pickedDate.date)
                         }
                 }
             }
             
             VStack(spacing: 15) {
-                Text("우리가 한 약속들을 확인해보세요!")
+                Text("우리가 지킨 약속을 확인해보세요!")
                     .font(.title2.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 20)
-
+                
+                // 여기서 task를 넘겨줘야함
                 if let task = monthlyReportDataTasks.first(where: { task in
-                    return isSameDay(date1: task.taskDate, date2: currentDate)
+                    // 선택한 날짜에 맞춰서 아래의 task, 즉 ForEach를 돌릴 task를 바꿈
+                    return isSameDay(date1: task.taskDate, date2: pickedDate.date)
                 }) {
-                    ForEach(task.task) { task in
-                        Text(task.title)
+                    ForEach(task.task) { contract in
+                        Text(contract.name ?? "")
                             .font(.title2.bold())
                         .padding(.vertical, 30)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .foregroundColor(.white)
                         // 백엔드와 협력하여 부모용, 아이용 셀을 만들 예정입니다.
                         .background(
-                            Color("kkookkGreen")
+                            Color(contract.subject == "child" ? "kkookkGreen" : "kkookkPurple")
                                 .cornerRadius(15)
                                 .frame(height: 80)
                             )
@@ -104,7 +109,8 @@ struct CustomDatePicker: View {
             .padding()
         }
         .onChange(of: currentMonth) { newValue in
-            currentDate = getCurrentMonth()
+            pickedDate.date = getCurrentMonth()
+            print(getCurrentMonth())
         }
     }
     
@@ -117,18 +123,18 @@ struct CustomDatePicker: View {
                 }) {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .primary)
+                        .foregroundColor(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     
                     Spacer()
                     
                     Circle()
-                        .fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color.pink)
+                        .fill(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : Color.pink)
                         .frame(width: 8, height: 8)
                 } else {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? .white : .primary)
+                        .foregroundColor(isSameDay(date1: value.date, date2: pickedDate.date) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     
                     Spacer()
@@ -148,7 +154,7 @@ struct CustomDatePicker: View {
     func extraDate() -> [String] {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY M월"
-        let date = formatter.string(from: currentDate)
+        let date = formatter.string(from: pickedDate.date)
         return date.components(separatedBy: " ")
     }
     
@@ -176,12 +182,6 @@ struct CustomDatePicker: View {
         }
         
         return days
-    }
-}
-
-struct CustomDatePicker_Previews: PreviewProvider {
-    static var previews: some View {
-        MonthlyReportView()
     }
 }
 

@@ -34,12 +34,14 @@ struct OnBoardingForth: View {
     // MARK: - 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+        
             .updating($isDetachingParentCheck) { currentState, gestureState,
                     transaction in
                 print("parent tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
+        
             .onEnded { _ in
                 if completedParentCheck == false {
                     // Animation
@@ -187,4 +189,3 @@ struct OnBoardingForth: View {
         }
     }
 }
-

@@ -26,7 +26,7 @@ struct ReportBoardView: View {
                                     .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
 
                                 Spacer(minLength: 20)
-                                checkPromiseView()
+                                checkPromiseView(dailyPromises: fetchRequest, pickedDate: pickedDate)
                                     .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                     .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                             }
@@ -38,7 +38,7 @@ struct ReportBoardView: View {
                                 .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                         }
                         Spacer(minLength: 30)
-                        MonthlyReportView()
+                        MonthlyReportView(dailyPromises: fetchRequest, pickedDate: pickedDate)
                             .background(Color.white)
                             .cornerRadius(HeaderViewConst.shared.cornerRadius)
                             .frame(width: geometry.size.width * 0.329)

@@ -107,7 +107,7 @@ struct WeeklyReportView: View {
         
         let parentProgress: CGFloat = parentPromises.count != 0 ? CGFloat(Double(parentDoneCount) / Double(parentPromises.count) * 100) : 0
         
-        return parentProgress
+        return parentProgress == 0 ? 3 : parentProgress
     }
     
     func calcChildProgress(dailyPromises: FetchedResults<Promise>, now: Date) -> CGFloat {
@@ -119,7 +119,7 @@ struct WeeklyReportView: View {
         
         let childProgress: CGFloat = childPromises.count != 0 ? CGFloat(Double(childDoneCount) / Double(childPromises.count) * 100) : 0
         
-        return childProgress
+        return childProgress == 0 ? 3 : childProgress
     }
 }
 
