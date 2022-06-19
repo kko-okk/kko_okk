@@ -14,42 +14,66 @@ struct SettingView: View {
     var body: some View {
         
         NavigationView{
-                   List {
-                       NavigationLink {
-                           LicenseView()
-                       } label : {
-                           Label("라이센스", systemImage: "star.fill")
-                       }
-
-                       NavigationLink {
-                           EditView()
-                       } label : {
-                           Label("설정", systemImage: "heart.fill")
-                       }
-
-                       NavigationLink {
-                           LicenseView()
-                       } label : {
-                           Label("푸시 알람", systemImage: "bolt.fill")
-                       }
-
-                       NavigationLink {
-                           EditView()
-                       } label : {
-                           Label("PlaceHolder", systemImage: "leaf.fill")
-                       }
-                   }
-                   .navigationTitle("설정")
-                   
-                   .navigationBarTitleDisplayMode(.large)
-                   .toolbar(content: {
-                       ToolbarItem(placement: .navigationBarLeading){
-                           buttonToBack
-                       }
-
-                   })
-                   LicenseView()
-               }
+            Form {
+                NavigationLink {
+                    LicenseView()
+                } label : {
+                    Label("라이센스", systemImage: "star.fill")
+                }
+                
+                NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/yeniful/kko_okk").navigationTitle("GitHub")) {
+                    HStack{
+                        Image("GitHub")
+                        Text("GitHub")
+                    }
+                }
+                
+                
+                Section(header: Text("개발자 정보")){
+                    NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/Valentino1994").navigationTitle("Guell")) {
+                        Text("Guell")
+                    }
+                    NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/LeeSungNo-ian").navigationTitle("Ian")) {
+                        HStack{
+                            Image("Ian")
+                            Text("Ian")
+                        }
+                    }
+                    
+                    NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/garlicvread").navigationTitle("Raymond")) {
+                        Text("Raymond")
+                    }
+                    
+                    NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/RuyHa").navigationTitle("Ruyha")) {
+                        HStack{
+                            Image("Ruyha")
+                            Text("Ruyha")
+                        }
+                    }
+                    
+                    NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/seodam-hst").navigationTitle("SeoDam")) {
+                        Text("SeoDam")
+                    }
+                    
+                    NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/yeniful").navigationTitle("Yeni")) {
+                        HStack{
+                            Image("Yeni")
+                            Text("Yeni")
+                        }
+                    }
+                }
+                
+            }
+            .navigationTitle("설정")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading){
+                    buttonToBack
+                }
+                
+            })
+            LicenseView()
+        }
     }
     
     // Button View
@@ -62,9 +86,3 @@ struct SettingView: View {
     }
     
 }
-
-//struct SettingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingView()
-//    }
-//}
