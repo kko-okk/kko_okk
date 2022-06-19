@@ -22,7 +22,7 @@ struct SegmentView: View {
                 VStack{
                     Spacer()
                     Rectangle()
-                        .foregroundColor(.Kkookk.unselectedTabGray)
+                        .foregroundColor(Color(hex: "DDDDDD"))
                         .frame(height: 2)
                         .padding(.top, -17)
                     //TODO: 기존 디바이더를 삭제하고 선택 되었을 때사용된 커스텀 디바이더 (Rectangle사용)
@@ -50,7 +50,7 @@ struct SegmentView: View {
                                         todoTabTextSize = textSize
                                     }
                                 Rectangle()
-                                    .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                    .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .clear)
                                     .frame(width: todoTabTextSize.width, height: 2)
                             }
                         }
@@ -72,7 +72,7 @@ struct SegmentView: View {
                                     reportTabTextSize = textSize
                                 }
                             Rectangle()
-                                .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .clear)
                                 .frame(width: reportTabTextSize.width, height: 2)
                         }
                     })
