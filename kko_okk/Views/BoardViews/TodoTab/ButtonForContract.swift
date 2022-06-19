@@ -17,6 +17,8 @@ struct ButtonForContract: View {
 
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
+    
+    @State private var showingAlert = false
 
     var nowSubject: String
     var subject: Subject {
@@ -35,8 +37,6 @@ struct ButtonForContract: View {
 
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머 (PromisePair 유효 시간)
      let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
-    // @State var countDownTimer = 2
-    // @State var timerRunning = true
 
     // MARK: - isDone Gesture Properties
     @GestureState var isDetectingLongPress = false
@@ -147,6 +147,8 @@ struct ButtonForContract: View {
                         if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
                             print(promisePair.getId(0) == promisePair.getId(1))
                             contract.promised = true
+                        } else {
+                                self.showingAlert.toggle()
                         }
                         // reset
                         promisePair.resetIDPair()
@@ -289,6 +291,12 @@ struct ButtonForContract: View {
                         .onReceive(timer) { _ in
                             promisePair.resetIDPair()
                             promisePair.resetSubjectPair()
+                        }
+                        .alert(isPresented: $showingAlert) {
+                            Alert(
+                                title: Text("앗, 다른 약속이에요!"),
+                                message: Text("같은 약속끼리 꼬옥 눌러주세요 :)"),
+                                dismissButton: .default(Text("확인")))
                         }
                 }
                 // MARK: - 수정, 삭제 Popover
