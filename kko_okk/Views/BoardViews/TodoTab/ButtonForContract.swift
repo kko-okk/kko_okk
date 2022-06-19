@@ -147,6 +147,16 @@ struct ButtonForContract: View {
                         if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
                             print(promisePair.getId(0) == promisePair.getId(1))
                             contract.promised = true
+                            
+                            
+//                            CoreData 업데이트
+                            do {
+                                try viewContext.save()
+                            } catch {
+                                let nsError = error as NSError
+                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                            }
+                            
                         } else {
                                 self.showingAlert.toggle()
                         }
@@ -155,15 +165,6 @@ struct ButtonForContract: View {
                         promisePair.resetSubjectPair()
                     }
                 }
-
-                // CoreData 업데이트
-                do {
-                    try viewContext.save()
-                } catch {
-                    let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                }
-
         return longPressGuesture
     }
 
