@@ -24,7 +24,7 @@ struct checkPromiseView: View {
                         
                         ZStack(alignment:.bottom){
                             Text("\(clearPromiseCount)")
-                                .font(.title.bold())
+                                .font(.largeTitle.bold())
                                 .background(
                                     underlineView()
                                 )

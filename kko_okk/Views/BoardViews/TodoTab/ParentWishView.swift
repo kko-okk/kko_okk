@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ParentWishView: View {
+
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var pickedDate: PickedDate
     // Popover 띄우고 닫을 용도

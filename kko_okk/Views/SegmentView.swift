@@ -10,44 +10,67 @@ import SwiftUI
 struct SegmentView: View {
     @State private var isShowingTodoBoard = true
     @State private var isShowingReportBoard = false
+    @State private var tabBarSize = CGSize()
+    @State private var todoTabTextSize = CGSize()
+    @State private var reportTabTextSize = CGSize()
     @Binding var isPressedSettingButton: Bool
     @EnvironmentObject var pickedDate: PickedDate
-    
+
     var body: some View {
         VStack(alignment: .leading){
-            
-            // Custom Tab Bar 만들기 (ex. 약속 만들기, 약속 리포트(이행률) 보기, 설정)
+            // MARK: - Custom Tab Bar
+            ZStack{
+                VStack{
+                    Spacer()
+                    // TODO: - 디바이더의 패딩 부분은 하드코딩 했습니다...
+                    Divider()
+                        .padding(.top, -16)
+                        .padding([.leading, .trailing], 12)
+                }
+                .frame(height: tabBarSize.height)
+
                 HStack{
-                    
-                    Button(action: {
-                        
-                        isShowingTodoBoard.toggle()
-                        
-                        if (isShowingReportBoard) {
-                            isShowingReportBoard.toggle()
+                    Button(
+                        action: {
+                            if (!isShowingTodoBoard) {
+                                isShowingTodoBoard.toggle()
+                                isShowingReportBoard.toggle()
+                            }
+                        },
+                        label: {
+                            VStack{
+                                Text("약속 만들기")
+                                    .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                    .font(Font.Kkookk.boardTabSelected)
+                                    .readSize { textSize in
+                                                    todoTabTextSize = textSize
+                                                }
+                                Rectangle()
+                                    .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                    .frame(width: todoTabTextSize.width, height: 2)
+                            }
                         }
-                        
-                    }, label: {
-                        Text("약속 만들기")
-                            .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
-                            .font(Font.Kkookk.boardTabSelected)
-                        
-                    })
+                    )
                     .animation(.default, value: isShowingTodoBoard)
                     .buttonStyle(.plain)
-                    
+
                     Button(action: {
-                        
-                        isShowingReportBoard.toggle()
-                        
-                        if (isShowingTodoBoard) {
+                        if (!isShowingReportBoard) {
+                            isShowingReportBoard.toggle()
                             isShowingTodoBoard.toggle()
                         }
-
                     }, label: {
-                        Text("이행률 보기")
-                            .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
-                            .font(Font.Kkookk.boardTabSelected)
+                        VStack{
+                            Text("이행률 보기")
+                                .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                .font(Font.Kkookk.boardTabSelected)
+                                .readSize { textSize in
+                                                reportTabTextSize = textSize
+                                            }
+                            Rectangle()
+                                .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                .frame(width: reportTabTextSize.width, height: 2)
+                        }
                     })
                     .animation(.default, value: isShowingReportBoard)
                     .buttonStyle(.plain)
@@ -62,11 +85,14 @@ struct SegmentView: View {
                             .font(Font.Kkookk.boardSettingButton)
                     })
                     
-                }.padding(15)
-            
-            // 임시 Divider
-            Divider()
-            
+                }
+                .padding(15)
+                .readSize { tabSize in
+                    tabBarSize = tabSize
+                }
+            }
+
+            Spacer()
             // Tab에 따라 보여줄 Board
             if (isShowingTodoBoard) {
                 TodoBoardView()
@@ -75,13 +101,24 @@ struct SegmentView: View {
             }
             
         }.padding(26)
-        
+     
+            .background(Color.Kkookk.backgroundGray)
     }
 }
 
-//
-//struct BoardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SegmentView(isPressedSettingButton: $isPre)
-//    }
-//}
+extension View {
+  func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
+    background(
+      GeometryReader { geometryProxy in
+        Color.clear
+          .preference(key: SizePreferenceKey.self, value: geometryProxy.size)
+      }
+    )
+    .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
+  }
+}
+
+private struct SizePreferenceKey: PreferenceKey {
+  static var defaultValue: CGSize = .zero
+  static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}
+}
