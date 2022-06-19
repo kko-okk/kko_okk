@@ -37,7 +37,7 @@ extension Font {
         
         // BoardView - Table
         static var tableTitle: Font { Font.kkookkFont(weight: .bold, size: 20) }
-        static var tableCountBadge: Font { Font.kkookkFont(weight: .bold, size: 16) }
+        static var tableCountBadge: Font { Font.kkookkFont(weight: .medium, size: 16) }
         
         // BoardView - Cell
         static var cellTitle: Font { Font.kkookkFont(weight: .extraBold, size: 23) }

@@ -36,7 +36,6 @@ struct OnBoardingForth: View {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingParentCheck) { currentState, gestureState,
                     transaction in
-                print("parent tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
@@ -61,7 +60,6 @@ struct OnBoardingForth: View {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingChildCheck) { currentState, gestureState,
                     transaction in
-                print("child tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }

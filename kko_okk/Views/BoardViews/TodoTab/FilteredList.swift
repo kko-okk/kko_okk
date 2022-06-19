@@ -21,31 +21,84 @@ struct FilteredList: View {
     
     // Popover 띄우고 닫는 용도
     @State private var isShowingPopover: Bool = false
-    
+
     var body: some View {
-        ScrollView {
-            Text("\(String(fetchRequest.count))") 
-            VStack {
-                ForEach(fetchRequest) { item in
-                    ButtonForContract(contract: item, nowSubject: nowSubject)
+        VStack {
+            HStack {
+                // MARK: - 각 리스트별 색상 표시와 타이틀
+                if nowSubject == "parent" {
+                    Circle()
+                        .foregroundColor(Color.Kkookk.parentPurple)
+                        .frame(width: 8, height: 8, alignment: .center)
+                        .padding(.leading, 10)
+                    Text("부모님이 지켜요!").font(.Kkookk.tableTitle)
+                } else if nowSubject == "child" {
+                    Circle()
+                        .foregroundColor(Color.Kkookk.childGreen)
+                        .frame(width: 8, height: 8, alignment: .center)
+                        .padding(.leading, 10)
+                    Text("아이가 지켜요!").font(.Kkookk.tableTitle)
+                } else {
+                    Circle()
+                        .foregroundColor(.clear)
+                        .frame(width: 8, height: 8, alignment: .center)
+                    Text("우리 같이 꼬옥 지켜요!").font(.Kkookk.tableTitle)
+                        .padding(.leading, 10)
                 }
+
+                Circle()
+                    .fill(Color.Kkookk.countBadgeGray)
+                    .frame(width: 22, height: 22)
+                    .overlay(Text("\(fetchRequest.count)")
+                        .font(.Kkookk.tableCountBadge))
+                    .padding(.leading, 30)
                 Spacer()
+                Button {
+                    isShowingPopover.toggle()
+                } label: {
+                    ZStack{
+                        // 손가락 지문 들어올 곳
+                        Image(systemName: "plus")
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(Color.Kkookk.commonBlack)
+                    }
+                    
+                }
+                .popover(isPresented: $isShowingPopover) {
+                    nowSubject == "parent" ?
+                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover) :
+                    AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
+                }
+            }
+            .padding([.leading, .trailing], 10)
+            .padding(.top, 15)
+
+            Divider()
+
+            // MARK: - 리스트
+            ScrollView {
+                VStack {
+                    ForEach(fetchRequest) { item in
+                        ButtonForContract(contract: item, nowSubject: nowSubject)
+                    }
+                    Spacer()
+                }
             }
         }
     }
-    
+
     init(filter: String, formatter: String) {
         _fetchRequest = FetchRequest<Promise>(sortDescriptors: [SortDescriptor(\.isDone, order: .forward), SortDescriptor(\.madeTime, order: .forward)],
                                               predicate: NSPredicate(format: formatter),
                                               animation: .default)
         nowSubject = filter
     }
-    
+
     private func deleteItems(offsets: IndexSet) {
         print(offsets)
         withAnimation {
             offsets.map { fetchRequest[$0] }.forEach(viewContext.delete)
-            
+
             do {
                 try viewContext.save()
             } catch {
