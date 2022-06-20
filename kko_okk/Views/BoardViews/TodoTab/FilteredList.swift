@@ -75,7 +75,18 @@ struct FilteredList: View {
                     
                 }
                 .popover(isPresented: $isShowingPopover) {
-                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
+                    switch nowSubject {
+                    case "parent":
+                        AddPromisePopover(subject: .parent,
+                                          isPresented: $isShowingPopover)
+                    case "child":
+                        AddPromisePopover(subject: .child,
+                                          isPresented: $isShowingPopover)
+                    default:
+                        AddPromisePopover(subject: .parent,
+                                          isPresented: $isShowingPopover)
+                    }
+                    
                 }
             }
             .padding([.leading, .trailing], 10)
