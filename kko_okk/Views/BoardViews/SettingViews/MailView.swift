@@ -79,7 +79,7 @@ struct MailView: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = context.coordinator
-        vc.setToRecipients(["kkokkreport@gmail.com"])
+        vc.setToRecipients(["kkookkreport@gmail.com"])
         vc.setSubject("꼬-옥 앱 버그 신고")
        // vc.setMessageBody("메시지컨텐츠", isHTML: false)
         //이건 아직 확인 못함
