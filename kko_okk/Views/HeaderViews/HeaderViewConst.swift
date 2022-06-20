@@ -13,26 +13,11 @@
 
 import SwiftUI
 
-
-
-extension Color{
-    init(hex:String){
-        let scanner = Scanner(string: hex)
-        _ = scanner.scanString("#")
-        var rgb: UInt64 = 0
-        scanner.scanHexInt64(&rgb)
-        let r = Double((rgb >> 16) & 0xFF) / 255.0
-        let g = Double((rgb >> 8) & 0xFF) / 255.0
-        let b = Double((rgb >> 0) & 0xFF) / 255.0
-        self.init(red:r , green: g , blue: b)
-    }
-    //원본 코드 출처 : https://seons-dev.tistory.com/174
-}
-
 struct HeaderViewConst{
     static let shared = HeaderViewConst()
     
     let cornerRadius: CGFloat = 15
+    let kkookkPading: CGFloat = 40
     let fullWidth = KkookkSize.fullWidth - 80 //헤더뷰 전체 길이 - 좌우 패딩 40씩
     let fullHeight = KkookkSize.fullHeight * 0.172
     let cellHeight = KkookkSize.fullHeight * 0.141
@@ -78,3 +63,64 @@ struct HeaderViewConst{
     }
     // 원본코드 출처: https://hururuek-chapchap.tistory.com/156
 }
+
+//MARK: 색상을 헥사 코드를 사용가능 하게 만드는 코드
+extension Color{
+    init(hex:String){
+        let scanner = Scanner(string: hex)
+        _ = scanner.scanString("#")
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >> 8) & 0xFF) / 255.0
+        let b = Double((rgb >> 0) & 0xFF) / 255.0
+        self.init(red:r , green: g , blue: b)
+    }
+    //원본 코드 출처 : https://seons-dev.tistory.com/174
+}
+
+//MARK: 폰트의 사이즈를 유동적으로 변경 시켜주는 extension
+extension View {
+    func fitSystemFont(lineLimit: Int = 1, minimumScaleFactor: CGFloat = 0.01, percentage: CGFloat = 1) -> ModifiedContent<Self, FitSystemFont> {
+        return modifier(FitSystemFont(lineLimit: lineLimit, minimumScaleFactor: minimumScaleFactor, percentage: percentage))
+    }
+    //원본 코드 출처 : https://stackoverflow.com/questions/57035746/how-to-scale-text-to-fit-parent-view-with-swiftui
+}
+
+//MARK: 폰트의 사이즈를 유동적으로 변경 시켜주는 ViewModiFier
+struct FitSystemFont: ViewModifier {
+    var lineLimit: Int
+    var minimumScaleFactor: CGFloat
+    var percentage: CGFloat
+    
+    func body(content: Content) -> some View {
+        GeometryReader { geometry in
+            content
+                .font(.system(size: min(geometry.size.width, geometry.size.height) * percentage))
+                .lineLimit(self.lineLimit)
+                .minimumScaleFactor(self.minimumScaleFactor)
+                .position(x: geometry.frame(in: .local).midX, y: geometry.frame(in: .local).midY)
+        }
+    }
+    //원본 코드 출처 : https://stackoverflow.com/questions/57035746/how-to-scale-text-to-fit-parent-view-with-swiftui
+}
+
+//MARK: View의 특정 모서리만 코너를 주는 것
+//배열로 값을 받아오게 수정하고 싶은데 안되서 슬픔...
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+            clipShape(RoundedCorner(radius: radius, corners: corners))
+    }
+}
+
+struct RoundedCorner: Shape {
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+    //원본 코드 출처 : https://iamcho2.github.io/2020/11/19/swiftui-round-specific-coners
+}
+

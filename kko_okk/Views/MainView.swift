@@ -13,17 +13,22 @@ struct MainView: View {
     var body: some View {
         if isShowingSettingView {
             SettingView(isShowingSettingView: $isShowingSettingView)
+        }else{
+            ZStack{
+                Color(hex:"#F5F7F9")
+                    .ignoresSafeArea()
+                VStack{
+                    HeaderView()
+                    SegmentView(isPressedSettingButton: $isShowingSettingView)
+                }
+            }
         }
-        else {
-            HeaderView()
-            SegmentView(isPressedSettingButton: $isShowingSettingView)
-        }
-            
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -32,8 +32,10 @@ struct MonthlyReportView: View {
         var monthlyReportDataTasks: [MonthlyReportDataTaskMetaData] = []
         
         for i in (0..<dailyPromises.count) {
-            let indexOfDate: Int = Int(DailyDate.monthformat.string(from: dailyPromises[i].madeTime))!
-            montlyPromises[indexOfDate].append(dailyPromises[i])
+            if dailyPromises[i].isDone == true {
+                let indexOfDate: Int = Int(DailyDate.monthformat.string(from: dailyPromises[i].madeTime))!
+                montlyPromises[indexOfDate].append(dailyPromises[i])
+            }
         }
         
         for i in (0..<montlyPromises.count) {

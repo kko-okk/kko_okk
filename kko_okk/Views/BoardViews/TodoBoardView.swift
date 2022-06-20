@@ -10,22 +10,20 @@ import SwiftUI
 
 struct TodoBoardView: View {
     @ObservedObject var pickedDate = PickedDate()
+    let todoBoardCornerRadius : CGFloat = 20
     var body: some View {
-        VStack {
-//            Divider()
-            
-            HStack {
+        HStack {
                 ParentWishView()
-                    .padding(.leading, 8)  // 왼쪽에 여백 주기
+                    .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
 
                 ContractView()
+                    .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
 
                 ChildWishView()
-                    .padding(.trailing, 8)  // 오른쪽에 여백 주기
-                // 아이를 추가해서 ChildWishView가 두 개 이상이 될 때 어떻게 처리해야 하는지 약간 고민되는 부분임.
-                // 아마 함수로 패딩 값을 조절해야 할 듯
-            }
+                    .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
         }
+        .padding(.top, 5)
+        .background(Color.Kkookk.backgroundGray)
     }
 }
 
@@ -35,5 +33,18 @@ struct FirstBoardView_Previews: PreviewProvider {
         TodoBoardView()
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPad Air (5th generation)")
+    }
+}
+
+//MARK: ViewModifier를 사용하면 깔끔하게 ㅆㄱㄴ
+struct TodoBoardListView: ViewModifier {
+    var cornerRadius : CGFloat
+
+    func body(content: Content) -> some View {
+        content
+            .background(Color.Kkookk.commonWhite)
+            .cornerRadius(cornerRadius, corners: .topRight)
+            .cornerRadius(cornerRadius, corners: .topLeft)
+            .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
     }
 }

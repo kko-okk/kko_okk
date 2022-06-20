@@ -24,8 +24,8 @@ struct DailyReportView: View {
                             ForEach(dailyDatas.indices, id: \.self) { index in
                                 AnimatedDailyReportView(dailyReportData: dailyDatas[index], index: index,
                                                         lineWidth: .constant(geometry.size.height * 0.1),
-                                                        circleHeight:  .constant(geometry.size.height * 0.7))
-                            }.frame(width: geometry.size.height, height: geometry.size.height)
+                                                        circleHeight:  .constant(geometry.size.height * 0.5))
+                            }.frame(width: geometry.size.height * 0.7, height: geometry.size.height)
                         }
                         Spacer()
                     }

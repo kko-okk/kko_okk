@@ -38,12 +38,25 @@ struct tipView: View {
     @State var txt = ""
     var body: some View {
         ZStack{
-            Color.blue
-           Text("\(txt)")
+            Color.white
+            GeometryReader{ geo in
+                VStack{
+                    Spacer()
+                    Text("\(txt)")
+                        .lineLimit(3)
+                        .fitSystemFont()
+                        .padding(.horizontal,geo.size.width * 0.1)
+                        .frame(height: geo.size.height * 0.45, alignment: .center)
+                    Spacer()
+                }
+            }
         }
     }
 }
 
+
+
+//MARK: 테스트코드
 
 
 

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct CustomDatePicker: View {
+
+    @State var currentMonth: Int = 0
     @EnvironmentObject var pickedDate: PickedDate
     var monthlyReportDataTasks: [MonthlyReportDataTaskMetaData]
-    @State var currentMonth: Int = 0
-    
     private let days: [String] = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
     
     var body: some View {
-        VStack(spacing: 35) {
+        VStack(spacing: 20) {
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     Text(extraDate()[0])
@@ -53,51 +53,49 @@ struct CustomDatePicker: View {
             HStack(spacing: 0) {
                 ForEach(days, id: \.self) { day in
                     Text(day)
-                        .font(.callout)
-                        .fontWeight(.semibold)
+                        .font(.caption)
+                        .foregroundColor(Color(hex: "#3A3A3A"))
                         .frame(maxWidth: .infinity)
                 }
-            }
+            }//.frame(maxWidth: geometry.size.width * 0.8)
             
             let columns = Array(repeating: GridItem(.flexible()), count: 7)
-            // 달력
-            LazyVGrid(columns: columns, spacing: 15) {
+            
+            LazyVGrid(columns: columns, spacing: 0) {
                 ForEach(extractDate()) { value in
                     CardView(value: value)
                         .background(
                             Capsule()
                                 .fill(Color.pink)
-                                .padding(.horizontal, 8)
+                            //                                    .padding(.top,-7)
                                 .opacity(isSameDay(date1: value.date, date2: pickedDate.date) ? 1 : 0)
                         )
                         .onTapGesture {
                             pickedDate.date = value.date
                         }
                 }
-            }
+            }//.frame(maxWidth: geometry.size.width * 0.8)
             
             VStack(spacing: 15) {
-                Text("우리가 지킨 약속을 확인해보세요!")
+                Text("우리가 한 약속들을 확인해보세요!")
                     .font(.title2.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.vertical, 20)
+                    .padding(.vertical, 5)
                 
-                // 여기서 task를 넘겨줘야함
                 if let task = monthlyReportDataTasks.first(where: { task in
-                    // 선택한 날짜에 맞춰서 아래의 task, 즉 ForEach를 돌릴 task를 바꿈
                     return isSameDay(date1: task.taskDate, date2: pickedDate.date)
                 }) {
                     ForEach(task.task) { contract in
                         Text(contract.name ?? "")
                             .font(.title2.bold())
-                        .padding(.vertical, 30)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .foregroundColor(.white)
+                            .padding(.vertical, 30)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .foregroundColor(.white)
                         // 백엔드와 협력하여 부모용, 아이용 셀을 만들 예정입니다.
-                        .background(
-                            Color(contract.subject == "child" ? "kkookkGreen" : "kkookkPurple")
-                                .cornerRadius(15)
-                                .frame(height: 80)
+                            .background(
+                                Color(contract.subject == "child" ? "kkookkGreen" : "kkookkPurple")
+                                    .cornerRadius(15)
+                                    .frame(height: 80)
                             )
                     }
                 } else {
@@ -106,10 +104,11 @@ struct CustomDatePicker: View {
             }
             .padding()
         }
+        
         .onChange(of: currentMonth) { newValue in
             pickedDate.date = getCurrentMonth()
-            print(getCurrentMonth())
         }
+        
     }
     
     @ViewBuilder
@@ -119,16 +118,20 @@ struct CustomDatePicker: View {
                 if let task = monthlyReportDataTasks.first(where: { task in
                     return isSameDay(date1: task.taskDate, date2: value.date)
                 }) {
-                    Text("\(value.day)")
-                        .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : .primary)
-                        .frame(maxWidth: .infinity)
-                    
-                    Spacer()
-                    
-                    Circle()
-                        .fill(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : Color.pink)
-                        .frame(width: 8, height: 8)
+                    VStack{
+                        
+                        
+                        Text("\(value.day)")
+                            .font(.title3.bold())
+                            .foregroundColor(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : .primary)
+                            .frame(maxWidth: .infinity)
+                        
+                        
+                        Circle()
+                            .fill(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : Color.pink)
+                            .frame(width: 8, height: 8)
+                            .padding(.top,-13)
+                    }
                 } else {
                     Text("\(value.day)")
                         .font(.title3.bold())
@@ -140,7 +143,8 @@ struct CustomDatePicker: View {
             }
         }
         .padding(.vertical, 9)
-        .frame(height: 60, alignment: .top)
+        //MARK: 달력사이 간격
+        .frame(height: 45, alignment: .top)
     }
     
     func isSameDay(date1: Date, date2: Date) -> Bool {
