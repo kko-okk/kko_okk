@@ -38,7 +38,7 @@ struct EditContentsOfPromiseView: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: popoverAssets.popoverEditingBoxWidth,
                            height: popoverAssets.popoverEditingBoxHeight)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.Kkookk.commonWhite)
                 
                 VStack {
                     // name 수정하는 영역
@@ -46,13 +46,13 @@ struct EditContentsOfPromiseView: View {
                         .frame(width: popoverAssets.popoverEditingBoxWidth * 0.95,
                                height: popoverAssets.popoverNameFieldHeight)
                         .font(Font.Kkookk.popoverName)
-                        .background(.white)
+                        .background(Color.Kkookk.commonWhite)
                         .cornerRadius(15)
                         .focused($focusedField, equals: .name)
                     
                     Divider()
                         .frame(width: popoverAssets.popoverEditingBoxWidth)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color.Kkookk.backgroundGray)
                     
                     // memo 수정하는 영역
                     ZStack(alignment: .topLeading) {
