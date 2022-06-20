@@ -30,7 +30,7 @@ struct SettingView: View {
 //                ppapMailView
                 
                 NavigationLink {
-                    ppapMailView()
+                    ReportMailView()
                 } label : {
                     Label("버그신고", systemImage: "star.fill")
                 }

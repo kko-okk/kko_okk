@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import MessageUI
 
-struct ppapMailView: View {
+struct ReportMailView: View {
 
     @State var result: Result<MFMailComposeResult, Error>? = nil
       @State var isShowingMailView = false
@@ -18,14 +18,14 @@ struct ppapMailView: View {
 
           VStack {
               if MFMailComposeViewController.canSendMail() {
-                  Button("Show mail view") {
+                  Button("버그신고") {
                       self.isShowingMailView.toggle()
                   }
               } else {
-                  Text("Can't send emails from this device")
+                  Text("이 기기에서는 메일 발송이 불가능합니다.")
               }
               if result != nil {
-                  Text("Result: \(String(describing: result))")
+                  Text("메일 발송 성공")
                       .lineLimit(nil)
               }
           }
@@ -75,6 +75,8 @@ struct MailView: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = context.coordinator
+        vc.setToRecipients(["kkokkreport@gmail.com"])
+        //비번은 추후 공유하겠습니다.
         return vc
     }
 
