@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ReportBoardView: View {
+    @FetchRequest(sortDescriptors: [], animation: .default)
+    private var fetchRequest: FetchedResults<Promise>
+    @EnvironmentObject var pickedDate: PickedDate
+    
     var body: some View {
         ZStack{
             Color(hex:"#F5F7F9")
@@ -16,24 +20,24 @@ struct ReportBoardView: View {
                     HStack{
                         VStack{
                             HStack{
-                                DailyReportView()
+                                DailyReportView(dailyPromises: fetchRequest, pickedDate: pickedDate)
                                     .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                     .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
-                                
+
                                 Spacer(minLength: 20)
-                                checkPromiseView()
+                                checkPromiseView(dailyPromises: fetchRequest, pickedDate: pickedDate)
                                     .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                     .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                             }
                             Spacer(minLength: 20)
-                            WeeklyReportView()
+                            WeeklyReportView(dailyPromises: fetchRequest, pickedDate: pickedDate)
                                 .background(Color.white)
                                 .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                 .frame(height: geometry.size.height * 0.54)
                                 .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                         }
                         Spacer(minLength: 30)
-                        MonthlyReportView()
+                        MonthlyReportView(dailyPromises: fetchRequest, pickedDate: pickedDate)
                             .background(Color.white)
                             .cornerRadius(HeaderViewConst.shared.cornerRadius)
                             .frame(width: geometry.size.width * 0.329)
@@ -44,13 +48,13 @@ struct ReportBoardView: View {
             }
         }
     }
-}
-
-
-
-struct ReportBoardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReportBoardView()
-            .previewInterfaceOrientation(.landscapeRight)
+    
+    init(startDate: Date) {
+        _fetchRequest = FetchRequest<Promise>(sortDescriptors: [],
+                                              predicate: NSPredicate(format: "%@ <= madeTime AND madeTime <= %@",
+                                                                     Calendar.current.startOfDay(for: startDate).startOftheMonth(now: startDate) as NSDate,
+                                                                     Calendar.current.startOfDay(for: startDate).endOftheMonth(now: startDate) as NSDate),
+                                
+                                              animation: .default)
     }
 }

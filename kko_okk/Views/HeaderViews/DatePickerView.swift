@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct DatePickerView: View {
-    @Binding var date: Date
-
+//    @Binding var date: Date
+    @EnvironmentObject var pickedDate: PickedDate
+    @FetchRequest(sortDescriptors: [], animation: .default)
+    private var fetchRequest: FetchedResults<Promise>
+    
     let imageSize: CGFloat = 20
     var body: some View {
         ZStack{
-            DatePicker("", selection: $date, displayedComponents: .date)
+            DatePicker("", selection: $pickedDate.date, displayedComponents: .date)
                 .labelsHidden()                             //1
                 .datePickerStyle(.compact)                  //2
                 .frame(width: imageSize, height: imageSize) //3
                 .clipped()                                  //4
-            
             SwiftUIWrapper {
                 Image(systemName: "calendar")
                     .resizable()
@@ -34,12 +36,6 @@ struct DatePickerView: View {
 //3 데이트피커의 프레임을 정하는코드
 //4 정해진 프레임으로 잘라버리는코드
 //  https://developer.apple.com/documentation/swiftui/path/clipped(antialiased:)
-
-struct DatePickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        DatePickerView(date: .constant(Date()))
-    }
-}
 
 
 /*

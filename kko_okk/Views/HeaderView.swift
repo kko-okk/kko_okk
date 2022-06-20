@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-        
+    
     var body: some View {
             GeometryReader { geometry in
                 HStack{

@@ -16,12 +16,13 @@ struct DateValue: Identifiable {
 struct MonthlyReportDataTask: Identifiable {
     var id = UUID().uuidString
     var title: String
-    var time: Date = Date()
+    var time: Date
+    var subject: String
 }
 
 struct MonthlyReportDataTaskMetaData: Identifiable {
     var id = UUID().uuidString
-    var task: [MonthlyReportDataTask]
+    var task: [Promise]
     var taskDate: Date
 }
 
@@ -31,23 +32,3 @@ func getSampleDate(offset: Int) -> Date {
     
     return date ?? Date()
 }
-
-var monthlyReportDataTasks: [MonthlyReportDataTaskMetaData] = [
-    MonthlyReportDataTaskMetaData(task: [
-        MonthlyReportDataTask(title: "안녕하세요 시험해봅니다?"),
-        MonthlyReportDataTask(title: "반갑습니다 뛰어봅니다?"),
-        MonthlyReportDataTask(title: "누구세요? 팩폭해봅니다?")
-    ], taskDate: getSampleDate(offset: 1)),
-    
-    MonthlyReportDataTaskMetaData(task: [
-        MonthlyReportDataTask(title: "지금은 넬 노래를 듣고있어요")
-    ], taskDate: getSampleDate(offset: -3)),
-    
-    MonthlyReportDataTaskMetaData(task: [
-        MonthlyReportDataTask(title: "참새랑 고양이랑 한 가운데에서 놀고있어요")
-    ], taskDate: getSampleDate(offset: -8)),
-    
-    MonthlyReportDataTaskMetaData(task: [
-        MonthlyReportDataTask(title: "마지막으로 씁니다.")
-    ], taskDate: getSampleDate(offset: 10))
-]

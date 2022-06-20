@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct DailyReportView: View {
+    // CoreData에 저장된 Promise 값 불러오기
+    private var dailyDatas: [DailyReportData] = []
+    var daily: [Promise] = []
+    
+    @EnvironmentObject var pickedDate: PickedDate
+    
     var body: some View {
         GeometryReader { geometry in
             VStack() {
-            
 //MARK: 원형그래프 시작
                 HStack{
                     HStack{
                         ZStack {
-                            ForEach(dailyReportDatas.indices, id: \.self) { index in
-                                AnimatedDailyReportView(dailyReportData: dailyReportDatas[index], index: index,
+                            ForEach(dailyDatas.indices, id: \.self) { index in
+                                AnimatedDailyReportView(dailyReportData: dailyDatas[index], index: index,
                                                         lineWidth: .constant(geometry.size.height * 0.1),
                                                         circleHeight:  .constant(geometry.size.height * 0.5))
                             }.frame(width: geometry.size.height * 0.7, height: geometry.size.height)
@@ -36,26 +41,25 @@ struct DailyReportView: View {
                                 .font(.Kkookk.dailyReportViewMainCell)
                                 .fontWeight(.semibold)
     
-                            ForEach(dailyReportDatas) { dailyReportData in
+                            ForEach(dailyDatas) { dailyData in
                                 Label {
                                     HStack{
-                                        Text(dailyReportData.assignment)
+                                        Text(dailyData.assignment)
                                             .font(.Kkookk.dailyReportViewContentCell)
                                         Spacer()
-                                        Text("\(Int(dailyReportData.progress))%")
+                                        Text("\(Int(dailyData.progress))%")
                                             .font(.Kkookk.dailyReportViewContentCell)
                                             .foregroundColor(.gray)
                                     }
                                 } icon: {
                                     Circle()
                                         .frame(width: 10, height: 10)
-                                        .foregroundColor(dailyReportData.keyColor)
+                                        .foregroundColor(dailyData.keyColor)
                                 }
                             }
                         }
                         .padding(.trailing,15)
                     }
-                    
                 }
             }
         }
@@ -64,46 +68,22 @@ struct DailyReportView: View {
                 .fill(.white)
         }
     }
-}
-
-struct DailyReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        DailyReportView()
-            .previewInterfaceOrientation(.landscapeRight)
+    // 해당 일의 약속을 받아옴
+    init(dailyPromises: FetchedResults<Promise>, pickedDate: PickedDate) {
+        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: pickedDate.date) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: pickedDate.date).dayAfter }
+        
+        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent"}
+        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child"}
+        
+        let parentDoneCount: Int = parentPromises.filter { $0.isDone == true }.count
+        let childDoneCount: Int = childPromises.filter { $0.isDone == true }.count
+        
+        let parentProgress: CGFloat = parentPromises.count != 0 ? CGFloat(Double(parentDoneCount) / Double(parentPromises.count) * 100) : 0
+        let childProgress: CGFloat = childPromises.count != 0 ? CGFloat(Double(childDoneCount) / Double(childPromises.count) * 100) : 0
+ 
+        dailyDatas = [
+            DailyReportData(progress: parentProgress, assignment: "부모님", keyColor: Color("kkookkPurple")),
+            DailyReportData(progress: childProgress, assignment: "아이", keyColor: Color("kkookkGreen"))
+        ]
     }
 }
-
-struct AnimatedDailyReportView: View {
-    var dailyReportData: DailyReportData
-    var index: Int
-    @State var showAnimated: Bool = false
-    @Binding var lineWidth : CGFloat
-    @Binding var circleHeight : CGFloat
-    
-    var body: some View {
-        ZStack {
-            Circle()
-                .stroke(.gray.opacity(0.1), lineWidth: lineWidth)
-            
-            Circle()
-                .trim(from: 0, to: showAnimated ? dailyReportDatas[index].progress / 100 : 0)
-                .stroke(dailyReportDatas[index].keyColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
-                .rotationEffect(.init(degrees: -90))
-        }
-        //        .padding()
-        .padding(CGFloat(index) * lineWidth * 1.5)
-        .frame(width: circleHeight,height: circleHeight)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                withAnimation(.interactiveSpring(response: 1, dampingFraction: 1, blendDuration: 1).delay(Double(index) * 0.1)) {
-                    showAnimated = true
-                }
-            }
-        }
-    }
-}
-
-
-
-
-

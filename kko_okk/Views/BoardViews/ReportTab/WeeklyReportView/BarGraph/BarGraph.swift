@@ -7,8 +7,9 @@
 import SwiftUI
 
 struct BarGraph: View {
+    
     var parentWeeklyReportDatas: [ParentWeeklyReportData]
-    var childWeeklyReportDatas: [ChildrenWeeklyReportData]
+    var childrenWeeklyReportDatas: [ChildrenWeeklyReportData]
     var body: some View {
         GraphView()
     }
@@ -43,7 +44,7 @@ extension BarGraph {
                 HStack(alignment: .bottom){
                                     ForEach(parentWeeklyReportDatas.indices, id: \.self) { index in
                                         let parentWeeklyReportData = parentWeeklyReportDatas[index]
-                                        let childWeeklyReportData = childWeeklyReportDatas[index]
+                                        let childWeeklyReportData = childrenWeeklyReportDatas[index]
                 
                                         VStack{
                                             Spacer()
@@ -100,8 +101,8 @@ extension BarGraph {
     func getBarHeight(point: CGFloat) -> CGFloat {
         let max: CGFloat = 100
         let height = (point / CGFloat(max))
-        print("max:\(max)")
-        print("height:\(height)")
+//        print("max:\(max)")
+//        print("height:\(height)")
         return height
     }
     // 그래프의 y축을 그립니다.

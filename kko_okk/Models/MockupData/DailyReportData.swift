@@ -8,14 +8,8 @@
 import SwiftUI
 
 struct DailyReportData: Identifiable {
-    var id = UUID().uuidString
+    var id = UUID()
     var progress: CGFloat
     var assignment: String
     var keyColor: Color
 }
-
-// 화면 구현을 위한 목업 데이터
-var dailyReportDatas: [DailyReportData] = [
-    DailyReportData(progress: 50, assignment: "부모님", keyColor: Color("kkookkPurple")),
-    DailyReportData(progress: 66, assignment: "아이", keyColor: Color("kkookkGreen"))
-]

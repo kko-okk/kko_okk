@@ -34,12 +34,14 @@ struct OnBoardingForth: View {
     // MARK: - 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
+        
             .updating($isDetachingParentCheck) { currentState, gestureState,
                     transaction in
                 print("parent tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
+        
             .onEnded { _ in
                 if completedParentCheck == false {
                     // Animation
@@ -102,8 +104,9 @@ struct OnBoardingForth: View {
                 HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
                     
                     HStack {  // 약속 제목 및 약속 추가 버튼
-                        Text("")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
-                            .font(.system(size: 23, weight: .black, design: .rounded))
+                        Text("우리 이 약속은 꼭 지켜요 !")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
+                            .font(.system(size: 23, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
                             .lineLimit(1)
                             .padding([.leading, .trailing], 20.0)  // padding 배열 처리
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -164,7 +167,7 @@ struct OnBoardingForth: View {
                     .padding(.trailing, 15)
                 }// H
             }//Z
-            .background(Color(hex: "323232"))
+            .background(Color.Kkookk.parentPurple)
             .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
             .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 17)
             .padding(.top, 20)
@@ -187,4 +190,3 @@ struct OnBoardingForth: View {
         }
     }
 }
-

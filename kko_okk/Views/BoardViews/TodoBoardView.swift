@@ -9,17 +9,18 @@ import Foundation
 import SwiftUI
 
 struct TodoBoardView: View {
+    @ObservedObject var pickedDate = PickedDate()
     let todoBoardCornerRadius : CGFloat = 20
     var body: some View {
         HStack {
                 ParentWishView()
-                .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
+                    .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
 
                 ContractView()
-                .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
+                    .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
 
                 ChildWishView()
-                .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
+                    .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
         }
         .padding(.top, 5)
         .background(Color.Kkookk.backgroundGray)

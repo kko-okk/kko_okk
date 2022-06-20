@@ -19,7 +19,7 @@ struct WeeklyDate {
 struct DailyDate {
     static let monthformat: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d"
+        formatter.dateFormat = "dd"
         return formatter
     }()
     static var todayDay = Date()

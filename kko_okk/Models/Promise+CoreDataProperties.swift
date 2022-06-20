@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import SwiftUI
 
 extension Promise: Identifiable {
 
@@ -20,7 +20,7 @@ extension Promise: Identifiable {
     @NSManaged public var id: UUID?
     @NSManaged public var isDone: Bool
     @NSManaged public var isRepeat: Bool
-    @NSManaged public var madeTime: Date?
+    @NSManaged public var madeTime: Date
     @NSManaged public var memo: String?
     @NSManaged public var name: String?
     @NSManaged public var parentCheck: Bool
@@ -44,6 +44,13 @@ extension Promise: Identifiable {
     
     var wrappedMemo: String {
         memo ?? "Unknown"
+    }
+    
+    var dailyDatas: [DailyReportData] {
+        [
+            DailyReportData(progress: 50, assignment: "부모님", keyColor: Color("kkookkPurple")),
+            DailyReportData(progress: 66, assignment: "아이", keyColor: Color("kkookkGreen"))
+        ]
     }
 }
 

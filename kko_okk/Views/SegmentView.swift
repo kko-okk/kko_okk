@@ -14,6 +14,7 @@ struct SegmentView: View {
     @State private var todoTabTextSize = CGSize()
     @State private var reportTabTextSize = CGSize()
     @Binding var isPressedSettingButton: Bool
+    @EnvironmentObject var pickedDate: PickedDate
     
     var body: some View {
         VStack(alignment: .leading){
@@ -105,7 +106,7 @@ struct SegmentView: View {
             if (isShowingTodoBoard) {
                 TodoBoardView()
             } else {
-                ReportBoardView()
+                ReportBoardView(startDate: pickedDate.date)
             }
         }.padding(.horizontal,HeaderViewConst.shared.kkookkPading)
             .background(Color.Kkookk.backgroundGray)
