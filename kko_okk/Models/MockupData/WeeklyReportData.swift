@@ -29,47 +29,6 @@ struct CommonWeeklyReportData: Identifiable {
     var keyColor: Color
 }
 
-var parentWeeklyReportDatas: [ParentWeeklyReportData] = [
-    ParentWeeklyReportData(value: 75,
-                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.daySixDayBefore)),
-    ParentWeeklyReportData(value: 80,
-                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-    ParentWeeklyReportData(value: 50,
-                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFourDayBefore)),
-    ParentWeeklyReportData(value: 100,
-                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayThreeDayBefore)),
-    ParentWeeklyReportData(value: 50,
-                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayTwoDayBefore)),
-    ParentWeeklyReportData(value: 33,
-                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayOneDayBefore)),
-    ParentWeeklyReportData(value: 75,
-                           monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                           dayData: DailyDate.monthformat.string(from: DailyDate.todayDay))
-]
-
-var childrenWeeklyReportDatas: [ChildrenWeeklyReportData] = [
-    ChildrenWeeklyReportData(value: 80, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-    ChildrenWeeklyReportData(value: 50, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-    ChildrenWeeklyReportData(value: 25, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-    ChildrenWeeklyReportData(value: 75, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-    ChildrenWeeklyReportData(value: 75, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-    ChildrenWeeklyReportData(value: 100, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-    ChildrenWeeklyReportData(value: 50, monthData: WeeklyDate.monthformat.string(from: WeeklyDate.todayMonth),
-                             dayData: DailyDate.monthformat.string(from: DailyDate.todayDay.dayFiveDayBefore)),
-]
-
 var commonWeeklyReportDatas: [CommonWeeklyReportData] = [
     CommonWeeklyReportData(assignment: "부모님", keyColor: Color("kkookkPurple")),
     CommonWeeklyReportData(assignment: "아이", keyColor: Color("kkookkGreen"))
