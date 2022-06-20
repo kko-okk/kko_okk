@@ -15,12 +15,16 @@ struct SettingView: View {
         
         NavigationView{
             Form {
-                NavigationLink {
-                    LicenseView()
-                } label : {
-                    Label("라이센스", systemImage: "star.fill")
+                NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/yeniful/kko_okk/blob/main/lisence.md").navigationTitle("라이센스")) {
+                    Label("라이센스", systemImage: "doc.on.clipboard.fill")
                 }
                 
+//                NavigationLink {
+//                    LicenseView()
+//                } label : {
+//                    Label("라이센스", systemImage: "star.fill")
+//                }
+//
                 NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/yeniful/kko_okk").navigationTitle("GitHub")) {
                     HStack{
                         Image("GitHub")
@@ -32,13 +36,16 @@ struct SettingView: View {
                 NavigationLink {
                     ReportMailView()
                 } label : {
-                    Label("버그신고", systemImage: "star.fill")
+                    Label("버그신고", systemImage: "ladybug.fill")
                 }
                 
                 
                 Section(header: Text("개발자 정보")){
                     NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/Valentino1994").navigationTitle("Guell")) {
-                        Text("Guell")
+                        HStack{
+                            Image("Guell")
+                            Text("Guell")
+                        }
                     }
                     NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/LeeSungNo-ian").navigationTitle("Ian")) {
                         HStack{
@@ -48,7 +55,10 @@ struct SettingView: View {
                     }
                     
                     NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/garlicvread").navigationTitle("Raymond")) {
-                        Text("Raymond")
+                        HStack{
+                            Image("Raymond")
+                            Text("Raymond")
+                        }
                     }
                     
                     NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/RuyHa").navigationTitle("Ruyha")) {
@@ -59,7 +69,10 @@ struct SettingView: View {
                     }
                     
                     NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/seodam-hst").navigationTitle("SeoDam")) {
-                        Text("SeoDam")
+                        HStack{
+                            Image("SeoDam")
+                            Text("SeoDam")
+                        }
                     }
                     
                     NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/yeniful").navigationTitle("Yeni")) {

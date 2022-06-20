@@ -71,11 +71,18 @@ struct MailView: UIViewControllerRepresentable {
         return Coordinator(isShowing: $isShowing,
                            result: $result)
     }
-
+/*
+ compseVC.setToRecipients(["본 메일을 전달받을 이메일주소"])
+           compseVC.setSubject("메시지제목")
+           compseVC.setMessageBody("메시지컨텐츠", isHTML: false)
+ */
     func makeUIViewController(context: UIViewControllerRepresentableContext<MailView>) -> MFMailComposeViewController {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = context.coordinator
         vc.setToRecipients(["kkokkreport@gmail.com"])
+        vc.setSubject("꼬-옥 앱 버그 신고")
+       // vc.setMessageBody("메시지컨텐츠", isHTML: false)
+        //이건 아직 확인 못함
         //비번은 추후 공유하겠습니다.
         return vc
     }
