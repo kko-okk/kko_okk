@@ -29,13 +29,14 @@
 		22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */; };
 		22E9005E2849D677000A82BE /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9005D2849D677000A82BE /* FilteredList.swift */; };
 		708070CD285FB4D200930ED2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708070CC285FB4D200930ED2 /* WebView.swift */; };
+		708070CF285FEE2800930ED2 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708070CE285FEE2800930ED2 /* MailView.swift */; };
 		7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B1922853209200A7BD44 /* RollingBannerView.swift */; };
 		7080B195285320A400A7BD44 /* BannerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B194285320A400A7BD44 /* BannerViews.swift */; };
 		70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */; };
 		70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBA284C8327009AAB79 /* DatePickerView.swift */; };
 		70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F675B7285B2E7800F86719 /* checkPromiseView.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
-		9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* ContentView.swift */; };
+		9D55B4072846289000AFD9C5 /* BugMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* BugMailView.swift */; };
 		9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B4082846289100AFD9C5 /* Assets.xcassets */; };
 		9D55B40C2846289100AFD9C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B40B2846289100AFD9C5 /* Preview Assets.xcassets */; };
 		9D55B40E2846289100AFD9C5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B40D2846289100AFD9C5 /* Persistence.swift */; };
@@ -139,6 +140,7 @@
 		22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22E9005D2849D677000A82BE /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 		708070CC285FB4D200930ED2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		708070CE285FEE2800930ED2 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		7080B1922853209200A7BD44 /* RollingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingBannerView.swift; sourceTree = "<group>"; };
 		7080B194285320A400A7BD44 /* BannerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViews.swift; sourceTree = "<group>"; };
 		70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConst.swift; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 		70F675B7285B2E7800F86719 /* checkPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkPromiseView.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
-		9D55B4062846289000AFD9C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9D55B4062846289000AFD9C5 /* BugMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugMailView.swift; sourceTree = "<group>"; };
 		9D55B4082846289100AFD9C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D55B40B2846289100AFD9C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9D55B40D2846289100AFD9C5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -343,7 +345,7 @@
 				A8C834A328471C0900C65BE0 /* Extensions */,
 				9DEB3A1F284629BC0001959A /* Views */,
 				9D55B4042846289000AFD9C5 /* kko_okkApp.swift */,
-				9D55B4062846289000AFD9C5 /* ContentView.swift */,
+				9D55B4062846289000AFD9C5 /* BugMailView.swift */,
 				9D55B40D2846289100AFD9C5 /* Persistence.swift */,
 				9D55B40F2846289100AFD9C5 /* kko_okk.xcdatamodeld */,
 				9D55B40A2846289100AFD9C5 /* Preview Content */,
@@ -424,6 +426,7 @@
 				A81DE5FA285326B4009E9938 /* LicenseView.swift */,
 				A81DE5FC285326C7009E9938 /* EditView.swift */,
 				708070CC285FB4D200930ED2 /* WebView.swift */,
+				708070CE285FEE2800930ED2 /* MailView.swift */,
 			);
 			path = SettingViews;
 			sourceTree = "<group>";
@@ -680,7 +683,7 @@
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
 				0A6770002855E0BB007458BE /* Date.swift in Sources */,
-				9D55B4072846289000AFD9C5 /* ContentView.swift in Sources */,
+				9D55B4072846289000AFD9C5 /* BugMailView.swift in Sources */,
 				70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */,
 				A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */,
 				A816CAAC285C0D900026C06A /* PromisePair.swift in Sources */,
@@ -691,6 +694,7 @@
 				2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */,
 				2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */,
 				22E218512858D921003A2864 /* OnBoardingButton.swift in Sources */,
+				708070CF285FEE2800930ED2 /* MailView.swift in Sources */,
 				7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */,
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,

@@ -27,6 +27,13 @@ struct SettingView: View {
                         Text("GitHub")
                     }
                 }
+//                ppapMailView
+                
+                NavigationLink {
+                    ppapMailView()
+                } label : {
+                    Label("버그신고", systemImage: "star.fill")
+                }
                 
                 
                 Section(header: Text("개발자 정보")){
