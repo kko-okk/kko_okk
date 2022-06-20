@@ -9,26 +9,19 @@ import Foundation
 import SwiftUI
 
 struct TodoBoardView: View {
+    let todoBoardCornerRadius : CGFloat = 20
     var body: some View {
-            HStack {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10).foregroundColor(Color.Kkookk.commonWhite)
-                    ParentWishView()
-                }
+        HStack {
+                ParentWishView()
+                .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
 
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10).foregroundColor(Color.Kkookk.commonWhite)
-                    ContractView()
-                }
+                ContractView()
+                .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
 
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10).foregroundColor(Color.Kkookk.commonWhite)
-                    ChildWishView()
-                }
-                
-            }
-            .padding([.leading, .trailing], 8)
-            .padding(.top, 5)
+                ChildWishView()
+                .modifier(TodoBoardListView(cornerRadius: todoBoardCornerRadius))
+        }
+        .padding(.top, 5)
         .background(Color.Kkookk.backgroundGray)
     }
 }
@@ -39,5 +32,18 @@ struct FirstBoardView_Previews: PreviewProvider {
         TodoBoardView()
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPad Air (5th generation)")
+    }
+}
+
+//MARK: ViewModifier를 사용하면 깔끔하게 ㅆㄱㄴ
+struct TodoBoardListView: ViewModifier {
+    var cornerRadius : CGFloat
+
+    func body(content: Content) -> some View {
+        content
+            .background(Color.Kkookk.commonWhite)
+            .cornerRadius(cornerRadius, corners: .topRight)
+            .cornerRadius(cornerRadius, corners: .topLeft)
+            .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
     }
 }

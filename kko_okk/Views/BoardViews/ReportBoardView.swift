@@ -13,7 +13,6 @@ struct ReportBoardView: View {
             Color(hex:"#F5F7F9")
             GeometryReader { geometry in
                 VStack{
-                    Spacer(minLength: 20)
                     HStack{
                         VStack{
                             HStack{
@@ -40,8 +39,8 @@ struct ReportBoardView: View {
                             .frame(width: geometry.size.width * 0.329)
                             .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                     }
-                    Spacer(minLength: 20)
-                }
+                }            .padding(.top, 5)
+
             }
         }
     }
