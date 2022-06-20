@@ -31,9 +31,6 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-    // MARK: - Animation Properties
-    @State private var parentShowCheckmark = 0
-    @State private var childShowCheckmark = 0
 
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머 (PromisePair 유효 시간)
      let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
@@ -42,9 +39,7 @@ struct ButtonForContract: View {
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
     @GestureState var isDetachingParentCheck = false
-    @State var completedParentCheck = false
     @GestureState var isDetachingChildCheck = false
-    @State var completedChildCheck = false
 
     // MARK: - isDone으로 바꾸기 전, 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
@@ -56,19 +51,15 @@ struct ButtonForContract: View {
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
             .onEnded { _ in
-                if completedParentCheck == false {
-                    // Animation
-                    parentShowCheckmark = 1
-                    // Promise Status
-                    self.completedParentCheck = true
-                    
-                    if completedChildCheck { contract.isDone = true }
+                if !contract.parentCheck {
+                    // Check 상태
+                    contract.parentCheck = true
+                    // isDone 상태
+                    if contract.childCheck { contract.isDone = true }
                 } else {
-                    // Animation
-                    parentShowCheckmark = 0
-                    // Promise Status
-                    self.completedParentCheck = false
-                    
+                    // Check 상태
+                    contract.parentCheck = false
+                    // isDone 상태
                     contract.isDone = false
                 }
                 
@@ -88,23 +79,19 @@ struct ButtonForContract: View {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingChildCheck) { currentState, gestureState,
                     transaction in
-                print("child tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
             .onEnded { _ in
-                if completedChildCheck == false {
-                    // Animation
-                    childShowCheckmark = 1
-                    // Promise Status
-                    self.completedChildCheck = true
-                    if completedParentCheck { contract.isDone = true }
+                if !contract.childCheck {
+                    // Check 상태
+                    contract.childCheck = true
+                    // isDone 상태
+                    if contract.parentCheck { contract.isDone = true }
                 } else {
-                    // Animation
-                    childShowCheckmark = 0
-                    // Promise Status
-                    self.completedChildCheck = false
-                    
+                    // Check 상태
+                    contract.childCheck = false
+                    // isDone 상태
                     contract.isDone = false
                 }
                 
@@ -147,8 +134,7 @@ struct ButtonForContract: View {
                         if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
                             print(promisePair.getId(0) == promisePair.getId(1))
                             contract.promised = true
-                            
-                            
+
 //                            CoreData 업데이트
                             do {
                                 try viewContext.save()
@@ -233,18 +219,19 @@ struct ButtonForContract: View {
                                     .frame(width: 35, height: 35, alignment: .center)
                                     .gesture(parentCheckGesture)
 
+                                // 부모 check
                                 Path { path in
                                     path.addLines([CGPoint(x: 2, y: 2),
                                                    CGPoint(x: 9, y: 11),
                                                    CGPoint(x: 20, y: -5)])
                                      
                                 }
-                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(parentShowCheckmark))
+                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(contract.parentCheck ? 1 : 0))
                                 .stroke(style: StrokeStyle(lineWidth: 3.5,
                                                            lineCap: .round,
                                                            lineJoin: .round))
                                 .offset(x: 6, y: 15)
-                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: parentShowCheckmark)
+                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: contract.parentCheck ? 1 : 0)
                                 .foregroundColor(Color.Kkookk.parentPurple)
 
                             }.padding(.bottom, 7)
@@ -256,19 +243,20 @@ struct ButtonForContract: View {
                                     .frame(width: 35, height: 35, alignment: .center)
                                     .gesture(childCheckGesture)
 
+                                // 자식 check
                                 Path { path in
                                     path.addLines([CGPoint(x: 2, y: 2),
                                                    CGPoint(x: 9, y: 11),
                                                    CGPoint(x: 20, y: -5)])
                                 }
-                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(childShowCheckmark))
+                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(contract.childCheck ? 1 : 0))
                                 .stroke(style: StrokeStyle(lineWidth: 3.5,
                                                            lineCap: .round,
                                                            lineJoin: .round))
                                 .offset(x: 6, y: 15)
-                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: childShowCheckmark)
+                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: contract.childCheck ? 1 : 0)
                                 .foregroundColor(Color.Kkookk.childGreen)
-                                }
+                            }
                         Spacer()
                     }
                     .frame(width: 35,height: 75)
