@@ -167,7 +167,7 @@ struct ButtonForContract: View {
                             Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                                 .font(.system(size: 23, weight: .black, design: .rounded))
                                 .foregroundColor(  // contract.subject == nowSubject -> 폰트 색: Kkkook.backgroundGray, 아니면 흰 색
-                                    contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
+                                    contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.Kkookk.commonWhite
                                 )
                                 .lineLimit(1)
                                 .padding([.leading, .trailing], 20.0)  // padding 배열 처리
@@ -180,7 +180,7 @@ struct ButtonForContract: View {
                                 Text(contract.name ?? "")
                                     .font(.system(size: 23, weight: .black, design: .rounded))
                                     .foregroundColor(
-                                        contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
+                                        contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.Kkookk.commonWhite
                                     )
                                     .lineLimit(1)
                                     .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
@@ -195,7 +195,7 @@ struct ButtonForContract: View {
                                 if !memo.isEmpty {
                                     Text(contract.memo ?? "")
                                         .font(.system(size: 17, weight: .regular, design: .rounded))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(Color.Kkookk.commonWhite)
                                         .lineLimit(3)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding([.leading, .bottom], 20)  // padding 배열 처리
@@ -308,7 +308,7 @@ struct ButtonForContract: View {
                             } label: {
                                 Image(systemName: "ellipsis")
                                     .rotationEffect(.degrees(90))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color.Kkookk.commonWhite)
                                     .frame(width: 40, height: 40)
                                     .padding(.top, 8)
                             }

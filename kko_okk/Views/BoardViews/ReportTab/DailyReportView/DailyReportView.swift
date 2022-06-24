@@ -49,7 +49,7 @@ struct DailyReportView: View {
                                         Spacer()
                                         Text("\(Int(dailyData.progress))%")
                                             .font(.Kkookk.dailyReportViewContentCell)
-                                            .foregroundColor(.gray)
+                                            .foregroundColor(Color.Kkookk.backgroundGray)
                                     }
                                 } icon: {
                                     Circle()
@@ -65,7 +65,7 @@ struct DailyReportView: View {
         }
         .background {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(.white)
+                .fill(Color.Kkookk.commonWhite)
         }
     }
     // 해당 일의 약속을 받아옴

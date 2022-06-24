@@ -59,7 +59,7 @@ struct OnBoardingThird: View {
                             .font(.system(size: 20, weight: .semibold))
                             .padding(.vertical, 10)
                             .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.Kkookk.commonWhite)
                             .background(isTogetherPressed == true ? .blue : Color.Kkookk.onBoardingGray)
                             .cornerRadius(10)
                             .onTapGesture {

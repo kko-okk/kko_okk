@@ -90,7 +90,7 @@ struct CustomDatePicker: View {
                             .font(.title2.bold())
                             .padding(.vertical, 30)
                             .frame(maxWidth: .infinity, alignment: .center)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.Kkookk.commonWhite)
                         // 백엔드와 협력하여 부모용, 아이용 셀을 만들 예정입니다.
                             .background(
                                 Color(contract.subject == "child" ? "kkookkGreen" : "kkookkPurple")
@@ -123,7 +123,7 @@ struct CustomDatePicker: View {
                         
                         Text("\(value.day)")
                             .font(.title3.bold())
-                            .foregroundColor(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : .primary)
+                            .foregroundColor(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? Color.Kkookk.commonWhite : .primary)
                             .frame(maxWidth: .infinity)
                         
                         
@@ -135,7 +135,7 @@ struct CustomDatePicker: View {
                 } else {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: value.date, date2: pickedDate.date) ? .white : .primary)
+                        .foregroundColor(isSameDay(date1: value.date, date2: pickedDate.date) ? Color.Kkookk.commonWhite : .primary)
                         .frame(maxWidth: .infinity)
                     
                     Spacer()

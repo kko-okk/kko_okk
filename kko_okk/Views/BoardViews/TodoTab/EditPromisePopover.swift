@@ -97,7 +97,7 @@ struct EditPromisePopover: View {
         .frame(width: popoverAssets.popoverFullWidth,
                height: popoverAssets.popoverFullHeight)
         .padding(.top, 25)
-        .background(.bar)
+        .background(Color.Kkookk.backgroundGray)
     }
 }
 

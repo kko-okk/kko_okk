@@ -27,9 +27,9 @@ extension BarGraph {
                             HStack{
                                 Text("\(Int(line))")
                                     .font(.caption)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color.Kkookk.commonBlack)
                                 Rectangle()
-                                    .fill(Color.gray.opacity(0.1))
+                                    .fill(Color.Kkookk.backgroundGray)
                                     .frame(height: 1)
                             }
                             .frame(maxHeight: .infinity, alignment:  .bottom)
