@@ -12,20 +12,20 @@ struct OnBoardingFirst: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Text("안녕하세요 !")
+            VStack(alignment: .leading,spacing: 10) {
+                Text("OnBoardingFirstTitle".localized)
                     .font(.system(size: 30, weight: .semibold))
                     .fontWeight(.bold)
                     .padding(.bottom, 10)
-                Text("꼬옥은 부모님과 아이가 함께 약속을 만들고 지켜 나가며")
+                Text("OnBoardingFirstBody1".localized)
                     .font(.system(size: 20, weight: .light))
-                Text("바람직한 생활 습관을 기를 수 있도록 도와줍니다.")
+                Text("OnBoardingFirstBody2".localized)
                     .font(.system(size: 20, weight: .light))
-                Text("지금부터 꼬옥을 어떻게 사용하는지 간단하게 안내해 드리겠습니다.")
+                Text("OnBoardingFirstBody3".localized)
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
-            Text("시작하기")
+            Text("OnBoardingFirstStart".localized)
                 .font(.system(size: 20, weight: .semibold))
                 .padding(.vertical, 10)
                 .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)

@@ -6,3 +6,46 @@
   이 폴더는 영어로 나올 문구를 모아둔 파일입니다.
   한국어로 표기된 부분을 영어로 바꾸어주세요.
 */
+//MARK: OnBoarding(공통으로 사용되는것)
+"OnBoardingNext" = "다음으로";
+
+//MARK: OnBoardingFirst
+"OnBoardingFirstTitle" = "안녕하세요 !";
+"OnBoardingFirstBody1" = "꼬옥은 부모님과 아이가 함께 약속을 만들고 지켜 나가며";
+"OnBoardingFirstBody2" = "바람직한 생활 습관을 기를 수 있도록 도와줍니다.";
+"OnBoardingFirstBody3" = "지금부터 꼬옥을 어떻게 사용하는지 간단하게 안내해 드리겠습니다.";
+"OnBoardingFirstStart" = "시작하기";
+
+//MARK: OnBoardingSecond
+"OnBoardingSecondTitle" = "원하는 목록 만들기";
+"OnBoardingSecondBody1" = "부모님과 아이가 원하는 내용을 추가합니다.";
+"OnBoardingSecondBody2" = "내용을 추가하면 똑같은 내용이 부모님 셀과 아이 셀";
+"OnBoardingSecondBody3" = "모두에서 나타납니다.";
+"OnBoardingSecondBody4" = "부모님과 아이는 서로가 원하는 것들을 확인하고,";
+"OnBoardingSecondBody5" = "이것을 약속할지 상의합니다.";
+
+//MARK: OnBoardingThird
+"OnBoardingThirdTitle" = "약속만들기";
+"OnBoardingThirdBody1" = "우리가 약속을 할 때 새끼 손가락을 걸고 약속을 하듯,";
+"OnBoardingThirdBody2" = "같은 내용의 셀을 꼬옥 2초 동안 누르면 합의된 약속을 나타내는 셀로";
+"OnBoardingThirdBody3" = "약속이 옮겨갑니다. 지금 한 번 셀을 눌러보세요!";
+"OnBoardingThirdParent" = "부모님 약속";
+"OnBoardingThirdContract" = "우리의 약속";
+"OnBoardingThirdChild" = "아이의 약속";
+
+//MARK: OnBoardingForth
+"OnBoardingForthTitle" = "약속을 지켰다면 체크해요!";
+//약속을 지켰는지 확인하기
+"OnBoardingForthBody1" = "약속을 지켰는지 흰색 원에 체크해 주세요.";
+//약속을 지켰는지 확인합니다.
+"OnBoardingForthBody2" = "부모님과 아이가 모두 체크를 완료한다면";
+//약속을 지킨 사람이 체크하면 상대방이 확인해 주세요!
+"OnBoardingForthBody3" = "약속을 지킨걸 확인 할 수 있어요!";
+"OnBoardingForthBody4" = "지금 한 번 동그라미를 꼬옥 눌러 보세요!";
+//지금 한 번 동그라미를 꼬옥 눌러 보세요!
+"OnBoardingForthCell1" = "서로에게 사랑한다고 말해주기.\n(사랑한다고 말하고 체크해주세요)";
+"OnBoardingForthCell2" = "꼬옥 하러가기";
+//약속하러가기
+
+
+
