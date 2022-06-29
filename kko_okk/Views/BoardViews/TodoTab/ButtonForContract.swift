@@ -283,9 +283,9 @@ struct ButtonForContract: View {
                         }
                         .alert(isPresented: $showingAlert) {
                             Alert(
-                                title: Text("앗, 다른 약속이에요!"),
-                                message: Text("같은 약속끼리 꼬옥 눌러주세요 :)"),
-                                dismissButton: .default(Text("확인")))
+                                title: Text("ButtonForContractAlertTitle".localized),
+                                message: Text("ButtonForContractAlertMessage".localized),
+                                dismissButton: .default(Text("OK".localized)))
                         }
                 }
                 // MARK: - 수정, 삭제 Popover
@@ -297,13 +297,13 @@ struct ButtonForContract: View {
                                 Button {
                                     isShowingPopover.toggle()
                                 } label: {
-                                    Label("수정하기", systemImage: "pencil")
+                                    Label("Edit".localized, systemImage: "pencil")
                                 }
                                 
                                 Button(role: .destructive) {
                                     deletePromise(promise: contract)
                                 } label: {
-                                    Label("삭제하기", systemImage: "trash")
+                                    Label("Delete".localized, systemImage: "trash")
                                 }
                             } label: {
                                 Image(systemName: "ellipsis")

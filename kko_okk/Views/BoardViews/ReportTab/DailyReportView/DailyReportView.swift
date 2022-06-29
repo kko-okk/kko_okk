@@ -37,7 +37,7 @@ struct DailyReportView: View {
                     HStack{
                         Spacer()
                         VStack(alignment: .leading) {
-                            Text("오늘의 약속률")
+                            Text("DailyReportViewTitle".localized)
                                 .font(.Kkookk.dailyReportViewMainCell)
                                 .fontWeight(.semibold)
     
@@ -82,8 +82,8 @@ struct DailyReportView: View {
         let childProgress: CGFloat = childPromises.count != 0 ? CGFloat(Double(childDoneCount) / Double(childPromises.count) * 100) : 0
  
         dailyDatas = [
-            DailyReportData(progress: parentProgress, assignment: "부모님", keyColor: Color("kkookkPurple")),
-            DailyReportData(progress: childProgress, assignment: "아이", keyColor: Color("kkookkGreen"))
+            DailyReportData(progress: parentProgress, assignment: "LocalizingParent".localized, keyColor: Color("kkookkPurple")),
+            DailyReportData(progress: childProgress, assignment: "LocalizingChild".localized, keyColor: Color("kkookkGreen"))
         ]
     }
 }

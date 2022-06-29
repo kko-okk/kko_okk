@@ -16,10 +16,10 @@ struct checkPromiseView: View {
                 Color.white
                 VStack{
                     Spacer()
-                    Text("이번 달은")
+                    Text("checkPromiseViewBody1".localized)
                         .font(.Kkookk.promiseUltraLight)
                     HStack(alignment:.center){
-                        Text("총")
+                        Text("checkPromiseViewBody2".localized)
                             .font(.Kkookk.promiseUltraLight)
                         
                         ZStack(alignment:.bottom){
@@ -29,7 +29,7 @@ struct checkPromiseView: View {
                                     underlineView()
                                 )
                         } 
-                        Text("개의 약속을 지켰어요! 😆")
+                        Text("checkPromiseViewBody3".localized+" 😆")
                             .font(.Kkookk.promiseUltraLight)
                     }
                     Image("OneHand")
@@ -44,7 +44,8 @@ struct checkPromiseView: View {
         let date = pickedDate.date
         var calendar = Calendar.current
         calendar.locale = Locale(identifier: "ko")
-
+        //TODO: 국가에 따라 다르게 처리 필요 22/06/30작성 완료시 제거 바람
+        
         //여기에 기입하지 않은 날짜는 1로 초기화가 된다
         let components = calendar.dateComponents([.year, .month], from: date)
 
