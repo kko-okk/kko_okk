@@ -15,7 +15,7 @@ struct WeeklyReportView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("한 주간 약속률")
+                Text("WeeklyReportViewTitle".localized)
                     .font(.Kkookk.dailyReportViewMainCell)
                 Spacer()
                 ForEach(commonWeeklyReportDatas) { commonWeeklyReportData in

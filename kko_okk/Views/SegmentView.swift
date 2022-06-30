@@ -44,7 +44,7 @@ struct SegmentView: View {
                         },
                         label: {
                             VStack{
-                                Text("약속 만들기")
+                                Text("SegmentMakePromise".localized)
                                     .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
                                     .font(Font.Kkookk.boardTabSelected)
                                     .readSize { textSize in
@@ -66,7 +66,7 @@ struct SegmentView: View {
                         }
                     }, label: {
                         VStack{
-                            Text("이행률 보기")
+                            Text("SegmentFulfillmentRateView".localized)
                                 .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
                                 .font(Font.Kkookk.boardTabSelected)
                                 .readSize { textSize in
@@ -88,7 +88,7 @@ struct SegmentView: View {
                             Image(systemName: "gearshape.fill")
                                 .foregroundColor(.Kkookk.commonBlack)
                                 .font(Font.Kkookk.boardSettingButtonIcon)
-                            Text("설정")
+                            Text("Setting".localized)
                                 .foregroundColor(.Kkookk.commonBlack)
                                 .font(Font.Kkookk.boardSettingButton)
                         }

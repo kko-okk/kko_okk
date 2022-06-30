@@ -10,7 +10,7 @@ import SwiftUI
 struct WeeklyDate {
     static let monthformat: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "M월"
+        formatter.dateFormat = "MMM"
         return formatter
     }()
     static var todayMonth = Date()

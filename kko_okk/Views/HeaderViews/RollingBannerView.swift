@@ -51,10 +51,6 @@ extension RollingBannerView{
     func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color(hex: "#7C7C7C"))
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(Color(hex: "#D9D9D9"))
-        //TODO: 확인바람
-        //#주석1
-        //해당 코드는 현제 페이지 뿐 아니라 모든 인디케이터의 색상을 바꾸는 문제가 있습니다.
-        //하지만 이렇게 하지않으면 불가능해서..
     }
     
 }

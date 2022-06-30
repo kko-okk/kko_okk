@@ -86,16 +86,18 @@ struct OnBoardingForth: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Text("약속을 지켰는지 확인하기")
+            VStack(alignment: .leading,spacing: 10) {
+                Text("OnBoardingForthTitle".localized)
                     .font(.system(size: 30, weight: .semibold))
                     .fontWeight(.bold)
                     .padding(.bottom, 10)
-                Text("약속을 지켰는지 확인합니다.")
+                Text("OnBoardingForthBody1".localized)
                     .font(.system(size: 20, weight: .light))
-                Text("약속을 지킨 사람이 체크하면 상대방이 확인해 주세요!")
+                Text("OnBoardingForthBody2".localized)
                     .font(.system(size: 20, weight: .light))
-                Text("지금 한 번 동그라미를 꼬옥 눌러 보세요!")
+                Text("OnBoardingForthBody3".localized)
+                    .font(.system(size: 20, weight: .light))
+                Text("OnBoardingForthBody4".localized)
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
@@ -104,10 +106,10 @@ struct OnBoardingForth: View {
                 HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
                     
                     HStack {  // 약속 제목 및 약속 추가 버튼
-                        Text("우리 이 약속은 꼭 지켜요 !")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
+                        Text("OnBoardingForthCell1".localized)  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                             .font(.system(size: 23, weight: .bold, design: .rounded))
                             .foregroundColor(Color.Kkookk.commonWhite)
-                            .lineLimit(1)
+                            .lineLimit(2)
                             .padding([.leading, .trailing], 20.0)  // padding 배열 처리
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -171,7 +173,7 @@ struct OnBoardingForth: View {
             .padding(.top, 20)
             .padding(.bottom, 40)
             VStack {
-                Text("약속하러가기")
+                Text("OnBoardingForthCell2".localized)
                     .font(.system(size: 20, weight: .semibold))
                     .padding(.vertical, 10)
                     .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)

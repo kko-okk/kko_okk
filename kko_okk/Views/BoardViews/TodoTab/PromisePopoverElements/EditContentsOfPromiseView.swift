@@ -27,7 +27,7 @@ struct EditContentsOfPromiseView: View {
         VStack {
             // 제목, 내용 수정 타이틀
             HStack {
-                Text("할 일 정하기")
+                Text("EditPromiseTitle".localized)
                     .font(Font.Kkookk.popoverTitle)
                     .padding(.horizontal, popoverAssets.popoverHorizontalTrailingPadding)
                 Spacer()
@@ -42,7 +42,7 @@ struct EditContentsOfPromiseView: View {
                 
                 VStack {
                     // name 수정하는 영역
-                    TextField("할 일", text: $name)
+                    TextField("EditPromiseTextCell1".localized, text: $name)
                         .frame(width: popoverAssets.popoverEditingBoxWidth * 0.95,
                                height: popoverAssets.popoverNameFieldHeight)
                         .font(Font.Kkookk.popoverName)
@@ -66,7 +66,7 @@ struct EditContentsOfPromiseView: View {
                         
                         // placeholder
                         if memo.isEmpty {
-                            Text("메모 추가하기")
+                            Text("EditPromiseTextCell2".localized)
                                 .font(Font.Kkookk.popoverMemo)
                                 .cornerRadius(15)
                                 .padding(.horizontal, 6)
