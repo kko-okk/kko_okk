@@ -31,14 +31,14 @@ struct ReportBoardView: View {
                             }
                             Spacer(minLength: 20)
                             WeeklyReportView(dailyPromises: fetchRequest, pickedDate: pickedDate)
-                                .background(Color.Kkookk.commonWhite)
+                                .background(Color.white)
                                 .cornerRadius(HeaderViewConst.shared.cornerRadius)
                                 .frame(height: geometry.size.height * 0.54)
                                 .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
                         }
                         Spacer(minLength: 30)
                         MonthlyReportView(dailyPromises: fetchRequest, pickedDate: pickedDate)
-                            .background(Color.Kkookk.commonWhite)
+                            .background(Color.white)
                             .cornerRadius(HeaderViewConst.shared.cornerRadius)
                             .frame(width: geometry.size.width * 0.329)
                             .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)

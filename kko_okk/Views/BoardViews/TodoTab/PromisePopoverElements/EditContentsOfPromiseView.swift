@@ -27,7 +27,7 @@ struct EditContentsOfPromiseView: View {
         VStack {
             // 제목, 내용 수정 타이틀
             HStack {
-                Text("EditPromiseTitle".localized)
+                Text("할 일 정하기")
                     .font(Font.Kkookk.popoverTitle)
                     .padding(.horizontal, popoverAssets.popoverHorizontalTrailingPadding)
                 Spacer()
@@ -38,21 +38,21 @@ struct EditContentsOfPromiseView: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: popoverAssets.popoverEditingBoxWidth,
                            height: popoverAssets.popoverEditingBoxHeight)
-                    .foregroundColor(Color.Kkookk.commonWhite)
+                    .foregroundColor(.white)
                 
                 VStack {
                     // name 수정하는 영역
-                    TextField("EditPromiseTextCell1".localized, text: $name)
+                    TextField("할 일", text: $name)
                         .frame(width: popoverAssets.popoverEditingBoxWidth * 0.95,
                                height: popoverAssets.popoverNameFieldHeight)
                         .font(Font.Kkookk.popoverName)
-                        .background(Color.Kkookk.commonWhite)
+                        .background(.white)
                         .cornerRadius(15)
                         .focused($focusedField, equals: .name)
                     
                     Divider()
                         .frame(width: popoverAssets.popoverEditingBoxWidth)
-                        .foregroundColor(Color.Kkookk.backgroundGray)
+                        .foregroundColor(.gray)
                     
                     // memo 수정하는 영역
                     ZStack(alignment: .topLeading) {
@@ -66,7 +66,7 @@ struct EditContentsOfPromiseView: View {
                         
                         // placeholder
                         if memo.isEmpty {
-                            Text("EditPromiseTextCell2".localized)
+                            Text("메모 추가하기")
                                 .font(Font.Kkookk.popoverMemo)
                                 .cornerRadius(15)
                                 .padding(.horizontal, 6)

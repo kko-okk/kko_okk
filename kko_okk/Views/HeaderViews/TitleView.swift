@@ -70,16 +70,15 @@ struct TitleLeadingView: View {
             Spacer()
             
             HStack(spacing: 0){
-                Text("TitleViewTitle1".localized)
+                Text("오늘 가족과의 약속은 ")
                     .font(Font.Kkookk.headerDefaultTitle)
                     .foregroundColor(Color.Kkookk.commonBlack)
                 Image("Ruyha_KKooKK")
                     .resizable()
                     .frame(width: HeaderViewConst.shared.titleImageWidth, height:HeaderViewConst.shared.titleImageHeight,alignment: .trailing)
                     .foregroundColor(Color.Kkookk.commonBlack)
-                //꼬-옥 부분이 이미지로 들어감 영어 처리 할꺼면
-                //영문 이미지를 추가 하거나 자간 수정해서 텍스트 처리 필요
-                Text("TitleViewTitle3".localized)
+                
+                Text(" 지키셔야 돼요!")
                     .font(Font.Kkookk.headerDefaultTitle)
                     .foregroundColor(Color.Kkookk.commonBlack)
             }

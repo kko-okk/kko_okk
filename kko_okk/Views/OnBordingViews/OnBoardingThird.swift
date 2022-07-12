@@ -23,47 +23,43 @@ struct OnBoardingThird: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading,spacing: 10) {
-                    Text("OnBoardingThirdTitle".localized)
+                VStack(alignment: .leading) {
+                    Text("약속만들기")
                         .font(.system(size: 30, weight: .semibold))
                         .fontWeight(.bold)
                         .padding(.bottom, 10)
-                    Text("OnBoardingThirdBody1".localized)
+                    Text("우리가 약속을 할 때 새끼 손가락을 걸고 약속을 하듯,")
                         .font(.system(size: 20, weight: .light))
-                    Text("OnBoardingThirdBody2".localized)
+                    Text("같은 내용의 셀을 꼬옥 2초 동안 누르면 합의된 약속을 나타내는 셀로")
                         .font(.system(size: 20, weight: .light))
-                    Text("OnBoardingThirdBody3".localized)
-                        .font(.system(size: 20, weight: .light))
-                    Text("OnBoardingThirdBody4".localized)
-                        .font(.system(size: 20, weight: .light))
-                    Text("OnBoardingThirdBody5".localized)
+                    Text("약속이 옮겨갑니다. 지금 한 번 셀을 눌러보세요!")
                         .font(.system(size: 20, weight: .light))
                 }
                 .padding(.bottom, 10)
                 VStack(alignment: .center) {
                     HStack {
-                        OnBoardingButton(buttonText: "OnBoardingThirdParent".localized, nowSubject: "parent", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
+                        OnBoardingButton(buttonText: "부모님 약속", nowSubject: "parent", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
                             .opacity(isTogetherPressed == true ? 0 : 1)
                         Spacer()
                         Divider()
                         Spacer()
-                        OnBoardingButton(buttonText: "OnBoardingThirdContract".localized, nowSubject: "contract", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
+                        OnBoardingButton(buttonText: "우리의 약속", nowSubject: "contract", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
                             .opacity(isTogetherPressed == true ? 1 : 0)
                         Spacer()
                         Divider()
                         Spacer()
-                        OnBoardingButton(buttonText: "OnBoardingThirdChild".localized, nowSubject: "child", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
+                        OnBoardingButton(buttonText: "아이의 약속", nowSubject: "child", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
                             .opacity(isTogetherPressed == true ? 0 : 1)
                     }
                     .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 15)
                     .padding(.bottom, 10)
                     
                     VStack {
-                        Text("OnBoardingNext".localized)
+                        Text("다음으로")
                             .font(.system(size: 20, weight: .semibold))
                             .padding(.vertical, 10)
                             .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
-                            .foregroundColor(Color.Kkookk.commonWhite)
+                            .foregroundColor(.white)
                             .background(isTogetherPressed == true ? .blue : Color.Kkookk.onBoardingGray)
                             .cornerRadius(10)
                             .onTapGesture {

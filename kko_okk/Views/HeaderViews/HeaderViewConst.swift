@@ -56,10 +56,9 @@ struct HeaderViewConst{
 
     func dateToString(date: Date) -> String{
         let formatter = DateFormatter()
-        let userLocale = Locale.current
-        formatter.locale = Locale(identifier: "\(userLocale)")
-        formatter.timeZone = TimeZone(abbreviation: "\(TimeZone.current.identifier)")
-        formatter.dateFormat = "HeaderViewDateFormat".localized
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        formatter.dateFormat = "yyyy년 MM월 dd일 EEEE"
         return formatter.string(from: date)
     }
     // 원본코드 출처: https://hururuek-chapchap.tistory.com/156

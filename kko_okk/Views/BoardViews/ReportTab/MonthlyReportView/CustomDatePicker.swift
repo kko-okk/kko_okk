@@ -12,10 +12,7 @@ struct CustomDatePicker: View {
     @State var currentMonth: Int = 0
     @EnvironmentObject var pickedDate: PickedDate
     var monthlyReportDataTasks: [MonthlyReportDataTaskMetaData]
-    private let days: [String] = ["Sun".localized, "Mon".localized,
-                                  "Tue".localized, "Wed".localized,
-                                  "Thu".localized, "Fri".localized,
-                                  "Sat".localized]
+    private let days: [String] = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
     
     var body: some View {
         VStack(spacing: 20) {
@@ -80,7 +77,7 @@ struct CustomDatePicker: View {
             }//.frame(maxWidth: geometry.size.width * 0.8)
             
             VStack(spacing: 15) {
-                Text("CustomDatePickerTitle".localized)
+                Text("우리가 한 약속들을 확인해보세요!")
                     .font(.title2.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 5)
@@ -93,7 +90,7 @@ struct CustomDatePicker: View {
                             .font(.title2.bold())
                             .padding(.vertical, 30)
                             .frame(maxWidth: .infinity, alignment: .center)
-                            .foregroundColor(Color.Kkookk.commonWhite)
+                            .foregroundColor(.white)
                         // 백엔드와 협력하여 부모용, 아이용 셀을 만들 예정입니다.
                             .background(
                                 Color(contract.subject == "child" ? "kkookkGreen" : "kkookkPurple")
@@ -102,7 +99,7 @@ struct CustomDatePicker: View {
                             )
                     }
                 } else {
-                    Text("CustomDatePickerNillTxt".localized)
+                    Text("오늘 우리 가족은 약속이 없었어요!!")
                 }
             }
             .padding()
@@ -126,7 +123,7 @@ struct CustomDatePicker: View {
                         
                         Text("\(value.day)")
                             .font(.title3.bold())
-                            .foregroundColor(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? Color.Kkookk.commonWhite : .primary)
+                            .foregroundColor(isSameDay(date1: task.taskDate, date2: pickedDate.date) ? .white : .primary)
                             .frame(maxWidth: .infinity)
                         
                         
@@ -138,7 +135,7 @@ struct CustomDatePicker: View {
                 } else {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: value.date, date2: pickedDate.date) ? Color.Kkookk.commonWhite : .primary)
+                        .foregroundColor(isSameDay(date1: value.date, date2: pickedDate.date) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     
                     Spacer()
@@ -158,9 +155,7 @@ struct CustomDatePicker: View {
     
     func extraDate() -> [String] {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY MMM"
-        //기존에 "YYYY M월"으로 표기가 되어 있었는데
-        //그냥 "YYYY MMM"이렇게 쓰면 KO = 0월 , EN = "Jun"형식으로 출력
+        formatter.dateFormat = "YYYY M월"
         let date = formatter.string(from: pickedDate.date)
         return date.components(separatedBy: " ")
     }

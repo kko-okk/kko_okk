@@ -18,14 +18,14 @@ struct ReportMailView: View {
 
           VStack {
               if MFMailComposeViewController.canSendMail() {
-                  Button("BugReport".localized) {
+                  Button("버그신고") {
                       self.isShowingMailView.toggle()
                   }
               } else {
-                  Text("ReportMailViewErrorTxt".localized)
+                  Text("이 기기에서는 메일 발송이 불가능합니다.")
               }
               if result != nil {
-                  Text("ReportMailViewClearTxt".localized)
+                  Text("메일 발송 성공")
                       .lineLimit(nil)
               }
           }
@@ -80,7 +80,7 @@ struct MailView: UIViewControllerRepresentable {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = context.coordinator
         vc.setToRecipients(["kkookkreport@gmail.com"])
-        vc.setSubject("ReportMailSubject".localized)
+        vc.setSubject("꼬-옥 앱 버그 신고")
        // vc.setMessageBody("메시지컨텐츠", isHTML: false)
         //이건 아직 확인 못함
         //비번은 추후 공유하겠습니다.

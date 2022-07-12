@@ -12,24 +12,24 @@ struct OnBoardingFirst: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading,spacing: 10) {
-                Text("OnBoardingFirstTitle".localized)
+            VStack(alignment: .leading) {
+                Text("안녕하세요 !")
                     .font(.system(size: 30, weight: .semibold))
                     .fontWeight(.bold)
                     .padding(.bottom, 10)
-                Text("OnBoardingFirstBody1".localized)
+                Text("꼬옥은 부모님과 아이가 함께 약속을 만들고 지켜 나가며")
                     .font(.system(size: 20, weight: .light))
-                Text("OnBoardingFirstBody2".localized)
+                Text("바람직한 생활 습관을 기를 수 있도록 도와줍니다.")
                     .font(.system(size: 20, weight: .light))
-                Text("OnBoardingFirstBody3".localized)
+                Text("지금부터 꼬옥을 어떻게 사용하는지 간단하게 안내해 드리겠습니다.")
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
-            Text("OnBoardingFirstStart".localized)
+            Text("시작하기")
                 .font(.system(size: 20, weight: .semibold))
                 .padding(.vertical, 10)
                 .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
-                .foregroundColor(Color.Kkookk.commonWhite)
+                .foregroundColor(.white)
                 .background(.blue)
                 .cornerRadius(10)
                 .onTapGesture {

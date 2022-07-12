@@ -30,7 +30,7 @@ struct CommonWeeklyReportData: Identifiable {
 }
 
 var commonWeeklyReportDatas: [CommonWeeklyReportData] = [
-    CommonWeeklyReportData(assignment: "LocalizingParent".localized, keyColor: Color("kkookkPurple")),
-    CommonWeeklyReportData(assignment: "LocalizingChild".localized, keyColor: Color("kkookkGreen"))
+    CommonWeeklyReportData(assignment: "부모님", keyColor: Color("kkookkPurple")),
+    CommonWeeklyReportData(assignment: "아이", keyColor: Color("kkookkGreen"))
 ]
 

@@ -12,10 +12,7 @@ struct EditRepeatingDaysOfPromiseView: View {
     @Binding var isRepeating: [Bool]
     
     // 요일 이름
-    let daysOfWeek: [String] = ["Mon".localized, "Tue".localized,
-                                "Wed".localized, "Thu".localized,
-                                "Fri".localized, "Sat".localized,
-                                "Sun".localized]
+    let daysOfWeek: [String] = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
     
     // 날짜가 선택되었을 때 버튼의 색을 결정하기 위해 subject 값을 받아오기
     var subject: Subject
@@ -27,7 +24,7 @@ struct EditRepeatingDaysOfPromiseView: View {
         VStack {
             // 제목, 내용 수정 타이틀
             HStack {
-                Text("Repeat".localized)
+                Text("반복")
                     .font(Font.Kkookk.popoverTitle)
                     .padding(.horizontal, popoverAssets.popoverHorizontalTrailingPadding)
                 Spacer()

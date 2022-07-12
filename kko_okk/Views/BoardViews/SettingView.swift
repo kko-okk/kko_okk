@@ -15,8 +15,8 @@ struct SettingView: View {
         
         NavigationView{
             Form {
-                NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/yeniful/kko_okk/blob/main/lisence.md").navigationTitle("License".localized)) {
-                    Label("License".localized, systemImage: "doc.on.clipboard.fill")
+                NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/yeniful/kko_okk/blob/main/lisence.md").navigationTitle("라이센스")) {
+                    Label("라이센스", systemImage: "doc.on.clipboard.fill")
                 }
                 
 //                NavigationLink {
@@ -36,11 +36,11 @@ struct SettingView: View {
                 NavigationLink {
                     ReportMailView()
                 } label : {
-                    Label("BugReport".localized, systemImage: "ladybug.fill")
+                    Label("버그신고", systemImage: "ladybug.fill")
                 }
                 
                 
-                Section(header: Text("Developer information".localized)){
+                Section(header: Text("개발자 정보")){
                     NavigationLink(destination: MyWebView(urlToLoad: "https://github.com/Valentino1994").navigationTitle("Guell")) {
                         HStack{
                             Image("Guell")
@@ -84,7 +84,7 @@ struct SettingView: View {
                 }
                 
             }
-            .navigationTitle("Setting".localized)
+            .navigationTitle("설정")
             .navigationBarTitleDisplayMode(.large)
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading){
@@ -101,7 +101,7 @@ struct SettingView: View {
         Button(action: {
             isShowingSettingView.toggle()
         }, label: {
-            Text("Back".localized)
+            Text("돌아가기")
         })
     }
     

@@ -39,7 +39,7 @@ struct EditPromisePopover: View {
                 Button {
                     isPresented.toggle()
                 } label: {
-                    Text("Cancel".localized)
+                    Text("취소")
                         .font(Font.Kkookk.popoverNavigationButton)
                 }
                 
@@ -48,10 +48,10 @@ struct EditPromisePopover: View {
                 // 입력받은 enum 값에 따라 popover 네비게이션 바의 제목을 바꿔주기.
                 switch subject {
                 case .parent:
-                    Text("PromisePopoverParents".localized)
+                    Text("부모의 약속 만들기")
                         .font(Font.Kkookk.popoverNavigationTitle)
                 case .child:
-                    Text("PromisePopoverChildren".localized)
+                    Text("아이의 약속 만들기")
                         .font(Font.Kkookk.popoverNavigationTitle)
                 }
                 
@@ -64,7 +64,7 @@ struct EditPromisePopover: View {
                     // Popover 닫기
                     isPresented.toggle()
                 } label: {
-                    Text("Done".localized)
+                    Text("완료")
                         .font(Font.Kkookk.popoverNavigationButton)
                 }
             }
@@ -97,7 +97,7 @@ struct EditPromisePopover: View {
         .frame(width: popoverAssets.popoverFullWidth,
                height: popoverAssets.popoverFullHeight)
         .padding(.top, 25)
-        .background(Color.Kkookk.backgroundGray)
+        .background(.bar)
     }
 }
 
