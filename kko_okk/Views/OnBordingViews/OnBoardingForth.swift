@@ -99,6 +99,8 @@ struct OnBoardingForth: View {
                     .font(.system(size: 20, weight: .light))
                 Text("OnBoardingForthBody4".localized)
                     .font(.system(size: 20, weight: .light))
+                Text("OnBoardingForthBody5".localized)
+                    .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
             
