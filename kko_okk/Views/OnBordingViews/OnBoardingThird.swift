@@ -34,7 +34,10 @@ struct OnBoardingThird: View {
                         .font(.system(size: 20, weight: .light))
                     Text("OnBoardingThirdBody3".localized)
                         .font(.system(size: 20, weight: .light))
-                    
+                    Text("OnBoardingThirdBody4".localized)
+                        .font(.system(size: 20, weight: .light))
+                    Text("OnBoardingThirdBody5".localized)
+                        .font(.system(size: 20, weight: .light))
                 }
                 .padding(.bottom, 10)
                 VStack(alignment: .center) {
