@@ -31,21 +31,21 @@ struct FilteredList: View {
                         .foregroundColor(Color.Kkookk.parentPurple)
                         .frame(width: 8, height: 8, alignment: .center)
                         .padding(.leading, 10)
-                    Text("부모님이 지켜요!").font(.Kkookk.tableTitle)
+                    Text("FilteredListParents".localized).font(.Kkookk.tableTitle)
                 } else if nowSubject == "child" {
                     Circle()
                         .foregroundColor(Color.Kkookk.childGreen)
                         .frame(width: 8, height: 8, alignment: .center)
                         .padding(.leading, 10)
-                    Text("아이가 지켜요!").font(.Kkookk.tableTitle)
+                    Text("FilteredListChildern".localized).font(.Kkookk.tableTitle)
                 } else {
                     Circle()
                         .foregroundColor(.clear)
                         .frame(width: 8, height: 8, alignment: .center)
-                    Text("우리 같이 꼬옥 지켜요!").font(.Kkookk.tableTitle)
+                    Text("FilteredListWeAre".localized).font(.Kkookk.tableTitle)
                         .padding(.leading, 10)
                 }
-
+                
                 Circle()
                     .fill(Color.Kkookk.countBadgeGray)
                     .frame(width: 22, height: 22)
@@ -60,17 +60,17 @@ struct FilteredList: View {
                         // nowSubject에 따라 이미지 배치
                         if nowSubject == "parent" {
                             Image("parentFingerprint")
-                                    .resizable()
-                                    .frame(width: 26, height: 30)
+                                .resizable()
+                                .frame(width: 26, height: 30)
                         } else if nowSubject == "child" {
                             Image("childFingerprint")
-                                    .resizable()
-                                    .frame(width: 26, height: 30)
+                                .resizable()
+                                .frame(width: 26, height: 30)
                         } else {}
-
+                        
                         Image(systemName: "plus")
-                                .foregroundColor(.white)
-                                .frame(width: 30, height: 30)
+                            .foregroundColor(Color.Kkookk.commonWhite)
+                            .frame(width: 30, height: 30)
                     }
                     
                 }
@@ -85,10 +85,10 @@ struct FilteredList: View {
             
             Divider()
             
-//            Spacer()
-//                .frame(height: 23)
-//
-//            Spacer()
+            //            Spacer()
+            //                .frame(height: 23)
+            //
+            //            Spacer()
             ScrollView {
                 VStack {
                     ForEach(fetchRequest) { item in

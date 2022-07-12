@@ -167,7 +167,7 @@ struct ButtonForContract: View {
                             Text(contract.name ?? "")  // contract 중 .name(상단 큰 글씨 내용)을 받아옴
                                 .font(.system(size: 23, weight: .black, design: .rounded))
                                 .foregroundColor(  // contract.subject == nowSubject -> 폰트 색: Kkkook.backgroundGray, 아니면 흰 색
-                                    contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
+                                    contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.Kkookk.commonWhite
                                 )
                                 .lineLimit(1)
                                 .padding([.leading, .trailing], 20.0)  // padding 배열 처리
@@ -180,7 +180,7 @@ struct ButtonForContract: View {
                                 Text(contract.name ?? "")
                                     .font(.system(size: 23, weight: .black, design: .rounded))
                                     .foregroundColor(
-                                        contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.white
+                                        contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.Kkookk.commonWhite
                                     )
                                     .lineLimit(1)
                                     .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
@@ -195,7 +195,7 @@ struct ButtonForContract: View {
                                 if !memo.isEmpty {
                                     Text(contract.memo ?? "")
                                         .font(.system(size: 17, weight: .regular, design: .rounded))
-                                        .foregroundColor(.white)
+                                        .foregroundColor(Color.Kkookk.commonWhite)
                                         .lineLimit(3)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding([.leading, .bottom], 20)  // padding 배열 처리
@@ -283,9 +283,9 @@ struct ButtonForContract: View {
                         }
                         .alert(isPresented: $showingAlert) {
                             Alert(
-                                title: Text("앗, 다른 약속이에요!"),
-                                message: Text("같은 약속끼리 꼬옥 눌러주세요 :)"),
-                                dismissButton: .default(Text("확인")))
+                                title: Text("ButtonForContractAlertTitle".localized),
+                                message: Text("ButtonForContractAlertMessage".localized),
+                                dismissButton: .default(Text("OK".localized)))
                         }
                 }
                 // MARK: - 수정, 삭제 Popover
@@ -297,18 +297,18 @@ struct ButtonForContract: View {
                                 Button {
                                     isShowingPopover.toggle()
                                 } label: {
-                                    Label("수정하기", systemImage: "pencil")
+                                    Label("Edit".localized, systemImage: "pencil")
                                 }
                                 
                                 Button(role: .destructive) {
                                     deletePromise(promise: contract)
                                 } label: {
-                                    Label("삭제하기", systemImage: "trash")
+                                    Label("Delete".localized, systemImage: "trash")
                                 }
                             } label: {
                                 Image(systemName: "ellipsis")
                                     .rotationEffect(.degrees(90))
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color.Kkookk.commonWhite)
                                     .frame(width: 40, height: 40)
                                     .padding(.top, 8)
                             }

@@ -31,10 +31,13 @@
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
 		22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */; };
 		22E9005E2849D677000A82BE /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9005D2849D677000A82BE /* FilteredList.swift */; };
+		7054CA7E286CAA3200574927 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7054CA80286CAA3200574927 /* Localizable.strings */; };
+		7054CA83286CAB4300574927 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7054CA82286CAB4300574927 /* Extensions.swift */; };
 		708070CD285FB4D200930ED2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708070CC285FB4D200930ED2 /* WebView.swift */; };
 		708070CF285FEE2800930ED2 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708070CE285FEE2800930ED2 /* MailView.swift */; };
 		7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B1922853209200A7BD44 /* RollingBannerView.swift */; };
 		7080B195285320A400A7BD44 /* BannerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080B194285320A400A7BD44 /* BannerViews.swift */; };
+		70C363B6286B0C5A00FBC6DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 70C363B8286B0C5A00FBC6DC /* InfoPlist.strings */; };
 		70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */; };
 		70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBA284C8327009AAB79 /* DatePickerView.swift */; };
 		70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F675B7285B2E7800F86719 /* checkPromiseView.swift */; };
@@ -145,10 +148,15 @@
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22E9005D2849D677000A82BE /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
+		7054CA7F286CAA3200574927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7054CA81286CAA6E00574927 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7054CA82286CAB4300574927 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		708070CC285FB4D200930ED2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		708070CE285FEE2800930ED2 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		7080B1922853209200A7BD44 /* RollingBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingBannerView.swift; sourceTree = "<group>"; };
 		7080B194285320A400A7BD44 /* BannerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViews.swift; sourceTree = "<group>"; };
+		70C363B7286B0C5A00FBC6DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		70C363B9286B0CA000FBC6DC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConst.swift; sourceTree = "<group>"; };
 		70DAECBA284C8327009AAB79 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		70F675B7285B2E7800F86719 /* checkPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkPromiseView.swift; sourceTree = "<group>"; };
@@ -358,6 +366,8 @@
 				9D55B40D2846289100AFD9C5 /* Persistence.swift */,
 				9D55B40F2846289100AFD9C5 /* kko_okk.xcdatamodeld */,
 				9D55B40A2846289100AFD9C5 /* Preview Content */,
+				70C363B8286B0C5A00FBC6DC /* InfoPlist.strings */,
+				7054CA80286CAA3200574927 /* Localizable.strings */,
 			);
 			path = kko_okk;
 			sourceTree = "<group>";
@@ -475,6 +485,7 @@
 				A8C834A728471D0400C65BE0 /* Size.swift */,
 				A8A477202849FB430005B4E2 /* Font.swift */,
 				A8A477242849FB4A0005B4E2 /* Color.swift */,
+				7054CA82286CAB4300574927 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -584,6 +595,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 9D55B3F82846289000AFD9C5;
 			productRefGroup = 9D55B4022846289000AFD9C5 /* Products */;
@@ -603,6 +615,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A4773A2849FD940005B4E2 /* AppleSDGothicNeoSB.ttf in Resources */,
+				70C363B6286B0C5A00FBC6DC /* InfoPlist.strings in Resources */,
 				A8A477492849FD940005B4E2 /* AppleSDGothicNeoL.ttf in Resources */,
 				A8A4773D2849FD940005B4E2 /* AppleSDGothicNeoM.ttf in Resources */,
 				9D55B40C2846289100AFD9C5 /* Preview Assets.xcassets in Resources */,
@@ -610,6 +623,7 @@
 				A8A477462849FD940005B4E2 /* AppleSDGothicNeoH.ttf in Resources */,
 				9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */,
 				A8A477402849FD940005B4E2 /* AppleSDGothicNeoR.ttf in Resources */,
+				7054CA7E286CAA3200574927 /* Localizable.strings in Resources */,
 				A8A477342849FD940005B4E2 /* AppleSDGothicNeoT.ttf in Resources */,
 				A8A477372849FD940005B4E2 /* AppleSDGothicNeoEB.ttf in Resources */,
 				A8A477312849FD940005B4E2 /* AppleSDGothicNeoB.ttf in Resources */,
@@ -711,6 +725,7 @@
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,
 				708070CD285FB4D200930ED2 /* WebView.swift in Sources */,
 				A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */,
+				7054CA83286CAB4300574927 /* Extensions.swift in Sources */,
 				2258B2B3285CB40900A19263 /* AnimatedDailyReportView.swift in Sources */,
 				F8A424BB2853295F007123E8 /* PopoverAssets.swift in Sources */,
 			);
@@ -752,11 +767,33 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		7054CA80286CAA3200574927 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7054CA7F286CAA3200574927 /* en */,
+				7054CA81286CAA6E00574927 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		70C363B8286B0C5A00FBC6DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70C363B7286B0C5A00FBC6DC /* en */,
+				70C363B9286B0CA000FBC6DC /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		9D55B4282846289100AFD9C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -817,6 +854,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -879,19 +917,19 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kko-okk.kko-okk";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkookk.kkookk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -911,19 +949,19 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kko-okk.kko-okk";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkookk.kkookk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
