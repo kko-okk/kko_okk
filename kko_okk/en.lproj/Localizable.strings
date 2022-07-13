@@ -1,15 +1,15 @@
-/* 
+/*
   Localizable.strings
   kko_okk
 
   Created by Ruyha on 2022/06/30.
-  이 폴더는 영어로 나올 문구를 모아둔 파일입니다.
-  한국어로 표기된 부분을 영어로 바꾸어주세요.
-  MARK: 뒤에 ; 가 없으면 에러가 발생합니다.
+
+  이 파일은 영어 localization을 위한 파일입니다.
+  MARK: 각 라인 맨 뒤에 ; 가 없으면 에러가 발생합니다.
 */
 
-//MARK: 전체적으로 사용하는것 혹은 간단한 단어
-//옵션에 관련된 것들
+// MARK: 전체적으로 사용되는 것, 또는 간단한 단어
+// 옵션 관련 데이터
 "Setting" = "Setting";
 "License" = "License";
 "BugReport" = "BugReport";
@@ -22,39 +22,36 @@
 "Cancel" = "Cancel";
 "Done" = "Done";
 
-//옵션이 아닌것들
+// 옵션 아닌 데이터
 "LocalizingParent" = "Parent";
 "LocalizingChild" = "Child";
-//열거형의 인자 및 중간중간 스트링형으로 parent 와 child가 사용중이라
-//Localizing추가
+// 열거형 인자 및 중간중간에 문자열로 parent와 child가 사용되는 중이라 localizing추가
 
 "OnBoardingNext" = "NEXT";
 
-// MARK: OnBoardingFirst
-"OnBoardingFirstTitle" = "Welcome to Kko_okk!";
-"OnBoardingFirstBody1" = "We will help your family to create and keep promises.";
-"OnBoardingFirstBody2" = "Kko_okk has a unique gesture you need to know to use.";
-"OnBoardingFirstBody3" = "So, this will be the last thing you want to miss!";
-"OnBoardingFirstStart" = "Tap to start";
+//MARK: OnBoardingFirst
+"OnBoardingFirstTitle" = "안녕하세요 !";
+"OnBoardingFirstBody1" = "꼬옥은 부모님과 아이가 함께 약속을 만들고 지켜 나가며";
+"OnBoardingFirstBody2" = "바람직한 생활 습관을 기를 수 있도록 도와줍니다.";
+"OnBoardingFirstBody3" = "지금부터 꼬옥을 어떻게 사용하는지 간단하게 안내해 드리겠습니다.";
+"OnBoardingFirstStart" = "시작하기";
 
-// MARK: OnBoardingSecond
-"OnBoardingSecondTitle" = "Create your wishes";
-"OnBoardingSecondBody1" = "Add your wishes.";
-"OnBoardingSecondBody2" = "It will appear on both parent and child columns.";
-"OnBoardingSecondBody3" = "These will be the buttons you will long-press later.";
-"OnBoardingSecondBody4" = "The parent and child check the contents,";
-"OnBoardingSecondBody5" = "then dicide if they will turn it into a promise or not.";
+//MARK: OnBoardingSecond
+"OnBoardingSecondTitle" = "원하는 목록 만들기";
+"OnBoardingSecondBody1" = "부모님과 아이가 원하는 내용을 추가합니다.";
+"OnBoardingSecondBody2" = "내용을 추가하면 똑같은 내용이 부모님 셀과 아이 셀";
+"OnBoardingSecondBody3" = "모두에서 나타납니다.";
+"OnBoardingSecondBody4" = "부모님과 아이는 서로가 원하는 것들을 확인하고,";
+"OnBoardingSecondBody5" = "이것을 약속할지 상의합니다.";
 
-// MARK: OnBoardingThird
-"OnBoardingThirdTitle" = "Create the promises";
-"OnBoardingThirdBody1" = "When you long-press the same buttons at the same time,";
-"OnBoardingThirdBody2" = "the buttons will disappear from each columns";
-"OnBoardingThirdBody3" = "then will appear on the promise column.";
-"OnBoardingThirdBody4" = "This process is a substitution for the pinky swear.";
-"OnBoardingThirdBody5" = "Give a try now.";
-"OnBoardingThirdParent" = "Parents' wish";
-"OnBoardingThirdContract" = "Family promise";
-"OnBoardingThirdChild" = "Child's wish";
+//MARK: OnBoardingThird
+"OnBoardingThirdTitle" = "약속만들기";
+"OnBoardingThirdBody1" = "우리가 약속을 할 때 새끼 손가락을 걸고 약속을 하듯,";
+"OnBoardingThirdBody2" = "같은 내용의 셀을 꼬옥 2초 동안 누르면 합의된 약속을 나타내는 셀로";
+"OnBoardingThirdBody3" = "약속이 옮겨갑니다. 지금 한 번 셀을 눌러보세요!";
+"OnBoardingThirdParent" = "부모님 약속";
+"OnBoardingThirdContract" = "우리의 약속";
+"OnBoardingThirdChild" = "아이의 약속";
 
 // MARK: OnBoardingForth
 "OnBoardingForthTitle" = "Check if the family kept the promises";
@@ -68,18 +65,17 @@
 
 // MARK: SegmentView
 "SegmentMakePromise" = "Making Promises";
-"SegmentFulfillmentRateView" = "See created-done ratio";
+"SegmentFulfillmentRateView" = "Created-done ratio";
 
 // MARK: TitleView
 "TitleViewTitle1" = "Let's keep the promise ";
+// TitleViewMainTitle2의 경우 디자인 확정 후 삭제 여부 결정 예정
 "TitleViewTitle2" = "Kko_okk";
-// TitleViewMainTitle2는 지금 사용하지 않으나 꼬-옥 표기 확정이 안나 임시로 둠
-// 확정 후 삭제 예정
 "TitleViewTitle3" = " with your family!";
 
 // MARK: HeaderViewConst
+// 미국식 년-월-일-요일 표기. 번역 X
 "HeaderViewDateFormat" = "EEEE MMM dd ,y";
-// 미국식 년 월 일 요일 표기 번역 X
 
 // MARK: EditContentsOfPromiseView
 "EditPromiseTitle"= "Type your wish";
@@ -100,13 +96,13 @@
 "ButtonForContractAlertMessage" = "You're gonna long-press the same ones :)";
 
 // MARK: PromisePopover (Add, Edit 공통 사용)
-"PromisePopoverParents" = "Parents' wishes";
-"PromisePopoverChildren" = "Child's wishes";
+"PromisePopoverParents" = "Parents'\nwishes";
+"PromisePopoverChildren" = "Child's\nwishes";
 
 // MARK: FilteredList
-"FilteredListParents" = "Parents gonna keep";
-"FilteredListChildern" = "Child gonna keep";
-"FilteredListWeAre" = "The family gonna keep";
+"FilteredListParents" = "Parents' wishes";
+"FilteredListChildern" = "Child's wishes";
+"FilteredListWeAre" = "Our promises";
 
 // MARK: checkPromiseView
 "checkPromiseViewBody1" = "We kept promises";
@@ -120,22 +116,20 @@
 "WeeklyReportViewTitle" = "This week's create-done promises ratio";
 
 // MARK: CustomDatePicker
-"CustomDatePickerTitle" = "Recall the promises we've made";
-"CustomDatePickerNillTxt" = "Our family has no promise to keep.";
+"CustomDatePickerTitle" = "Recall the promises we've kept";
+"CustomDatePickerNillTxt" = "Our family has no promise to keep today.";
 
 // MARK: ReportMailView
 "ReportMailViewErrorTxt" = "Sending an e-mail is not possible from this device.";
-"ReportMailViewClearTxt" = "E-mail sending succeeded.";
+"ReportMailViewClearTxt" = "Sending an e-mail is succeeded.";
 "ReportMailSubject" = "Bug Report";
 
 // MARK: TipModel
-// 내용이 너무 긴 건 삭제가 필요합니다. 롤링베너에 잘 안보입니다..
-// 영어로 바꿀때 줄바꿈을 유의해 주세요. 한줄에 한글기준 15자 정도가 적절한것 같습니다.
 "Tip1" = "Keeping promises is cool. It makes you trustworthy.";
-"Tip2" = "Track the reason failed you keeping promises.";
-"Tip3" = "Promising is not one-way. You need to agree with each other.";
-"Tip4" = "Let's be honest when you are about to fail a promise.";
-"Tip5" = "Promising is different to ordering.";
+"Tip2" = "Let's give a try to track the reason failed you keeping promises.";
+"Tip3" = "Promising is not one-way process. You need to agree with each other.";
+"Tip4" = "Let's be honest to yourself when you are about to fail a promise.";
+"Tip5" = "Promising is different from ordering. You need to have a mutual agreement to promise something.";
 "Tip6" = "Experience in one's early developmental stage becomes the base of later development.";
 "Tip7" = "There are proper task for each developmental stages. Do not miss the critical periods.";
 "Tip8" = "According to Piaget, children build their schema through interaction with the environment.";
@@ -147,10 +141,10 @@
 "Tip14" = "According to L. Vygotsky, learning is based on interaction with \"meaningful\" others.";
 "Tip15" = "\"Scaffold\" means the verbal means that is used to help one's learning.";
 "Tip16" = "According to L. Vygotsky, verbal development leads one's cognitive development.";
-//"Tip17" = "비계(Scaffolding)란\n학습을 돕기 위해 사용되는\n다양한 언어적 수단을 말합니다.";
-//"Tip18" = "비고츠키(L. Vygotsky)에\n따르면 언어의 발달이 인지 발달을\n주도적으로 이끕니다.";
-//"Tip19" = "반복 연습과 숙달은\n창의력 신장에 큰 영향을\n";
-//"Tip20" = "메일맨(Meilman)에\n따르면 자아정체성이 완성되는 것은\n성인이 된 이후입니다.";
+"Tip17" = "According to recent brain studies, drill & practice improves one's creativity.";
+"Tip18" = "According to P. W. Meilman, the self-concept is completed in adulthood.";
+"Tip19" = "A child goes through the stage of reading the parents' countenance. Don't worry, it will disappear naturally.";
+"Tip20" = "Knowing the right thing is not enough. The knowledge needs to become a habit.";
 //"Tip21" = "아이는 자라면서 부모님의\n눈치를 보는 단계를 자연히 거칩니다.\n걱정하지 마세요.";
 //"Tip22" = "무엇이 올바른지 아는 것만으로는\n부족해요.\n올바른 행동이 습관화되어야 합니다.";
 //"Tip23" = "부모님과 자녀의 인격적 만남은\n아동의 정서적 발달에\n큰 영향을 미칩니다.";
