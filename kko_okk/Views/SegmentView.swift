@@ -82,17 +82,18 @@ struct SegmentView: View {
                     
                     Spacer()
                     
-                    Button(action: { isPressedSettingButton.toggle() },
-                           label: {
-                        HStack(alignment:.bottom,spacing: 1){
-                            Image(systemName: "gearshape.fill")
-                                .foregroundColor(.Kkookk.commonBlack)
-                                .font(Font.Kkookk.boardSettingButtonIcon)
-                            Text("Setting".localized)
-                                .foregroundColor(.Kkookk.commonBlack)
-                                .font(Font.Kkookk.boardSettingButton)
-                        }
-                    })
+//  TODO: Setting Button 설정버튼 주석 7.13일 -Ruyha-
+//                    Button(action: { isPressedSettingButton.toggle() },
+//                           label: {
+//                        HStack(alignment:.bottom,spacing: 1){
+//                            Image(systemName: "gearshape.fill")
+//                                .foregroundColor(.Kkookk.commonBlack)
+//                                .font(Font.Kkookk.boardSettingButtonIcon)
+//                            Text("Setting".localized)
+//                                .foregroundColor(.Kkookk.commonBlack)
+//                                .font(Font.Kkookk.boardSettingButton)
+//                        }
+//                    })
                 }
                 .padding(.vertical,15)
                 .readSize { tabSize in

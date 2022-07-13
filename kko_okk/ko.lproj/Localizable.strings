@@ -4,6 +4,10 @@
 
   Created by Ruyha on 2022/06/30.
   MARK: 뒤에 ; 가 없으면 에러가 발생합니다.
+  MARK: 로컬라이징 파일은 한쪽에만 추가하면 안됩니다.
+  한글 추가 시 영어파일도 수정 해야 합니다.
+  반대의 경우도 마찬가지 입니다.
+  로컬라이징 파일 수정시 다른 언어 페이지도 정상적으로 뷰잉 되는지 확인 부탁드립니다.
 */
 
 //MARK: 전체적으로 사용하는것 혹은 간단한 단어
@@ -46,25 +50,23 @@
 //MARK: OnBoardingThird
 "OnBoardingThirdTitle" = "약속만들기";
 "OnBoardingThirdBody1" = "우리가 약속을 할 때 새끼 손가락을 걸고 약속을 하듯,";
-"OnBoardingThirdBody2" = "같은 내용의 셀을 꼬옥 2초 동안 누르면 합의된 약속을 나타내는 셀로";
-"OnBoardingThirdBody3" = "약속이 옮겨갑니다. 지금 한 번 셀을 눌러보세요!";
+"OnBoardingThirdBody2" = "같은 내용의 셀을 꼬옥 2초 동안 누르면 ";
+"OnBoardingThirdBody3" = "합의된 약속을 나타내는 셀로약속이 옮겨갑니다.";
+"OnBoardingThirdBody4" = "지금 한 번 셀을 눌러보세요!";
+"OnBoardingThirdBody5" = "(동시에 2초 동안 눌러주세요!!)";
 "OnBoardingThirdParent" = "부모님 약속";
 "OnBoardingThirdContract" = "우리의 약속";
 "OnBoardingThirdChild" = "아이의 약속";
 
 //MARK: OnBoardingForth
-"OnBoardingForthTitle" = "약속을 지켰다면 체크해요!";
-//약속을 지켰는지 확인하기
-"OnBoardingForthBody1" = "약속을 지켰는지 흰색 원에 체크해 주세요.";
-//약속을 지켰는지 확인합니다.
+"OnBoardingForthTitle" = "약속을 지켰다면 체크해봐요!";
+"OnBoardingForthBody1" = "우리가 만든 약속을 꼬옥(2초간) 눌러주세요.";
 "OnBoardingForthBody2" = "부모님과 아이가 모두 체크를 완료한다면";
-//약속을 지킨 사람이 체크하면 상대방이 확인해 주세요!
 "OnBoardingForthBody3" = "약속을 지킨걸 확인 할 수 있어요!";
-"OnBoardingForthBody4" = "지금 한 번 동그라미를 꼬옥 눌러 보세요!";
-//지금 한 번 동그라미를 꼬옥 눌러 보세요!
-"OnBoardingForthCell1" = "서로에게 사랑한다고 말해주기.\n(사랑한다고 말하고 체크해주세요)";
+"OnBoardingForthBody4" = "지금 한 번 흰색 동그라미를 꼬옥 눌러 보세요!";
+"OnBoardingForthBody5" = "(2초간 누르면 체크 표시가 생겨요.)";
+"OnBoardingForthCell1" = "서로에게 사랑한다고 말해주기.\n(사랑한다고 말하고 체크해주세요.)";
 "OnBoardingForthCell2" = "꼬옥 하러가기";
-//약속하러가기
 
 //MARK: SegmentView
 "SegmentMakePromise" = "약속 만들기";
