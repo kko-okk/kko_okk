@@ -14,12 +14,13 @@ struct TipModel: Identifiable {
 
 extension TipModel {
     /*
-        TODO: 팁 내용이 너무 긴건 삭제가 필요
+        TODO: 팁 내용이 너무 긴 건 삭제 필요
         로컬라이징 파일에서 수정하고나면 여기서도 제거해야 해서
         쉽게 확인하려고 10개 단위로 줄바꿈 해놨습니다.
         완료하면 제가 직접 삭제 하겠습니다.
-        -RUYHA
+        - RUYHA
     */
+
     static var tips: [TipModel] {
         [
             TipModel(id: UUID(), contents: "Tip1".localized),
@@ -32,18 +33,19 @@ extension TipModel {
             TipModel(id: UUID(), contents: "Tip8".localized),
             TipModel(id: UUID(), contents: "Tip9".localized),
             TipModel(id: UUID(), contents: "Tip10".localized),
-            
+
             TipModel(id: UUID(), contents: "Tip11".localized),
             TipModel(id: UUID(), contents: "Tip12".localized),
             TipModel(id: UUID(), contents: "Tip13".localized),
             TipModel(id: UUID(), contents: "Tip14".localized),
-            TipModel(id: UUID(), contents: "Tip15".localized)//,
-//            TipModel(id: UUID(), contents: "Tip16".localized),
-//            TipModel(id: UUID(), contents: "Tip17".localized),
-//            TipModel(id: UUID(), contents: "Tip18".localized),
-//            TipModel(id: UUID(), contents: "Tip19".localized),
-//            TipModel(id: UUID(), contents: "Tip20".localized),
-//
+
+            TipModel(id: UUID(), contents: "Tip15".localized),
+            TipModel(id: UUID(), contents: "Tip16".localized),
+            TipModel(id: UUID(), contents: "Tip17".localized),
+            TipModel(id: UUID(), contents: "Tip18".localized),
+            TipModel(id: UUID(), contents: "Tip19".localized),
+            TipModel(id: UUID(), contents: "Tip20".localized),
+
 //            TipModel(id: UUID(), contents: "Tip21".localized),
 //            TipModel(id: UUID(), contents: "Tip22".localized),
 //            TipModel(id: UUID(), contents: "Tip23".localized),
