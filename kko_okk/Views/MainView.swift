@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         if isShowingSettingView {
             SettingView(isShowingSettingView: $isShowingSettingView)
-        }else{
+        } else {
             ZStack{
                 Color(hex:"#F5F7F9")
                     .ignoresSafeArea()
@@ -23,12 +23,5 @@ struct MainView: View {
                 }
             }
         }
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
