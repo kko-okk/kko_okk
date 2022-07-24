@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TodoBoardView: View {
     @ObservedObject var pickedDate = PickedDate()
-    let todoBoardCornerRadius : CGFloat = 20
+    let todoBoardCornerRadius : CGFloat = 15
     var body: some View {
         HStack {
                 ParentWishView()
@@ -28,15 +28,7 @@ struct TodoBoardView: View {
 }
 
 
-struct FirstBoardView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodoBoardView()
-            .previewInterfaceOrientation(.landscapeLeft)
-            .previewDevice("iPad Air (5th generation)")
-    }
-}
-
-//MARK: ViewModifier를 사용하면 깔끔하게 ㅆㄱㄴ
+// ViewModifier로 버튼 UI 통일
 struct TodoBoardListView: ViewModifier {
     var cornerRadius : CGFloat
 
@@ -48,3 +40,12 @@ struct TodoBoardListView: ViewModifier {
             .shadow(color: Color(hex: "#D9D9D9"), radius: 5, x: 3, y: 3)
     }
 }
+//
+//
+//struct FirstBoardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodoBoardView()
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .previewDevice("iPad Air (5th generation)")
+//    }
+//}

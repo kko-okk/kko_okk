@@ -26,15 +26,15 @@ struct SegmentView: View {
                         .foregroundColor(Color(hex: "DDDDDD"))
                         .frame(height: 2)
                         .padding(.top, -17)
-                    //TODO: 기존 디바이더를 삭제하고 선택 되었을 때사용된 커스텀 디바이더 (Rectangle사용)
+                    // TODO: 기존 디바이더 삭제 + 선택되었을 때 사용할 커스텀 디바이더 (Rectangle사용)
                 }
                 .frame(height: tabBarSize.height)
                 
                 HStack{
-                    //MARK: 리팩토링 시 참고사항
-                    //약속만들기 버튼과 이행률 보기 버튼은 기본적으로 동일한 구조를 가지고 있다.
-                    //에셋을 처럼 사용하면 코드를 줄일 수 있을 것 같습니다.
-                    
+                    // MARK: 리팩토링 시 참고사항
+                    // 약속만들기 버튼과 이행률 보기 버튼은 기본적으로 동일한 구조를 가지고 있다.
+                    // 에셋을 처럼 사용하면 코드를 줄일 수 있을 것 같습니다.
+
                     Button(
                         action: {
                             if (!isShowingTodoBoard) {
@@ -58,7 +58,7 @@ struct SegmentView: View {
                     )
                     .animation(.default, value: isShowingTodoBoard)
                     .buttonStyle(.plain)
-                    
+
                     Button(action: {
                         if (!isShowingReportBoard) {
                             isShowingReportBoard.toggle()
@@ -79,8 +79,9 @@ struct SegmentView: View {
                     })
                     .animation(.default, value: isShowingReportBoard)
                     .buttonStyle(.plain)
-                    
+
                     Spacer()
+
                     
 //  TODO: Setting Button 설정버튼 주석 7.13일 -Ruyha-
 //                    Button(action: { isPressedSettingButton.toggle() },
@@ -101,7 +102,7 @@ struct SegmentView: View {
                 }
 //                .background(Color.red)
             }
-            
+
             Spacer()
             // Tab에 따라 보여줄 Board
             if (isShowingTodoBoard) {
