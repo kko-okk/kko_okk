@@ -13,7 +13,6 @@ import SwiftUI
 struct ButtonTitleViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-//            .font(.system(size: 23, weight: .black, design: .rounded))
             .font(Font.Kkookk.cellTitle)
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, alignment: .leading)

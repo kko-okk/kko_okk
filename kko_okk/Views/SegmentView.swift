@@ -98,7 +98,6 @@ struct SegmentView: View {
                 .readSize { tabSize in
                     tabBarSize = tabSize
                 }
-//                .background(Color.red)
             }
 
             Spacer()
