@@ -157,7 +157,7 @@ struct CustomDatePicker: View {
     }
     
     func extraDate() -> [String] {
-        let formatter = DateFormatter()
+        let formatter = DateStruct.shared.kkookkDate()
         formatter.dateFormat = "YYYY MMM"
         //기존에 "YYYY M월"으로 표기가 되어 있었는데
         //그냥 "YYYY MMM"이렇게 쓰면 KO = 0월 , EN = "Jun"형식으로 출력

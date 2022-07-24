@@ -55,10 +55,7 @@ struct HeaderViewConst{
     }
 
     func dateToString(date: Date) -> String{
-        let formatter = DateFormatter()
-        let userLocale = Locale.current
-        formatter.locale = Locale(identifier: "\(userLocale)")
-        formatter.timeZone = TimeZone(abbreviation: "\(TimeZone.current.identifier)")
+        let formatter = DateStruct.shared.kkookkDate()
         formatter.dateFormat = "HeaderViewDateFormat".localized
         return formatter.string(from: date)
     }
