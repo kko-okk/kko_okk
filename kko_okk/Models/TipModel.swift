@@ -38,6 +38,7 @@ extension TipModel {
             TipModel(id: UUID(), contents: "Tip12".localized),
             TipModel(id: UUID(), contents: "Tip13".localized),
             TipModel(id: UUID(), contents: "Tip14".localized),
+
             TipModel(id: UUID(), contents: "Tip15".localized),
             TipModel(id: UUID(), contents: "Tip16".localized),
             TipModel(id: UUID(), contents: "Tip17".localized),
