@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+// 온보딩 내 각 버튼의 UI를 깔끔하게 적용하기 위한 View modifier
+// 아쉽게도 Stack에는 적용되지 않는다.
 struct ButtonTitleViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content

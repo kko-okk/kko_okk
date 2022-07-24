@@ -45,14 +45,16 @@ struct FilteredList: View {
                     Text("FilteredListWeAre".localized).font(.Kkookk.tableTitle)
                         .padding(.leading, 10)
                 }
-                
+
                 Circle()
                     .fill(Color.Kkookk.countBadgeGray)
                     .frame(width: 22, height: 22)
                     .overlay(Text("\(fetchRequest.count)")
                         .font(.Kkookk.tableCountBadge))
                     .padding(.leading, 30)
+
                 Spacer()
+
                 Button {
                     isShowingPopover.toggle()
                 } label: {
@@ -67,28 +69,23 @@ struct FilteredList: View {
                                 .resizable()
                                 .frame(width: 26, height: 30)
                         } else {}
-                        
+
                         Image(systemName: "plus")
                             .foregroundColor(Color.Kkookk.commonWhite)
                             .frame(width: 30, height: 30)
                     }
-                    
                 }
                 .popover(isPresented: $isShowingPopover) {
                     nowSubject == "parent" ?
-                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover) :
-                    AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
+                    AddWishPopover(subject: .parent, isPresented: $isShowingPopover) :
+                    AddWishPopover(subject: .child, isPresented: $isShowingPopover)
                 }
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, 15)
-            
+
             Divider()
-            
-            //            Spacer()
-            //                .frame(height: 23)
-            //
-            //            Spacer()
+
             ScrollView {
                 VStack {
                     ForEach(fetchRequest) { item in
@@ -99,21 +96,26 @@ struct FilteredList: View {
             }
         }
     }
-    
+
     init(filter: String, formatter: String, startDate: Date) {
-        _fetchRequest = FetchRequest<Promise>(sortDescriptors: [SortDescriptor(\.isDone, order: .forward), SortDescriptor(\.madeTime, order: .forward)],
-                                              predicate: NSPredicate(format: formatter,
-                                                                     Calendar.current.startOfDay(for: startDate) as CVarArg,
-                                                                     Calendar.current.startOfDay(for: startDate).dayAfter as CVarArg),
-                                              animation: .default)
+        _fetchRequest = FetchRequest<Promise>(
+            sortDescriptors: [SortDescriptor(\.isDone, order: .forward),
+                              SortDescriptor(\.madeTime, order: .forward)],
+            predicate: NSPredicate(
+                format: formatter,
+                Calendar.current.startOfDay(for: startDate) as CVarArg,
+                Calendar.current.startOfDay(for: startDate).dayAfter as CVarArg
+            ),
+            animation: .default
+        )
         nowSubject = filter
     }
-    
+
     private func deleteItems(offsets: IndexSet) {
         print(offsets)
         withAnimation {
             offsets.map { fetchRequest[$0] }.forEach(viewContext.delete)
-            
+
             do {
                 try viewContext.save()
             } catch {
@@ -123,11 +125,3 @@ struct FilteredList: View {
         }
     }
 }
-
-//struct FilteredList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FilteredList(filter: "parent", formatter: "subject == 'parent'")
-//            .previewInterfaceOrientation(.landscapeLeft)
-//            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
-//    }
-//}
