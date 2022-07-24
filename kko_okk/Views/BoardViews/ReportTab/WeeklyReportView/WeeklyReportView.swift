@@ -37,6 +37,8 @@ struct WeeklyReportView: View {
     }
     
     init(dailyPromises: FetchedResults<Promise>, pickedDate: PickedDate) {
+        //  MARK: 그래프오류2
+        //  그래프 오류 1에 들어가는 오류가 여기서 넣어줘서그럼
         parentDatas = [
             ParentWeeklyReportData(value: calcParentProgress(dailyPromises: dailyPromises, now: pickedDate.date.daySixDayBefore),
                                    monthData: WeeklyDate.monthformat.string(from: pickedDate.date),
@@ -101,7 +103,7 @@ struct WeeklyReportView: View {
     func calcParentProgress(dailyPromises: FetchedResults<Promise>, now: Date) -> CGFloat {
         let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: now).dayAfter }
         
-        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent"}
+        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent" && $0.promised}
         
         let parentDoneCount: Int = parentPromises.filter { $0.isDone == true }.count
         
@@ -113,7 +115,7 @@ struct WeeklyReportView: View {
     func calcChildProgress(dailyPromises: FetchedResults<Promise>, now: Date) -> CGFloat {
         let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: now).dayAfter }
         
-        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child"}
+        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child" && $0.promised}
         
         let childDoneCount: Int = childPromises.filter { $0.isDone == true }.count
         

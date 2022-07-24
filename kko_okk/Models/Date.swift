@@ -41,29 +41,21 @@ struct DailyDate {
 
 extension Date {
     var dayOneDayBefore: Date {
-        print("dayOneDayBefore : \(Calendar.current.date(byAdding: .day, value: -1, to: self)!)")
         return Calendar.current.date(byAdding: .day, value: -1, to: self)!
     }
     var dayTwoDayBefore: Date {
-        print("dayTwoDayBefore : \(Calendar.current.date(byAdding: .day, value: -2, to: self)!)")
-
         return Calendar.current.date(byAdding: .day, value: -2, to: self)!
     }
     var dayThreeDayBefore: Date {
-        print("dayThreeDayBefore : \(Calendar.current.date(byAdding: .day, value: -3, to: self)!)")
-
         return Calendar.current.date(byAdding: .day, value: -3, to: self)!
     }
     var dayFourDayBefore: Date {
-        print("dayFourDayBefore : \(Calendar.current.date(byAdding: .day, value: -4, to: self)!)")
         return Calendar.current.date(byAdding: .day, value: -4, to: self)!
     }
     var dayFiveDayBefore: Date {
-        print("dayFiveDayBefore : \(Calendar.current.date(byAdding: .day, value: -5, to: self)!)")
         return Calendar.current.date(byAdding: .day, value: -5, to: self)!
     }
     var daySixDayBefore: Date {
-        print("daySixDayBefore : \(Calendar.current.date(byAdding: .day, value: -6, to: self)!)")
         return Calendar.current.date(byAdding: .day, value: -6, to: self)!
     }
 }
