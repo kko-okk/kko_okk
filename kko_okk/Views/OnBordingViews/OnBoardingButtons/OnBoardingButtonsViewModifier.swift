@@ -11,7 +11,8 @@ import SwiftUI
 struct ButtonTitleViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 23, weight: .black, design: .rounded))
+//            .font(.system(size: 23, weight: .black, design: .rounded))
+            .font(Font.Kkookk.cellTitle)
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 20)
@@ -34,7 +35,7 @@ struct EditButtonViewModifier: ViewModifier {
 struct ButtonDetailedMemoViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 17, weight: .regular, design: .rounded))
+            .font(Font.Kkookk.cellContent)
             .foregroundColor(.white)
             .lineLimit(3)
             .frame(maxWidth: .infinity, alignment: .leading)

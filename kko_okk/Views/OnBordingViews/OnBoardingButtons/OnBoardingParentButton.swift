@@ -27,7 +27,7 @@ struct OnBoardingParentButton: View {
                         .modifier(ButtonDetailedMemoViewModifier())
             }
         }
-                .background(.purple)
+        .background(Color.Kkookk.parentPurple)
                 .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
     }
 }
