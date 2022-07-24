@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct kko_okkApp: App {
     let persistenceController = PersistenceController.shared
-    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = false
     @StateObject var pickedDate = PickedDate()
     
     var body: some Scene {
