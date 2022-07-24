@@ -26,38 +26,38 @@ struct SegmentView: View {
                         .foregroundColor(Color(hex: "DDDDDD"))
                         .frame(height: 2)
                         .padding(.top, -17)
-                    // TODO: 기존 디바이더 삭제 + 선택되었을 때 사용할 커스텀 디바이더 (Rectangle사용)
+                    // TODO: 기존 디바이더 삭제 + 항목 선택시 사용할 커스텀 디바이더 작성 -> Rectangle 사용
                 }
                 .frame(height: tabBarSize.height)
-                
+
                 HStack{
                     // MARK: 리팩토링 시 참고사항
                     // 약속만들기 버튼과 이행률 보기 버튼은 기본적으로 동일한 구조를 가지고 있다.
                     // 에셋을 처럼 사용하면 코드를 줄일 수 있을 것 같습니다.
 
                     Button(
-                        action: {
-                            if (!isShowingTodoBoard) {
-                                isShowingTodoBoard.toggle()
-                                isShowingReportBoard.toggle()
+                            action: {
+                                if (!isShowingTodoBoard) {
+                                    isShowingTodoBoard.toggle()
+                                    isShowingReportBoard.toggle()
+                                }
+                            },
+                            label: {
+                                VStack{
+                                    Text("SegmentMakePromise".localized)
+                                            .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                            .font(Font.Kkookk.boardTabSelected)
+                                            .readSize { textSize in
+                                                todoTabTextSize = textSize
+                                            }
+                                    Rectangle()
+                                            .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .clear)
+                                            .frame(width: todoTabTextSize.width, height: 2)
+                                }
                             }
-                        },
-                        label: {
-                            VStack{
-                                Text("SegmentMakePromise".localized)
-                                    .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
-                                    .font(Font.Kkookk.boardTabSelected)
-                                    .readSize { textSize in
-                                        todoTabTextSize = textSize
-                                    }
-                                Rectangle()
-                                    .foregroundColor(isShowingTodoBoard ? .Kkookk.commonBlack : .clear)
-                                    .frame(width: todoTabTextSize.width, height: 2)
-                            }
-                        }
                     )
-                    .animation(.default, value: isShowingTodoBoard)
-                    .buttonStyle(.plain)
+                            .animation(.default, value: isShowingTodoBoard)
+                            .buttonStyle(.plain)
 
                     Button(action: {
                         if (!isShowingReportBoard) {
@@ -67,32 +67,33 @@ struct SegmentView: View {
                     }, label: {
                         VStack{
                             Text("SegmentFulfillmentRateView".localized)
-                                .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
-                                .font(Font.Kkookk.boardTabSelected)
-                                .readSize { textSize in
-                                    reportTabTextSize = textSize
-                                }
+                                    .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .Kkookk.unselectedTabGray)
+                                    .font(Font.Kkookk.boardTabSelected)
+                                    .readSize { textSize in
+                                        reportTabTextSize = textSize
+                                    }
                             Rectangle()
-                                .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .clear)
-                                .frame(width: reportTabTextSize.width, height: 2)
+                                    .foregroundColor(isShowingReportBoard ? .Kkookk.commonBlack : .clear)
+                                    .frame(width: reportTabTextSize.width, height: 2)
                         }
                     })
-                    .animation(.default, value: isShowingReportBoard)
-                    .buttonStyle(.plain)
+                            .animation(.default, value: isShowingReportBoard)
+                            .buttonStyle(.plain)
 
                     Spacer()
 
-                    Button(action: { isPressedSettingButton.toggle() },
-                           label: {
-                        HStack(alignment:.bottom,spacing: 1){
-                            Image(systemName: "gearshape.fill")
-                                .foregroundColor(.Kkookk.commonBlack)
-                                .font(Font.Kkookk.boardSettingButtonIcon)
-                            Text("Setting".localized)
-                                .foregroundColor(.Kkookk.commonBlack)
-                                .font(Font.Kkookk.boardSettingButton)
-                        }
-                    })
+                    // MARK: 설정 버튼 주석 처리 - Ryuha - 2020.07.13
+//                    Button(action: { isPressedSettingButton.toggle() },
+//                           label: {
+//                        HStack(alignment:.bottom,spacing: 1){
+//                            Image(systemName: "gearshape.fill")
+//                                .foregroundColor(.Kkookk.commonBlack)
+//                                .font(Font.Kkookk.boardSettingButtonIcon)
+//                            Text("Setting".localized)
+//                                .foregroundColor(.Kkookk.commonBlack)
+//                                .font(Font.Kkookk.boardSettingButton)
+//                        }
+//                    })
                 }
                 .padding(.vertical,15)
                 .readSize { tabSize in
