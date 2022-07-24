@@ -8,16 +8,6 @@
 import Foundation
 import SwiftUI
 
-var parentColor = Color.orange
-
-//struct WholeButtonViewModifier: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .background(parentColor)
-//            .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
-//    }
-//}
-
 struct ButtonTitleViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
