@@ -25,9 +25,9 @@ struct OnBoardingMainView: View {
 }
 
 
-//struct OnBoardingMainView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnBoardingMainView()
-//                .previewInterfaceOrientation(.landscapeLeft)
-//    }
-//}
+struct OnBoardingMainView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnBoardingMainView()
+                .previewInterfaceOrientation(.landscapeLeft)
+    }
+}

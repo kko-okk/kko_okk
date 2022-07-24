@@ -8,13 +8,39 @@
 import Foundation
 import SwiftUI
 
+// MARK: GeometryReader를 사용하기 위한 Preference 구조체 정의
+// GeometryReader: 상위 뷰의 기하학적 정보(goemetric information)를 하위 뷰에 제공함.
+// Preference: 하위 뷰의 정보를 상위 뷰로 전달. [Key:value] 쌍을 뷰에 붙임(attach).
+// PrefereceKey: 상위 뷰 - 하위 뷰 간 통신을 위한 프로토콜.
+private struct SizeKey: PreferenceKey {
+    static func reduce(value: inout CGSize?, nextValue: () -> CGSize?) {
+        // reduce: SizeKey를 사용하는 하위 뷰를 순회하면서 값을 취합하기 위해 사용
+        // nextValue: 값이 두 개 이상 있는 경우를 위한 파라미터
+        value = value ?? nextValue()
+    }
+}
+
 struct OnBoardingSegmentView: View {
+    @State private var widthValue: CGFloat? = nil  // nil에서 시작
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
+//                GeometryReader { proxy in
+//                    Text("\(proxy.size.width)")
+//                }
+
                 VStack {
                     Text("SegmentMakePromise".localized).foregroundColor(.Kkookk.commonBlack)
                         .font(Font.Kkookk.boardTabSelected)
+                        .background(  // String의 실제 길이를 측정하기 위한 background 추가
+                            GeometryReader { proxy in
+                                Color.clear.preference(key: SizeKey.self, value: proxy.size)
+                            }
+                        )
+                        .onPreferenceChange(SizeKey.self) { size in  // 하위 뷰에서 전달된 정보를 받음
+                            self.widthValue = size?.width
+                        }
 
                     Rectangle()
                         .foregroundColor(Color(hex: "DDDDDD"))
@@ -33,26 +59,14 @@ struct OnBoardingSegmentView: View {
                         .padding(.top, -15)
                 }
             }
-//            .frame(width: KkookkSize.fullWidth / 1.3)
         }
     }
 }
 
 
-//struct OnBoardingSegmentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnBoardingSegmentView()
-//            .previewInterfaceOrientation(.landscapeLeft)
-//    }
-//}
-
-
-//VStack{
-//    Spacer()
-//    Rectangle()
-//        .foregroundColor(Color(hex: "DDDDDD"))
-//        .frame(height: 2)
-//        .padding(.top, -17)
-//    // TODO: 기존 디바이더 삭제 + 선택되었을 때 사용할 커스텀 디바이더 (Rectangle사용)
-//}
-//.frame(height: tabBarSize.height)
+struct OnBoardingSegmentView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnBoardingSegmentView()
+            .previewInterfaceOrientation(.landscapeLeft)
+    }
+}
