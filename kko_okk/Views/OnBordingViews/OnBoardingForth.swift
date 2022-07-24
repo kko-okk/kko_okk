@@ -57,7 +57,7 @@ struct OnBoardingForth: View {
             }
         return longPressGuesture
     }
-    
+
     // MARK: - 자식이 약속 이행을 확인하는 Gesture
     var childCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
@@ -82,7 +82,7 @@ struct OnBoardingForth: View {
             }
         return longPressGuesture
     }
-    
+
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -103,7 +103,7 @@ struct OnBoardingForth: View {
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
-            
+
             ZStack(alignment: .leading) {
                 HStack{ // 약속 제목 및 내용과 Check버튼의 영역을 분리하기 위한 HStack
                     
@@ -116,7 +116,7 @@ struct OnBoardingForth: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .frame(minHeight: 100)
-                    
+
                     VStack {
                         Spacer()
                         ZStack{
@@ -141,7 +141,7 @@ struct OnBoardingForth: View {
                             .foregroundColor(Color.Kkookk.parentPurple)
                         }
                         .padding(.bottom, 7)
-                        
+
                         ZStack {
                             Circle()
                                 .fill(self.isDetachingChildCheck ?
@@ -163,17 +163,18 @@ struct OnBoardingForth: View {
                             .foregroundColor(Color.Kkookk.childGreen)
                         }
                         Spacer()
-                    } // V
+                    }  // V
                     .frame(width: 35)
                     .padding([.top, .bottom], 5)
                     .padding(.trailing, 15)
-                }// H
-            }//Z
+                }  // H
+            }  //Z
             .background(Color.Kkookk.parentPurple)
             .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
             .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 17)
             .padding(.top, 20)
             .padding(.bottom, 40)
+
             VStack {
                 Text("OnBoardingForthCell2".localized)
                     .font(.system(size: 20, weight: .semibold))
