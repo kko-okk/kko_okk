@@ -26,7 +26,7 @@ struct OnBoardingButton: View {
     @Binding var togetherPressed: Bool
     @State private var animationState = false
     @GestureState private var flag = true
-    
+
     var body: some View {
         Text(buttonText)
             .font(.system(size: 20, weight: .semibold))
@@ -57,10 +57,10 @@ struct OnBoardingButton: View {
             )
             .onAppear { if nowSubject != "contract" { self.animationState = true }}
     }
-    
+
     private func backGroundColor(now nowSubject: String) -> Color {
         var result: Color  // result 변수는 Color 값이 들어감
-        
+
         if nowSubject == "parent" {  // nowList 값이 parent와 같은 경우
             result = Color.Kkookk.onBoardingPurple
         } else if nowSubject == "child" {  // nowList 값이 parent가 아닌 경우
@@ -70,10 +70,10 @@ struct OnBoardingButton: View {
         }
         return result
     }
-    
+
     private func textColor(now nowSubject: String) -> Color {
         var result: Color  // result 변수는 Color 값이 들어감
-        
+
         if nowSubject == "parent" {  // nowList 값이 parent와 같은 경우
             result = Color.Kkookk.parentPurple
         } else if nowSubject == "child" {  // nowList 값이 parent가 아닌 경우
