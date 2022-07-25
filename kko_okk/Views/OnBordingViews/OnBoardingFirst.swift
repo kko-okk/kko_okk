@@ -25,6 +25,7 @@ struct OnBoardingFirst: View {
                     .font(.system(size: 20, weight: .light))
             }
             .padding(.bottom, 20)
+
             Text("OnBoardingFirstStart".localized)
                 .font(.system(size: 20, weight: .semibold))
                 .padding(.vertical, 10)

@@ -40,29 +40,53 @@ struct OnBoardingThird: View {
                         .font(.system(size: 20, weight: .light))
                 }
                 .padding(.bottom, 10)
+
                 VStack(alignment: .center) {
                     HStack {
-                        OnBoardingButton(buttonText: "OnBoardingThirdParent".localized, nowSubject: "parent", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
-                            .opacity(isTogetherPressed == true ? 0 : 1)
+                        OnBoardingButton(
+                            buttonText: "OnBoardingThirdParent".localized,
+                            nowSubject: "parent",
+                            parentPressed: $isParentPressing,
+                            childPressed: $isChildPressing,
+                            togetherPressed: $isTogetherPressed
+                        )
+                        .opacity(isTogetherPressed == true ? 0 : 1)
+
                         Spacer()
                         Divider()
                         Spacer()
-                        OnBoardingButton(buttonText: "OnBoardingThirdContract".localized, nowSubject: "contract", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
-                            .opacity(isTogetherPressed == true ? 1 : 0)
+
+                        OnBoardingButton(
+                            buttonText: "OnBoardingThirdContract".localized,
+                            nowSubject: "contract", parentPressed:
+                                $isParentPressing, childPressed:
+                                $isChildPressing, togetherPressed: $isTogetherPressed
+                        )
+                        .opacity(isTogetherPressed == true ? 1 : 0)
+
                         Spacer()
                         Divider()
                         Spacer()
-                        OnBoardingButton(buttonText: "OnBoardingThirdChild".localized, nowSubject: "child", parentPressed: $isParentPressing, childPressed: $isChildPressing, togetherPressed: $isTogetherPressed)
-                            .opacity(isTogetherPressed == true ? 0 : 1)
+
+                        OnBoardingButton(
+                            buttonText: "OnBoardingThirdChild".localized,
+                            nowSubject: "child", parentPressed: $isParentPressing,
+                            childPressed: $isChildPressing,
+                            togetherPressed: $isTogetherPressed
+                        )
+                        .opacity(isTogetherPressed == true ? 0 : 1)
                     }
                     .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 15)
                     .padding(.bottom, 10)
-                    
+
                     VStack {
                         Text("OnBoardingNext".localized)
                             .font(.system(size: 20, weight: .semibold))
                             .padding(.vertical, 10)
-                            .frame(width: KkookkSize.fullWidth / 2.17, height: KkookkSize.fullHeight / 18)
+                            .frame(
+                                width: KkookkSize.fullWidth / 2.17,
+                                height: KkookkSize.fullHeight / 18
+                            )
                             .foregroundColor(Color.Kkookk.commonWhite)
                             .background(isTogetherPressed == true ? .blue : Color.Kkookk.onBoardingGray)
                             .cornerRadius(10)
@@ -77,7 +101,7 @@ struct OnBoardingThird: View {
             }
         }
     }
-    
+
     func tracingTrim(father fatherPressed: Bool, child childPressed: Bool) -> CGFloat {
         var result: CGFloat = 0
         if fatherPressed == true && childPressed == true {
