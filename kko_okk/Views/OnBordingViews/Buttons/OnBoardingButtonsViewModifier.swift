@@ -8,16 +8,25 @@
 import Foundation
 import SwiftUI
 
+var parentColor = Color.orange
 
-// 온보딩 내 각 버튼의 UI를 정리한 View modifier
-// 아쉽게도 Stack에는 적용되지 않는다.
+//struct WholeButtonViewModifier: ViewModifier {
+//    func body(content: Content) -> some View {
+//        content
+//            .background(parentColor)
+//            .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
+//    }
+//}
+
 struct ButtonTitleViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.Kkookk.cellTitle)
+            .font(.system(size: 23, weight: .black, design: .rounded))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding([.leading, .trailing, .top], 20)
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
+            .padding(.top, 20)
             .padding(.bottom, 5)
     }
 }
@@ -35,12 +44,13 @@ struct EditButtonViewModifier: ViewModifier {
 struct ButtonDetailedMemoViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.Kkookk.cellContent)
-            .foregroundColor(Color.Kkookk.commonWhite)
+            .font(.system(size: 17, weight: .regular, design: .rounded))
+            .foregroundColor(.white)
             .lineLimit(3)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding([.leading, .bottom], 20)
+            .padding(.leading, 20)
             .padding(.trailing, 30)
             .padding(.top, 5)
+            .padding(.bottom, 20)
     }
 }
