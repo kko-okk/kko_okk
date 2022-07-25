@@ -99,9 +99,9 @@ struct WeeklyReportView: View {
     }
     
     func calcParentProgress(dailyPromises: FetchedResults<Promise>, now: Date) -> CGFloat {
-        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: now).dayAfter }
+        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime <  Calendar.current.startOfDay(for: now).dayAfter }
         
-        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent"}
+        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent" && $0.isDone}
         
         let parentDoneCount: Int = parentPromises.filter { $0.isDone == true }.count
         
@@ -111,9 +111,9 @@ struct WeeklyReportView: View {
     }
     
     func calcChildProgress(dailyPromises: FetchedResults<Promise>, now: Date) -> CGFloat {
-        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: now).dayAfter }
+        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: now) <= $0.madeTime && $0.madeTime < Calendar.current.startOfDay(for: now).dayAfter }
         
-        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child"}
+        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child" && $0.isDone}
         
         let childDoneCount: Int = childPromises.filter { $0.isDone == true }.count
         

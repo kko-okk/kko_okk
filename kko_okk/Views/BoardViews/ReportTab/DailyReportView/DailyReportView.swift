@@ -70,10 +70,10 @@ struct DailyReportView: View {
     }
     // 해당 일의 약속을 받아옴
     init(dailyPromises: FetchedResults<Promise>, pickedDate: PickedDate) {
-        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: pickedDate.date) <= $0.madeTime && $0.madeTime <=  Calendar.current.startOfDay(for: pickedDate.date).dayAfter }
+        let dailyPromises = dailyPromises.filter{ Calendar.current.startOfDay(for: pickedDate.date) <= $0.madeTime && $0.madeTime <  Calendar.current.startOfDay(for: pickedDate.date).dayAfter }
         
-        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent"}
-        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child"}
+        let parentPromises: [Promise] = dailyPromises.filter { $0.subject == "parent" && $0.isDone == true }
+        let childPromises: [Promise] = dailyPromises.filter { $0.subject == "child" && $0.isDone == true }
         
         let parentDoneCount: Int = parentPromises.filter { $0.isDone == true }.count
         let childDoneCount: Int = childPromises.filter { $0.isDone == true }.count
