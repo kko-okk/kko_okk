@@ -19,9 +19,8 @@ extension Date {
     
     func startOftheMonth(now: Date) -> Date {
         let now: Date = now
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_kr")
-        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        let dateFormatter = DateStruct.shared.kkookkDate()
+
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
         let kr: String = dateFormatter.string(from: now)
@@ -34,9 +33,8 @@ extension Date {
     
     func endOftheMonth(now: Date) -> Date {
         let now: Date = now
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_kr")
-        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        let dateFormatter = DateStruct.shared.kkookkDate()
+
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
         let kr: String = dateFormatter.string(from: now)

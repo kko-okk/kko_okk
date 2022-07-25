@@ -7,9 +7,23 @@
 
 import SwiftUI
 
+
+//MARK: Date형식을 맞추려고 추가 by Ruyha
+struct DateStruct{
+    static let shared = DateStruct()
+    
+    func kkookkDate() -> DateFormatter{
+        let formatter = DateFormatter()
+        let userLocale = Locale.current
+        formatter.locale = Locale(identifier: "\(userLocale)")
+        formatter.timeZone = TimeZone(abbreviation: "\(TimeZone.current.identifier)")
+        return formatter
+    }
+}
+
 struct WeeklyDate {
     static let monthformat: DateFormatter = {
-        let formatter = DateFormatter()
+        let formatter = DateStruct.shared.kkookkDate()
         formatter.dateFormat = "MMM"
         return formatter
     }()
@@ -18,11 +32,11 @@ struct WeeklyDate {
 
 struct DailyDate {
     static let monthformat: DateFormatter = {
-        let formatter = DateFormatter()
+        let formatter = DateStruct.shared.kkookkDate()
         formatter.dateFormat = "dd"
         return formatter
     }()
-    static var todayDay = Date()
+   static var todayDay = Date()
 }
 
 extension Date {
