@@ -15,9 +15,9 @@ struct OnBoardingMainView: View {
             OnBoardingSegmentView()
 
             HStack {
-                OnBoardingParentButton()
-                OnBoardingContractButton()
-                OnBoardingChildButton()
+                OnBoardingParentButtonView()
+                OnBoardingContractButtonView()
+                OnBoardingChildButtonView()
             }
         }
         .frame(width: KkookkSize.fullWidth / 1.3)
@@ -28,6 +28,6 @@ struct OnBoardingMainView: View {
 struct OnBoardingMainView_Previews: PreviewProvider {
     static var previews: some View {
         OnBoardingMainView()
-                .previewInterfaceOrientation(.landscapeLeft)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

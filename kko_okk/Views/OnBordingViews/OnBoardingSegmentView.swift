@@ -10,10 +10,10 @@ import SwiftUI
 
 // MARK: GeometryReader를 사용하기 위한 Preference 구조체 정의
 // GeometryReader: 컨텐츠를 자신의 크기 및 좌표 공간의 함수로 정의하는 컨테이너 뷰.
-//                 상위 뷰의 기하학적 정보(goemetric information)를 하위 뷰에 제공함.
+//                 상위 뷰의 기하학적 정보(geometric information)를 하위 뷰에 제공함.
 // Preference: 하위 뷰의 정보를 상위 뷰로 전달.
 //             [Key:value] 쌍을 뷰에 붙임(attach).
-// PrefereceKey: 상위 뷰 - 하위 뷰 간 통신을 위한 프로토콜.
+// PreferenceKey: 상위 뷰 - 하위 뷰 간 통신을 위한 프로토콜.
 private struct SizeKey: PreferenceKey {
     static func reduce(value: inout CGSize?, nextValue: () -> CGSize?) {
         // reduce: SizeKey를 사용하는 하위 뷰를 순회하면서 값을 취합하기 위해 사용
