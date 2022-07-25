@@ -11,14 +11,7 @@ struct BarGraph: View {
     var parentWeeklyReportDatas: [ParentWeeklyReportData]
     var childrenWeeklyReportDatas: [ChildrenWeeklyReportData]
     var body: some View {
-        GraphView().onAppear{
-         //   print("RuyhaBarGraph: \(parentWeeklyReportDatas)")
-            /*
-             MARK: 그래프오류1
-             여기서 데이터가 잘못 넘어오고 있음
-            여기에 데이터를 언제 넣어주는지 찾아야됨
-             */
-        }
+        GraphView()
     }
     
 }
