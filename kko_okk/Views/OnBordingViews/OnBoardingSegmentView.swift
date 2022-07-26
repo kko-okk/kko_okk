@@ -44,6 +44,7 @@ struct OnBoardingSegmentView: View {
                         .foregroundColor(Color(hex: "DDDDDD"))
                         .frame(height: 2)
                         .padding(.top, -15)
+                        .frame(width: widthValue)  // Text의 물리적 길이가 저장된 widthValue를 받아서 프레임 사이즈 결정
                 }
 
                 VStack {
@@ -55,7 +56,10 @@ struct OnBoardingSegmentView: View {
                         .foregroundColor(Color(hex: "FFFFFF"))
                         .frame(height: 2)
                         .padding(.top, -15)
+                        .frame(width: widthValue)
                 }
+
+                Spacer()  // leading 포지션으로 정렬하기 위한 스페이서
             }
         }
     }
