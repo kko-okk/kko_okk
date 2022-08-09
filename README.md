@@ -57,4 +57,4 @@ Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 
 ## Presentation Script
 - [국문 발표 스크립트](https://apple-developer-academy-mc2.notion.site/Flow-221817fa15ff4bd19204b03091c42351)
-- [영문 발표 스크립트](https://apple-developer-academy-mc2.notion.site/Flow-4f4f02932a80470587ac6162f10dd416)
+- [English Script](https://apple-developer-academy-mc2.notion.site/Flow-4f4f02932a80470587ac6162f10dd416)
