@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5e56b1b-39a3-4247-bd22-3e2733b16d86" name="Changes" comment="FIx: 프로젝트 파일 및 .git 파일 오류 정정&#10;&#10;### Motivation&#10;- 빌드 실패로 프로젝트 파일 및 .git 파일 변경 추적 설정 업데이트 필요&#10;&#10;### Key Changes&#10;- 디렉토리 구조 업데이트&#10;- .git 파일 변경 추적 설정 업데이트&#10;- 필요 없는 파일 삭제&#10;&#10;### To Reviewers&#10;- 일단 빌드는 되는 상태입니다. 최신화 이후 타 기기에서도 빌드되는지 확인이 필요합니다.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk/Views/MainView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/MainView.swift" afterDir="false" />
+    <list default="true" id="a5e56b1b-39a3-4247-bd22-3e2733b16d86" name="Changes" comment="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료">
       <change beforePath="$PROJECT_DIR$/kko_okk/en.lproj/Localizable.strings" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/en.lproj/Localizable.strings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk/ko.lproj/Localizable.strings" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/ko.lproj/Localizable.strings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +90,7 @@
       <workItem from="1660649058678" duration="20000" />
       <workItem from="1660649116130" duration="28000" />
       <workItem from="1660649147238" duration="1551000" />
-      <workItem from="1660654197229" duration="756000" />
+      <workItem from="1660654197229" duration="1459000" />
     </task>
     <task id="LOCAL-00001" summary="README.md 파일 수정했습니다.">
       <created>1655540054214</created>
@@ -117,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660650573868</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료">
+      <created>1660655032002</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660655032002</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +153,7 @@
     <MESSAGE value="README.md 파일 수정했습니다." />
     <MESSAGE value="팀원 깃헙 링크 추가" />
     <MESSAGE value="FIx: 프로젝트 파일 및 .git 파일 오류 정정&#10;&#10;### Motivation&#10;- 빌드 실패로 프로젝트 파일 및 .git 파일 변경 추적 설정 업데이트 필요&#10;&#10;### Key Changes&#10;- 디렉토리 구조 업데이트&#10;- .git 파일 변경 추적 설정 업데이트&#10;- 필요 없는 파일 삭제&#10;&#10;### To Reviewers&#10;- 일단 빌드는 되는 상태입니다. 최신화 이후 타 기기에서도 빌드되는지 확인이 필요합니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="FIx: 프로젝트 파일 및 .git 파일 오류 정정&#10;&#10;### Motivation&#10;- 빌드 실패로 프로젝트 파일 및 .git 파일 변경 추적 설정 업데이트 필요&#10;&#10;### Key Changes&#10;- 디렉토리 구조 업데이트&#10;- .git 파일 변경 추적 설정 업데이트&#10;- 필요 없는 파일 삭제&#10;&#10;### To Reviewers&#10;- 일단 빌드는 되는 상태입니다. 최신화 이후 타 기기에서도 빌드되는지 확인이 필요합니다." />
+    <MESSAGE value="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료" />
   </component>
 </project>
