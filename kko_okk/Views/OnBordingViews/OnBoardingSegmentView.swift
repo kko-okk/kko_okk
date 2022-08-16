@@ -66,9 +66,9 @@ struct OnBoardingSegmentView: View {
 }
 
 
-struct OnBoardingSegmentView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingSegmentView()
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct OnBoardingSegmentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnBoardingSegmentView()
+//            .previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}

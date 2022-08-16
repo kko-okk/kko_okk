@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var isShowingSettingView = false
-    
+
     var body: some View {
         if isShowingSettingView {
             SettingView(isShowingSettingView: $isShowingSettingView)

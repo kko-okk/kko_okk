@@ -84,4 +84,3 @@ struct OnBoardingButton: View {
         return result
     }
 }
-
