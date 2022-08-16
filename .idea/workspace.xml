@@ -2,32 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5e56b1b-39a3-4247-bd22-3e2733b16d86" name="Changes" comment="팀원 깃헙 링크 추가">
-      <change afterPath="$PROJECT_DIR$/.idea/mc2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22,_9_11_AM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22__9_11_AM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/childFingerprint.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/childFingerprint.imageset/childFingerprint.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/parentFingerprint.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/parentFingerprint.imageset/parentFingerprint.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kko_okk.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mc2.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/xcode.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22,_9_11_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22__9_11_AM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ChildWishView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ChildWishView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ParentWishView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ParentWishView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/Buttons/OnBoardingButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/Buttons/OnBoardingButtonsViewModifier.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/Buttons/OnBoardingChildButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/Buttons/OnBoardingContractButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/Buttons/OnBoardingParentButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/OnBoardingButtons/OnBoardingButton.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/OnBoardingButtons/OnBoardingButton.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/OnBoardingButtons/OnBoardingChildButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/OnBoardingButtons/OnBoardingContractButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/OnBoardingButtons/OnBoardingParentButton.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/OnBoardingSegmentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/OnBordingViews/OnBoardingSegmentView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_00008103-0015391221D1001E" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="updateReadMe" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,9 +55,26 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/raymondkim/Library/CloudStorage/OneDrive-Personal/development/ADA/kko_okk/kko_okk.xcodeproj&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="kko_okk" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kko_okk" TARGET_NAME="kko_okk" CONFIG_NAME="Debug" SCHEME_NAME="kko_okk" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" RUN_TARGET_PROJECT_NAME="kko_okk" RUN_TARGET_NAME="kko_okk" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,6 +91,9 @@
       <workItem from="1655538550626" duration="1813000" />
       <workItem from="1655543023514" duration="1637000" />
       <workItem from="1655611737696" duration="1573000" />
+      <workItem from="1660649058678" duration="20000" />
+      <workItem from="1660649116130" duration="28000" />
+      <workItem from="1660649147238" duration="673000" />
     </task>
     <task id="LOCAL-00001" summary="README.md 파일 수정했습니다.">
       <created>1655540054214</created>
