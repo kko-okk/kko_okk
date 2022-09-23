@@ -75,11 +75,15 @@ struct FilteredList: View {
                             .frame(width: 30, height: 30)
                     }
                 }
+                //Ruyha 팝업이 뜨는부분
+                
                 .popover(isPresented: $isShowingPopover) {
                     nowSubject == "parent" ?
                     AddPromisePopover(subject: .parent, isPresented: $isShowingPopover) :
                     AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
                 }
+                
+                
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, 15)

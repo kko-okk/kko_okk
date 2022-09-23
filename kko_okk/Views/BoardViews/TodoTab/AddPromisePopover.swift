@@ -79,9 +79,10 @@ struct AddPromisePopover: View {
 //                .padding(.top, popoverAssets.popoverVerticalPadding)
             Spacer()
         }
-        .frame(width: popoverAssets.popoverFullWidth,
-               height: popoverAssets.popoverFullHeight)
-        .padding(.top, 25)
+//        .frame(width: popoverAssets.popoverFullWidth,
+//               height: popoverAssets.popoverFullHeight)
+//        .padding(.top, 25)
+        .padding()
         .background(Color.Kkookk.backgroundGray)
     }
 }
