@@ -105,8 +105,8 @@
 "ButtonForContractAlertMessage" = "You're gonna long-press the same ones :)";
 
 // MARK: PromisePopover (Add, Edit 공통 사용)
-"PromisePopoverParents" = "Parents'\nwishes";
-"PromisePopoverChildren" = "Child's\nwishes";
+"PromisePopoverParents" = "Parents' wishes";
+"PromisePopoverChildren" = "Child's wishes";
 
 // MARK: FilteredList
 "FilteredListParents" = "Parents' wishes";

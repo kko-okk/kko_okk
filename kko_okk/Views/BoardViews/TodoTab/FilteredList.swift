@@ -77,17 +77,9 @@ struct FilteredList: View {
                 }
                 //Ruyha 팝업이 뜨는부분
                 .sheet(isPresented: $isShowingPopover) {
-                    if  nowSubject == "parent"{
-                        AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
-                            .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight * 0.8)
-                            .cornerRadius(8)
-                            .clearModalBackground()
-                    }else{
-                        AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
-                            .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight * 0.8)
-                            .cornerRadius(8)
-                            .clearModalBackground()
-                    }
+                    nowSubject == "parent" ?
+                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover) :
+                    AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
                 }
             }
             .padding([.leading, .trailing], 10)

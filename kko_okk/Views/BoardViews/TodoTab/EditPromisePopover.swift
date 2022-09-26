@@ -94,10 +94,15 @@ struct EditPromisePopover: View {
             isRepeating[5] = promise.isRepeatedOnSaturday
             isRepeating[6] = promise.isRepeatedOnSunday
         }
-        .frame(width: popoverAssets.popoverFullWidth,
-               height: popoverAssets.popoverFullHeight)
-        .padding(.top, 25)
+        .padding()
         .background(Color.Kkookk.backgroundGray)
+        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight * 0.8)
+        .cornerRadius(8)
+        .clearModalBackground()
+//        .frame(width: popoverAssets.popoverFullWidth,
+//               height: popoverAssets.popoverFullHeight)
+//        .padding(.top, 25)
+//        .background(Color.Kkookk.backgroundGray)
     }
 }
 

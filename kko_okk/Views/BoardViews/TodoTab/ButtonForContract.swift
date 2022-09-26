@@ -312,7 +312,7 @@ struct ButtonForContract: View {
                                     .frame(width: 40, height: 40)
                                     .padding(.top, 8)
                             }
-                            .popover(isPresented: $isShowingPopover) {
+                            .sheet(isPresented: $isShowingPopover) {
                                 EditPromisePopover(
                                     subject: subject, promise: contract, isPresented: $isShowingPopover
                                 )
