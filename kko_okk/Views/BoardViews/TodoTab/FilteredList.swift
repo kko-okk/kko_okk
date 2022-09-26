@@ -11,7 +11,7 @@ import SwiftUI
 struct FilteredList: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-    
+    let popoverAssets = PopoverAssets()
     // CoreData에 저장된 Promise 값 불러오기
     @FetchRequest(sortDescriptors: [], animation: .default)  // 리스트 추가시 정렬 조건이 추가되는 부분: sortDescriptors: []
     private var fetchRequest: FetchedResults<Promise>
@@ -45,16 +45,16 @@ struct FilteredList: View {
                     Text("FilteredListWeAre".localized).font(.Kkookk.tableTitle)
                         .padding(.leading, 10)
                 }
-
+                
                 Circle()
                     .fill(Color.Kkookk.countBadgeGray)
                     .frame(width: 22, height: 22)
                     .overlay(Text("\(fetchRequest.count)")
                         .font(.Kkookk.tableCountBadge))
                     .padding(.leading, 30)
-
+                
                 Spacer()
-
+                
                 Button {
                     isShowingPopover.toggle()
                 } label: {
@@ -69,7 +69,7 @@ struct FilteredList: View {
                                 .resizable()
                                 .frame(width: 26, height: 30)
                         } else {}
-
+                        
                         Image(systemName: "plus")
                             .foregroundColor(Color.Kkookk.commonWhite)
                             .frame(width: 30, height: 30)
@@ -77,16 +77,24 @@ struct FilteredList: View {
                 }
                 //Ruyha 팝업이 뜨는부분
                 .sheet(isPresented: $isShowingPopover) {
-                    nowSubject == "parent" ?
-                    AddPromisePopover(subject: .parent, isPresented: $isShowingPopover) :
-                    AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
+                    if  nowSubject == "parent"{
+                        AddPromisePopover(subject: .parent, isPresented: $isShowingPopover)
+                            .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight * 0.8)
+                            .cornerRadius(8)
+                            .clearModalBackground()
+                    }else{
+                        AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
+                            .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight * 0.8)
+                            .cornerRadius(8)
+                            .clearModalBackground()
+                    }
                 }
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, 15)
-
+            
             Divider()
-
+            
             ScrollView {
                 VStack {
                     ForEach(fetchRequest) { item in
@@ -97,7 +105,7 @@ struct FilteredList: View {
             }
         }
     }
-
+    
     init(filter: String, formatter: String, startDate: Date) {
         _fetchRequest = FetchRequest<Promise>(
             sortDescriptors: [SortDescriptor(\.isDone, order: .forward),
@@ -111,12 +119,12 @@ struct FilteredList: View {
         )
         nowSubject = filter
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         print(offsets)
         withAnimation {
             offsets.map { fetchRequest[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
