@@ -20,7 +20,6 @@ struct EditRepeatingDaysOfPromiseView: View {
     // 날짜가 선택되었을 때 버튼의 색을 결정하기 위해 subject 값을 받아오기
     var subject: Subject
     
-    //
     let popoverAssets = PopoverAssets()
     
     var body: some View {
