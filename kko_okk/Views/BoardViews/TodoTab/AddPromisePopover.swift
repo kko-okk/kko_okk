@@ -79,7 +79,7 @@ struct AddPromisePopover: View {
         }
         .padding()
         .background(Color.Kkookk.backgroundGray)
-        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight * 0.8)
+        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight)
         .cornerRadius(8)
         .clearModalBackground()
         //.clearModalBackground() 시트 크기 조절을 위한 것

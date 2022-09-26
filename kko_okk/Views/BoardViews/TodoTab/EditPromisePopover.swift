@@ -96,7 +96,7 @@ struct EditPromisePopover: View {
         }
         .padding()
         .background(Color.Kkookk.backgroundGray)
-        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight * 0.8)
+        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight)
         .cornerRadius(8)
         .clearModalBackground()
 //        .frame(width: popoverAssets.popoverFullWidth,

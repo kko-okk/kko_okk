@@ -10,7 +10,7 @@ import Foundation
 class PopoverAssets {
     
     let popoverFullWidth = KkookkSize.fullWidth * (677 / 1366)
-    let popoverFullHeight = KkookkSize.fullHeight * (485 / 1024)
+    let popoverFullHeight = KkookkSize.fullHeight * (485 / 1024) * 0.8
     
     let popoverEditingBoxWidth = KkookkSize.fullWidth * (632 / 1366)
     let popoverEditingBoxHeight = KkookkSize.fullHeight * (160 / 1024)

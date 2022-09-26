@@ -29,7 +29,7 @@ struct EditContentsOfPromiseView: View {
             HStack {
                 Text("EditPromiseTitle".localized)
                     .font(Font.Kkookk.popoverTitle)
-                    .padding(.horizontal, popoverAssets.popoverHorizontalTrailingPadding)
+                    .padding(.horizontal)
                 Spacer()
             }
             

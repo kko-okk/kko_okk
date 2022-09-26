@@ -29,7 +29,7 @@ struct EditRepeatingDaysOfPromiseView: View {
             HStack {
                 Text("Repeat".localized)
                     .font(Font.Kkookk.popoverTitle)
-                    .padding(.horizontal, popoverAssets.popoverHorizontalTrailingPadding)
+                    .padding(.horizontal)
                 Spacer()
             }
             
