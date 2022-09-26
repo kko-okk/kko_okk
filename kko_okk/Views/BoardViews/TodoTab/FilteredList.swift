@@ -84,15 +84,15 @@ struct FilteredList: View {
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, 15)
-            
+            //여기까지
             Divider()
             
             ScrollView {
                 VStack {
                     ForEach(fetchRequest) { item in
                         ButtonForContract(contract: item, nowSubject: nowSubject)
+                            .padding(25)
                     }
-                    Spacer()
                 }
             }
         }
