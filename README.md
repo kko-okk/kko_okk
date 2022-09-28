@@ -2,7 +2,7 @@
 Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 
 # 개발자 연락처 
-Call :  82+ 010-6420-7679
+Call :  82+ 010-6420-7679    
 e-mail : kkookkreport@gmail.com
 <br>
 
