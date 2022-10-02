@@ -11,15 +11,15 @@ import SwiftUI
 struct ButtonForContract: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     // 약속, Subject(아이 또는 부모) 받아오기
     @ObservedObject var contract: Promise
-
+    
     // Popover 띄우고 닫을 용도
     @State private var isShowingPopover: Bool = false
     
     @State private var showingAlert = false
-
+    
     var nowSubject: String
     var subject: Subject {
         switch nowSubject {
@@ -31,21 +31,21 @@ struct ButtonForContract: View {
             return .parent
         }
     }
-
+    
     // TODO: - 부모와 자식의 Promise Gesture 싱크를 맞추기 위한 타이머 (PromisePair 유효 시간)
-     let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
-
+    let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+    
     // MARK: - isDone Gesture Properties
     @GestureState var isDetectingLongPress = false
     @State var completedLongPress = false
     @GestureState var isDetachingParentCheck = false
     @GestureState var isDetachingChildCheck = false
-
+    
     // MARK: - isDone으로 바꾸기 전, 부모가 약속 이행을 확인하는 Gesture
     var parentCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingParentCheck) { currentState, gestureState,
-                    transaction in
+                transaction in
                 print("parent tapped")
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
@@ -73,12 +73,12 @@ struct ButtonForContract: View {
             }
         return longPressGuesture
     }
-
+    
     // MARK: - isDone으로 바꾸기 전, 자식이 약속 이행을 확인하는 Gesture
     var childCheckGesture: some Gesture {
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
             .updating($isDetachingChildCheck) { currentState, gestureState,
-                    transaction in
+                transaction in
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
@@ -105,55 +105,55 @@ struct ButtonForContract: View {
             }
         return longPressGuesture
     }
-
+    
     // MARK: - promised 상태로 전환하기 위한 부모, 자식 공통 Gesture
     var commonPromiseGesture: some Gesture {
+        
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
-                // Updating: 애니메이션 적용 -> 근데 onGesture때문에 이 부분 실행 안됨
-                .updating($isDetectingLongPress) { currentState, gestureState,
-                                                   transaction in
-                    gestureState = currentState
-                    transaction.animation = Animation.easeIn(duration: 0.3)
+        // Updating: 애니메이션 적용 -> 근데 onGesture때문에 이 부분 실행 안됨
+            .updating($isDetectingLongPress) { currentState, gestureState,
+                transaction in
+                gestureState = currentState
+                transaction.animation = Animation.easeIn(duration: 0.3)
+            }
+        // Ended: 여기서 매칭 확인
+            .onEnded { _ in
+                //                    Animation.easeIn(duration: 0.3)
+                // id와 subject 확인
+                guard let id = contract.id else {
+                    print("id 없음")
+                    return
                 }
-                // Ended: 여기서 매칭 확인
-                .onEnded { _ in
-
-                    // id와 subject 확인
-                    guard let id = contract.id else {
-                        print("id 없음")
-                        return
-                    }
-                    promisePair.appendIDPair(id)
-                    promisePair.appendSubject(nowSubject)
-
-                    print(promisePair.promiseIDPair)
-                    print(promisePair.promiseSubjectPair)
-
-                    // 2개일 때 비교, 상태 변화, 리셋
-                    if promisePair.promiseIDPair.count == 2 {
-                        if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
-                            print(promisePair.getId(0) == promisePair.getId(1))
-                            contract.promised = true
-
-//                            CoreData 업데이트
-                            do {
-                                try viewContext.save()
-                            } catch {
-                                let nsError = error as NSError
-                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                            }
-                            
-                        } else {
-                                self.showingAlert.toggle()
+                promisePair.appendIDPair(id)
+                promisePair.appendSubject(nowSubject)
+                
+                print(promisePair.promiseIDPair)
+                print(promisePair.promiseSubjectPair)
+                
+                // 2개일 때 비교, 상태 변화, 리셋
+                if promisePair.promiseIDPair.count == 2 {
+                    if promisePair.getId(0) == promisePair.getId(1) && promisePair.getSubject(0) != promisePair.getSubject(1) {
+                        print(promisePair.getId(0) == promisePair.getId(1))
+                        contract.promised = true
+                        //                            CoreData 업데이트
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                         }
-                        // reset
-                        promisePair.resetIDPair()
-                        promisePair.resetSubjectPair()
+                        
+                    } else {
+                        self.showingAlert.toggle()
                     }
+                    // reset
+                    promisePair.resetIDPair()
+                    promisePair.resetSubjectPair()
                 }
+            }
         return longPressGuesture
     }
-
+    
     // MARK: - Cell(Button 기능) UI
     var body: some View {
         // Stack을 버튼으로 사용하기 위한 UI
@@ -170,7 +170,7 @@ struct ButtonForContract: View {
                                     contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.Kkookk.commonWhite
                                 )
                                 .lineLimit(1)
-                                .padding([.leading, .trailing], 20.0)  // padding 배열 처리
+                                .padding([.leading, .trailing], 200.0)  // padding 배열 처리
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         .frame(minHeight: 100)
@@ -184,10 +184,9 @@ struct ButtonForContract: View {
                                     )
                                     .lineLimit(1)
                                     .padding([.top, .leading, .trailing], 20.0)  // padding 배열 처리
-                                    .padding(.bottom, 5)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
-
+                            
                             // contract의 memo(하단 자세한 내용)
                             // CoreData의 memo 항목에 값이 있을 때만 표시한다.
                             // Thanks, Guell!
@@ -199,7 +198,6 @@ struct ButtonForContract: View {
                                         .lineLimit(3)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding([.leading, .bottom], 20)  // padding 배열 처리
-                                        .padding(.trailing, 30)
                                         .padding(.top, 5)
                                 }
                             }
@@ -207,76 +205,73 @@ struct ButtonForContract: View {
                         .frame(minHeight: 100)
                     }
                 }
-
+                
                 // promised List에서 check 버튼활성화
                 if contract.promised {
                     VStack{
                         Spacer()
-                            ZStack{
-                                Circle()
-                                    .fill(self.isDetachingParentCheck ?
-                                        .yellow : Color.Kkookk.commonWhite)
-                                    .frame(width: 35, height: 35, alignment: .center)
-                                    .gesture(parentCheckGesture)
-
-                                // 부모 check
-                                Path { path in
-                                    path.addLines([CGPoint(x: 2, y: 2),
-                                                   CGPoint(x: 9, y: 11),
-                                                   CGPoint(x: 20, y: -5)])
-                                     
-                                }
-                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(contract.parentCheck ? 1 : 0))
-                                .stroke(style: StrokeStyle(lineWidth: 3.5,
-                                                           lineCap: .round,
-                                                           lineJoin: .round))
-                                .offset(x: 6, y: 15)
-                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: contract.parentCheck ? 1 : 0)
-                                .foregroundColor(Color.Kkookk.parentPurple)
-
-                            }.padding(.bottom, 7)
-
-                            ZStack{
-                                Circle()
-                                    .fill(self.isDetachingChildCheck ?
-                                        .yellow : Color.Kkookk.commonWhite)
-                                    .frame(width: 35, height: 35, alignment: .center)
-                                    .gesture(childCheckGesture)
-
-                                // 자식 check
-                                Path { path in
-                                    path.addLines([CGPoint(x: 2, y: 2),
-                                                   CGPoint(x: 9, y: 11),
-                                                   CGPoint(x: 20, y: -5)])
-                                }
-                                .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(contract.childCheck ? 1 : 0))
-                                .stroke(style: StrokeStyle(lineWidth: 3.5,
-                                                           lineCap: .round,
-                                                           lineJoin: .round))
-                                .offset(x: 6, y: 15)
-                                .animation(Animation.easeInOut(duration: 0.3).delay(0), value: contract.childCheck ? 1 : 0)
-                                .foregroundColor(Color.Kkookk.childGreen)
+                        ZStack{
+                            Circle()
+                                .fill(self.isDetachingParentCheck ?
+                                    .yellow : Color.Kkookk.commonWhite)
+                                .frame(width: 35, height: 35, alignment: .center)
+                                .gesture(parentCheckGesture)
+                            
+                            // 부모 check
+                            Path { path in
+                                path.addLines([CGPoint(x: 2, y: 2),
+                                               CGPoint(x: 9, y: 11),
+                                               CGPoint(x: 20, y: -5)])
+                                
                             }
+                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(contract.parentCheck ? 1 : 0))
+                            .stroke(style: StrokeStyle(lineWidth: 3.5,
+                                                       lineCap: .round,
+                                                       lineJoin: .round))
+                            .offset(x: 6, y: 15)
+                            .animation(Animation.easeInOut(duration: 0.3).delay(0), value: contract.parentCheck ? 1 : 0)
+                            .foregroundColor(Color.Kkookk.parentPurple)
+                            
+                        }.padding(.bottom, 7)
+                        
+                        ZStack{
+                            Circle()
+                                .fill(self.isDetachingChildCheck ?
+                                    .yellow : Color.Kkookk.commonWhite)
+                                .frame(width: 35, height: 35, alignment: .center)
+                                .gesture(childCheckGesture)
+                            
+                            // 자식 check
+                            Path { path in
+                                path.addLines([CGPoint(x: 2, y: 2),
+                                               CGPoint(x: 9, y: 11),
+                                               CGPoint(x: 20, y: -5)])
+                            }
+                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(contract.childCheck ? 1 : 0))
+                            .stroke(style: StrokeStyle(lineWidth: 3.5,
+                                                       lineCap: .round,
+                                                       lineJoin: .round))
+                            .offset(x: 6, y: 15)
+                            .animation(Animation.easeInOut(duration: 0.3).delay(0), value: contract.childCheck ? 1 : 0)
+                            .foregroundColor(Color.Kkookk.childGreen)
+                        }
                         Spacer()
                     }
                     .frame(width: 35,height: 75)
                     .padding(.trailing, 15)
                 }
             }
-
+            
             // MARK: - Gesture Stack
             ZStack {
                 if !contract.promised {
+                    
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
                               Color.yellow :
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
-                        // 스크롤뷰 제스처와 셀 제스쳐의 겹치는 현상 막기 위한 제스처 추가
-                        // TODO : - onTapGesture 추가시 longpressgesture의 updating이 안되는 문제 해결
-//                        .onTapGesture{
-//                            print("scrollview touched")
-//                        }
                         .gesture(commonPromiseGesture)
+                    //여기여기
                         .onReceive(timer) { _ in
                             promisePair.resetIDPair()
                             promisePair.resetSubjectPair()
@@ -288,7 +283,8 @@ struct ButtonForContract: View {
                                 dismissButton: .default(Text("OK".localized)))
                         }
                 }
-                // MARK: - 수정, 삭제 Popover
+                
+// MARK: - 수정, 삭제 Popover
                 HStack{
                     Spacer()
                     if !contract.promised {
@@ -312,22 +308,24 @@ struct ButtonForContract: View {
                                     .frame(width: 40, height: 40)
                                     .padding(.top, 8)
                             }
-                            .popover(isPresented: $isShowingPopover) {
+                            .sheet(isPresented: $isShowingPopover) {
                                 EditPromisePopover(
                                     subject: subject, promise: contract, isPresented: $isShowingPopover
                                 )
                             }
                             Spacer()
+                            // 수정버튼 공백
                         }
                     }
                 }
             }
+            
         }
         .background(backGroundColor(for: self.contract, now: self.nowSubject))
         .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
-        .padding([.leading, .trailing], 14)
+        //        .padding([.leading, .trailing], 14)
     }
-
+    
     // 버튼 색을 반환하는 함수
     private func backGroundColor(for contract: Promise, now nowList: String) -> Color {
         // parameter: contract: Promise(Promise 인스턴스), nowList: String (String 타입, 현재 뷰에서 그리는 리스트)
@@ -347,7 +345,7 @@ struct ButtonForContract: View {
         }
         return result
     }
-
+    
     private func deletePromise(promise: Promise) {
         withAnimation {
             viewContext.delete(promise)

@@ -74,9 +74,9 @@ struct EditPromisePopover: View {
             EditContentsOfPromiseView(name: $name, memo: $memo)
                 .padding(.top, popoverAssets.popoverVerticalPadding)
             
-            // 반복 날짜 선택 버튼
-            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
-                .padding(.top, popoverAssets.popoverVerticalPadding)
+            //TODO: 동작이 구현되지 않아 주석 처리함 반복 날짜 선택 버튼
+//            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
+//                .padding(.top, popoverAssets.popoverVerticalPadding)
             
             Spacer()
         }
@@ -94,10 +94,15 @@ struct EditPromisePopover: View {
             isRepeating[5] = promise.isRepeatedOnSaturday
             isRepeating[6] = promise.isRepeatedOnSunday
         }
-        .frame(width: popoverAssets.popoverFullWidth,
-               height: popoverAssets.popoverFullHeight)
-        .padding(.top, 25)
+        .padding()
         .background(Color.Kkookk.backgroundGray)
+        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight)
+        .cornerRadius(8)
+        .clearModalBackground()
+//        .frame(width: popoverAssets.popoverFullWidth,
+//               height: popoverAssets.popoverFullHeight)
+//        .padding(.top, 25)
+//        .background(Color.Kkookk.backgroundGray)
     }
 }
 

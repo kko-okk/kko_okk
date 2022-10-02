@@ -74,16 +74,15 @@ struct AddPromisePopover: View {
             EditContentsOfPromiseView(name: $name, memo: $memo)
                 .padding(.top, popoverAssets.popoverVerticalPadding)
 
-            // 반복 날짜 선택 버튼
-            EditRepeatingDaysOfPromiseView(isRepeating: $isRepeating, subject: subject)
-                .padding(.top, popoverAssets.popoverVerticalPadding)
-
+            //TODO: 동작이 구현되지 않아 주석 처리함 반복 날짜 선택 버튼
             Spacer()
         }
-        .frame(width: popoverAssets.popoverFullWidth,
-               height: popoverAssets.popoverFullHeight)
-        .padding(.top, 25)
+        .padding()
         .background(Color.Kkookk.backgroundGray)
+        .frame(width: popoverAssets.popoverFullWidth, height: popoverAssets.popoverFullHeight)
+        .cornerRadius(8)
+        .clearModalBackground()
+        //.clearModalBackground() 시트 크기 조절을 위한 것
     }
 }
 
