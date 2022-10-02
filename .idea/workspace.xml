@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5e56b1b-39a3-4247-bd22-3e2733b16d86" name="Changes" comment="팀원 깃헙 링크 추가">
-      <change afterPath="$PROJECT_DIR$/.idea/mc2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22,_9_11_AM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_22__9_11_AM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/childFingerprint.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/childFingerprint.imageset/childFingerprint.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/parentFingerprint.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kko_okk/Models/Resources/Assets.xcassets/parentFingerprint.imageset/parentFingerprint.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kko_okk.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/xcode.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ChildWishView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ChildWishView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ParentWishView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/Views/BoardViews/TodoTab/ParentWishView.swift" afterDir="false" />
+    <list default="true" id="a5e56b1b-39a3-4247-bd22-3e2733b16d86" name="Changes" comment="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료">
+      <change beforePath="$PROJECT_DIR$/kko_okk/en.lproj/Localizable.strings" beforeDir="false" afterPath="$PROJECT_DIR$/kko_okk/en.lproj/Localizable.strings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_00008103-0015391221D1001E" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="updateReadMe" />
+        <entry key="$PROJECT_DIR$" value="Develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+        <option value="develop" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,9 +47,30 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/raymondkim/Library/CloudStorage/OneDrive-Personal/development/ADA/kko_okk/kko_okk.xcodeproj&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kko_okk" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kko_okk" TARGET_NAME="kko_okk" CONFIG_NAME="Debug" SCHEME_NAME="kko_okk" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" RUN_TARGET_PROJECT_NAME="kko_okk" RUN_TARGET_NAME="kko_okk" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,6 +87,10 @@
       <workItem from="1655538550626" duration="1813000" />
       <workItem from="1655543023514" duration="1637000" />
       <workItem from="1655611737696" duration="1573000" />
+      <workItem from="1660649058678" duration="20000" />
+      <workItem from="1660649116130" duration="28000" />
+      <workItem from="1660649147238" duration="1551000" />
+      <workItem from="1660654197229" duration="1459000" />
     </task>
     <task id="LOCAL-00001" summary="README.md 파일 수정했습니다.">
       <created>1655540054214</created>
@@ -87,7 +106,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655543264433</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="FIx: 프로젝트 파일 및 .git 파일 오류 정정&#10;&#10;### Motivation&#10;- 빌드 실패로 프로젝트 파일 및 .git 파일 변경 추적 설정 업데이트 필요&#10;&#10;### Key Changes&#10;- 디렉토리 구조 업데이트&#10;- .git 파일 변경 추적 설정 업데이트&#10;- 필요 없는 파일 삭제&#10;&#10;### To Reviewers&#10;- 일단 빌드는 되는 상태입니다. 최신화 이후 타 기기에서도 빌드되는지 확인이 필요합니다.">
+      <created>1660650573868</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660650573868</updated>
+    </task>
+    <task id="LOCAL-00004" summary="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료">
+      <created>1660655032002</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660655032002</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,7 +137,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="addFingerprint" />
+                        <option value="Develop" />
                       </list>
                     </value>
                   </entry>
@@ -119,6 +152,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="README.md 파일 수정했습니다." />
     <MESSAGE value="팀원 깃헙 링크 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="팀원 깃헙 링크 추가" />
+    <MESSAGE value="FIx: 프로젝트 파일 및 .git 파일 오류 정정&#10;&#10;### Motivation&#10;- 빌드 실패로 프로젝트 파일 및 .git 파일 변경 추적 설정 업데이트 필요&#10;&#10;### Key Changes&#10;- 디렉토리 구조 업데이트&#10;- .git 파일 변경 추적 설정 업데이트&#10;- 필요 없는 파일 삭제&#10;&#10;### To Reviewers&#10;- 일단 빌드는 되는 상태입니다. 최신화 이후 타 기기에서도 빌드되는지 확인이 필요합니다." />
+    <MESSAGE value="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIx: 추가 빌드 관련 오류 정정&#10;&#10;### Motivation&#10;- 작업 중 날아간 부분 복구&#10;&#10;### Key Changes&#10;- 작업내용 추적 및 복구(feat.류하)&#10;&#10;### To Reviewers&#10;- 최산화 + 한/영 빌드 확인 완료" />
   </component>
 </project>

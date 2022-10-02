@@ -11,7 +11,7 @@ import SwiftUI
 struct FilteredList: View {
     // CoreData 사용을 위해 viewContext 받아오기
     @Environment(\.managedObjectContext) private var viewContext
-    
+    let popoverAssets = PopoverAssets()
     // CoreData에 저장된 Promise 값 불러오기
     @FetchRequest(sortDescriptors: [], animation: .default)  // 리스트 추가시 정렬 조건이 추가되는 부분: sortDescriptors: []
     private var fetchRequest: FetchedResults<Promise>
@@ -52,7 +52,9 @@ struct FilteredList: View {
                     .overlay(Text("\(fetchRequest.count)")
                         .font(.Kkookk.tableCountBadge))
                     .padding(.leading, 30)
+                
                 Spacer()
+                
                 Button {
                     isShowingPopover.toggle()
                 } label: {
@@ -72,9 +74,9 @@ struct FilteredList: View {
                             .foregroundColor(Color.Kkookk.commonWhite)
                             .frame(width: 30, height: 30)
                     }
-                    
                 }
-                .popover(isPresented: $isShowingPopover) {
+                //Ruyha 팝업이 뜨는부분
+                .sheet(isPresented: $isShowingPopover) {
                     nowSubject == "parent" ?
                     AddPromisePopover(subject: .parent, isPresented: $isShowingPopover) :
                     AddPromisePopover(subject: .child, isPresented: $isShowingPopover)
@@ -82,30 +84,31 @@ struct FilteredList: View {
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, 15)
-            
+            //여기까지
             Divider()
             
-            //            Spacer()
-            //                .frame(height: 23)
-            //
-            //            Spacer()
             ScrollView {
                 VStack {
                     ForEach(fetchRequest) { item in
                         ButtonForContract(contract: item, nowSubject: nowSubject)
+                            .padding(25)
                     }
-                    Spacer()
                 }
             }
         }
     }
     
     init(filter: String, formatter: String, startDate: Date) {
-        _fetchRequest = FetchRequest<Promise>(sortDescriptors: [SortDescriptor(\.isDone, order: .forward), SortDescriptor(\.madeTime, order: .forward)],
-                                              predicate: NSPredicate(format: formatter,
-                                                                     Calendar.current.startOfDay(for: startDate) as CVarArg,
-                                                                     Calendar.current.startOfDay(for: startDate).dayAfter as CVarArg),
-                                              animation: .default)
+        _fetchRequest = FetchRequest<Promise>(
+            sortDescriptors: [SortDescriptor(\.isDone, order: .forward),
+                              SortDescriptor(\.madeTime, order: .forward)],
+            predicate: NSPredicate(
+                format: formatter,
+                Calendar.current.startOfDay(for: startDate) as CVarArg,
+                Calendar.current.startOfDay(for: startDate).dayAfter as CVarArg
+            ),
+            animation: .default
+        )
         nowSubject = filter
     }
     
@@ -123,11 +126,3 @@ struct FilteredList: View {
         }
     }
 }
-
-//struct FilteredList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FilteredList(filter: "parent", formatter: "subject == 'parent'")
-//            .previewInterfaceOrientation(.landscapeLeft)
-//            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
-//    }
-//}

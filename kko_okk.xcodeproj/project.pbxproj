@@ -27,10 +27,10 @@
 		2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB172854719F00339B23 /* OnBoardingSecond.swift */; };
 		2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB19285471A800339B23 /* OnBoardingThird.swift */; };
 		2261FB1C285471B100339B23 /* OnBoardingForth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261FB1B285471B100339B23 /* OnBoardingForth.swift */; };
-		22E218512858D921003A2864 /* OnBoardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E218502858D921003A2864 /* OnBoardingButton.swift */; };
 		22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */; };
 		22E9001F2848EE45000A82BE /* Promise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */; };
 		22E9005E2849D677000A82BE /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9005D2849D677000A82BE /* FilteredList.swift */; };
+		7037891028E1317900576534 /* ClearBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037890F28E1317900576534 /* ClearBackgroundView.swift */; };
 		7054CA7E286CAA3200574927 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7054CA80286CAA3200574927 /* Localizable.strings */; };
 		7054CA83286CAB4300574927 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7054CA82286CAB4300574927 /* Extensions.swift */; };
 		708070CD285FB4D200930ED2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708070CC285FB4D200930ED2 /* WebView.swift */; };
@@ -41,6 +41,13 @@
 		70DAECB52849E0F5009AAB79 /* HeaderViewConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */; };
 		70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAECBA284C8327009AAB79 /* DatePickerView.swift */; };
 		70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F675B7285B2E7800F86719 /* checkPromiseView.swift */; };
+		94EE25E128ABB890003FE23D /* OnBoardingButtonsViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25D928ABB890003FE23D /* OnBoardingButtonsViewModifier.swift */; };
+		94EE25E228ABB890003FE23D /* OnBoardingChildButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25DA28ABB890003FE23D /* OnBoardingChildButtonView.swift */; };
+		94EE25E328ABB890003FE23D /* OnBoardingContractButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25DB28ABB890003FE23D /* OnBoardingContractButtonView.swift */; };
+		94EE25E428ABB890003FE23D /* OnBoardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25DC28ABB890003FE23D /* OnBoardingButton.swift */; };
+		94EE25E828ABB890003FE23D /* OnBoardingParentButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25E028ABB890003FE23D /* OnBoardingParentButtonView.swift */; };
+		94EE25EB28ABB936003FE23D /* OnBoardingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25E928ABB936003FE23D /* OnBoardingMainView.swift */; };
+		94EE25EC28ABB936003FE23D /* OnBoardingSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25EA28ABB936003FE23D /* OnBoardingSegmentView.swift */; };
 		9D55B4052846289000AFD9C5 /* kko_okkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4042846289000AFD9C5 /* kko_okkApp.swift */; };
 		9D55B4072846289000AFD9C5 /* BugMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55B4062846289000AFD9C5 /* BugMailView.swift */; };
 		9D55B4092846289100AFD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D55B4082846289100AFD9C5 /* Assets.xcassets */; };
@@ -144,10 +151,10 @@
 		2261FB172854719F00339B23 /* OnBoardingSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSecond.swift; sourceTree = "<group>"; };
 		2261FB19285471A800339B23 /* OnBoardingThird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingThird.swift; sourceTree = "<group>"; };
 		2261FB1B285471B100339B23 /* OnBoardingForth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingForth.swift; sourceTree = "<group>"; };
-		22E218502858D921003A2864 /* OnBoardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButton.swift; sourceTree = "<group>"; };
 		22E9001C2848EE45000A82BE /* Promise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9001D2848EE45000A82BE /* Promise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22E9005D2849D677000A82BE /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
+		7037890F28E1317900576534 /* ClearBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBackgroundView.swift; sourceTree = "<group>"; };
 		7054CA7F286CAA3200574927 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7054CA81286CAA6E00574927 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7054CA82286CAB4300574927 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -160,6 +167,13 @@
 		70DAECB42849E0F5009AAB79 /* HeaderViewConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConst.swift; sourceTree = "<group>"; };
 		70DAECBA284C8327009AAB79 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		70F675B7285B2E7800F86719 /* checkPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkPromiseView.swift; sourceTree = "<group>"; };
+		94EE25D928ABB890003FE23D /* OnBoardingButtonsViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingButtonsViewModifier.swift; sourceTree = "<group>"; };
+		94EE25DA28ABB890003FE23D /* OnBoardingChildButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingChildButtonView.swift; sourceTree = "<group>"; };
+		94EE25DB28ABB890003FE23D /* OnBoardingContractButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingContractButtonView.swift; sourceTree = "<group>"; };
+		94EE25DC28ABB890003FE23D /* OnBoardingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingButton.swift; sourceTree = "<group>"; };
+		94EE25E028ABB890003FE23D /* OnBoardingParentButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingParentButtonView.swift; sourceTree = "<group>"; };
+		94EE25E928ABB936003FE23D /* OnBoardingMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingMainView.swift; sourceTree = "<group>"; };
+		94EE25EA28ABB936003FE23D /* OnBoardingSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingSegmentView.swift; sourceTree = "<group>"; };
 		9D55B4012846289000AFD9C5 /* kko_okk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kko_okk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D55B4042846289000AFD9C5 /* kko_okkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kko_okkApp.swift; sourceTree = "<group>"; };
 		9D55B4062846289000AFD9C5 /* BugMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugMailView.swift; sourceTree = "<group>"; };
@@ -317,11 +331,13 @@
 		2261FB1228546E8500339B23 /* OnBordingViews */ = {
 			isa = PBXGroup;
 			children = (
+				94EE25D828ABB890003FE23D /* OnBoardingButtons */,
+				94EE25E928ABB936003FE23D /* OnBoardingMainView.swift */,
+				94EE25EA28ABB936003FE23D /* OnBoardingSegmentView.swift */,
 				2261FB152854718B00339B23 /* OnBoardingFirst.swift */,
 				2261FB172854719F00339B23 /* OnBoardingSecond.swift */,
 				2261FB19285471A800339B23 /* OnBoardingThird.swift */,
 				2261FB1B285471B100339B23 /* OnBoardingForth.swift */,
-				22E218502858D921003A2864 /* OnBoardingButton.swift */,
 			);
 			path = OnBordingViews;
 			sourceTree = "<group>";
@@ -332,6 +348,18 @@
 				70F675B7285B2E7800F86719 /* checkPromiseView.swift */,
 			);
 			path = checkPromiseView;
+			sourceTree = "<group>";
+		};
+		94EE25D828ABB890003FE23D /* OnBoardingButtons */ = {
+			isa = PBXGroup;
+			children = (
+				94EE25DC28ABB890003FE23D /* OnBoardingButton.swift */,
+				94EE25D928ABB890003FE23D /* OnBoardingButtonsViewModifier.swift */,
+				94EE25E028ABB890003FE23D /* OnBoardingParentButtonView.swift */,
+				94EE25DB28ABB890003FE23D /* OnBoardingContractButtonView.swift */,
+				94EE25DA28ABB890003FE23D /* OnBoardingChildButtonView.swift */,
+			);
+			path = OnBoardingButtons;
 			sourceTree = "<group>";
 		};
 		9D55B3F82846289000AFD9C5 = {
@@ -486,6 +514,7 @@
 				A8A477202849FB430005B4E2 /* Font.swift */,
 				A8A477242849FB4A0005B4E2 /* Color.swift */,
 				7054CA82286CAB4300574927 /* Extensions.swift */,
+				7037890F28E1317900576534 /* ClearBackgroundView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -677,9 +706,11 @@
 				2261FB162854718B00339B23 /* OnBoardingFirst.swift in Sources */,
 				F89CAB772849D761006C72BD /* AddPromisePopover.swift in Sources */,
 				70F675B8285B2E7800F86719 /* checkPromiseView.swift in Sources */,
+				94EE25E828ABB890003FE23D /* OnBoardingParentButtonView.swift in Sources */,
 				9DEB3A2628462A240001959A /* ContractView.swift in Sources */,
 				A8C834AA2847334400C65BE0 /* TitleView.swift in Sources */,
 				70DAECBB284C8327009AAB79 /* DatePickerView.swift in Sources */,
+				94EE25E128ABB890003FE23D /* OnBoardingButtonsViewModifier.swift in Sources */,
 				A8C834A828471D0400C65BE0 /* Size.swift in Sources */,
 				0A17F8B028537ADF007CDEDC /* WeeklyReportView.swift in Sources */,
 				9DEB3A21284629E30001959A /* ParentWishView.swift in Sources */,
@@ -698,11 +729,14 @@
 				9D55B4112846289100AFD9C5 /* kko_okk.xcdatamodeld in Sources */,
 				0A677022285722E7007458BE /* MonthlyReportView.swift in Sources */,
 				A81DE5FD285326C7009E9938 /* EditView.swift in Sources */,
+				7037891028E1317900576534 /* ClearBackgroundView.swift in Sources */,
 				0A6770272857C882007458BE /* MonthlyReportData.swift in Sources */,
 				0A17F8A12851372E007CDEDC /* DailyReportData.swift in Sources */,
 				A8A477212849FB430005B4E2 /* Font.swift in Sources */,
 				0A6770252857C07B007458BE /* CustomDatePicker.swift in Sources */,
+				94EE25E428ABB890003FE23D /* OnBoardingButton.swift in Sources */,
 				F87E1F90284B2D5900AD05B3 /* Subject.swift in Sources */,
+				94EE25E328ABB890003FE23D /* OnBoardingContractButtonView.swift in Sources */,
 				9DEB3A3128462AA10001959A /* TodoBoardView.swift in Sources */,
 				2261FB112853113600339B23 /* DailyReportView.swift in Sources */,
 				0A6770002855E0BB007458BE /* Date.swift in Sources */,
@@ -717,12 +751,14 @@
 				2261FB1428546EC200339B23 /* OnBoardingTabView.swift in Sources */,
 				2261FB1A285471A800339B23 /* OnBoardingThird.swift in Sources */,
 				2261FB182854719F00339B23 /* OnBoardingSecond.swift in Sources */,
-				22E218512858D921003A2864 /* OnBoardingButton.swift in Sources */,
 				22480FB3285D66C200C83ADD /* PickedDate.swift in Sources */,
 				708070CF285FEE2800930ED2 /* MailView.swift in Sources */,
+				94EE25EB28ABB936003FE23D /* OnBoardingMainView.swift in Sources */,
 				7080B1932853209200A7BD44 /* RollingBannerView.swift in Sources */,
+				94EE25E228ABB890003FE23D /* OnBoardingChildButtonView.swift in Sources */,
 				A8C8349E28471A7D00C65BE0 /* HeaderView.swift in Sources */,
 				22E9001E2848EE45000A82BE /* Promise+CoreDataClass.swift in Sources */,
+				94EE25EC28ABB936003FE23D /* OnBoardingSegmentView.swift in Sources */,
 				708070CD285FB4D200930ED2 /* WebView.swift in Sources */,
 				A8C834C02848A34400C65BE0 /* ReportBoardView.swift in Sources */,
 				7054CA83286CAB4300574927 /* Extensions.swift in Sources */,
@@ -840,7 +876,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -895,7 +931,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -911,12 +947,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
 				DEVELOPMENT_TEAM = ML59XN7A6B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = kko_okk;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -931,6 +969,9 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kkookk.kkookk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -943,12 +984,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"kko_okk/Preview Content\"";
 				DEVELOPMENT_TEAM = ML59XN7A6B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "kko-okk-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = kko_okk;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -963,6 +1006,9 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kkookk.kkookk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
