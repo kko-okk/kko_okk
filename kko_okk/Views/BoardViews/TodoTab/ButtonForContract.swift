@@ -170,7 +170,7 @@ struct ButtonForContract: View {
                                     contract.subject == nowSubject ? Color.Kkookk.backgroundGray : Color.Kkookk.commonWhite
                                 )
                                 .lineLimit(1)
-                                .padding([.leading, .trailing], 200.0)  // padding 배열 처리
+                                .padding([.leading, .trailing], 20.0)  // padding 배열 처리
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         .frame(minHeight: 100)
@@ -284,7 +284,7 @@ struct ButtonForContract: View {
                         }
                 }
                 
-// MARK: - 수정, 삭제 Popover
+                // MARK: - 수정, 삭제 Popover
                 HStack{
                     Spacer()
                     if !contract.promised {
@@ -335,8 +335,7 @@ struct ButtonForContract: View {
         if contract.promised == true {
             result = contract.subject == "parent" ? Color.Kkookk.parentPurple : Color.Kkookk.childGreen
             return result
-        }
-        else  {
+        } else {
             if nowList == "parent" {  // nowList 값이 parent와 같은 경우
                 result = contract.subject == "parent" ? Color.Kkookk.parentPurple : Color.Kkookk.tabDividerGray  // contract.subject가 parent인 경우 parentPurple, 아니면 tabDividerGray
             } else {  // nowList 값이 parent가 아닌 경우
