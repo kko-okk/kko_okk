@@ -28,7 +28,7 @@ Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 
 <br>
 
-## Technology
+## Tech
 
 - Swift
 - SwiftUI
