@@ -1,5 +1,10 @@
-# kko_okk
+# 꼬옥 (kko_okk)
+### 우리 가족, 약속을 꼬옥 지켜요!
+![kkook](https://user-images.githubusercontent.com/77262576/202895999-ae3246fb-6604-4404-9b75-15a79f8a2d3c.png)
+
+
 Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
+
 
 <br>
 
@@ -29,9 +34,8 @@ Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 <br>
 
 ## Tech
-
-- Swift
 - SwiftUI
+- CoreData
 
 <br>
 
@@ -45,13 +49,8 @@ Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 
 <br>
 
-## Our Team
+## Team Members
 [Yeni](https://github.com/yeniful) | [Guell](https://github.com/Valentino1994) | [Raymond](https://github.com/garlicvread) | [Ruyha](https://github.com/RuyHa) | [Ian](https://github.com/LeeSungNo-ian) | [Seodam](https://github.com/seodam-hst)
-
-<br>
-
-## Github Commit Convention
-- [링크 참조](https://overcome-the-limits.tistory.com/entry/%ED%98%91%EC%97%85-%ED%98%91%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-git-%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
 
 <br>
 
