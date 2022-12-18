@@ -85,4 +85,4 @@ kko_okk
 ## Presentation Script
 - [AsyncSwift Seminar 001에서 소개된 Kkookk 프로젝트 영상](https://www.youtube.com/watch?v=DVauRWCogWI&ab_channel=AsyncSwiftKorea)
 - [국문 발표 스크립트](https://apple-developer-academy-mc2.notion.site/Flow-221817fa15ff4bd19204b03091c42351)
-- [영문 발표 스크립트](https://apple-developer-academy-mc2.notion.site/Flow-4f4f02932a80470587ac6162f10dd416)
+- [English Script](https://apple-developer-academy-mc2.notion.site/Flow-4f4f02932a80470587ac6162f10dd416)
