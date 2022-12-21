@@ -49,24 +49,16 @@ Apple Developer Academy MC2: 꼬옥(kko_okk) (Afternoon Session Team16)
 kko_okk
 ├── Extensions
 ├── Models
-│   ├── MockupData
 │   └── Resources
 │       ├── Assets.xcassets
 │       ├── Fonts
 │       └── KkookkFonts
-├── Preview Content
-│   └── Preview Assets.xcassets
-├── Resources
-│   └── Assets.xcassets
-│       └── OneHand.imageset
 └── Views
     ├── BoardViews
     │   ├── ReportTab
     │   │   ├── DailyReportView
     │   │   ├── MonthlyReportView
     │   │   ├── WeeklyReportView
-    │   │   │   └── BarGraph
-    │   │   │       └── AnimatedBarGragh
     │   │   └── checkPromiseView
     │   ├── SettingViews
     │   └── TodoTab
