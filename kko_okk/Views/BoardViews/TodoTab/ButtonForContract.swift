@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftUIDelayedGesture
 
 struct ButtonForContract: View {
     // CoreData 사용을 위해 viewContext 받아오기
@@ -270,7 +271,7 @@ struct ButtonForContract: View {
                         .fill(self.isDetectingLongPress ?
                               Color.yellow :
                                 (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
-                        .gesture(commonPromiseGesture)
+                        .delayedGesture(commonPromiseGesture, delay: 0.1)
                     //여기여기
                         .onReceive(timer) { _ in
                             promisePair.resetIDPair()
