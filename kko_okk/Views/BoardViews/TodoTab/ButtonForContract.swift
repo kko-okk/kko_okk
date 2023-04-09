@@ -111,13 +111,13 @@ struct ButtonForContract: View {
     var commonPromiseGesture: some Gesture {
         
         let longPressGuesture = LongPressGesture(minimumDuration: 0.5)
-        // Updating: 애니메이션 적용 -> 근데 onGesture때문에 이 부분 실행 안됨
+        // Updating: 애니메이션 적용 -> onTapGesture적용시 .updating 실행 안됨
             .updating($isDetectingLongPress) { currentState, gestureState,
                 transaction in
                 gestureState = currentState
                 transaction.animation = Animation.easeIn(duration: 0.3)
             }
-        // Ended: 여기서 매칭 확인
+        // Ended: 여기서 부모 쌍과 아이 쌍의 매칭 확인
             .onEnded { _ in
                 //                    Animation.easeIn(duration: 0.3)
                 // id와 subject 확인
@@ -270,9 +270,8 @@ struct ButtonForContract: View {
                     Rectangle()
                         .fill(self.isDetectingLongPress ?
                               Color.yellow :
-                                (self.completedLongPress ? .blue : Color.yellow.opacity(0.001)))
+                                (self.completedLongPress ? Color.clear : Color.yellow.opacity(0.001)))
                         .delayedGesture(commonPromiseGesture, delay: 0.1)
-                    //여기여기
                         .onReceive(timer) { _ in
                             promisePair.resetIDPair()
                             promisePair.resetSubjectPair()
