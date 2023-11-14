@@ -65,6 +65,7 @@
 		A816CAAC285C0D900026C06A /* PromisePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A816CAAB285C0D900026C06A /* PromisePair.swift */; };
 		A81DE5FB285326B4009E9938 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FA285326B4009E9938 /* LicenseView.swift */; };
 		A81DE5FD285326C7009E9938 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DE5FC285326C7009E9938 /* EditView.swift */; };
+		A87AC2AF29E35689003B0D39 /* SwiftUIDelayedGesture in Frameworks */ = {isa = PBXBuildFile; productRef = A87AC2AE29E35689003B0D39 /* SwiftUIDelayedGesture */; };
 		A8A477212849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
 		A8A477222849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
 		A8A477232849FB430005B4E2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A477202849FB430005B4E2 /* Font.swift */; };
@@ -226,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87AC2AF29E35689003B0D39 /* SwiftUIDelayedGesture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +556,9 @@
 			dependencies = (
 			);
 			name = kko_okk;
+			packageProductDependencies = (
+				A87AC2AE29E35689003B0D39 /* SwiftUIDelayedGesture */,
+			);
 			productName = kko_okk;
 			productReference = 9D55B4012846289000AFD9C5 /* kko_okk.app */;
 			productType = "com.apple.product-type.application";
@@ -627,6 +632,9 @@
 				ko,
 			);
 			mainGroup = 9D55B3F82846289000AFD9C5;
+			packageReferences = (
+				A87AC2AD29E35689003B0D39 /* XCRemoteSwiftPackageReference "SwiftUIDelayedGesture" */,
+			);
 			productRefGroup = 9D55B4022846289000AFD9C5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -966,7 +974,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kkookk.kkookk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1003,7 +1011,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kkookk.kkookk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1131,6 +1139,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A87AC2AD29E35689003B0D39 /* XCRemoteSwiftPackageReference "SwiftUIDelayedGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ciaranrobrien/SwiftUIDelayedGesture.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A87AC2AE29E35689003B0D39 /* SwiftUIDelayedGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A87AC2AD29E35689003B0D39 /* XCRemoteSwiftPackageReference "SwiftUIDelayedGesture" */;
+			productName = SwiftUIDelayedGesture;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9D55B40F2846289100AFD9C5 /* kko_okk.xcdatamodeld */ = {

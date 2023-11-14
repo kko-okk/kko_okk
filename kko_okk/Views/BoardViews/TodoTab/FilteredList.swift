@@ -91,7 +91,7 @@ struct FilteredList: View {
                 VStack {
                     ForEach(fetchRequest) { item in
                         ButtonForContract(contract: item, nowSubject: nowSubject)
-                            .padding(25)
+                            .padding(10)
                     }
                 }
             }
