@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftuidelayedgesture",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ciaranrobrien/SwiftUIDelayedGesture.git",
+      "state" : {
+        "revision" : "d74babd7804b2233814044a95575fcde767b1617",
+        "version" : "1.0.5"
+      }
+    }
+  ],
+  "version" : 2
+}
